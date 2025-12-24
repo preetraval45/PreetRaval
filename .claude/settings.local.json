@@ -14,7 +14,10 @@
       "Bash(git push)",
       "Bash(git remote add:*)",
       "Bash(git push:*)",
-      "Bash(git remote:*)"
+      "Bash(git remote:*)",
+      "Bash(node:*)",
+      "Bash(dir:*)",
+      "Bash(findstr:*)"
     ]
   }
 }
