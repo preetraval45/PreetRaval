@@ -30,9 +30,9 @@ const highlights = [
 ];
 
 export function About() {
-  // Calculate months of experience from June 2023
+  // Calculate months of experience from June 2025
   const calculateExperience = () => {
-    const startDate = new Date('2023-06-01');
+    const startDate = new Date('2025-06-01');
     const currentDate = new Date();
     const months = (currentDate.getFullYear() - startDate.getFullYear()) * 12 +
                    (currentDate.getMonth() - startDate.getMonth());
@@ -91,8 +91,8 @@ export function About() {
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
           <div className="text-center p-6 rounded-lg bg-blue-50 dark:bg-blue-900/20">
-            <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">{Math.floor(monthsExperience / 12)}+ </div>
-            <div className="text-sm text-gray-600 dark:text-gray-400">Years Experience</div>
+            <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">{monthsExperience}+ </div>
+            <div className="text-sm text-gray-600 dark:text-gray-400">Months Experience</div>
           </div>
           <div className="text-center p-6 rounded-lg bg-purple-50 dark:bg-purple-900/20">
             <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">10+</div>

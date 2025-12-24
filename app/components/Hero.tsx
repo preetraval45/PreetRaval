@@ -9,9 +9,9 @@ export function Hero() {
   const roles = ['Full-Stack Developer', 'Generative AI Engineer', 'Software Engineer'];
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
 
-  // Calculate months of experience from June 2022
+  // Calculate months of experience from June 2025
   const calculateExperience = () => {
-    const startDate = new Date('2022-06-01');
+    const startDate = new Date('2025-06-01');
     const currentDate = new Date();
     const months = (currentDate.getFullYear() - startDate.getFullYear()) * 12 +
                    (currentDate.getMonth() - startDate.getMonth());
@@ -148,7 +148,7 @@ export function Hero() {
                 <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 rounded-[3rem] blur-2xl opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
 
                 {/* Image */}
-                <div className="relative bg-white dark:bg-slate-900 rounded-full p-3 overflow-hidden">
+                <div className="relative bg-white dark:bg-slate-900 rounded-full overflow-hidden">
                   <div className="relative aspect-square rounded-full overflow-hidden">
                     <Image
                       src="/profile.jpg"
