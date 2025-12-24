@@ -148,10 +148,10 @@ export function Hero() {
               {/* Profile Image Container */}
               <div className="relative group">
                 {/* Glow Effect */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 rounded-[3rem] blur-2xl opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+                <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 rounded-full blur-xl opacity-30 group-hover:opacity-50 transition duration-700"></div>
 
                 {/* Image */}
-                <div className="relative bg-white dark:bg-slate-900 rounded-full overflow-hidden">
+                <div className="relative bg-white dark:bg-slate-900 rounded-full overflow-hidden shadow-xl">
                   <div className="relative aspect-square rounded-full overflow-hidden">
                     <Image
                       src="/profile.jpg"
