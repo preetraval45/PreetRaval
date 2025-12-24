@@ -19,6 +19,9 @@ export function Hero() {
   };
 
   const monthsExperience = calculateExperience();
+  const experienceDisplay = monthsExperience >= 12
+    ? `${Math.floor(monthsExperience / 12)} Year${Math.floor(monthsExperience / 12) > 1 ? 's' : ''} (${monthsExperience} months)`
+    : `${monthsExperience} Months`;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -54,7 +57,7 @@ export function Hero() {
                 <p className="text-xl sm:text-2xl font-medium text-slate-600 dark:text-slate-400">
                   Hello, I'm
                 </p>
-                <h1 className="heading-display gradient-text">
+                <h1 className="heading-display bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 dark:from-blue-400 dark:via-indigo-400 dark:to-blue-500 bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                   Preet Raval
                 </h1>
               </div>
@@ -66,70 +69,70 @@ export function Hero() {
             </div>
 
             {/* Description */}
-            <p className="text-lg sm:text-xl leading-relaxed text-slate-600 dark:text-slate-400 max-w-2xl">
-              Passionate developer specializing in <span className="font-semibold text-slate-800 dark:text-slate-200">enterprise SaaS platforms</span> with high interest in <span className="font-semibold text-slate-800 dark:text-slate-200">AI and cybersecurity</span>. Experienced in building secure systems with Next.js, FastAPI, PostgreSQL, Docker, and Odoo.
+            <p className="text-lg sm:text-xl leading-relaxed text-slate-700 dark:text-slate-300 max-w-2xl">
+              Passionate developer specializing in <span className="font-semibold text-blue-700 dark:text-blue-300">enterprise SaaS platforms</span> with high interest in <span className="font-semibold text-indigo-700 dark:text-indigo-300">AI and cybersecurity</span>. Experienced in building secure systems with Next.js, FastAPI, PostgreSQL, Docker, and Odoo.
             </p>
 
             {/* Stats */}
-            <div className="flex flex-wrap gap-8">
-              <div className="space-y-1">
-                <div className="text-4xl font-bold gradient-text">{monthsExperience}+</div>
-                <div className="text-sm text-slate-600 dark:text-slate-400">Months Experience</div>
+            <div className="flex flex-wrap gap-6 sm:gap-8">
+              <div className="space-y-2 p-4 rounded-xl bg-blue-50/50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30 transition-all hover:scale-105">
+                <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">{monthsExperience >= 12 ? `${Math.floor(monthsExperience / 12)}+` : `${monthsExperience}+`}</div>
+                <div className="text-sm font-medium text-slate-700 dark:text-slate-300">{monthsExperience >= 12 ? `Year${Math.floor(monthsExperience / 12) > 1 ? 's' : ''} (${monthsExperience} mo)` : 'Months Experience'}</div>
               </div>
-              <div className="space-y-1">
-                <div className="text-4xl font-bold gradient-text">10+</div>
-                <div className="text-sm text-slate-600 dark:text-slate-400">Projects Delivered</div>
+              <div className="space-y-2 p-4 rounded-xl bg-indigo-50/50 dark:bg-indigo-900/10 border border-indigo-100 dark:border-indigo-900/30 transition-all hover:scale-105">
+                <div className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">10+</div>
+                <div className="text-sm font-medium text-slate-700 dark:text-slate-300">Projects Delivered</div>
               </div>
-              <div className="space-y-1">
-                <div className="text-4xl font-bold gradient-text">5+</div>
-                <div className="text-sm text-slate-600 dark:text-slate-400">Tech Stacks</div>
+              <div className="space-y-2 p-4 rounded-xl bg-purple-50/50 dark:bg-purple-900/10 border border-purple-100 dark:border-purple-900/30 transition-all hover:scale-105">
+                <div className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent">5+</div>
+                <div className="text-sm font-medium text-slate-700 dark:text-slate-300">Tech Stacks</div>
               </div>
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4">
-              <Link href="/contact" className="btn-primary inline-flex items-center gap-3">
-                <Mail className="w-5 h-5" />
+            <div className="flex flex-wrap gap-4 pt-2">
+              <Link href="/contact" className="btn-primary inline-flex items-center gap-3 group">
+                <Mail className="w-5 h-5 group-hover:rotate-12 transition-transform" />
                 Get In Touch
               </Link>
               <a
                 href="/Preet Raval Resume.pdf"
                 download
-                className="btn-secondary inline-flex items-center gap-3"
+                className="btn-secondary inline-flex items-center gap-3 group"
               >
-                <Download className="w-5 h-5" />
+                <Download className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
                 Download Resume
               </a>
             </div>
 
             {/* Social Links */}
-            <div className="flex items-center gap-4 pt-4">
-              <span className="text-sm font-medium text-slate-600 dark:text-slate-400">Connect with me:</span>
+            <div className="flex items-center gap-4 pt-6">
+              <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">Connect:</span>
               <div className="flex gap-3">
                 <a
                   href="https://github.com/preetraval45"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group p-4 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 hover:scale-110 hover:shadow-xl"
+                  className="group p-3 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-slate-900 dark:hover:border-slate-400 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:-translate-y-1"
                   aria-label="GitHub"
                 >
-                  <Github className="w-6 h-6 text-slate-700 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" />
+                  <Github className="w-5 h-5 text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white transition-colors" />
                 </a>
                 <a
                   href="https://www.linkedin.com/in/preet-raval-5a5807206/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group p-4 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 hover:scale-110 hover:shadow-xl"
+                  className="group p-3 rounded-xl bg-blue-100 dark:bg-blue-900/20 border border-blue-300 dark:border-blue-700 hover:border-blue-600 dark:hover:border-blue-400 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:-translate-y-1"
                   aria-label="LinkedIn"
                 >
-                  <Linkedin className="w-6 h-6 text-slate-700 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" />
+                  <Linkedin className="w-5 h-5 text-blue-700 dark:text-blue-400 group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors" />
                 </a>
                 <a
                   href="mailto:preetraval45@gmail.com"
-                  className="group p-4 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 hover:scale-110 hover:shadow-xl"
+                  className="group p-3 rounded-xl bg-indigo-100 dark:bg-indigo-900/20 border border-indigo-300 dark:border-indigo-700 hover:border-indigo-600 dark:hover:border-indigo-400 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:-translate-y-1"
                   aria-label="Email"
                 >
-                  <Mail className="w-6 h-6 text-slate-700 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" />
+                  <Mail className="w-5 h-5 text-indigo-700 dark:text-indigo-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-300 transition-colors" />
                 </a>
               </div>
             </div>
