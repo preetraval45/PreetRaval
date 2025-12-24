@@ -45,13 +45,13 @@ export function Hero() {
                 Download Resume (PDF)
               </a>
               <a
-                href="https://docs.google.com/document/d/1xGM63_e86Gc0ytm-Ept8RPFpsi4hPjvoVSV23whYlqs/edit?usp=sharing"
+                href="https://docs.google.com/document/d/1xGM63_e86Gc0ytm-Ept8RPFpsi4hPjvoVSV23whYlqs/preview"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary flex items-center gap-2"
               >
                 <FileText className="w-5 h-5" />
-                View Resume (Google Docs)
+                View Resume Online
               </a>
             </div>
 
