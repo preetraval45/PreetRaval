@@ -6,7 +6,7 @@ const experience = {
   company: 'American Circuits Inc.',
   location: 'Charlotte, NC',
   title: 'Software Engineer',
-  period: 'Jul 2025 – Present',
+  period: 'Jun 2025 – Present',
   achievements: [
     {
       title: 'NEXUS - Enterprise Traveler Management System',

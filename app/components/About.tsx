@@ -19,17 +19,28 @@ const highlights = [
     icon: Target,
     title: 'Full-Stack Excellence',
     description:
-      'Deep expertise in Next.js, React, FastAPI, PostgreSQL, Docker, and Nginx with focus on scalable architecture.',
+      'Deep expertise in Next.js, React, FastAPI, PostgreSQL, Odoo, Docker, and Nginx with focus on scalable architecture.',
   },
   {
     icon: Rocket,
-    title: 'DevOps & Security',
+    title: 'AI & Cybersecurity',
     description:
-      'Strong foundation in DevOps pipelines, cybersecurity hardening, cloud security, and penetration testing.',
+      'High interest in AI and cybersecurity with skills in generative AI, LLM integration, penetration testing, vulnerability assessment, and network security.',
   },
 ];
 
 export function About() {
+  // Calculate months of experience from June 2023
+  const calculateExperience = () => {
+    const startDate = new Date('2023-06-01');
+    const currentDate = new Date();
+    const months = (currentDate.getFullYear() - startDate.getFullYear()) * 12 +
+                   (currentDate.getMonth() - startDate.getMonth());
+    return months > 0 ? months : 0;
+  };
+
+  const monthsExperience = calculateExperience();
+
   return (
     <section id="about" className="section-container">
       <div className="text-center mb-12">
@@ -37,7 +48,7 @@ export function About() {
           <span className="gradient-text">About Me</span>
         </h2>
         <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-          Full-Stack Developer & AI Specialist passionate about building innovative solutions
+          Full-Stack Developer with high interest in AI and cybersecurity
         </p>
       </div>
 
@@ -45,15 +56,15 @@ export function About() {
         {/* Professional Summary */}
         <div className="card mb-8">
           <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-            I'm a <span className="font-semibold text-blue-600 dark:text-blue-400">Full-Stack Developer & AI Specialist</span> with a strong track record of architecting and deploying
-            enterprise-grade SaaS platforms, AI-powered automation systems, and secure cloud infrastructure.
+            I'm a <span className="font-semibold text-blue-600 dark:text-blue-400">Full-Stack Developer</span> with a strong track record of architecting and deploying
+            enterprise-grade SaaS platforms, AI automation systems, and secure cloud infrastructure.
             Currently working as a Software Engineer at <span className="font-semibold">American Circuits Inc.</span>, where I lead the development
             of NEXUS, an enterprise-grade traveler management and workflow automation system.
           </p>
           <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mt-4">
             My expertise spans the full stack—from designing intuitive frontends with React and Next.js to building robust
-            backends with FastAPI and PostgreSQL, and deploying scalable infrastructure with Docker, Kubernetes, and Nginx.
-            I'm passionate about leveraging AI and machine learning to solve complex problems and drive digital transformation.
+            backends with FastAPI, PostgreSQL, and Odoo, to deploying scalable infrastructure with Docker and Nginx.
+            I have high interest in <span className="font-semibold text-blue-600 dark:text-blue-400">AI and cybersecurity</span>, including generative AI, LLM integration, penetration testing, network security, and vulnerability assessment.
           </p>
         </div>
 
@@ -80,7 +91,7 @@ export function About() {
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
           <div className="text-center p-6 rounded-lg bg-blue-50 dark:bg-blue-900/20">
-            <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">2+</div>
+            <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">{Math.floor(monthsExperience / 12)}+ </div>
             <div className="text-sm text-gray-600 dark:text-gray-400">Years Experience</div>
           </div>
           <div className="text-center p-6 rounded-lg bg-purple-50 dark:bg-purple-900/20">

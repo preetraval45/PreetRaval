@@ -3,25 +3,47 @@
 import { Github, Linkedin, Mail, Download, FileText, Sparkles, Code2, Rocket } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 
 export function Hero() {
+  const roles = ['Full-Stack Developer', 'Generative AI Engineer', 'Software Engineer'];
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+
+  // Calculate months of experience from June 2022
+  const calculateExperience = () => {
+    const startDate = new Date('2022-06-01');
+    const currentDate = new Date();
+    const months = (currentDate.getFullYear() - startDate.getFullYear()) * 12 +
+                   (currentDate.getMonth() - startDate.getMonth());
+    return months > 0 ? months : 0;
+  };
+
+  const monthsExperience = calculateExperience();
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
+    }, 3000); // Change every 3 seconds
+
+    return () => clearInterval(interval);
+  }, []);
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-indigo-500/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-pink-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
 
       <div className="section-container relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Text Content */}
-          <div className="space-y-10 fade-in">
+          <div className="space-y-8 fade-in">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 border border-indigo-500/20 rounded-full backdrop-blur-sm">
-              <Sparkles className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
-              <span className="text-sm font-semibold text-indigo-700 dark:text-indigo-300">
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-500/10 border border-blue-500/20 rounded-full backdrop-blur-sm">
+              <Sparkles className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+              <span className="text-sm font-semibold text-blue-700 dark:text-blue-300">
                 Available for opportunities
               </span>
             </div>
@@ -32,26 +54,27 @@ export function Hero() {
                 <p className="text-xl sm:text-2xl font-medium text-slate-600 dark:text-slate-400">
                   Hello, I'm
                 </p>
-                <h1 className="heading-display gradient-text shimmer">
+                <h1 className="heading-display gradient-text">
                   Preet Raval
                 </h1>
               </div>
               <h2 className="heading-xl text-slate-800 dark:text-slate-200">
-                Full-Stack Developer & <br />
-                <span className="text-indigo-600 dark:text-indigo-400">AI Specialist</span>
+                <span className="text-blue-600 dark:text-blue-400 transition-all duration-500">
+                  {roles[currentRoleIndex]}
+                </span>
               </h2>
             </div>
 
             {/* Description */}
             <p className="text-lg sm:text-xl leading-relaxed text-slate-600 dark:text-slate-400 max-w-2xl">
-              Results-driven developer with proven experience in architecting <span className="font-semibold text-slate-800 dark:text-slate-200">enterprise-grade SaaS platforms</span>, AI-powered automation systems, and secure cloud infrastructure.
+              Passionate developer specializing in <span className="font-semibold text-slate-800 dark:text-slate-200">enterprise SaaS platforms</span> with high interest in <span className="font-semibold text-slate-800 dark:text-slate-200">AI and cybersecurity</span>. Experienced in building secure systems with Next.js, FastAPI, PostgreSQL, Docker, and Odoo.
             </p>
 
             {/* Stats */}
             <div className="flex flex-wrap gap-8">
               <div className="space-y-1">
-                <div className="text-4xl font-bold gradient-text">2+</div>
-                <div className="text-sm text-slate-600 dark:text-slate-400">Years Experience</div>
+                <div className="text-4xl font-bold gradient-text">{monthsExperience}+</div>
+                <div className="text-sm text-slate-600 dark:text-slate-400">Months Experience</div>
               </div>
               <div className="space-y-1">
                 <div className="text-4xl font-bold gradient-text">10+</div>
@@ -84,29 +107,29 @@ export function Hero() {
               <span className="text-sm font-medium text-slate-600 dark:text-slate-400">Connect with me:</span>
               <div className="flex gap-3">
                 <a
-                  href="https://github.com/preetraval"
+                  href="https://github.com/preetraval45"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group p-4 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 hover:border-indigo-500 dark:hover:border-indigo-400 transition-all duration-300 hover:scale-110 hover:shadow-xl"
+                  className="group p-4 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 hover:scale-110 hover:shadow-xl"
                   aria-label="GitHub"
                 >
-                  <Github className="w-6 h-6 text-slate-700 dark:text-slate-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" />
+                  <Github className="w-6 h-6 text-slate-700 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" />
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/preetraval/"
+                  href="https://www.linkedin.com/in/preet-raval-5a5807206/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group p-4 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 hover:border-indigo-500 dark:hover:border-indigo-400 transition-all duration-300 hover:scale-110 hover:shadow-xl"
+                  className="group p-4 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 hover:scale-110 hover:shadow-xl"
                   aria-label="LinkedIn"
                 >
-                  <Linkedin className="w-6 h-6 text-slate-700 dark:text-slate-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" />
+                  <Linkedin className="w-6 h-6 text-slate-700 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" />
                 </a>
                 <a
                   href="mailto:preetraval45@gmail.com"
-                  className="group p-4 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 hover:border-indigo-500 dark:hover:border-indigo-400 transition-all duration-300 hover:scale-110 hover:shadow-xl"
+                  className="group p-4 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 hover:scale-110 hover:shadow-xl"
                   aria-label="Email"
                 >
-                  <Mail className="w-6 h-6 text-slate-700 dark:text-slate-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors" />
+                  <Mail className="w-6 h-6 text-slate-700 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" />
                 </a>
               </div>
             </div>
@@ -125,8 +148,8 @@ export function Hero() {
                 <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 rounded-[3rem] blur-2xl opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
 
                 {/* Image */}
-                <div className="relative bg-white dark:bg-slate-900 rounded-[3rem] p-3 overflow-hidden">
-                  <div className="relative aspect-square rounded-[2.5rem] overflow-hidden">
+                <div className="relative bg-white dark:bg-slate-900 rounded-full p-3 overflow-hidden">
+                  <div className="relative aspect-square rounded-full overflow-hidden">
                     <Image
                       src="/profile.jpg"
                       alt="Preet Raval"
@@ -158,6 +181,9 @@ export function Hero() {
                 </div>
                 <div className="px-4 py-2 bg-white dark:bg-slate-800 rounded-full shadow-xl border-2 border-pink-200 dark:border-pink-800 text-sm font-semibold text-pink-600 dark:text-pink-400">
                   AI/ML
+                </div>
+                <div className="px-4 py-2 bg-white dark:bg-slate-800 rounded-full shadow-xl border-2 border-green-200 dark:border-green-800 text-sm font-semibold text-green-600 dark:text-green-400">
+                  Docker
                 </div>
               </div>
             </div>

@@ -3,7 +3,6 @@ import { Poppins, Playfair_Display, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from './components/ThemeProvider';
 import { Navigation } from './components/Navigation';
-import { ThemeToggle } from './components/ThemeToggle';
 import { Footer } from './components/Footer';
 
 const poppins = Poppins({
@@ -65,11 +64,10 @@ export default function RootLayout({
       <body className={`${poppins.variable} ${playfair.variable} ${jetbrains.variable} font-sans antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Navigation />
-          <main className="min-h-screen pt-20">
+          <main className="min-h-screen">
             {children}
           </main>
           <Footer />
-          <ThemeToggle />
         </ThemeProvider>
       </body>
     </html>

@@ -29,6 +29,7 @@ const skillCategories = [
       'Python',
       'FastAPI',
       'REST APIs',
+      'Odoo',
     ],
   },
   {
@@ -48,14 +49,16 @@ const skillCategories = [
     icon: Cloud,
     title: 'Cybersecurity & Cloud',
     skills: [
+      'Penetration Testing',
+      'Network Security',
+      'SIEM',
+      'Security Auditing',
+      'Vulnerability Assessment',
       'AWS',
       'Azure',
-      'Penetration Testing',
-      'SIEM',
       'Cloud Security',
       'IAM',
       'Encryption',
-      'Network Security',
     ],
   },
   {

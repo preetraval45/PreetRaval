@@ -7,13 +7,13 @@ export function Footer() {
 
   return (
     <footer className="bg-gray-900 text-gray-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="w-full mx-auto px-6 sm:px-8 lg:px-16 xl:px-24 py-12">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div>
             <h3 className="text-2xl font-bold gradient-text mb-4">Preet Raval</h3>
             <p className="text-gray-400 text-sm">
-              Full-Stack Developer & AI Specialist building enterprise solutions that drive
+              Full-Stack Developer with high interest in AI and cybersecurity, building enterprise solutions that drive
               innovation and efficiency.
             </p>
           </div>
@@ -70,7 +70,7 @@ export function Footer() {
             </div>
             <div className="flex gap-3 mt-4">
               <a
-                href="https://github.com/preetraval"
+                href="https://github.com/preetraval45"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-all duration-200 hover:scale-110"
@@ -79,7 +79,7 @@ export function Footer() {
                 <Github className="w-5 h-5" />
               </a>
               <a
-                href="https://www.linkedin.com/in/preetraval/"
+                href="https://www.linkedin.com/in/preet-raval-5a5807206/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-all duration-200 hover:scale-110"

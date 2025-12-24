@@ -62,7 +62,7 @@ export function Contact() {
               <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">Connect with me</p>
               <div className="flex gap-3">
                 <a
-                  href="https://github.com/preetraval"
+                  href="https://github.com/preetraval45"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-all duration-200 hover:scale-110"
@@ -71,7 +71,7 @@ export function Contact() {
                   <Github className="w-6 h-6" />
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/preetraval/"
+                  href="https://www.linkedin.com/in/preet-raval-5a5807206/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-all duration-200 hover:scale-110"
