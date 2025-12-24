@@ -1,6 +1,6 @@
 'use client';
 
-import { Github, Linkedin, Mail, Download, FileText, Sparkles, Code2, Rocket } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, FileText, Sparkles, Code2, Rocket, Code, Zap, Brain, Box } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
@@ -168,6 +168,15 @@ export function Hero() {
                 </div>
                 <div className="absolute -bottom-6 -left-6 p-4 bg-white dark:bg-slate-800 rounded-2xl shadow-2xl floating border-2 border-purple-200 dark:border-purple-800" style={{ animationDelay: '0.5s' }}>
                   <Rocket className="w-8 h-8 text-purple-600 dark:text-purple-400" />
+                </div>
+                <div className="absolute top-1/2 -right-8 p-3 bg-white dark:bg-slate-800 rounded-xl shadow-2xl floating border-2 border-blue-200 dark:border-blue-800" style={{ animationDelay: '1s' }}>
+                  <Brain className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                </div>
+                <div className="absolute top-1/2 -left-8 p-3 bg-white dark:bg-slate-800 rounded-xl shadow-2xl floating border-2 border-green-200 dark:border-green-800" style={{ animationDelay: '1.5s' }}>
+                  <Box className="w-6 h-6 text-green-600 dark:text-green-400" />
+                </div>
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 p-3 bg-white dark:bg-slate-800 rounded-xl shadow-2xl floating border-2 border-yellow-200 dark:border-yellow-800" style={{ animationDelay: '2s' }}>
+                  <Code className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
                 </div>
               </div>
 
