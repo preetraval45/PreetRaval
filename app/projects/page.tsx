@@ -121,40 +121,40 @@ export default function ProjectsPage() {
 
   return (
     <div className="fade-in">
-      <section id="projects" className="section-container bg-surface-light dark:bg-surface-dark">
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold mb-4">
+      <section id="projects" className="section-container bg-surface-light dark:bg-surface-dark px-4 sm:px-6 lg:px-8">
+      <div className="text-center mb-8 sm:mb-10 md:mb-12">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
           <span className="gradient-text">Featured Projects</span>
         </h2>
-        <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+        <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-4">
           Enterprise platforms, AI systems, and innovative solutions driving real-world impact
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {projects.map((project, index) => (
           <div
             key={index}
-            className="card hover:scale-105 transition-transform duration-300 flex flex-col"
+            className="card hover:scale-[1.02] sm:hover:scale-105 transition-transform duration-300 flex flex-col"
           >
             {/* Header */}
-            <div className="mb-4">
+            <div className="mb-3 sm:mb-4">
               <div className="flex items-start justify-between mb-2">
-                <h3 className="text-xl font-bold flex-1">{project.title}</h3>
+                <h3 className="text-lg sm:text-xl font-bold flex-1 pr-2">{project.title}</h3>
                 {project.link && (
                   <a
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                    className="p-1.5 sm:p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors touch-manipulation flex-shrink-0"
                     aria-label="Visit project"
                   >
-                    <ExternalLink className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                    <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 dark:text-blue-400" />
                   </a>
                 )}
               </div>
-              <div className="flex flex-wrap gap-2 items-center">
-                <span className={`px-3 py-1 rounded-full text-xs font-semibold ${getStatusColor(project.status)}`}>
+              <div className="flex flex-wrap gap-1.5 sm:gap-2 items-center">
+                <span className={`px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs font-semibold ${getStatusColor(project.status)}`}>
                   {project.status}
                 </span>
                 {project.role && (
@@ -169,14 +169,14 @@ export default function ProjectsPage() {
             </div>
 
             {/* Description */}
-            <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">{project.description}</p>
+            <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed">{project.description}</p>
 
             {/* Technologies */}
-            <div className="flex flex-wrap gap-2 mb-4">
+            <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
               {project.technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 rounded text-gray-700 dark:text-gray-300"
+                  className="px-2 py-0.5 sm:py-1 text-xs bg-gray-100 dark:bg-gray-700 rounded text-gray-700 dark:text-gray-300"
                 >
                   {tech}
                 </span>
@@ -185,11 +185,11 @@ export default function ProjectsPage() {
 
             {/* Highlights */}
             <div className="mt-auto">
-              <ul className="space-y-1 text-sm">
+              <ul className="space-y-1 sm:space-y-1.5">
                 {project.highlights.slice(0, 3).map((highlight, hIndex) => (
-                  <li key={hIndex} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
-                    <span className="text-blue-600 dark:text-blue-400 text-xs mt-1">▸</span>
-                    <span className="text-xs">{highlight}</span>
+                  <li key={hIndex} className="flex items-start gap-1.5 sm:gap-2 text-gray-700 dark:text-gray-300">
+                    <span className="text-blue-600 dark:text-blue-400 text-xs mt-0.5 sm:mt-1">▸</span>
+                    <span className="text-xs leading-relaxed">{highlight}</span>
                   </li>
                 ))}
               </ul>

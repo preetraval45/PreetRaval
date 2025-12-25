@@ -18,7 +18,10 @@
       "Bash(node:*)",
       "Bash(dir:*)",
       "Bash(findstr:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(npx tsc:*)",
+      "Bash(test:*)",
+      "Bash(timeout /t 2)"
     ]
   }
 }
