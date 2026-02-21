@@ -1,6 +1,6 @@
 'use client';
 
-import { Github, Linkedin, Mail, Download, FileText, Sparkles, Code2, Rocket, Code, Zap, Brain, Box } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, FileText, Code2, Rocket, Code, Brain, Box } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
@@ -44,10 +44,10 @@ export function Hero() {
           {/* Text Content */}
           <div className="space-y-6 sm:space-y-8 fade-in text-center lg:text-left">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-blue-500/10 border border-blue-500/20 rounded-full backdrop-blur-sm mx-auto lg:mx-0">
-              <Sparkles className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-              <span className="text-xs sm:text-sm font-semibold text-blue-700 dark:text-blue-300">
-                Available for opportunities
+            <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-green-500/10 border border-green-500/20 rounded-full backdrop-blur-sm mx-auto lg:mx-0">
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+              <span className="text-xs sm:text-sm font-semibold text-green-700 dark:text-green-300">
+                Open to new opportunities
               </span>
             </div>
 
