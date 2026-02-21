@@ -106,6 +106,29 @@ export default function AboutPage() {
             ))}
           </div>
 
+          {/* Writing & Articles */}
+          <div className="mb-6 sm:mb-8 md:mb-10">
+            <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-slate-800 dark:text-slate-100">Published Writing</h3>
+            <a
+              href="https://medium.com/skillship-vellore/how-to-start-your-journey-as-ui-ux-designer-77fea09d18a0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="card flex items-start gap-3 sm:gap-4 hover:border-blue-300 dark:hover:border-blue-700 hover:scale-[1.01] transition-all duration-300 group"
+            >
+              <div className="p-2 sm:p-3 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex-shrink-0 group-hover:scale-110 transition-transform">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-xs sm:text-sm text-blue-600 dark:text-blue-400 font-medium mb-1">Medium · Skillship Vellore</p>
+                <h4 className="font-bold text-sm sm:text-base text-slate-800 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  How to Start Your Journey as a UI/UX Designer
+                </h4>
+                <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">A guide covering tools, resources, and first steps for aspiring UI/UX designers.</p>
+              </div>
+              <span className="text-blue-500 dark:text-blue-400 text-xs font-semibold whitespace-nowrap mt-1">Read →</span>
+            </a>
+          </div>
+
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
             <div className="group text-center p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 border border-blue-200 dark:border-blue-800 hover:scale-105 hover:shadow-lg transition-all">

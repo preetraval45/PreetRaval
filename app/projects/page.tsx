@@ -63,6 +63,44 @@ const projects = [
     ],
   },
   {
+    title: 'YUGMASTRA – Financial Fraud Detection',
+    status: 'Completed',
+    link: 'https://github.com/preetraval45/YUGMASTRA',
+    description:
+      'TypeScript-based financial fraud detection platform leveraging algorithmic analysis to identify suspicious patterns and anomalies in financial transactions in real time.',
+    technologies: ['TypeScript', 'Next.js', 'ML Models', 'PostgreSQL'],
+    highlights: [
+      'Real-time anomaly detection on financial transaction data',
+      'Pattern recognition to flag fraudulent activity',
+      'Dashboard with risk scoring and alert management',
+    ],
+  },
+  {
+    title: 'Samadhan – Resolution Management System',
+    status: 'Completed',
+    link: 'https://github.com/preetraval45/Samadhan',
+    description:
+      'Python-based complaint and resolution tracking system designed to streamline the submission, routing, and resolution of issues across teams.',
+    technologies: ['Python', 'FastAPI', 'PostgreSQL'],
+    highlights: [
+      'Issue submission and department-level routing',
+      'Status tracking and resolution audit trail',
+      'Automated escalation logic for unresolved items',
+    ],
+  },
+  {
+    title: 'DHANALAKSHMI – Financial Management System',
+    status: 'Completed',
+    description:
+      'Private financial management platform for tracking income, expenses, invoices, and reports — built for business accounting and financial oversight.',
+    technologies: ['Python', 'PostgreSQL', 'FastAPI'],
+    highlights: [
+      'Income and expense tracking with categorization',
+      'Invoice generation and payment status management',
+      'Financial reporting and export functionality',
+    ],
+  },
+  {
     title: 'Supply Chain Intelligence',
     status: 'Completed',
     description:

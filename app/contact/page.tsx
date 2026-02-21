@@ -1,8 +1,33 @@
 'use client';
 
-import { Mail, Phone, MapPin, Github, Linkedin, Send } from 'lucide-react';
+import { useState } from 'react';
+import { Mail, Phone, MapPin, Github, Linkedin, Send, CheckCircle } from 'lucide-react';
 
 export default function ContactPage() {
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus('sending');
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    try {
+      const res = await fetch('https://formspree.io/f/xpwzkvgj', {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' },
+      });
+      if (res.ok) {
+        setStatus('sent');
+        form.reset();
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
+  };
+
   return (
     <div className="fade-in">
       <section id="contact" className="section-container bg-surface-light dark:bg-surface-dark px-4 sm:px-6 lg:px-8">
@@ -88,61 +113,65 @@ export default function ContactPage() {
         {/* Quick Message Form */}
         <div className="card">
           <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Send a Message</h3>
-          <form className="space-y-3 sm:space-y-4" onSubmit={(e) => {
-            e.preventDefault();
-            const form = e.target as HTMLFormElement;
-            const name = (form.elements.namedItem('name') as HTMLInputElement).value;
-            const email = (form.elements.namedItem('email') as HTMLInputElement).value;
-            const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value;
-            window.location.href = `mailto:preetraval45@gmail.com?subject=${encodeURIComponent('Portfolio Contact from ' + name)}&body=${encodeURIComponent(message + '\n\nFrom: ' + email)}`;
-          }}>
-            <div>
-              <label htmlFor="name" className="block text-xs sm:text-sm font-medium mb-1.5 sm:mb-2">
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                placeholder="Your name"
-              />
-            </div>
 
-            <div>
-              <label htmlFor="email" className="block text-xs sm:text-sm font-medium mb-1.5 sm:mb-2">
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                placeholder="your.email@example.com"
-              />
+          {status === 'sent' ? (
+            <div className="flex flex-col items-center justify-center py-10 gap-3 text-center">
+              <CheckCircle className="w-12 h-12 text-green-500" />
+              <p className="text-lg font-semibold text-green-600 dark:text-green-400">Message sent!</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">Thanks for reaching out — I'll get back to you soon.</p>
             </div>
+          ) : (
+            <form className="space-y-3 sm:space-y-4" onSubmit={handleSubmit}>
+              <div>
+                <label htmlFor="name" className="block text-xs sm:text-sm font-medium mb-1.5 sm:mb-2">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  placeholder="Your name"
+                />
+              </div>
 
-            <div>
-              <label htmlFor="message" className="block text-xs sm:text-sm font-medium mb-1.5 sm:mb-2">
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                required
-                rows={4}
-                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
-                placeholder="Tell me about your project..."
-              />
-            </div>
+              <div>
+                <label htmlFor="email" className="block text-xs sm:text-sm font-medium mb-1.5 sm:mb-2">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  placeholder="your.email@example.com"
+                />
+              </div>
 
-            <button type="submit" className="w-full btn-primary flex items-center justify-center gap-2 py-2.5 sm:py-3 text-sm sm:text-base">
-              <Send className="w-4 h-4 sm:w-5 sm:h-5" />
-              Send Message
-            </button>
-          </form>
+              <div>
+                <label htmlFor="message" className="block text-xs sm:text-sm font-medium mb-1.5 sm:mb-2">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  rows={4}
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
+                  placeholder="Tell me about your project..."
+                />
+              </div>
+
+              {status === 'error' && (
+                <p className="text-xs text-red-500 dark:text-red-400">Something went wrong. Please try again or email me directly.</p>
+              )}
+
+              <button
+                type="submit"
+                disabled={status === 'sending'}
+                className="w-full btn-primary flex items-center justify-center gap-2 py-2.5 sm:py-3 text-sm sm:text-base disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                <Send className="w-4 h-4 sm:w-5 sm:h-5" />
+                {status === 'sending' ? 'Sending…' : 'Send Message'}
+              </button>
+            </form>
+          )}
         </div>
       </div>
     </section>
