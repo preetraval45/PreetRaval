@@ -36,6 +36,16 @@ const experience = {
         'Improved system performance by 30% through backend optimization, caching logic, and AI-driven process prediction',
       ],
     },
+    {
+      title: 'KOSH - Inventory Management System',
+      description:
+        'Full-scale inventory management platform with barcode scanning, real-time stock tracking, predictive analytics, and automated alerts.',
+      highlights: [
+        'Built barcode and QR scanning workflows for real-time inventory tracking and product movement logging',
+        'Implemented ML-based inventory forecasting to predict low-stock conditions and trigger automated reorder alerts',
+        'Designed role-based permissions and audit logs for full traceability of inventory changes across departments',
+      ],
+    },
   ],
 };
 

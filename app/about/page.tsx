@@ -7,25 +7,25 @@ const highlights = [
     icon: Code2,
     title: 'Enterprise Solutions',
     description:
-      'Architecting and deploying enterprise-grade SaaS platforms, AI-powered automation systems, and secure cloud infrastructure.',
+      'Leading development of NEXUS, ACI Forge, ACI ChatGPT, and KOSH at American Circuits Inc. — enterprise platforms used daily across manufacturing operations for workflow automation, SSO access control, AI reporting, and inventory management.',
   },
   {
     icon: Zap,
     title: 'AI Integration',
     description:
-      'Expert in LLM integration, AI prompt design, and intelligent automation, driving efficiency and digital transformation.',
+      'Built ACI ChatGPT — an internal AI assistant using the ChatGPT API that reduced maintenance overhead by 40% and improved system performance by 30% through AI-driven process prediction and caching.',
   },
   {
     icon: Target,
     title: 'Full-Stack Excellence',
     description:
-      'Deep expertise in Next.js, React, FastAPI, PostgreSQL, Odoo, Docker, and Nginx with focus on scalable architecture.',
+      'End-to-end ownership across the stack: Next.js and React frontends, FastAPI and Python backends, PostgreSQL databases, Docker deployments, Nginx configuration, and Vercel hosting for live client websites.',
   },
   {
     icon: Rocket,
     title: 'AI & Cybersecurity',
     description:
-      'High interest in AI and cybersecurity with skills in generative AI, LLM integration, penetration testing, vulnerability assessment, and network security.',
+      'High interest in AI and cybersecurity — with hands-on skills in LLM integration, generative AI, penetration testing, vulnerability assessment, network security, and SSO/OAuth implementation.',
   },
 ];
 
@@ -74,15 +74,13 @@ export default function AboutPage() {
           {/* Professional Summary */}
           <div className="card mb-6 sm:mb-8 md:mb-10 hover:border-blue-300 dark:hover:border-blue-700 transition-all">
             <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
-              I'm a <span className="font-bold text-blue-600 dark:text-blue-400">Full-Stack Developer</span> with a strong track record of architecting and deploying
-              enterprise-grade SaaS platforms, AI automation systems, and secure cloud infrastructure.
-              Currently working as a Software Engineer at <span className="font-bold text-indigo-600 dark:text-indigo-400">American Circuits Inc.</span>, where I lead the development
-              of NEXUS, an enterprise-grade traveler management and workflow automation system.
+              I'm a <span className="font-bold text-blue-600 dark:text-blue-400">Software Engineer</span> with a strong track record of building and shipping
+              enterprise-grade SaaS platforms, AI automation systems, and full-stack web applications.
+              At <span className="font-bold text-indigo-600 dark:text-indigo-400">American Circuits Inc.</span>, I lead development across four production systems — NEXUS (traveler management), ACI Forge (SSO enterprise portal), ACI ChatGPT (internal AI assistant), and KOSH (inventory management) — all actively used across manufacturing operations.
             </p>
             <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed mt-4 sm:mt-6">
-              My expertise spans the full stack—from designing intuitive frontends with React and Next.js to building robust
-              backends with FastAPI, PostgreSQL, and Odoo, to deploying scalable infrastructure with Docker and Nginx.
-              I have high interest in <span className="font-bold text-blue-600 dark:text-blue-400">AI and cybersecurity</span>, including generative AI, LLM integration, penetration testing, network security, and vulnerability assessment.
+              My expertise spans the full stack — React and Next.js frontends, FastAPI and Python backends, PostgreSQL databases, Docker deployments, and Nginx infrastructure. Outside of work, I've built live client websites, a financial fraud detection system, and AI/ML research tools.
+              I have deep interest in <span className="font-bold text-blue-600 dark:text-blue-400">AI and cybersecurity</span>, including LLM integration, generative AI, penetration testing, and network security.
             </p>
           </div>
 
