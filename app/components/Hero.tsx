@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 export function Hero() {
-  const roles = ['Full-Stack Developer', 'Generative AI Engineer', 'Software Engineer'];
+  const roles = ['Full-Stack Developer', 'Generative AI Engineer', 'Software Engineer', 'Junior DevOps Engineer (AI Systems)'];
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
 
   // Calculate months of experience from June 2025
