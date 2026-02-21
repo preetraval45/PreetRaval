@@ -37,7 +37,7 @@ const projects = [
     title: 'The Serenity Living Website',
     status: 'Live',
     role: 'Full Ownership',
-    link: 'https://serenityliving.com',
+    link: 'https://www.theserenityliving.com/',
     description:
       'High-performance real-estate/assisted living website with custom CMS features, hosted on Vercel.',
     technologies: ['Next.js', 'Nginx', 'PostgreSQL', 'Python', 'Vercel'],
