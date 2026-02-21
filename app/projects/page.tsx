@@ -5,7 +5,7 @@ import { ExternalLink, Github } from 'lucide-react';
 const projects = [
   {
     title: 'NEXUS – Traveler Management System',
-    status: 'Ongoing',
+    status: 'QA',
     role: 'Project Lead',
     company: 'American Circuits Inc.',
     description:
@@ -19,7 +19,7 @@ const projects = [
     ],
   },
   {
-    title: 'ACI Dashboard – Enterprise SaaS Platform',
+    title: 'ACI Forge – Enterprise SaaS Platform',
     status: 'Production',
     role: 'Project Lead',
     company: 'American Circuits Inc.',
@@ -31,6 +31,7 @@ const projects = [
       'Penetration testing tools integration',
       'Network health monitoring',
       'Role-based dashboards for different stakeholders',
+      'Single Sign-On (SSO) integration across the platform',
     ],
   },
   {
@@ -110,6 +111,8 @@ export default function ProjectsPage() {
         return 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400';
       case 'Ongoing':
         return 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400';
+      case 'QA':
+        return 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400';
       case 'Completed':
         return 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400';
       case 'Research':
