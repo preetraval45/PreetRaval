@@ -16,6 +16,7 @@ const experience = {
         'Designed and developed the entire platform using Next.js, FastAPI, PostgreSQL, Docker, Nginx, and secure Linux-based deployments',
         'Implemented QR/barcode-based traveler tracking, step-level workflow enforcement, audit trails, operator tracking, and real-time production analytics',
         'Reduced process delays and communication gaps across departments through automated routing and data-driven decision tools',
+        'Led requirements gathering sessions with stakeholders across departments — authored BRDs and TRDs, delivered technical presentations, and translated business needs into technical specifications',
       ],
     },
     {

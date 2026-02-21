@@ -101,6 +101,10 @@ const skillCategories = [
       'Cross-Functional Communication',
       'Project Management',
       'Technical Writing',
+      'Requirements Gathering',
+      'BRD / TRD Documentation',
+      'Technical Presentations',
+      'Stakeholder Communication',
     ],
   },
 ];
