@@ -1,6 +1,6 @@
 'use client';
 
-import { Code2, Rocket, Target, Zap, Download } from 'lucide-react';
+import { Code2, Rocket, Target, Zap, Download, Sparkles } from 'lucide-react';
 
 const highlights = [
   {
@@ -58,7 +58,8 @@ export default function AboutPage() {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mb-6 sm:mb-8 p-4 rounded-xl border border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900/20">
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-sm font-semibold text-green-700 dark:text-green-400">Open to full-time Software Engineer roles</span>
+              <Sparkles className="w-4 h-4 text-green-600 dark:text-green-400" />
+              <span className="text-sm font-semibold text-green-700 dark:text-green-400">Available for opportunities</span>
             </div>
             <a
               href="https://docs.google.com/document/d/1ZIAWshIYgeGcQCo9QJtR2q8F_iBRkQnD2f9LeKMIrAs/export?format=pdf"
