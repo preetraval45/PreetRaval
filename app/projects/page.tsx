@@ -86,22 +86,6 @@ const projects = [
       'Secure contact handling and data routing',
     ],
   },
-  {
-    title: 'The Briarlea Website',
-    status: 'Live',
-    category: 'Client Work',
-    role: 'Full Ownership',
-    link: 'https://www.thebriarlea.com/',
-    description:
-      'Modern website for The Briarlea — designed and deployed with full ownership, including UI/UX, domain setup, and production hosting.',
-    technologies: ['Next.js', 'Vercel', 'Tailwind CSS'],
-    highlights: [
-      'Full UI/UX design and implementation',
-      'Domain configuration and SSL setup',
-      'SEO optimization and performance tuning',
-    ],
-  },
-
   // ── Personal Projects ────────────────────────────────────────────────────
   {
     title: 'YUGMASTRA – Financial Fraud Detection',
