@@ -37,6 +37,16 @@ const experience = {
       ],
     },
     {
+      title: 'Server & Network Infrastructure',
+      description:
+        'Designed and managed on-premise server architecture to host enterprise platforms, local databases, and internal network services across manufacturing operations.',
+      highlights: [
+        'Architected a 4-server setup for local hosting of NEXUS, ACI Forge, KOSH, and supporting services',
+        'Configured and managed local PostgreSQL database servers, Nginx reverse proxies, and Docker deployments across production servers',
+        'Planned and maintained internal network routing, firewall rules, and secure access controls for all hosted platforms',
+      ],
+    },
+    {
       title: 'KOSH - Inventory Management System',
       description:
         'Full-scale inventory management platform with barcode scanning, real-time stock tracking, predictive analytics, and automated alerts.',
