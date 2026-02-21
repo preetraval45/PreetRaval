@@ -86,6 +86,15 @@ export default function ContactPage() {
 
             <div className="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-gray-200 dark:border-gray-700">
               <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mb-3 sm:mb-4">Connect with me</p>
+              <a
+                href="https://www.linkedin.com/in/preet-raval-5a5807206/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 w-full mb-3 px-4 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold transition-colors touch-manipulation"
+              >
+                <Linkedin className="w-4 h-4 flex-shrink-0" />
+                Message me on LinkedIn
+              </a>
               <div className="flex gap-3">
                 <a
                   href="https://github.com/preetraval45"

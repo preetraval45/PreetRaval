@@ -62,7 +62,7 @@ export function Hero() {
                 </h1>
               </div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 dark:text-slate-200">
-                <span className="text-blue-600 dark:text-blue-400 transition-all duration-500">
+                <span key={currentRoleIndex} className="text-blue-600 dark:text-blue-400 inline-block animate-role-fade">
                   {roles[currentRoleIndex]}
                 </span>
               </h2>
@@ -167,19 +167,19 @@ export function Hero() {
                 </div>
 
                 {/* Floating Icons */}
-                <div className="hidden sm:block absolute -top-4 sm:-top-6 -right-4 sm:-right-6 p-3 sm:p-4 bg-white dark:bg-slate-800 rounded-xl sm:rounded-2xl shadow-2xl floating border-2 border-indigo-200 dark:border-indigo-800">
+                <div title="Full-Stack Development" className="hidden sm:block absolute -top-4 sm:-top-6 -right-4 sm:-right-6 p-3 sm:p-4 bg-white dark:bg-slate-800 rounded-xl sm:rounded-2xl shadow-2xl floating border-2 border-indigo-200 dark:border-indigo-800 cursor-default">
                   <Code2 className="w-6 h-6 sm:w-8 sm:h-8 text-indigo-600 dark:text-indigo-400" />
                 </div>
-                <div className="hidden sm:block absolute -bottom-4 sm:-bottom-6 -left-4 sm:-left-6 p-3 sm:p-4 bg-white dark:bg-slate-800 rounded-xl sm:rounded-2xl shadow-2xl floating border-2 border-purple-200 dark:border-purple-800" style={{ animationDelay: '0.5s' }}>
+                <div title="Shipping Products" className="hidden sm:block absolute -bottom-4 sm:-bottom-6 -left-4 sm:-left-6 p-3 sm:p-4 bg-white dark:bg-slate-800 rounded-xl sm:rounded-2xl shadow-2xl floating border-2 border-purple-200 dark:border-purple-800 cursor-default" style={{ animationDelay: '0.5s' }}>
                   <Rocket className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600 dark:text-purple-400" />
                 </div>
-                <div className="hidden md:block absolute top-1/2 -right-6 md:-right-8 p-2.5 sm:p-3 bg-white dark:bg-slate-800 rounded-lg sm:rounded-xl shadow-2xl floating border-2 border-blue-200 dark:border-blue-800" style={{ animationDelay: '1s' }}>
+                <div title="AI & Machine Learning" className="hidden md:block absolute top-1/2 -right-6 md:-right-8 p-2.5 sm:p-3 bg-white dark:bg-slate-800 rounded-lg sm:rounded-xl shadow-2xl floating border-2 border-blue-200 dark:border-blue-800 cursor-default" style={{ animationDelay: '1s' }}>
                   <Brain className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 dark:text-blue-400" />
                 </div>
-                <div className="hidden md:block absolute top-1/2 -left-6 md:-left-8 p-2.5 sm:p-3 bg-white dark:bg-slate-800 rounded-lg sm:rounded-xl shadow-2xl floating border-2 border-green-200 dark:border-green-800" style={{ animationDelay: '1.5s' }}>
+                <div title="Enterprise Systems" className="hidden md:block absolute top-1/2 -left-6 md:-left-8 p-2.5 sm:p-3 bg-white dark:bg-slate-800 rounded-lg sm:rounded-xl shadow-2xl floating border-2 border-green-200 dark:border-green-800 cursor-default" style={{ animationDelay: '1.5s' }}>
                   <Box className="w-5 h-5 sm:w-6 sm:h-6 text-green-600 dark:text-green-400" />
                 </div>
-                <div className="hidden md:block absolute -top-3 sm:-top-4 left-1/2 transform -translate-x-1/2 p-2.5 sm:p-3 bg-white dark:bg-slate-800 rounded-lg sm:rounded-xl shadow-2xl floating border-2 border-yellow-200 dark:border-yellow-800" style={{ animationDelay: '2s' }}>
+                <div title="Clean Code" className="hidden md:block absolute -top-3 sm:-top-4 left-1/2 transform -translate-x-1/2 p-2.5 sm:p-3 bg-white dark:bg-slate-800 rounded-lg sm:rounded-xl shadow-2xl floating border-2 border-yellow-200 dark:border-yellow-800 cursor-default" style={{ animationDelay: '2s' }}>
                   <Code className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-600 dark:text-yellow-400" />
                 </div>
               </div>

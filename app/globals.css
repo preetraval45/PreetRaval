@@ -112,7 +112,7 @@
 }
 
 .card {
-  @apply bg-white dark:bg-slate-900 backdrop-blur-2xl rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-10 lg:p-12 border border-slate-200 dark:border-slate-800;
+  @apply bg-white dark:bg-slate-900 backdrop-blur-2xl rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-10 lg:p-12 border border-slate-200 dark:border-slate-700;
   transform-style: preserve-3d;
 }
 
@@ -271,6 +271,24 @@
   }
   100% {
     left: 100%;
+  }
+}
+
+/* Role fade animation */
+@keyframes role-fade {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-role-fade {
+  animation: role-fade 0.4s ease-out forwards;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 

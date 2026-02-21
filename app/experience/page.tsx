@@ -96,7 +96,7 @@ export default function ExperiencePage() {
             {/* Achievements */}
             <div className="space-y-8">
               {experience.achievements.map((achievement, index) => (
-                <div key={index} className="space-y-3">
+                <div key={index} className={`space-y-3 ${index < experience.achievements.length - 1 ? 'pb-8 border-b border-slate-200 dark:border-slate-700' : ''}`}>
                   <div>
                     <h4 className="text-xl font-semibold text-blue-600 dark:text-blue-400 mb-2">
                       {achievement.title}

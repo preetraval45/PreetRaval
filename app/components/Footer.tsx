@@ -17,6 +17,7 @@ export function Footer() {
               Full-Stack Developer with high interest in AI and cybersecurity, building enterprise solutions that drive
               innovation and efficiency.
             </p>
+            <p className="text-gray-500 text-xs mt-2">Currently building at American Circuits Inc.</p>
           </div>
 
           {/* Quick Links */}

@@ -19,15 +19,11 @@ export function Navigation() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeItem, setActiveItem] = useState('Home');
 
-  // Set active item based on current pathname
-  useEffect(() => {
-    const currentNav = navItems.find(item => item.href === pathname);
-    if (currentNav) {
-      setActiveItem(currentNav.name);
-    }
-  }, [pathname]);
+  // Derive active item directly from pathname — no flash on refresh
+  const activeItem = navItems.find(item =>
+    item.href === '/' ? pathname === '/' : pathname === item.href
+  )?.name ?? 'Home';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,7 +48,6 @@ export function Navigation() {
           <Link
             href="/"
             className="flex items-center gap-2 group flex-shrink-0"
-            onClick={() => setActiveItem('Home')}
           >
             <span className="text-base sm:text-lg md:text-xl lg:text-2xl font-black gradient-text group-hover:scale-105 transition-transform duration-300">
               Preet Raval
@@ -65,7 +60,6 @@ export function Navigation() {
               <Link
                 key={item.name}
                 href={item.href}
-                onClick={() => setActiveItem(item.name)}
                 className={`relative px-2.5 lg:px-3 xl:px-4 py-2 rounded-lg text-xs lg:text-sm xl:text-base font-medium transition-all duration-300 whitespace-nowrap ${
                   activeItem === item.name
                     ? 'text-white bg-blue-600 dark:bg-blue-500 shadow-md'
@@ -111,10 +105,7 @@ export function Navigation() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  onClick={() => {
-                    setActiveItem(item.name);
-                    setIsMobileMenuOpen(false);
-                  }}
+                  onClick={() => setIsMobileMenuOpen(false)}
                   className={`block px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg text-sm sm:text-base font-medium transition-all duration-300 touch-manipulation ${
                     activeItem === item.name
                       ? 'text-white bg-blue-600 dark:bg-blue-500 shadow-md transform scale-100'

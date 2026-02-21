@@ -229,6 +229,12 @@ export default function ProjectsPage() {
         ))}
       </div>
 
+      {filtered.length === 0 && (
+        <div className="text-center py-16 text-slate-500 dark:text-slate-400">
+          <p className="text-lg font-medium">No projects in this category yet.</p>
+        </div>
+      )}
+
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {filtered.map((project, index) => (
           <div
