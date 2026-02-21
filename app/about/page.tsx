@@ -61,7 +61,7 @@ export default function AboutPage() {
               <span className="text-sm font-semibold text-green-700 dark:text-green-400">Open to new opportunities</span>
             </div>
             <a
-              href="https://docs.google.com/document/d/1ZIAWshIYgeGcQCo9QJtR2q8F_iBRkQnD2f9LeKMIrAs/export?format=pdf"
+              href="https://docs.google.com/document/d/1ZIAWshIYgeGcQCo9QJtR2q8F_iBRkQnD2f9LeKMIrAs/view"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold transition-colors"

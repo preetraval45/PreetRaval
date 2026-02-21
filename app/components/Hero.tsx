@@ -96,7 +96,7 @@ export function Hero() {
                 Get In Touch
               </Link>
               <a
-                href="https://docs.google.com/document/d/1ZIAWshIYgeGcQCo9QJtR2q8F_iBRkQnD2f9LeKMIrAs/export?format=pdf"
+                href="https://docs.google.com/document/d/1ZIAWshIYgeGcQCo9QJtR2q8F_iBRkQnD2f9LeKMIrAs/view"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary inline-flex items-center justify-center gap-2 sm:gap-3 group w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg"
