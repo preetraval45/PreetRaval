@@ -34,6 +34,20 @@ const projects = [
     ],
   },
   {
+    title: 'ACI ChatGPT – Internal AI Assistant',
+    status: 'Production',
+    role: 'Developer',
+    company: 'American Circuits Inc.',
+    description:
+      'Internal AI automation assistant for reporting, explanation generation, task automation, and production analysis — integrated directly into ACI operations workflows.',
+    technologies: ['Python', 'ChatGPT API', 'PostgreSQL', 'FastAPI'],
+    highlights: [
+      'Reduced maintenance overhead by 40% via PostgreSQL database consolidation',
+      'Improved system performance by 30% through caching and AI-driven process prediction',
+      'Automated routine reporting and production analysis tasks',
+    ],
+  },
+  {
     title: 'The Serenity Living Website',
     status: 'Live',
     role: 'Full Ownership',

@@ -11,12 +11,12 @@ const education = {
 const certifications = [
   {
     name: 'AWS Certified Solutions Architect Associate – SAA-C03',
-    status: 'Concept Learning',
+    status: 'In Progress',
     category: 'Cloud',
   },
   {
     name: 'Cisco CCNA 200-301 (Networking Fundamentals)',
-    status: 'Concept Learning',
+    status: 'In Progress',
     category: 'Networking',
   },
   {

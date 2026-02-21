@@ -19,9 +19,9 @@ const experience = {
       ],
     },
     {
-      title: 'ACI Dashboard - Enterprise Operations Platform',
+      title: 'ACI Forge - Enterprise SaaS Platform',
       description:
-        'Architect and developer of a centralized operations and analytics system for production monitoring, cybersecurity visibility, and system reporting.',
+        'Architect and developer of a centralized enterprise portal for production oversight, role-based tool access, SSO authentication, and system reporting.',
       highlights: [
         'Built microservices and automation engines using Python, TypeScript, PostgreSQL, and Docker',
         'Integrated AI-powered insights, auditing utilities, penetration testing tools, and system health monitoring into one unified interface',

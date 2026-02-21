@@ -1,6 +1,6 @@
 'use client';
 
-import { Code2, Rocket, Target, Zap } from 'lucide-react';
+import { Code2, Rocket, Target, Zap, Download } from 'lucide-react';
 
 const highlights = [
   {
@@ -54,6 +54,23 @@ export default function AboutPage() {
         </div>
 
         <div className="max-w-5xl mx-auto">
+          {/* Open to Work + Resume */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mb-6 sm:mb-8 p-4 rounded-xl border border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900/20">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse" />
+              <span className="text-sm font-semibold text-green-700 dark:text-green-400">Open to full-time Software Engineer roles</span>
+            </div>
+            <a
+              href="https://docs.google.com/document/d/1ZIAWshIYgeGcQCo9QJtR2q8F_iBRkQnD2f9LeKMIrAs/export?format=pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold transition-colors"
+            >
+              <Download className="w-4 h-4" />
+              Download Resume
+            </a>
+          </div>
+
           {/* Professional Summary */}
           <div className="card mb-6 sm:mb-8 md:mb-10 hover:border-blue-300 dark:hover:border-blue-700 transition-all">
             <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
@@ -100,7 +117,7 @@ export default function AboutPage() {
               <div className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">Projects Completed</div>
             </div>
             <div className="group text-center p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 border border-green-200 dark:border-green-800 hover:scale-105 hover:shadow-lg transition-all">
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-green-600 dark:text-green-400 mb-1 sm:mb-2">5+</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-green-600 dark:text-green-400 mb-1 sm:mb-2">20+</div>
               <div className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">Technologies</div>
             </div>
             <div className="group text-center p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 border border-orange-200 dark:border-orange-800 hover:scale-105 hover:shadow-lg transition-all">

@@ -24,33 +24,44 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Preet Raval - Full-Stack Developer & AI Specialist',
+  title: 'Preet Raval - Software Engineer | Full-Stack & AI',
   description:
-    'Professional portfolio of Preet Raval - Full-Stack Developer & AI Specialist specializing in Next.js, React, FastAPI, PostgreSQL, Docker, and AI integration. Based in Charlotte, NC.',
+    'Portfolio of Preet Raval — Software Engineer specializing in full-stack development, AI integration, and enterprise SaaS platforms. B.S. Computer Science, UNC Charlotte. Open to full-time roles. Based in Charlotte, NC.',
   keywords: [
     'Preet Raval',
+    'Software Engineer',
     'Full-Stack Developer',
-    'AI Specialist',
-    'Next.js',
+    'AI Engineer',
+    'Next.js Developer',
     'React',
     'FastAPI',
     'PostgreSQL',
     'Docker',
+    'TypeScript',
+    'Python',
     'Charlotte NC',
-    'Software Engineer',
+    'UNC Charlotte',
+    'UNCC',
+    'Computer Science',
+    'SSO',
+    'Enterprise SaaS',
+    'AI Integration',
+    'LLM',
+    'Open to Work',
   ],
   authors: [{ name: 'Preet Raval' }],
   openGraph: {
-    title: 'Preet Raval - Full-Stack Developer & AI Specialist',
+    title: 'Preet Raval - Software Engineer | Full-Stack & AI',
     description:
-      'Professional portfolio showcasing enterprise-grade SaaS platforms, AI-powered automation systems, and innovative solutions.',
+      'Portfolio of Preet Raval — Software Engineer building enterprise SaaS platforms, AI automation systems, and scalable full-stack applications. Open to full-time opportunities.',
     type: 'website',
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Preet Raval - Full-Stack Developer & AI Specialist',
-    description: 'Building innovative solutions with Next.js, AI, and modern tech stack',
+    title: 'Preet Raval - Software Engineer | Full-Stack & AI',
+    description:
+      'Software Engineer specializing in Next.js, FastAPI, AI integration, and enterprise platforms. Open to full-time roles.',
   },
 };
 
