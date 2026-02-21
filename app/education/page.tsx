@@ -23,13 +23,13 @@ const education = {
 
 const certifications = [
   {
-    name: 'AWS Certified Solutions Architect Associate – SAA-C03',
-    status: 'In Progress',
+    name: 'AWS Solutions Architect Associate – SAA-C03 (Course Completed)',
+    status: 'Course Completed',
     category: 'Cloud',
   },
   {
-    name: 'Cisco CCNA 200-301 (Networking Fundamentals)',
-    status: 'In Progress',
+    name: 'Cisco CCNA 200-301 – Networking Fundamentals (Course Completed)',
+    status: 'Course Completed',
     category: 'Networking',
   },
   {
@@ -146,9 +146,13 @@ export default function EducationPage() {
                       >
                         {cert.category}
                       </span>
-                      <span className="text-xs text-gray-600 dark:text-gray-400 flex items-center gap-1">
-                        {cert.status === 'Completed' && (
-                          <CheckCircle className="w-3 h-3 text-green-600 dark:text-green-400" />
+                      <span className={`text-xs flex items-center gap-1 ${
+                        cert.status === 'Completed' || cert.status === 'Course Completed'
+                          ? 'text-green-600 dark:text-green-400'
+                          : 'text-gray-600 dark:text-gray-400'
+                      }`}>
+                        {(cert.status === 'Completed' || cert.status === 'Course Completed') && (
+                          <CheckCircle className="w-3 h-3" />
                         )}
                         {cert.status}
                       </span>
