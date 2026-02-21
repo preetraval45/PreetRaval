@@ -1,12 +1,14 @@
 'use client';
 
 import { ExternalLink } from 'lucide-react';
+import { useState } from 'react';
 
 const projects = [
   // ── Office / Enterprise ──────────────────────────────────────────────────
   {
     title: 'NEXUS – Traveler Management System',
     status: 'QA',
+    category: 'Enterprise',
     role: 'Project Lead',
     company: 'American Circuits Inc.',
     description:
@@ -22,6 +24,7 @@ const projects = [
   {
     title: 'ACI Forge – Enterprise SaaS Platform',
     status: 'Live',
+    category: 'Enterprise',
     role: 'Project Lead',
     company: 'American Circuits Inc.',
     description:
@@ -37,6 +40,7 @@ const projects = [
   {
     title: 'ACI ChatGPT – Internal AI Assistant',
     status: 'Production',
+    category: 'Enterprise',
     role: 'Developer',
     company: 'American Circuits Inc.',
     description:
@@ -51,6 +55,7 @@ const projects = [
   {
     title: 'KOSH Inventory System',
     status: 'Completed',
+    category: 'Enterprise',
     role: 'Developer',
     company: 'American Circuits Inc.',
     description:
@@ -68,6 +73,7 @@ const projects = [
   {
     title: 'The Serenity Living Website',
     status: 'Live',
+    category: 'Client Work',
     role: 'Full Ownership',
     link: 'https://www.theserenityliving.com/',
     description:
@@ -83,6 +89,7 @@ const projects = [
   {
     title: 'The Briarlea Website',
     status: 'Live',
+    category: 'Client Work',
     role: 'Full Ownership',
     link: 'https://www.thebriarlea.com/',
     description:
@@ -99,6 +106,7 @@ const projects = [
   {
     title: 'YUGMASTRA – Financial Fraud Detection',
     status: 'Completed',
+    category: 'AI & ML',
     link: 'https://github.com/preetraval45/YUGMASTRA',
     description:
       'TypeScript-based financial fraud detection platform leveraging algorithmic analysis to identify suspicious patterns and anomalies in financial transactions in real time.',
@@ -112,6 +120,7 @@ const projects = [
   {
     title: 'Samadhan – Resolution Management System',
     status: 'Completed',
+    category: 'Personal',
     link: 'https://github.com/preetraval45/Samadhan',
     description:
       'Python-based complaint and resolution tracking system designed to streamline the submission, routing, and resolution of issues across teams.',
@@ -125,6 +134,7 @@ const projects = [
   {
     title: 'DHANALAKSHMI – Financial Management System',
     status: 'Completed',
+    category: 'Personal',
     description:
       'Private financial management platform for tracking income, expenses, invoices, and reports — built for business accounting and financial oversight.',
     technologies: ['Python', 'PostgreSQL', 'FastAPI'],
@@ -137,6 +147,7 @@ const projects = [
   {
     title: 'Supply Chain Intelligence',
     status: 'Completed',
+    category: 'AI & ML',
     description:
       'AI-powered optimization platform for demand forecasting, supplier risk scoring, logistics optimization, and anomaly detection.',
     technologies: ['Next.js', 'Python', 'PostgreSQL', 'ML Models'],
@@ -150,6 +161,7 @@ const projects = [
   {
     title: 'Transformers Flowventory',
     status: 'Completed',
+    category: 'AI & ML',
     description:
       'Inventory forecasting and optimization engine powered by Transformer models for high-accuracy stock prediction.',
     technologies: ['Python', 'Transformers', 'Pandas', 'ML Pipelines'],
@@ -163,6 +175,7 @@ const projects = [
   {
     title: 'NeuroSmriti – AI Brain Simulation',
     status: 'Research',
+    category: 'AI & ML',
     description:
       'AI-driven neural simulation toolkit for modeling memory formation, recall degradation, and cognitive pattern loss. Designed for Alzheimer\'s and dementia research.',
     technologies: ['Python', 'NumPy', 'Matplotlib', 'ML Models'],
@@ -175,7 +188,13 @@ const projects = [
   },
 ];
 
+const filters = ['All', 'Enterprise', 'Client Work', 'AI & ML', 'Personal'];
+
 export default function ProjectsPage() {
+  const [activeFilter, setActiveFilter] = useState('All');
+
+  const filtered = activeFilter === 'All' ? projects : projects.filter(p => p.category === activeFilter);
+
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'Live':
@@ -206,8 +225,28 @@ export default function ProjectsPage() {
         </p>
       </div>
 
+      {/* Filter Bar */}
+      <div className="flex flex-wrap justify-center gap-2 mb-8 sm:mb-10">
+        {filters.map((filter) => (
+          <button
+            key={filter}
+            onClick={() => setActiveFilter(filter)}
+            className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-all duration-200 border ${
+              activeFilter === filter
+                ? 'bg-blue-600 text-white border-blue-600 shadow-md'
+                : 'bg-transparent text-slate-600 dark:text-slate-400 border-slate-300 dark:border-slate-700 hover:border-blue-400 dark:hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400'
+            }`}
+          >
+            {filter}
+            <span className="ml-1.5 text-xs opacity-70">
+              {filter === 'All' ? projects.length : projects.filter(p => p.category === filter).length}
+            </span>
+          </button>
+        ))}
+      </div>
+
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-        {projects.map((project, index) => (
+        {filtered.map((project, index) => (
           <div
             key={index}
             className="card hover:scale-[1.02] sm:hover:scale-105 transition-transform duration-300 flex flex-col"

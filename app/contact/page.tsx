@@ -147,6 +147,22 @@ export default function ContactPage() {
               </div>
 
               <div>
+                <label htmlFor="subject" className="block text-xs sm:text-sm font-medium mb-1.5 sm:mb-2">Subject</label>
+                <select
+                  id="subject"
+                  name="subject"
+                  required
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                >
+                  <option value="">Select a subject…</option>
+                  <option value="Job Opportunity">Job Opportunity</option>
+                  <option value="Freelance / Project">Freelance / Project</option>
+                  <option value="Collaboration">Collaboration</option>
+                  <option value="General Inquiry">General Inquiry</option>
+                </select>
+              </div>
+
+              <div>
                 <label htmlFor="message" className="block text-xs sm:text-sm font-medium mb-1.5 sm:mb-2">Message</label>
                 <textarea
                   id="message"

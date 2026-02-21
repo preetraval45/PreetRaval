@@ -4,6 +4,7 @@ import './globals.css';
 import { ThemeProvider } from './components/ThemeProvider';
 import { Navigation } from './components/Navigation';
 import { Footer } from './components/Footer';
+import { ScrollToTop } from './components/ScrollToTop';
 import { Analytics } from '@vercel/analytics/react';
 
 const poppins = Poppins({
@@ -27,7 +28,7 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   title: 'Preet Raval - Software Engineer | Full-Stack & AI',
   description:
-    'Portfolio of Preet Raval — Software Engineer specializing in full-stack development, AI integration, and enterprise SaaS platforms. B.S. Computer Science, UNC Charlotte. Open to full-time roles. Based in Charlotte, NC.',
+    'Portfolio of Preet Raval — Software Engineer specializing in full-stack development, AI integration, and enterprise SaaS platforms. B.A. Computer Science, UNC Charlotte. Open to full-time roles. Based in Charlotte, NC.',
   keywords: [
     'Preet Raval',
     'Software Engineer',
@@ -50,6 +51,8 @@ export const metadata: Metadata = {
     'LLM',
     'Open to Work',
   ],
+  metadataBase: new URL('https://preet-raval-swart.vercel.app'),
+  alternates: { canonical: '/' },
   authors: [{ name: 'Preet Raval' }],
   openGraph: {
     title: 'Preet Raval - Software Engineer | Full-Stack & AI',
@@ -102,6 +105,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          <ScrollToTop />
           <Analytics />
         </ThemeProvider>
       </body>

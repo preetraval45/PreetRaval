@@ -6,6 +6,19 @@ const education = {
   degree: 'B.A. in Computer Science',
   university: 'University of North Carolina at Charlotte',
   period: 'Jan 2023 – Dec 2025',
+  status: 'Graduated',
+  coursework: [
+    'Data Structures & Algorithms',
+    'Operating Systems',
+    'Computer Networks',
+    'Database Systems',
+    'Software Engineering',
+    'Cybersecurity',
+    'Machine Learning',
+    'Web Development',
+    'Computer Architecture',
+    'Discrete Mathematics',
+  ],
 };
 
 const certifications = [
@@ -83,9 +96,22 @@ export default function EducationPage() {
                 <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 dark:text-blue-400" />
               </div>
               <div className="flex-1">
-                <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">{education.degree}</h3>
+                <div className="flex items-center gap-2 flex-wrap mb-1 sm:mb-2">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold">{education.degree}</h3>
+                  <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400">{education.status}</span>
+                </div>
                 <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400">{education.university}</p>
                 <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-500 mt-1 sm:mt-2">{education.period}</p>
+                <div className="mt-3 sm:mt-4">
+                  <p className="text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Relevant Coursework</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {education.coursework.map((course) => (
+                      <span key={course} className="px-2.5 py-1 text-xs bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-full text-blue-700 dark:text-blue-400">
+                        {course}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
