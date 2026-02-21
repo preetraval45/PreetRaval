@@ -84,8 +84,8 @@ export function Hero() {
                 <div className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">Projects Delivered</div>
               </div>
               <div className="space-y-2 p-3 sm:p-4 rounded-xl bg-purple-50/50 dark:bg-purple-900/10 border border-purple-100 dark:border-purple-900/30 transition-all hover:scale-105 min-w-[100px] sm:min-w-[120px]">
-                <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent">5+</div>
-                <div className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">Tech Stacks</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent">20+</div>
+                <div className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">Technologies</div>
               </div>
             </div>
 
@@ -96,8 +96,9 @@ export function Hero() {
                 Get In Touch
               </Link>
               <a
-                href="/Preet Raval Resume.pdf"
-                download
+                href="https://docs.google.com/document/d/1ZIAWshIYgeGcQCo9QJtR2q8F_iBRkQnD2f9LeKMIrAs/export?format=pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-secondary inline-flex items-center justify-center gap-2 sm:gap-3 group w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg"
               >
                 <Download className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-y-1 transition-transform" />

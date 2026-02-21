@@ -1,6 +1,6 @@
 'use client';
 
-import { Github, Linkedin, Mail, Heart } from 'lucide-react';
+import { Github, Linkedin, Mail, Heart, Download } from 'lucide-react';
 import Link from 'next/link';
 
 export function Footer() {
@@ -99,6 +99,15 @@ export function Footer() {
                 aria-label="Email"
               >
                 <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
+              </a>
+              <a
+                href="https://docs.google.com/document/d/1ZIAWshIYgeGcQCo9QJtR2q8F_iBRkQnD2f9LeKMIrAs/export?format=pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg bg-blue-700 hover:bg-blue-600 transition-all duration-200 hover:scale-110 touch-manipulation"
+                aria-label="Download Resume"
+              >
+                <Download className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
             </div>
           </div>

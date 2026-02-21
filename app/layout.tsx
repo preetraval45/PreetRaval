@@ -4,6 +4,7 @@ import './globals.css';
 import { ThemeProvider } from './components/ThemeProvider';
 import { Navigation } from './components/Navigation';
 import { Footer } from './components/Footer';
+import { Analytics } from '@vercel/analytics/react';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -72,6 +73,28 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Person',
+              name: 'Preet Raval',
+              url: 'https://preet-raval-swart.vercel.app',
+              email: 'preetraval45@gmail.com',
+              jobTitle: 'Software Engineer',
+              worksFor: { '@type': 'Organization', name: 'American Circuits Inc.' },
+              alumniOf: { '@type': 'CollegeOrUniversity', name: 'University of North Carolina at Charlotte' },
+              sameAs: [
+                'https://github.com/preetraval45',
+                'https://www.linkedin.com/in/preet-raval-5a5807206/',
+              ],
+              knowsAbout: ['Full-Stack Development', 'AI Integration', 'Next.js', 'FastAPI', 'PostgreSQL', 'Docker', 'TypeScript', 'Python', 'Cybersecurity'],
+            }),
+          }}
+        />
+      </head>
       <body className={`${poppins.variable} ${playfair.variable} ${jetbrains.variable} font-sans antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Navigation />
@@ -79,6 +102,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>

@@ -21,7 +21,13 @@
       "Bash(cat:*)",
       "Bash(npx tsc:*)",
       "Bash(test:*)",
-      "Bash(timeout /t 2)"
+      "Bash(timeout /t 2)",
+      "WebFetch(domain:preet-raval-swart.vercel.app)",
+      "WebFetch(domain:medium.com)",
+      "WebFetch(domain:github.com)",
+      "Bash(gh repo view:*)",
+      "Bash(gh api:*)",
+      "Bash(python -c:*)"
     ]
   }
 }

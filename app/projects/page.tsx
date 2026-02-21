@@ -1,8 +1,9 @@
 'use client';
 
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 
 const projects = [
+  // ── Office / Enterprise ──────────────────────────────────────────────────
   {
     title: 'NEXUS – Traveler Management System',
     status: 'QA',
@@ -20,12 +21,12 @@ const projects = [
   },
   {
     title: 'ACI Forge – Enterprise SaaS Platform',
-    status: 'Production',
+    status: 'Live',
     role: 'Project Lead',
     company: 'American Circuits Inc.',
     description:
       'Centralized enterprise portal where employees log in once and access all internal tools based on their assigned role — eliminating per-app credentials through SSO. Includes a maintenance request system, role-gated dashboards, and a unified entry point across all ACI applications.',
-    technologies: ['Python', 'TypeScript', 'PostgreSQL', 'Docker'],
+    technologies: ['Next.js', 'Python', 'TypeScript', 'PostgreSQL', 'Docker'],
     highlights: [
       'Single Sign-On (SSO) — one login grants access to all apps based on user role',
       'Role-based access control across all integrated tools',
@@ -48,6 +49,23 @@ const projects = [
     ],
   },
   {
+    title: 'KOSH Inventory System',
+    status: 'Completed',
+    role: 'Developer',
+    company: 'American Circuits Inc.',
+    description:
+      'Full-scale inventory management platform with barcode scanning, real-time stock tracking, predictive analytics, and automated alerts.',
+    technologies: ['Next.js', 'FastAPI', 'PostgreSQL'],
+    highlights: [
+      'Inventory forecasting with ML',
+      'Role-based permissions',
+      'Product movement history & audit logs',
+      'Low-stock alerts and notifications',
+    ],
+  },
+
+  // ── Live Client Websites ─────────────────────────────────────────────────
+  {
     title: 'The Serenity Living Website',
     status: 'Live',
     role: 'Full Ownership',
@@ -62,6 +80,22 @@ const projects = [
       'Secure contact handling and data routing',
     ],
   },
+  {
+    title: 'The Briarlea Website',
+    status: 'Live',
+    role: 'Full Ownership',
+    link: 'https://www.thebriarlea.com/',
+    description:
+      'Modern website for The Briarlea — designed and deployed with full ownership, including UI/UX, domain setup, and production hosting.',
+    technologies: ['Next.js', 'Vercel', 'Tailwind CSS'],
+    highlights: [
+      'Full UI/UX design and implementation',
+      'Domain configuration and SSL setup',
+      'SEO optimization and performance tuning',
+    ],
+  },
+
+  // ── Personal Projects ────────────────────────────────────────────────────
   {
     title: 'YUGMASTRA – Financial Fraud Detection',
     status: 'Completed',
@@ -114,19 +148,6 @@ const projects = [
     ],
   },
   {
-    title: 'NeuroSmriti – AI Brain Simulation',
-    status: 'Research',
-    description:
-      'AI-driven neural simulation toolkit for modeling memory formation, recall degradation, and cognitive pattern loss. Designed for Alzheimer\'s and dementia research.',
-    technologies: ['Python', 'NumPy', 'Matplotlib', 'ML Models'],
-    highlights: [
-      'Memory retention/decay simulations',
-      'Cognitive impairment modeling',
-      'Visual dashboards showing neuron activity',
-      'Modular neural computation blocks',
-    ],
-  },
-  {
     title: 'Transformers Flowventory',
     status: 'Completed',
     description:
@@ -140,16 +161,16 @@ const projects = [
     ],
   },
   {
-    title: 'KOSH Inventory System',
-    status: 'Completed',
+    title: 'NeuroSmriti – AI Brain Simulation',
+    status: 'Research',
     description:
-      'Full-scale inventory management platform with barcode scanning, real-time stock tracking, predictive analytics, and automated alerts.',
-    technologies: ['Next.js', 'FastAPI', 'PostgreSQL'],
+      'AI-driven neural simulation toolkit for modeling memory formation, recall degradation, and cognitive pattern loss. Designed for Alzheimer\'s and dementia research.',
+    technologies: ['Python', 'NumPy', 'Matplotlib', 'ML Models'],
     highlights: [
-      'Inventory forecasting with ML',
-      'Role-based permissions',
-      'Product movement history & audit logs',
-      'Low-stock alerts and notifications',
+      'Memory retention/decay simulations',
+      'Cognitive impairment modeling',
+      'Visual dashboards showing neuron activity',
+      'Modular neural computation blocks',
     ],
   },
 ];
@@ -200,7 +221,7 @@ export default function ProjectsPage() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-1.5 sm:p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors touch-manipulation flex-shrink-0"
+                    className="p-1.5 sm:p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors touch-manipulation shrink-0"
                     aria-label="Visit project"
                   >
                     <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 dark:text-blue-400" />
