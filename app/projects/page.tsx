@@ -24,14 +24,13 @@ const projects = [
     role: 'Project Lead',
     company: 'American Circuits Inc.',
     description:
-      "ACI's primary enterprise dashboard for production oversight, cybersecurity insights, internal analytics, and real-time monitoring.",
+      'Centralized enterprise portal where employees log in once and access all internal tools based on their assigned role — eliminating per-app credentials through SSO. Includes a maintenance request system, role-gated dashboards, and a unified entry point across all ACI applications.',
     technologies: ['Python', 'TypeScript', 'PostgreSQL', 'Docker'],
     highlights: [
-      'AI-driven analytics and anomaly detection',
-      'Penetration testing tools integration',
-      'Network health monitoring',
-      'Role-based dashboards for different stakeholders',
-      'Single Sign-On (SSO) integration across the platform',
+      'Single Sign-On (SSO) — one login grants access to all apps based on user role',
+      'Role-based access control across all integrated tools',
+      'Maintenance request form with tracking and routing',
+      'Unified dashboard with personalized tool visibility per user',
     ],
   },
   {
