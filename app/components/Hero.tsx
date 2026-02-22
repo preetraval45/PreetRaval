@@ -1,6 +1,6 @@
 'use client';
 
-import { Github, Linkedin, Mail, Download, FileText, Code2, Rocket, Code, Brain, Box } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, Rocket, Sparkles, Cpu, Server, Shield, Globe, Zap, Box } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
@@ -80,11 +80,11 @@ export function Hero() {
                 <div className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">{monthsExperience >= 12 ? `Year${Math.floor(monthsExperience / 12) > 1 ? 's' : ''} (${monthsExperience} mo)` : 'Months Experience'}</div>
               </div>
               <div className="space-y-2 p-3 sm:p-4 rounded-xl bg-indigo-50/50 dark:bg-indigo-900/10 border border-indigo-100 dark:border-indigo-900/30 transition-all hover:scale-105 min-w-[100px] sm:min-w-[120px]">
-                <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">10+</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">11+</div>
                 <div className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">Projects Delivered</div>
               </div>
               <div className="space-y-2 p-3 sm:p-4 rounded-xl bg-purple-50/50 dark:bg-purple-900/10 border border-purple-100 dark:border-purple-900/30 transition-all hover:scale-105 min-w-[100px] sm:min-w-[120px]">
-                <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent">20+</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent">50+</div>
                 <div className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">Technologies</div>
               </div>
             </div>
@@ -167,35 +167,39 @@ export function Hero() {
                 </div>
 
                 {/* Floating Icons */}
-                <div title="Full-Stack Development" className="hidden sm:block absolute -top-4 sm:-top-6 -right-4 sm:-right-6 p-3 sm:p-4 bg-white dark:bg-slate-800 rounded-xl sm:rounded-2xl shadow-2xl floating border-2 border-indigo-200 dark:border-indigo-800 cursor-default">
-                  <Code2 className="w-6 h-6 sm:w-8 sm:h-8 text-indigo-600 dark:text-indigo-400" />
+                <div title="Generative AI" className="hidden sm:block absolute -top-4 sm:-top-6 -right-4 sm:-right-6 p-3 sm:p-4 bg-white dark:bg-slate-800 rounded-xl sm:rounded-2xl shadow-2xl floating border-2 border-violet-200 dark:border-violet-800 cursor-default">
+                  <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-violet-600 dark:text-violet-400" />
                 </div>
-                <div title="Shipping Products" className="hidden sm:block absolute -bottom-4 sm:-bottom-6 -left-4 sm:-left-6 p-3 sm:p-4 bg-white dark:bg-slate-800 rounded-xl sm:rounded-2xl shadow-2xl floating border-2 border-purple-200 dark:border-purple-800 cursor-default" style={{ animationDelay: '0.5s' }}>
-                  <Rocket className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600 dark:text-purple-400" />
+                <div title="Product Delivery" className="hidden sm:block absolute -bottom-4 sm:-bottom-6 -left-4 sm:-left-6 p-3 sm:p-4 bg-white dark:bg-slate-800 rounded-xl sm:rounded-2xl shadow-2xl floating border-2 border-indigo-200 dark:border-indigo-800 cursor-default" style={{ animationDelay: '0.5s' }}>
+                  <Rocket className="w-6 h-6 sm:w-8 sm:h-8 text-indigo-600 dark:text-indigo-400" />
                 </div>
                 <div title="AI & Machine Learning" className="hidden md:block absolute top-1/2 -right-6 md:-right-8 p-2.5 sm:p-3 bg-white dark:bg-slate-800 rounded-lg sm:rounded-xl shadow-2xl floating border-2 border-blue-200 dark:border-blue-800 cursor-default" style={{ animationDelay: '1s' }}>
-                  <Brain className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 dark:text-blue-400" />
+                  <Cpu className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 dark:text-blue-400" />
                 </div>
-                <div title="Enterprise Systems" className="hidden md:block absolute top-1/2 -left-6 md:-left-8 p-2.5 sm:p-3 bg-white dark:bg-slate-800 rounded-lg sm:rounded-xl shadow-2xl floating border-2 border-green-200 dark:border-green-800 cursor-default" style={{ animationDelay: '1.5s' }}>
-                  <Box className="w-5 h-5 sm:w-6 sm:h-6 text-green-600 dark:text-green-400" />
+                <div title="Infrastructure & DevOps" className="hidden md:block absolute top-1/2 -left-6 md:-left-8 p-2.5 sm:p-3 bg-white dark:bg-slate-800 rounded-lg sm:rounded-xl shadow-2xl floating border-2 border-emerald-200 dark:border-emerald-800 cursor-default" style={{ animationDelay: '1.5s' }}>
+                  <Server className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-600 dark:text-emerald-400" />
                 </div>
-                <div title="Clean Code" className="hidden md:block absolute -top-3 sm:-top-4 left-1/2 transform -translate-x-1/2 p-2.5 sm:p-3 bg-white dark:bg-slate-800 rounded-lg sm:rounded-xl shadow-2xl floating border-2 border-yellow-200 dark:border-yellow-800 cursor-default" style={{ animationDelay: '2s' }}>
-                  <Code className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-600 dark:text-yellow-400" />
+                <div title="Cybersecurity" className="hidden md:block absolute -top-3 sm:-top-4 left-1/2 transform -translate-x-1/2 p-2.5 sm:p-3 bg-white dark:bg-slate-800 rounded-lg sm:rounded-xl shadow-2xl floating border-2 border-amber-200 dark:border-amber-800 cursor-default" style={{ animationDelay: '2s' }}>
+                  <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-amber-600 dark:text-amber-400" />
                 </div>
               </div>
 
               {/* Tech Stack Badges */}
               <div className="absolute -bottom-6 sm:-bottom-8 left-1/2 transform -translate-x-1/2 flex flex-wrap gap-2 sm:gap-3 justify-center max-w-xs sm:max-w-none">
-                <div className="px-3 sm:px-4 py-1.5 sm:py-2 bg-white dark:bg-slate-800 rounded-full shadow-xl border-2 border-indigo-200 dark:border-indigo-800 text-xs sm:text-sm font-semibold text-indigo-600 dark:text-indigo-400 whitespace-nowrap">
+                <div className="flex items-center gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 bg-white dark:bg-slate-800 rounded-full shadow-xl border-2 border-indigo-200 dark:border-indigo-800 text-xs sm:text-sm font-semibold text-indigo-600 dark:text-indigo-400 whitespace-nowrap">
+                  <Globe className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   Next.js
                 </div>
-                <div className="px-3 sm:px-4 py-1.5 sm:py-2 bg-white dark:bg-slate-800 rounded-full shadow-xl border-2 border-purple-200 dark:border-purple-800 text-xs sm:text-sm font-semibold text-purple-600 dark:text-purple-400 whitespace-nowrap">
+                <div className="flex items-center gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 bg-white dark:bg-slate-800 rounded-full shadow-xl border-2 border-purple-200 dark:border-purple-800 text-xs sm:text-sm font-semibold text-purple-600 dark:text-purple-400 whitespace-nowrap">
+                  <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   FastAPI
                 </div>
-                <div className="px-3 sm:px-4 py-1.5 sm:py-2 bg-white dark:bg-slate-800 rounded-full shadow-xl border-2 border-pink-200 dark:border-pink-800 text-xs sm:text-sm font-semibold text-pink-600 dark:text-pink-400 whitespace-nowrap">
+                <div className="flex items-center gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 bg-white dark:bg-slate-800 rounded-full shadow-xl border-2 border-pink-200 dark:border-pink-800 text-xs sm:text-sm font-semibold text-pink-600 dark:text-pink-400 whitespace-nowrap">
+                  <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   AI/ML
                 </div>
-                <div className="px-3 sm:px-4 py-1.5 sm:py-2 bg-white dark:bg-slate-800 rounded-full shadow-xl border-2 border-green-200 dark:border-green-800 text-xs sm:text-sm font-semibold text-green-600 dark:text-green-400 whitespace-nowrap">
+                <div className="flex items-center gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 bg-white dark:bg-slate-800 rounded-full shadow-xl border-2 border-green-200 dark:border-green-800 text-xs sm:text-sm font-semibold text-green-600 dark:text-green-400 whitespace-nowrap">
+                  <Box className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   Docker
                 </div>
               </div>
