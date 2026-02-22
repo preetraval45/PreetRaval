@@ -292,6 +292,13 @@
   }
 }
 
+/* Keyboard focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
 /* Scrollbar Styling */
 ::-webkit-scrollbar {
   width: 12px;

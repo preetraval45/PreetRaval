@@ -1,6 +1,6 @@
 'use client';
 
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
 
 const projects = [
@@ -176,6 +176,15 @@ const filters = ['All', 'Enterprise', 'Client Work', 'AI & ML', 'Personal'];
 
 export default function ProjectsPage() {
   const [activeFilter, setActiveFilter] = useState('All');
+  const [expandedCards, setExpandedCards] = useState<Set<string>>(new Set());
+
+  const toggleExpand = (title: string) => {
+    setExpandedCards(prev => {
+      const next = new Set(prev);
+      next.has(title) ? next.delete(title) : next.add(title);
+      return next;
+    });
+  };
 
   const filtered = activeFilter === 'All' ? projects : projects.filter(p => p.category === activeFilter);
 
@@ -290,13 +299,25 @@ export default function ProjectsPage() {
             {/* Highlights */}
             <div className="mt-auto">
               <ul className="space-y-1 sm:space-y-1.5">
-                {project.highlights.slice(0, 3).map((highlight, hIndex) => (
+                {(expandedCards.has(project.title) ? project.highlights : project.highlights.slice(0, 3)).map((highlight, hIndex) => (
                   <li key={hIndex} className="flex items-start gap-1.5 sm:gap-2 text-gray-700 dark:text-gray-300">
                     <span className="text-blue-600 dark:text-blue-400 text-xs mt-0.5 sm:mt-1">▸</span>
                     <span className="text-xs leading-relaxed">{highlight}</span>
                   </li>
                 ))}
               </ul>
+              {project.highlights.length > 3 && (
+                <button
+                  onClick={() => toggleExpand(project.title)}
+                  className="mt-2 flex items-center gap-1 text-xs text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+                >
+                  {expandedCards.has(project.title) ? (
+                    <><ChevronUp className="w-3 h-3" />Show less</>
+                  ) : (
+                    <><ChevronDown className="w-3 h-3" />+{project.highlights.length - 3} more</>
+                  )}
+                </button>
+              )}
             </div>
           </div>
         ))}

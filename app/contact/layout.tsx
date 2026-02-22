@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Contact – Preet Raval | Open to Work',
+  title: 'Contact',
   description:
     'Get in touch with Preet Raval — Software Engineer open to full-time roles. Reach out via email at preetraval45@gmail.com, phone, or through LinkedIn. Based in Charlotte, NC.',
 };
