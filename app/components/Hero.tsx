@@ -167,20 +167,20 @@ export function Hero() {
                 </div>
 
                 {/* Floating Icons */}
-                <div title="Electronics & Systems" className="hidden sm:block absolute -top-4 sm:-top-6 -right-4 sm:-right-6 p-3 sm:p-4 bg-white dark:bg-slate-800 rounded-xl sm:rounded-2xl shadow-2xl floating border-2 border-violet-200 dark:border-violet-800 cursor-default">
-                  <CircuitBoard className="w-6 h-6 sm:w-8 sm:h-8 text-violet-600 dark:text-violet-400" />
+                <div title="Electronics & Systems" className="absolute -top-3 sm:-top-4 md:-top-6 -right-3 sm:-right-4 md:-right-6 p-2 sm:p-3 md:p-4 bg-white dark:bg-slate-800 rounded-xl sm:rounded-2xl shadow-2xl floating border-2 border-violet-200 dark:border-violet-800 cursor-default">
+                  <CircuitBoard className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-violet-600 dark:text-violet-400" />
                 </div>
-                <div title="Databases & Backend" className="hidden sm:block absolute -bottom-4 sm:-bottom-6 -left-4 sm:-left-6 p-3 sm:p-4 bg-white dark:bg-slate-800 rounded-xl sm:rounded-2xl shadow-2xl floating border-2 border-cyan-200 dark:border-cyan-800 cursor-default" style={{ animationDelay: '0.5s' }}>
-                  <Database className="w-6 h-6 sm:w-8 sm:h-8 text-cyan-600 dark:text-cyan-400" />
+                <div title="Databases & Backend" className="absolute -bottom-3 sm:-bottom-4 md:-bottom-6 -left-3 sm:-left-4 md:-left-6 p-2 sm:p-3 md:p-4 bg-white dark:bg-slate-800 rounded-xl sm:rounded-2xl shadow-2xl floating border-2 border-cyan-200 dark:border-cyan-800 cursor-default" style={{ animationDelay: '0.5s' }}>
+                  <Database className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-cyan-600 dark:text-cyan-400" />
                 </div>
-                <div title="AI & Machine Learning" className="hidden md:block absolute top-1/2 -right-6 md:-right-8 p-2.5 sm:p-3 bg-white dark:bg-slate-800 rounded-lg sm:rounded-xl shadow-2xl floating border-2 border-blue-200 dark:border-blue-800 cursor-default" style={{ animationDelay: '1s' }}>
-                  <Cpu className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 dark:text-blue-400" />
+                <div title="AI & Machine Learning" className="absolute top-1/2 -right-4 sm:-right-5 md:-right-8 p-2 sm:p-2.5 md:p-3 bg-white dark:bg-slate-800 rounded-lg sm:rounded-xl shadow-2xl floating border-2 border-blue-200 dark:border-blue-800 cursor-default" style={{ animationDelay: '1s' }}>
+                  <Cpu className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-blue-600 dark:text-blue-400" />
                 </div>
-                <div title="Infrastructure & DevOps" className="hidden md:block absolute top-1/2 -left-6 md:-left-8 p-2.5 sm:p-3 bg-white dark:bg-slate-800 rounded-lg sm:rounded-xl shadow-2xl floating border-2 border-emerald-200 dark:border-emerald-800 cursor-default" style={{ animationDelay: '1.5s' }}>
-                  <Server className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-600 dark:text-emerald-400" />
+                <div title="Infrastructure & DevOps" className="absolute top-1/2 -left-4 sm:-left-5 md:-left-8 p-2 sm:p-2.5 md:p-3 bg-white dark:bg-slate-800 rounded-lg sm:rounded-xl shadow-2xl floating border-2 border-emerald-200 dark:border-emerald-800 cursor-default" style={{ animationDelay: '1.5s' }}>
+                  <Server className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-emerald-600 dark:text-emerald-400" />
                 </div>
-                <div title="Cybersecurity" className="hidden md:block absolute -top-3 sm:-top-4 left-1/2 transform -translate-x-1/2 p-2.5 sm:p-3 bg-white dark:bg-slate-800 rounded-lg sm:rounded-xl shadow-2xl floating border-2 border-amber-200 dark:border-amber-800 cursor-default" style={{ animationDelay: '2s' }}>
-                  <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-amber-600 dark:text-amber-400" />
+                <div title="Cybersecurity" className="absolute -top-3 sm:-top-4 left-1/2 transform -translate-x-1/2 p-2 sm:p-2.5 md:p-3 bg-white dark:bg-slate-800 rounded-lg sm:rounded-xl shadow-2xl floating border-2 border-amber-200 dark:border-amber-800 cursor-default" style={{ animationDelay: '2s' }}>
+                  <Shield className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-amber-600 dark:text-amber-400" />
                 </div>
               </div>
 
