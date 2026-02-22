@@ -1,6 +1,6 @@
 'use client';
 
-import { Github, Linkedin, Mail, Download, Rocket, Sparkles, Cpu, Server, Shield, Globe, Zap, Box } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, Cpu, Server, Shield, Globe, Zap, Box, CircuitBoard, Database, Brain } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
@@ -167,11 +167,11 @@ export function Hero() {
                 </div>
 
                 {/* Floating Icons */}
-                <div title="Generative AI" className="hidden sm:block absolute -top-4 sm:-top-6 -right-4 sm:-right-6 p-3 sm:p-4 bg-white dark:bg-slate-800 rounded-xl sm:rounded-2xl shadow-2xl floating border-2 border-violet-200 dark:border-violet-800 cursor-default">
-                  <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-violet-600 dark:text-violet-400" />
+                <div title="Electronics & Systems" className="hidden sm:block absolute -top-4 sm:-top-6 -right-4 sm:-right-6 p-3 sm:p-4 bg-white dark:bg-slate-800 rounded-xl sm:rounded-2xl shadow-2xl floating border-2 border-violet-200 dark:border-violet-800 cursor-default">
+                  <CircuitBoard className="w-6 h-6 sm:w-8 sm:h-8 text-violet-600 dark:text-violet-400" />
                 </div>
-                <div title="Product Delivery" className="hidden sm:block absolute -bottom-4 sm:-bottom-6 -left-4 sm:-left-6 p-3 sm:p-4 bg-white dark:bg-slate-800 rounded-xl sm:rounded-2xl shadow-2xl floating border-2 border-indigo-200 dark:border-indigo-800 cursor-default" style={{ animationDelay: '0.5s' }}>
-                  <Rocket className="w-6 h-6 sm:w-8 sm:h-8 text-indigo-600 dark:text-indigo-400" />
+                <div title="Databases & Backend" className="hidden sm:block absolute -bottom-4 sm:-bottom-6 -left-4 sm:-left-6 p-3 sm:p-4 bg-white dark:bg-slate-800 rounded-xl sm:rounded-2xl shadow-2xl floating border-2 border-cyan-200 dark:border-cyan-800 cursor-default" style={{ animationDelay: '0.5s' }}>
+                  <Database className="w-6 h-6 sm:w-8 sm:h-8 text-cyan-600 dark:text-cyan-400" />
                 </div>
                 <div title="AI & Machine Learning" className="hidden md:block absolute top-1/2 -right-6 md:-right-8 p-2.5 sm:p-3 bg-white dark:bg-slate-800 rounded-lg sm:rounded-xl shadow-2xl floating border-2 border-blue-200 dark:border-blue-800 cursor-default" style={{ animationDelay: '1s' }}>
                   <Cpu className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 dark:text-blue-400" />
@@ -195,7 +195,7 @@ export function Hero() {
                   FastAPI
                 </div>
                 <div className="flex items-center gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 bg-white dark:bg-slate-800 rounded-full shadow-xl border-2 border-pink-200 dark:border-pink-800 text-xs sm:text-sm font-semibold text-pink-600 dark:text-pink-400 whitespace-nowrap">
-                  <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                  <Brain className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   AI/ML
                 </div>
                 <div className="flex items-center gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 bg-white dark:bg-slate-800 rounded-full shadow-xl border-2 border-green-200 dark:border-green-800 text-xs sm:text-sm font-semibold text-green-600 dark:text-green-400 whitespace-nowrap">
