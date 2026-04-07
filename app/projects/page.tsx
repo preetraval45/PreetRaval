@@ -92,6 +92,22 @@ const projects = [
   },
   // ── Personal Projects ────────────────────────────────────────────────────
   {
+    title: 'VYNE – AI-Native Company Operating System',
+    status: 'Ongoing',
+    category: 'Personal',
+    link: 'https://github.com/preetraval45/VYNE',
+    description:
+      'A single platform to replace Slack + Jira + Notion + Datadog + Odoo. VYNE correlates business events with infrastructure events in real time — when a deployment fails and orders get stuck, it tells you the exact revenue impact.',
+    technologies: ['Next.js', 'React Native', 'C# .NET 9', 'FastAPI', 'PostgreSQL', 'Docker', 'Terraform', 'AWS', 'LangGraph'],
+    highlights: [
+      'Full monorepo with 8 microservices: API Gateway, Core Auth, Projects, Messaging, AI, ERP, Observability, Notifications',
+      'AI module powered by Claude 3.5 Sonnet via AWS Bedrock with RAG and LangGraph agents',
+      'AWS infrastructure: ECS Fargate, Aurora Serverless v2, EventBridge, SQS FIFO, Cognito, CloudFront',
+      'Real-time messaging, project management (Kanban/Sprints), block editor docs, and ERP (inventory/orders/MRP)',
+      'CI/CD with GitHub Actions + ArgoCD canary deployments',
+    ],
+  },
+  {
     title: 'YUGMASTRA – Financial Fraud Detection',
     status: 'Completed',
     category: 'AI & ML',
@@ -198,6 +214,7 @@ export default function ProjectsPage() {
       case 'Production':
         return 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400';
       case 'Ongoing':
+      case 'In Progress':
         return 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400';
       case 'QA':
       case 'User Testing':
