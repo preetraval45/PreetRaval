@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 export function Hero() {
-  const roles = ['Full-Stack Developer', 'Generative AI Engineer', 'Software Engineer', 'Junior DevOps Engineer (AI Systems)'];
+  const roles = ['DevOps Engineer (AI Systems)', 'Full-Stack Developer', 'Software Engineer', 'Generative AI Engineer'];
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
 
   // Calculate months of experience from June 2025
@@ -70,7 +70,7 @@ export function Hero() {
 
             {/* Description */}
             <p className="text-base sm:text-lg md:text-xl leading-relaxed text-slate-700 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0">
-              Passionate developer specializing in <span className="font-semibold text-blue-700 dark:text-blue-300">enterprise SaaS platforms</span> with high interest in <span className="font-semibold text-indigo-700 dark:text-indigo-300">AI and cybersecurity</span>. Experienced in building secure systems with Next.js, FastAPI, PostgreSQL, Docker, and Odoo.
+              DevOps & full-stack engineer who builds and ships <span className="font-semibold text-blue-700 dark:text-blue-300">production systems end-to-end</span>. Track record of owning real products used daily by <span className="font-semibold text-indigo-700 dark:text-indigo-300">50+ people</span>. Specialize in Python, FastAPI, Next.js, Docker, and CI/CD.
             </p>
 
             {/* Stats */}

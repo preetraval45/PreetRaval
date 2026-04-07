@@ -2,40 +2,56 @@
 
 import { GraduationCap, Award, CheckCircle } from 'lucide-react';
 
-const education = {
-  degree: 'B.A. in Computer Science',
-  university: 'University of North Carolina at Charlotte',
-  period: 'Jan 2023 – Dec 2025',
-  status: 'Graduated',
-  coursework: [
-    'Data Structures & Algorithms',
-    'Operating Systems',
-    'Computer Networks',
-    'Database Systems',
-    'Software Engineering',
-    'Cybersecurity',
-    'Machine Learning',
-    'Web Development',
-    'Computer Architecture',
-    'Discrete Mathematics',
-  ],
-};
+const education = [
+  {
+    degree: 'B.A. in Computer Science',
+    university: 'University of North Carolina at Charlotte',
+    location: 'Charlotte, NC',
+    period: 'Jan 2023 – Dec 2025',
+    status: 'Graduated',
+    coursework: [
+      'Data Structures & Algorithms',
+      'Operating Systems',
+      'Computer Networks',
+      'Database Systems',
+      'Software Engineering',
+      'Cybersecurity',
+      'Machine Learning',
+      'Web Development',
+      'Computer Architecture',
+      'Discrete Mathematics',
+    ],
+  },
+  {
+    degree: 'B.Tech in Computer Science (Transfer)',
+    university: 'Vellore Institute of Technology',
+    location: 'Vellore, India',
+    period: 'Sep 2020 – Dec 2022',
+    status: 'Transferred',
+    coursework: [],
+  },
+];
 
 const certifications = [
   {
-    name: 'AWS Solutions Architect Associate – SAA-C03 (Course Completed)',
-    status: 'Course Completed',
+    name: 'AWS Solutions Architect – Associate (Expected Jun 2026)',
+    status: 'In Progress',
     category: 'Cloud',
   },
   {
-    name: 'Cisco CCNA 200-301 – Networking Fundamentals (Course Completed)',
-    status: 'Course Completed',
+    name: 'Cisco CCNA – Networking Fundamentals',
+    status: 'Completed',
     category: 'Networking',
   },
   {
-    name: 'SQL for Any IT Professional – O\'Reilly by Pearson',
-    status: 'May 2025',
+    name: 'SQL for IT Professionals – O\'Reilly by Pearson',
+    status: 'Completed',
     category: 'Database',
+  },
+  {
+    name: 'Coursera: Java OOP',
+    status: 'Completed',
+    category: 'Programming',
   },
   {
     name: 'Cybersecurity: Introduction to Penetration Testing',
@@ -62,11 +78,6 @@ const certifications = [
     status: 'Completed',
     category: 'Web Development',
   },
-  {
-    name: 'Coursera: Java Programming (Primitive Types, Decision Making, OOP)',
-    status: 'Completed',
-    category: 'Programming',
-  },
 ];
 
 const categoryColors: Record<string, string> = {
@@ -90,30 +101,37 @@ export default function EducationPage() {
               <span className="gradient-text">Education</span>
             </h2>
           </div>
-          <div className="card max-w-2xl mx-auto">
-            <div className="flex items-start gap-3 sm:gap-4">
-              <div className="p-2 sm:p-3 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex-shrink-0">
-                <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 dark:text-blue-400" />
-              </div>
-              <div className="flex-1">
-                <div className="flex items-center gap-2 flex-wrap mb-1 sm:mb-2">
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold">{education.degree}</h3>
-                  <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400">{education.status}</span>
+          <div className="space-y-4 max-w-2xl mx-auto">
+            {education.map((edu) => (
+            <div key={edu.degree} className="card">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="p-2 sm:p-3 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex-shrink-0">
+                  <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 dark:text-blue-400" />
                 </div>
-                <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400">{education.university}</p>
-                <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-500 mt-1 sm:mt-2">{education.period}</p>
-                <div className="mt-3 sm:mt-4">
-                  <p className="text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Relevant Coursework</p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {education.coursework.map((course) => (
-                      <span key={course} className="px-2.5 py-1 text-xs bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-full text-blue-700 dark:text-blue-400">
-                        {course}
-                      </span>
-                    ))}
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 flex-wrap mb-1 sm:mb-2">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold">{edu.degree}</h3>
+                    <span className={`px-2 py-0.5 rounded-full text-xs font-semibold ${edu.status === 'Graduated' ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400' : 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400'}`}>{edu.status}</span>
                   </div>
+                  <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400">{edu.university}</p>
+                  <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-500 mt-1">{edu.location}</p>
+                  <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-500 mt-1 sm:mt-2">{edu.period}</p>
+                  {edu.coursework.length > 0 && (
+                  <div className="mt-3 sm:mt-4">
+                    <p className="text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Relevant Coursework</p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {edu.coursework.map((course) => (
+                        <span key={course} className="px-2.5 py-1 text-xs bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-full text-blue-700 dark:text-blue-400">
+                          {course}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  )}
                 </div>
               </div>
             </div>
+            ))}
           </div>
         </div>
 

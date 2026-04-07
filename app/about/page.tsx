@@ -7,25 +7,25 @@ const highlights = [
     icon: Code2,
     title: 'Enterprise Solutions',
     description:
-      'Leading development of NEXUS, ACI Forge, ACI ChatGPT, and KOSH at American Circuits Inc. — enterprise platforms used daily across manufacturing operations for workflow automation, SSO access control, AI reporting, and inventory management.',
+      'Own and maintain production systems used daily by 50+ people at American Circuits Inc. — NEXUS (traveler management), ACI FORGE (SSO portal), ACI ChatGPT (AI assistant), and KOSH (inventory). KOSH and NEXUS are now integrated for unified production intelligence.',
   },
   {
     icon: Zap,
-    title: 'AI Integration',
+    title: 'DevOps & Infrastructure',
     description:
-      'Built ACI ChatGPT — an internal AI assistant using the ChatGPT API that reduced maintenance overhead by 40% and improved system performance by 30% through AI-driven process prediction and caching.',
+      'Manage Linux server infrastructure with 99%+ uptime. Automated deployment pipelines and reporting tasks using Python and CI/CD, saving 5+ hours per week across 3 teams. Handle patching, backups, monitoring, and secrets management.',
   },
   {
     icon: Target,
     title: 'Full-Stack Excellence',
     description:
-      'End-to-end ownership across the stack: Next.js and React frontends, FastAPI and Python backends, PostgreSQL databases, Docker deployments, Nginx configuration, and Vercel hosting for live client websites.',
+      'End-to-end ownership across the stack: Next.js and React frontends, FastAPI and Python backends, PostgreSQL databases, Docker deployments, Nginx configuration, Cloudflare Tunnels, and Vercel hosting for live client websites.',
   },
   {
     icon: Rocket,
     title: 'AI & Cybersecurity',
     description:
-      'High interest in AI and cybersecurity — with hands-on skills in LLM integration, generative AI, penetration testing, vulnerability assessment, network security, and SSO/OAuth implementation.',
+      'Deep interest in AI and cybersecurity — with hands-on skills in LLM integration, ChatGPT API, prompt engineering, conversational AI, penetration testing, vulnerability assessment, and SSO/MFA implementation.',
   },
 ];
 
@@ -49,7 +49,7 @@ export default function AboutPage() {
             <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 dark:from-blue-400 dark:via-indigo-400 dark:to-blue-500 bg-clip-text text-transparent">About Me</span>
           </h2>
           <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 max-w-2xl mx-auto font-medium px-4">
-            Full-Stack Developer with high interest in AI and cybersecurity
+            DevOps & Full-Stack Engineer who builds and ships production systems end-to-end
           </p>
         </div>
 
@@ -74,13 +74,12 @@ export default function AboutPage() {
           {/* Professional Summary */}
           <div className="card mb-6 sm:mb-8 md:mb-10 hover:border-blue-300 dark:hover:border-blue-700 transition-all">
             <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
-              I'm a <span className="font-bold text-blue-600 dark:text-blue-400">Software Engineer</span> with a strong track record of building and shipping
-              enterprise-grade SaaS platforms, AI automation systems, and full-stack web applications.
-              At <span className="font-bold text-indigo-600 dark:text-indigo-400">American Circuits Inc.</span>, I lead development across four production systems — NEXUS (traveler management), ACI Forge (SSO enterprise portal), ACI ChatGPT (internal AI assistant), and KOSH (inventory management) — all actively used across manufacturing operations.
+              I'm a <span className="font-bold text-blue-600 dark:text-blue-400">DevOps & Full-Stack Engineer</span> who builds and ships production systems end-to-end.
+              At <span className="font-bold text-indigo-600 dark:text-indigo-400">American Circuits Inc.</span>, I own real products used daily by 50+ people — currently serving as DevOps Engineer (AI Systems), managing infrastructure, CI/CD pipelines, and internal tooling. Previously built NEXUS (traveler management) and ACI FORGE (SSO enterprise portal) from scratch as a Software Engineer.
             </p>
             <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed mt-4 sm:mt-6">
-              My expertise spans the full stack — React and Next.js frontends, FastAPI and Python backends, PostgreSQL databases, Docker deployments, and Nginx infrastructure. Outside of work, I've built live client websites, a financial fraud detection system, and AI/ML research tools.
-              I have deep interest in <span className="font-bold text-blue-600 dark:text-blue-400">AI and cybersecurity</span>, including LLM integration, generative AI, penetration testing, and network security.
+              My expertise spans Python, FastAPI, Next.js, Docker, CI/CD, PostgreSQL, Nginx, and Linux server infrastructure. I recently led the integration of KOSH and NEXUS — where KOSH inventory data now feeds into NEXUS for predictive delay analytics and cross-system production intelligence.
+              Outside of work, I've built live client websites, a financial fraud detection system, and AI/ML research tools.
             </p>
           </div>
 

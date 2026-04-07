@@ -6,19 +6,22 @@ import { useState } from 'react';
 const projects = [
   // ── Office / Enterprise ──────────────────────────────────────────────────
   {
-    title: 'NEXUS – Traveler Management System',
-    status: 'QA',
+    title: 'NEXUS – Traveler Management & Workflow Automation',
+    status: 'User Testing',
     category: 'Enterprise',
-    role: 'Project Lead',
+    role: 'Project Lead & Product Owner',
     company: 'American Circuits Inc.',
     description:
-      'The future operational backbone of American Circuits Inc. - a centralized enterprise platform for traveler lifecycle management, step-based workflow automation, QC enforcement, and real-time production analytics.',
+      'The operational backbone of American Circuits Inc. — a centralized enterprise platform for traveler lifecycle management, step-based workflow automation, QC enforcement, and real-time production analytics. Currently in user testing and performance testing phase.',
     technologies: ['Next.js', 'FastAPI', 'PostgreSQL', 'Docker', 'Nginx'],
     highlights: [
-      'QR/Barcode scanning and operator tracking',
-      'Automated routing between departments',
-      'Step validation logic to reduce human error',
-      'Complete traveler audit-history reconstruction',
+      'Solo-built from day one — designed schema, REST API, role hierarchy, and UI, then took it through staging to live production',
+      'QR/barcode scanning with strict step-by-step work-center routing enforcement',
+      'Live operations dashboard with job status, queue depths, operator activity, and QC sign-off tracking',
+      'Integrated with KOSH — admin users can connect travelers sharing the same job number for grouped tracking',
+      'Work centers connected by category and department for flexible production flow views',
+      'Predictive delay analytics using cross-system data to forecast production bottlenecks',
+      'Role-based access, encrypted API calls, and fully reconstructible audit history for every action',
     ],
   },
   {
@@ -28,12 +31,12 @@ const projects = [
     role: 'Project Lead',
     company: 'American Circuits Inc.',
     description:
-      'Centralized enterprise portal where employees log in once and access all internal tools based on their assigned role — eliminating per-app credentials through SSO. Includes a maintenance request system, role-gated dashboards, and a unified entry point across all ACI applications.',
-    technologies: ['Next.js', 'Python', 'TypeScript', 'PostgreSQL', 'Docker'],
+      'Centralized enterprise portal where employees log in once and access all internal tools based on their assigned role — eliminating per-app credentials through SSO and MFA. Includes a maintenance request system, role-gated dashboards, and a unified entry point across all ACI applications.',
+    technologies: ['Next.js', 'Python', 'TypeScript', 'PostgreSQL', 'Docker', 'Cloudflare Tunnels'],
     highlights: [
-      'Single Sign-On (SSO) — one login grants access to all apps based on user role',
+      'SSO and MFA authentication — one login grants access to all apps based on user role',
+      'Cloudflare Tunnel setup so the public site talks to the on-prem backend without exposing it to the internet',
       'Role-based access control across all integrated tools',
-      'Maintenance request form with tracking and routing',
       'Unified dashboard with personalized tool visibility per user',
     ],
   },
@@ -53,37 +56,38 @@ const projects = [
     ],
   },
   {
-    title: 'KOSH Inventory System',
-    status: 'Completed',
+    title: 'KOSH – Inventory Management System',
+    status: 'Production',
     category: 'Enterprise',
-    role: 'Developer',
+    role: 'Project Lead',
     company: 'American Circuits Inc.',
     description:
-      'Full-scale inventory management platform with barcode scanning, real-time stock tracking, predictive analytics, and automated alerts.',
+      'Full-scale inventory management platform fully deployed and relied on daily by users. Integrated with NEXUS — KOSH data feeds into NEXUS for predictive delay analytics and production intelligence.',
     technologies: ['Next.js', 'FastAPI', 'PostgreSQL'],
     highlights: [
-      'Inventory forecasting with ML',
-      'Role-based permissions',
-      'Product movement history & audit logs',
-      'Low-stock alerts and notifications',
+      'Fully deployed — 100% user adoption, the primary system for inventory operations',
+      'Integrated with NEXUS — KOSH data used for predicting production delays and bottlenecks',
+      'Inventory forecasting with ML-based predictive analytics',
+      'Role-based permissions and full product movement audit logs',
+      'Low-stock alerts, automated reorder triggers, and notifications',
     ],
   },
 
   // ── Live Client Websites ─────────────────────────────────────────────────
   {
-    title: 'The Serenity Living Website',
+    title: 'Serenity Living',
     status: 'Live',
     category: 'Client Work',
-    role: 'Full Ownership',
+    role: 'Project Owner',
     link: 'https://www.theserenityliving.com/',
     description:
-      'High-performance real-estate/assisted living website with custom CMS features, hosted on Vercel.',
+      'Took the project from a client brief to a fully live, optimized site — handled UI/UX design, backend services, and Vercel deployment. Managed every client conversation, timeline, and revision cycle independently.',
     technologies: ['Next.js', 'Nginx', 'PostgreSQL', 'Python', 'Vercel'],
     highlights: [
-      'Full UI/UX design and implementation',
-      'Domain configuration and SSL setup',
-      'SEO optimization',
-      'Secure contact handling and data routing',
+      'Clean, responsive interface with fast load times and mobile-first layouts',
+      '100% uptime since delivery with no engineering support required',
+      'Post-launch performance tuning and real user feedback resolution — 0 major incidents',
+      'Full domain configuration, SSL setup, and SEO optimization',
     ],
   },
   // ── Personal Projects ────────────────────────────────────────────────────
@@ -196,6 +200,7 @@ export default function ProjectsPage() {
       case 'Ongoing':
         return 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400';
       case 'QA':
+      case 'User Testing':
         return 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400';
       case 'Completed':
         return 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400';
