@@ -9,7 +9,7 @@ const experiences = [
     title: 'DevOps Engineer – AI Systems',
     period: 'Mar 2026 – Present',
     current: true,
-    tech: ['Linux', 'Python', 'CI/CD', 'GitHub Actions', 'Docker', 'REST APIs', 'Secrets Management'],
+    tech: ['Linux', 'Python', 'CI/CD', 'GitHub Actions', 'Docker', 'Nginx', 'Networking', 'Secrets Management'],
     achievements: [
       {
         title: 'Internal Tooling & Automation',
@@ -30,6 +30,17 @@ const experiences = [
           'Work centers are connected in two dimensions — by category and by department — giving supervisors flexible views of production flow',
           'KOSH inventory data is used inside NEXUS to predict delays in production and forecast bottlenecks before they occur',
           'Cross-system data enables real-time scheduling decisions by correlating inventory levels with traveler progress',
+        ],
+      },
+      {
+        title: 'Server & Network Infrastructure',
+        status: 'In Progress',
+        description:
+          'Leading the buildout of on-premise server and network architecture to host enterprise platforms, local databases, and internal network services — an active initiative in my DevOps role.',
+        highlights: [
+          'Designing a 4-server setup for local hosting of NEXUS, ACI Forge, KOSH, and supporting services',
+          'Standing up local PostgreSQL database servers, Nginx reverse proxies, and Docker deployments across production servers',
+          'Planning internal network routing, firewall rules, and secure access controls for all hosted platforms',
         ],
       },
     ],
@@ -69,16 +80,6 @@ const experiences = [
         highlights: [
           'Consolidated multiple PostgreSQL databases into a unified production server, improving system reliability and reducing maintenance by 40%',
           'Improved system performance by 30% through backend optimization, caching logic, and AI-driven process prediction',
-        ],
-      },
-      {
-        title: 'Server & Network Infrastructure',
-        description:
-          'Designed and managed on-premise server architecture to host enterprise platforms, local databases, and internal network services.',
-        highlights: [
-          'Architected a 4-server setup for local hosting of NEXUS, ACI Forge, KOSH, and supporting services',
-          'Configured and managed local PostgreSQL database servers, Nginx reverse proxies, and Docker deployments across production servers',
-          'Planned and maintained internal network routing, firewall rules, and secure access controls for all hosted platforms',
         ],
       },
       {
@@ -155,8 +156,13 @@ export default function ExperiencePage() {
               {exp.achievements.map((achievement, index) => (
                 <div key={index} className={`space-y-3 ${index < exp.achievements.length - 1 ? 'pb-8 border-b border-slate-200 dark:border-slate-700' : ''}`}>
                   <div>
-                    <h4 className="text-xl font-semibold text-blue-600 dark:text-blue-400 mb-2">
+                    <h4 className="text-xl font-semibold text-blue-600 dark:text-blue-400 mb-2 flex flex-wrap items-center gap-2">
                       {achievement.title}
+                      {(achievement as { status?: string }).status && (
+                        <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400">
+                          {(achievement as { status?: string }).status}
+                        </span>
+                      )}
                     </h4>
                     <p className="text-gray-600 dark:text-gray-400">{achievement.description}</p>
                   </div>
