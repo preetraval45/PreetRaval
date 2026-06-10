@@ -89,6 +89,16 @@ const categoryColors: Record<string, string> = {
   'Web Development': 'bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-400',
 };
 
+// Left-border accent + icon tint per certification category
+const categoryAccent: Record<string, { border: string; icon: string }> = {
+  Cloud: { border: 'border-l-blue-500', icon: 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400' },
+  Networking: { border: 'border-l-green-500', icon: 'bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400' },
+  Database: { border: 'border-l-purple-500', icon: 'bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400' },
+  Security: { border: 'border-l-red-500', icon: 'bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400' },
+  Programming: { border: 'border-l-orange-500', icon: 'bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400' },
+  'Web Development': { border: 'border-l-pink-500', icon: 'bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400' },
+};
+
 export default function EducationPage() {
   return (
     <div className="fade-in">
@@ -103,9 +113,10 @@ export default function EducationPage() {
           </div>
           <div className="space-y-4 max-w-2xl mx-auto">
             {education.map((edu) => (
-            <div key={edu.degree} className="card">
+            <div key={edu.degree} className="card relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500" />
               <div className="flex items-start gap-3 sm:gap-4">
-                <div className="p-2 sm:p-3 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex-shrink-0">
+                <div className="p-2 sm:p-3 rounded-lg bg-gradient-to-br from-blue-100 to-indigo-100 dark:from-blue-900/30 dark:to-indigo-900/30 flex-shrink-0">
                   <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 dark:text-blue-400" />
                 </div>
                 <div className="flex-1">
@@ -147,14 +158,16 @@ export default function EducationPage() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-            {certifications.map((cert, index) => (
+            {certifications.map((cert, index) => {
+              const accent = categoryAccent[cert.category] ?? categoryAccent.Programming;
+              return (
               <div
                 key={index}
-                className="card hover:scale-[1.02] sm:hover:scale-105 transition-transform duration-300"
+                className={`card border-l-4 ${accent.border} hover:scale-[1.02] sm:hover:scale-105 transition-transform duration-300`}
               >
                 <div className="flex items-start gap-2.5 sm:gap-3">
-                  <div className="p-1.5 sm:p-2 rounded-lg bg-green-100 dark:bg-green-900/30 flex-shrink-0">
-                    <Award className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 dark:text-green-400" />
+                  <div className={`p-1.5 sm:p-2 rounded-lg flex-shrink-0 ${accent.icon}`}>
+                    <Award className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <h4 className="font-semibold text-xs sm:text-sm mb-1.5 sm:mb-2 leading-tight">{cert.name}</h4>
@@ -178,7 +191,8 @@ export default function EducationPage() {
                   </div>
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

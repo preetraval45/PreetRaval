@@ -8,6 +8,8 @@ const experiences = [
     location: 'Charlotte, NC',
     title: 'DevOps Engineer – AI Systems',
     period: 'Mar 2026 – Present',
+    current: true,
+    tech: ['Linux', 'Python', 'CI/CD', 'GitHub Actions', 'Docker', 'REST APIs', 'Secrets Management'],
     achievements: [
       {
         title: 'Internal Tooling & Automation',
@@ -37,6 +39,7 @@ const experiences = [
     location: 'Charlotte, NC',
     title: 'Software Engineer',
     period: 'Jun 2025 – Mar 2026',
+    tech: ['Next.js', 'FastAPI', 'PostgreSQL', 'Docker', 'Nginx', 'Cloudflare Tunnel', 'SSO / MFA'],
     achievements: [
       {
         title: 'NEXUS - Enterprise Traveler Management System',
@@ -107,11 +110,12 @@ export default function ExperiencePage() {
 
         <div className="max-w-4xl mx-auto space-y-8">
           {experiences.map((exp, expIndex) => (
-          <div key={expIndex} className="card">
+          <div key={expIndex} className="card relative overflow-hidden">
+            <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500" />
             {/* Company Header */}
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
+            <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-lg bg-blue-100 dark:bg-blue-900/30">
+                <div className="p-3 rounded-lg bg-gradient-to-br from-blue-100 to-indigo-100 dark:from-blue-900/30 dark:to-indigo-900/30">
                   <Briefcase className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                 </div>
                 <div>
@@ -120,11 +124,31 @@ export default function ExperiencePage() {
                   <p className="text-sm text-gray-500 dark:text-gray-500">{exp.location}</p>
                 </div>
               </div>
-              <div className="flex items-center gap-2 mt-4 md:mt-0 text-gray-600 dark:text-gray-400">
-                <Calendar className="w-4 h-4" />
-                <span>{exp.period}</span>
-              </div>
+              <span className={`inline-flex items-center gap-2 mt-4 md:mt-0 px-3 py-1.5 rounded-full text-sm font-semibold whitespace-nowrap ${
+                exp.current
+                  ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400'
+                  : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
+              }`}>
+                {exp.current
+                  ? <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                  : <Calendar className="w-3.5 h-3.5" />}
+                {exp.period}
+              </span>
             </div>
+
+            {/* Tech stack */}
+            {exp.tech && (
+              <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-6">
+                {exp.tech.map((t) => (
+                  <span
+                    key={t}
+                    className="px-2.5 py-1 text-xs font-medium bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-900/40 rounded-full text-blue-700 dark:text-blue-300"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            )}
 
             {/* Achievements */}
             <div className="space-y-8">

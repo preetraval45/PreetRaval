@@ -6,24 +6,36 @@ const highlights = [
   {
     icon: Code2,
     title: 'Enterprise Solutions',
+    accent: 'from-blue-500 to-indigo-600',
+    iconBg: 'from-blue-100 to-indigo-100 dark:from-blue-900/30 dark:to-indigo-900/30',
+    iconColor: 'text-blue-600 dark:text-blue-400',
     description:
       'Own and maintain production systems used daily by 50+ people at American Circuits Inc. — NEXUS (traveler management), ACI FORGE (SSO portal), ACI ChatGPT (AI assistant), and KOSH (inventory). KOSH and NEXUS are now integrated for unified production intelligence.',
   },
   {
     icon: Zap,
     title: 'DevOps & Infrastructure',
+    accent: 'from-emerald-500 to-teal-600',
+    iconBg: 'from-emerald-100 to-teal-100 dark:from-emerald-900/30 dark:to-teal-900/30',
+    iconColor: 'text-emerald-600 dark:text-emerald-400',
     description:
       'Manage Linux server infrastructure with 99%+ uptime. Automated deployment pipelines and reporting tasks using Python and CI/CD, saving 5+ hours per week across 3 teams. Handle patching, backups, monitoring, and secrets management.',
   },
   {
     icon: Target,
     title: 'Full-Stack Excellence',
+    accent: 'from-violet-500 to-purple-600',
+    iconBg: 'from-violet-100 to-purple-100 dark:from-violet-900/30 dark:to-purple-900/30',
+    iconColor: 'text-violet-600 dark:text-violet-400',
     description:
       'End-to-end ownership across the stack: Next.js and React frontends, FastAPI and Python backends, PostgreSQL databases, Docker deployments, Nginx configuration, Cloudflare Tunnels, and Vercel hosting for live client websites.',
   },
   {
     icon: Rocket,
     title: 'AI & Cybersecurity',
+    accent: 'from-orange-500 to-pink-600',
+    iconBg: 'from-orange-100 to-pink-100 dark:from-orange-900/30 dark:to-pink-900/30',
+    iconColor: 'text-orange-600 dark:text-orange-400',
     description:
       'Deep interest in AI and cybersecurity — with hands-on skills in LLM integration, ChatGPT API, prompt engineering, conversational AI, penetration testing, vulnerability assessment, and SSO/MFA implementation.',
   },
@@ -61,9 +73,8 @@ export default function AboutPage() {
               <span className="text-sm font-semibold text-green-700 dark:text-green-400">Open to new opportunities</span>
             </div>
             <a
-              href="https://docs.google.com/document/d/1ZIAWshIYgeGcQCo9QJtR2q8F_iBRkQnD2f9LeKMIrAs/edit?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/Preet Raval Resume.pdf"
+              download="Preet-Raval-Resume.pdf"
               className="flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold transition-colors"
             >
               <Download className="w-4 h-4" />
@@ -88,11 +99,12 @@ export default function AboutPage() {
             {highlights.map((highlight, index) => (
               <div
                 key={index}
-                className="group card hover:scale-[1.02] hover:border-blue-300 dark:hover:border-blue-700 transition-all duration-300"
+                className="group card relative overflow-hidden hover:scale-[1.02] hover:border-blue-300 dark:hover:border-blue-700 transition-all duration-300"
               >
+                <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${highlight.accent}`} />
                 <div className="flex items-start gap-3 sm:gap-4">
-                  <div className="p-2.5 sm:p-3 rounded-xl bg-gradient-to-br from-blue-100 to-indigo-100 dark:from-blue-900/30 dark:to-indigo-900/30 flex-shrink-0 group-hover:scale-110 transition-transform">
-                    <highlight.icon className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 dark:text-blue-400" />
+                  <div className={`p-2.5 sm:p-3 rounded-xl bg-gradient-to-br ${highlight.iconBg} flex-shrink-0 group-hover:scale-110 transition-transform`}>
+                    <highlight.icon className={`w-5 h-5 sm:w-6 sm:h-6 ${highlight.iconColor}`} />
                   </div>
                   <div>
                     <h3 className="text-lg sm:text-xl font-bold mb-1.5 sm:mb-2 text-slate-800 dark:text-slate-100">{highlight.title}</h3>
