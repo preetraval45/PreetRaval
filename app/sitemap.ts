@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/about`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${base}/experience`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${base}/projects`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${base}/projects/vyne`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${base}/skills`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${base}/education`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${base}/contact`, lastModified: now, changeFrequency: 'yearly', priority: 0.7 },

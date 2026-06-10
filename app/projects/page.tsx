@@ -1,6 +1,8 @@
 'use client';
 
-import { ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
+import { ExternalLink, ChevronDown, ChevronUp, Building2, Globe, Brain, Rocket, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 
 const projects = [
@@ -11,6 +13,7 @@ const projects = [
     category: 'Personal',
     role: 'Product Owner',
     link: 'https://vyne.vercel.app/',
+    caseStudy: '/projects/vyne',
     description:
       'An AI-native correlation layer built from scratch that ties business events to infrastructure events on a single unified timeline across all connected tools — one platform in place of Slack + Jira + Notion + Datadog + Odoo.',
     technologies: ['Next.js', 'React Native', 'C# .NET 9', 'FastAPI', 'PostgreSQL', 'Docker', 'Terraform', 'AWS', 'LangGraph'],
@@ -197,6 +200,14 @@ const projects = [
 
 const filters = ['All', 'Enterprise', 'Client Work', 'AI & ML', 'Personal'];
 
+// Visual identity per category — drives the card banner gradient + icon
+const categoryVisual: Record<string, { gradient: string; icon: typeof Building2 }> = {
+  Enterprise: { gradient: 'from-blue-600 via-indigo-600 to-blue-800', icon: Building2 },
+  'Client Work': { gradient: 'from-emerald-500 via-teal-600 to-cyan-700', icon: Globe },
+  'AI & ML': { gradient: 'from-fuchsia-600 via-purple-600 to-indigo-700', icon: Brain },
+  Personal: { gradient: 'from-orange-500 via-pink-600 to-purple-700', icon: Rocket },
+};
+
 export default function ProjectsPage() {
   const [activeFilter, setActiveFilter] = useState('All');
   const [expandedCards, setExpandedCards] = useState<Set<string>>(new Set());
@@ -248,6 +259,7 @@ export default function ProjectsPage() {
         {filters.map((filter) => (
           <button
             key={filter}
+            type="button"
             onClick={() => setActiveFilter(filter)}
             className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-all duration-200 border ${
               activeFilter === filter
@@ -275,6 +287,28 @@ export default function ProjectsPage() {
             key={index}
             className="card hover:scale-[1.02] sm:hover:scale-105 transition-transform duration-300 flex flex-col"
           >
+            {/* Banner */}
+            {(() => {
+              const vis = categoryVisual[project.category] ?? categoryVisual.Personal;
+              const BannerIcon = vis.icon;
+              const img = (project as { image?: string }).image;
+              return (
+                <div className={`relative -mx-10 -mt-10 lg:-mx-12 lg:-mt-12 mb-5 sm:mb-6 h-28 sm:h-32 overflow-hidden rounded-t-2xl bg-gradient-to-br ${vis.gradient}`}>
+                  {img ? (
+                    <Image src={img} alt={project.title} fill className="object-cover" />
+                  ) : (
+                    <>
+                      <BannerIcon className="absolute -right-2 -bottom-3 w-24 h-24 sm:w-28 sm:h-28 text-white/15" strokeWidth={1.25} />
+                      <span className="absolute top-3 left-4 text-white/90 text-[11px] sm:text-xs font-bold uppercase tracking-widest">
+                        {project.category}
+                      </span>
+                      <BannerIcon className="absolute top-1/2 left-4 -translate-y-1/2 w-9 h-9 sm:w-11 sm:h-11 text-white" strokeWidth={1.75} />
+                    </>
+                  )}
+                </div>
+              );
+            })()}
+
             {/* Header */}
             <div className="mb-3 sm:mb-4">
               <div className="flex items-start justify-between mb-2">
@@ -333,6 +367,7 @@ export default function ProjectsPage() {
               </ul>
               {project.highlights.length > 3 && (
                 <button
+                  type="button"
                   onClick={() => toggleExpand(project.title)}
                   className="mt-2 flex items-center gap-1 text-xs text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
                 >
@@ -342,6 +377,15 @@ export default function ProjectsPage() {
                     <><ChevronDown className="w-3 h-3" />+{project.highlights.length - 3} more</>
                   )}
                 </button>
+              )}
+              {(project as { caseStudy?: string }).caseStudy && (
+                <Link
+                  href={(project as { caseStudy?: string }).caseStudy!}
+                  className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 dark:text-blue-400 hover:gap-2.5 transition-all"
+                >
+                  Read the case study
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
               )}
             </div>
           </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import { Github, Linkedin, Mail, Download, Cpu, Server, Shield, Globe, Zap, Box, CircuitBoard, Database, Brain } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, Cpu, Server, Shield, Globe, Zap, Box, CircuitBoard, Database, Brain, Activity, Users, TrendingUp, Gauge } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
@@ -84,9 +84,24 @@ export function Hero() {
                 <div className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">Projects Delivered</div>
               </div>
               <div className="space-y-2 p-3 sm:p-4 rounded-xl bg-purple-50/50 dark:bg-purple-900/10 border border-purple-100 dark:border-purple-900/30 transition-all hover:scale-105 min-w-[100px] sm:min-w-[120px]">
-                <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent">50+</div>
-                <div className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">Technologies</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent">99%+</div>
+                <div className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">Production Uptime</div>
               </div>
+            </div>
+
+            {/* Proof Points */}
+            <div className="flex flex-wrap gap-2 sm:gap-2.5 justify-center lg:justify-start">
+              {[
+                { icon: Users, label: '50+ daily users', color: 'text-blue-600 dark:text-blue-400 border-blue-200 dark:border-blue-800 bg-blue-50/60 dark:bg-blue-900/10' },
+                { icon: Activity, label: '99%+ uptime', color: 'text-green-600 dark:text-green-400 border-green-200 dark:border-green-800 bg-green-50/60 dark:bg-green-900/10' },
+                { icon: TrendingUp, label: '40% less maintenance', color: 'text-indigo-600 dark:text-indigo-400 border-indigo-200 dark:border-indigo-800 bg-indigo-50/60 dark:bg-indigo-900/10' },
+                { icon: Gauge, label: '30% faster systems', color: 'text-purple-600 dark:text-purple-400 border-purple-200 dark:border-purple-800 bg-purple-50/60 dark:bg-purple-900/10' },
+              ].map(({ icon: Icon, label, color }) => (
+                <span key={label} className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-xs sm:text-sm font-semibold ${color}`}>
+                  <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                  {label}
+                </span>
+              ))}
             </div>
 
             {/* CTA Buttons */}
@@ -96,9 +111,8 @@ export function Hero() {
                 Get In Touch
               </Link>
               <a
-                href="https://docs.google.com/document/d/1ZIAWshIYgeGcQCo9QJtR2q8F_iBRkQnD2f9LeKMIrAs/edit?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/Preet Raval Resume.pdf"
+                download="Preet-Raval-Resume.pdf"
                 className="btn-secondary inline-flex items-center justify-center gap-2 sm:gap-3 group w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg"
               >
                 <Download className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-y-1 transition-transform" />
