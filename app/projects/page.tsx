@@ -4,6 +4,25 @@ import { ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
 import { useState } from 'react';
 
 const projects = [
+  // ── Flagship ─────────────────────────────────────────────────────────────
+  {
+    title: 'VYNE – AI-Native Company Operating System',
+    status: 'Live',
+    category: 'Personal',
+    role: 'Product Owner',
+    link: 'https://vyne.vercel.app/',
+    description:
+      'An AI-native correlation layer built from scratch that ties business events to infrastructure events on a single unified timeline across all connected tools — one platform in place of Slack + Jira + Notion + Datadog + Odoo.',
+    technologies: ['Next.js', 'React Native', 'C# .NET 9', 'FastAPI', 'PostgreSQL', 'Docker', 'Terraform', 'AWS', 'LangGraph'],
+    highlights: [
+      '15+ modules including chat, projects, docs, voice, and video calls with live transcription and AI meeting recaps auto-linked to relevant projects and incidents',
+      'Causal AI engine points at any incident, churn event, or revenue dip and surfaces the deploys, config changes, and customer signals that correlate with it',
+      'Integrates with GitHub, Sentry, Datadog, HubSpot, Stripe, Linear, and PagerDuty — every event flows into one cross-team timeline without replacing existing workflows',
+      'Full monorepo with 8 microservices: API Gateway, Core Auth, Projects, Messaging, AI, ERP, Observability, Notifications',
+      'AWS infrastructure: ECS Fargate, Aurora Serverless v2, EventBridge, SQS FIFO, Cognito, CloudFront — with GitHub Actions + ArgoCD canary deployments',
+    ],
+  },
+
   // ── Office / Enterprise ──────────────────────────────────────────────────
   {
     title: 'NEXUS – Traveler Management & Workflow Automation',
@@ -91,22 +110,6 @@ const projects = [
     ],
   },
   // ── Personal Projects ────────────────────────────────────────────────────
-  {
-    title: 'VYNE – AI-Native Company Operating System',
-    status: 'Ongoing',
-    category: 'Personal',
-    link: 'https://github.com/preetraval45/VYNE',
-    description:
-      'A single platform to replace Slack + Jira + Notion + Datadog + Odoo. VYNE correlates business events with infrastructure events in real time — when a deployment fails and orders get stuck, it tells you the exact revenue impact.',
-    technologies: ['Next.js', 'React Native', 'C# .NET 9', 'FastAPI', 'PostgreSQL', 'Docker', 'Terraform', 'AWS', 'LangGraph'],
-    highlights: [
-      'Full monorepo with 8 microservices: API Gateway, Core Auth, Projects, Messaging, AI, ERP, Observability, Notifications',
-      'AI module powered by Claude 3.5 Sonnet via AWS Bedrock with RAG and LangGraph agents',
-      'AWS infrastructure: ECS Fargate, Aurora Serverless v2, EventBridge, SQS FIFO, Cognito, CloudFront',
-      'Real-time messaging, project management (Kanban/Sprints), block editor docs, and ERP (inventory/orders/MRP)',
-      'CI/CD with GitHub Actions + ArgoCD canary deployments',
-    ],
-  },
   {
     title: 'YUGMASTRA – Financial Fraud Detection',
     status: 'Completed',
