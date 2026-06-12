@@ -52,6 +52,7 @@ const skillCategories = [
       'MySQL',
       'MongoDB',
       'SQL Server',
+      'Oracle Database',
       'SQL Optimization',
       'Data Modeling',
       'DB Consolidation',

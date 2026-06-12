@@ -153,7 +153,7 @@ export default function AboutPage() {
               <div className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">Technologies</div>
             </div>
             <div className="group text-center p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 border border-orange-200 dark:border-orange-800 hover:scale-105 hover:shadow-lg transition-all">
-              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-600 dark:text-orange-400 mb-1 sm:mb-2">9+</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-600 dark:text-orange-400 mb-1 sm:mb-2">10+</div>
               <div className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">Certifications</div>
             </div>
           </div>

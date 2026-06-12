@@ -9,7 +9,7 @@ const experiences = [
     title: 'DevOps Engineer – AI Systems',
     period: 'Mar 2026 – Present',
     current: true,
-    tech: ['Linux', 'Python', 'CI/CD', 'GitHub Actions', 'Docker', 'Nginx', 'Networking', 'Secrets Management'],
+    tech: ['Linux', 'Python', 'CI/CD', 'GitHub Actions', 'Docker', 'Kubernetes', 'Nginx', 'Networking', 'Secrets Management'],
     achievements: [
       {
         title: 'Internal Tooling & Automation',
@@ -90,6 +90,36 @@ const experiences = [
           'Built barcode and QR scanning workflows for real-time inventory tracking and product movement logging',
           'Implemented ML-based inventory forecasting to predict low-stock conditions and trigger automated reorder alerts',
           'Designed role-based permissions and audit logs for full traceability of inventory changes across departments',
+        ],
+      },
+    ],
+  },
+  {
+    company: 'Skillship Foundation',
+    location: 'Remote',
+    title: 'Frontend Developer Intern',
+    period: 'Jan 2022 – Dec 2022',
+    tech: ['React', 'Next.js', 'Tailwind CSS', 'REST APIs', 'Oracle Database'],
+    achievements: [
+      {
+        title: 'Responsive UI Development',
+        description:
+          'Built and maintained responsive UI components across multiple product modules, translating Figma mockups into pixel-accurate, cross-browser layouts.',
+        highlights: [
+          'Kept the codebase modular and easy to extend as new features were added using React and Next.js',
+          'Translated Figma mockups into pixel-accurate layouts with Tailwind CSS across desktop, tablet, and mobile breakpoints',
+          'Built reusable form components with client-side validation for registration, login, and course enrollment — noticeably reducing incomplete submissions',
+          'Debugged and resolved rendering inconsistencies in Safari and Firefox by tracing vendor-prefixed CSS root causes',
+        ],
+      },
+      {
+        title: 'API Integration & Data Reporting',
+        description:
+          'Integrated REST APIs to render dynamic content and connected the frontend to an Oracle Database-backed reporting endpoint.',
+        highlights: [
+          'Fetched and rendered course listings, user progress, and event schedules dynamically — replacing pages previously updated by hand',
+          'Wrote lightweight query calls against an Oracle Database reporting endpoint and mapped results into structured dashboard components',
+          'Participated in sprint planning and design reviews, flagging implementation blockers early to keep story estimates accurate',
         ],
       },
     ],

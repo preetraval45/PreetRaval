@@ -39,6 +39,11 @@ const certifications = [
     category: 'Cloud',
   },
   {
+    name: 'Claude Code In Action – Anthropic',
+    status: 'Completed',
+    category: 'AI',
+  },
+  {
     name: 'Cisco CCNA – Networking Fundamentals',
     status: 'Completed',
     category: 'Networking',
@@ -87,6 +92,7 @@ const categoryColors: Record<string, string> = {
   Security: 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400',
   Programming: 'bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400',
   'Web Development': 'bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-400',
+  AI: 'bg-fuchsia-100 dark:bg-fuchsia-900/30 text-fuchsia-700 dark:text-fuchsia-400',
 };
 
 // Left-border accent + icon tint per certification category
@@ -97,6 +103,7 @@ const categoryAccent: Record<string, { border: string; icon: string }> = {
   Security: { border: 'border-l-red-500', icon: 'bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400' },
   Programming: { border: 'border-l-orange-500', icon: 'bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400' },
   'Web Development': { border: 'border-l-pink-500', icon: 'bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400' },
+  AI: { border: 'border-l-fuchsia-500', icon: 'bg-fuchsia-100 dark:bg-fuchsia-900/30 text-fuchsia-600 dark:text-fuchsia-400' },
 };
 
 export default function EducationPage() {
