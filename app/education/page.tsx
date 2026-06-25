@@ -1,4 +1,4 @@
-import { GraduationCap, MapPin, Calendar, ArrowRight, Star, CheckCircle2, Clock } from 'lucide-react';
+import { GraduationCap, MapPin, Calendar, ArrowRight, Star, CheckCircle2, Clock, ExternalLink } from 'lucide-react';
 
 const education = [
   {
@@ -36,10 +36,10 @@ const featuredCert = {
 };
 
 const certifications = [
-  { name: 'Google Data Analytics Professional Certificate', issuer: 'Coursera / Google', category: 'Data Analytics', date: '05/2025' },
-  { name: 'AWS Cloud Solutions', issuer: 'Coursera / AWS', category: 'Cloud', date: '06/2025' },
-  { name: 'Networking Fundamentals and Physical Networks', issuer: 'Coursera', category: 'Networking', date: '06/2026' },
-  { name: 'Claude Code In Action', issuer: 'Anthropic', category: 'AI' },
+  { name: 'Google Data Analytics Professional Certificate', issuer: 'Coursera / Google', category: 'Data Analytics', date: '05/2025', certificate: '/certificates/google-data-analytics.pdf' },
+  { name: 'AWS Cloud Solutions', issuer: 'Coursera / AWS', category: 'Cloud', date: '06/2025', certificate: '/certificates/aws-cloud-solutions.pdf' },
+  { name: 'Networking Fundamentals and Physical Networks', issuer: 'Coursera', category: 'Networking', date: '06/2026', certificate: '/certificates/networking-fundamentals.pdf' },
+  { name: 'Claude Code In Action', issuer: 'Anthropic', category: 'AI', date: '06/2026', certificate: '/certificates/claude-code-in-action.pdf' },
   { name: 'CCNA – Networking Fundamentals', issuer: 'Cisco', category: 'Networking' },
   { name: 'SQL for IT Professionals', issuer: "O'Reilly by Pearson", category: 'Database' },
   { name: 'Introduction to Penetration Testing', issuer: 'Cybersecurity Course', category: 'Security' },
@@ -210,22 +210,33 @@ export default function EducationPage() {
             {certifications.map((cert, i) => {
               const style = categoryStyle[cert.category] ?? categoryStyle.Cloud;
               return (
-                <div key={i} className="rounded-xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-800/60 shadow-sm p-4 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+                <div key={i} className="rounded-xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-800/60 shadow-sm p-4 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col">
                   <div className="flex items-start justify-between gap-2 mb-3">
                     <span className={`px-2.5 py-1 rounded-full text-[11px] font-semibold ${style.badge}`}>
                       {cert.category}
                     </span>
                     <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />
                   </div>
-                  <h4 className="font-semibold text-sm text-slate-800 dark:text-slate-200 mb-1.5 leading-snug">
+                  <h4 className="font-semibold text-sm text-slate-800 dark:text-slate-200 mb-1.5 leading-snug flex-1">
                     {cert.name}
                   </h4>
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between mt-2">
                     <p className="text-xs text-gray-500 dark:text-gray-400">{cert.issuer}</p>
                     {cert.date && (
                       <span className="text-xs text-gray-400 dark:text-gray-500 font-medium">{cert.date}</span>
                     )}
                   </div>
+                  {(cert as { certificate?: string }).certificate && (
+                    <a
+                      href={(cert as { certificate?: string }).certificate}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+                    >
+                      <ExternalLink className="w-3 h-3" />
+                      View Certificate
+                    </a>
+                  )}
                 </div>
               );
             })}
