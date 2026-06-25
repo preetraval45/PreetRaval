@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Github, Linkedin, ExternalLink, Briefcase, Server, Code2, Globe } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Linkedin, ExternalLink, Briefcase, Server, Code2, Globe, Navigation } from 'lucide-react';
 
 const contactMethods = [
   {
@@ -62,7 +62,8 @@ const openTo = [
   { icon: Briefcase, label: 'Full-Time Roles' },
   { icon: Server, label: 'DevOps Engineer' },
   { icon: Code2, label: 'Software Engineer' },
-  { icon: Globe, label: 'Remote / Charlotte, NC' },
+  { icon: Globe, label: 'Remote' },
+  { icon: Navigation, label: 'Open to Relocate' },
 ];
 
 export default function ContactPage() {
@@ -125,7 +126,7 @@ export default function ContactPage() {
             <div className="h-1 w-full bg-linear-to-r from-blue-500 via-indigo-500 to-violet-500" />
             <div className="p-5 sm:p-6">
               <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-4">What I'm looking for</p>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {openTo.map(({ icon: Icon, label }) => (
                   <div key={label} className="flex items-center gap-2.5 p-3 rounded-xl bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800/50">
                     <div className="p-1.5 rounded-lg bg-blue-100 dark:bg-blue-900/40 shrink-0">

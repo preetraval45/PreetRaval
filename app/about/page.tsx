@@ -1,6 +1,6 @@
 'use client';
 
-import { Code2, Rocket, Target, Zap, Download, Briefcase, Globe, Server } from 'lucide-react';
+import { Code2, Rocket, Target, Zap, Download, Briefcase, Globe, Server, MapPin } from 'lucide-react';
 
 const highlights = [
   {
@@ -41,7 +41,8 @@ const openTo = [
   { icon: Briefcase, label: 'Full-Time Roles' },
   { icon: Server, label: 'DevOps Engineer' },
   { icon: Code2, label: 'Software Engineer' },
-  { icon: Globe, label: 'Remote / Charlotte, NC' },
+  { icon: Globe, label: 'Remote' },
+  { icon: MapPin, label: 'Open to Relocate' },
 ];
 
 const stats = [
@@ -97,11 +98,10 @@ export default function AboutPage() {
             <div className="h-1 w-full bg-linear-to-r from-blue-500 via-indigo-500 to-purple-500" />
             <div className="p-5 sm:p-6 space-y-4">
               <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
-                I'm a <span className="font-bold text-blue-600 dark:text-blue-400">DevOps & Full-Stack Engineer</span> who builds and ships production systems end-to-end.
-                At <span className="font-bold text-indigo-600 dark:text-indigo-400">American Circuits Inc.</span>, I own real products used daily by 50+ people — currently serving as DevOps Engineer (AI Systems), managing infrastructure, CI/CD, and internal tooling. Previously built NEXUS and ACI Forge from scratch as a Software Engineer.
+                I'm a DevOps and full-stack engineer based in Charlotte, NC. I spend most of my time building and maintaining the systems that <span className="font-semibold text-indigo-600 dark:text-indigo-400">American Circuits Inc.</span> runs on — from traveler management and inventory to internal AI tools and the infrastructure holding it all together. Over 50 people use what I've built every single day, which keeps me pretty focused on getting things right.
               </p>
               <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
-                My stack spans Python, FastAPI, Next.js, Docker, CI/CD, PostgreSQL, Nginx, and Linux server infrastructure. Recently led KOSH × NEXUS integration — inventory data now feeds predictive delay analytics across the shop floor. Also built an AI-powered PDF to BOM Converter using LLMs and OCR that the procurement team uses daily.
+                I started there as a Software Engineer, building NEXUS and ACI Forge from scratch, and moved into a DevOps role where I now handle infrastructure, CI/CD pipelines, and automation. My day-to-day stack is Python, FastAPI, Next.js, PostgreSQL, and Docker with a lot of Linux server work mixed in. Most recently I built a PDF to BOM converter that uses OCR and an LLM to pull structured component data out of engineering documents — something the procurement team now uses every day.
               </p>
             </div>
           </div>
@@ -109,7 +109,7 @@ export default function AboutPage() {
           {/* What I'm looking for */}
           <div>
             <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-3">What I'm looking for</p>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 sm:gap-2.5">
               {openTo.map(({ icon: Icon, label }) => (
                 <span key={label} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-blue-200 dark:border-blue-800/60 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 text-xs font-semibold">
                   <Icon className="w-3.5 h-3.5" />
