@@ -11,12 +11,12 @@ const projects = [
     title: 'VYNE – AI-Native Company Operating System',
     status: 'Live',
     category: 'Personal',
-    role: 'Product Owner',
+    role: 'Software Engineer & DevOps Engineer',
     link: 'https://vyne.vercel.app/',
     caseStudy: '/projects/vyne',
     description:
       'An AI-native correlation layer built from scratch that ties business events to infrastructure events on a single unified timeline across all connected tools — one platform in place of Slack + Jira + Notion + Datadog + Odoo.',
-    technologies: ['Next.js', 'React Native', 'C# .NET 9', 'FastAPI', 'PostgreSQL', 'Docker', 'Terraform', 'AWS', 'LangGraph'],
+    technologies: ['Next.js', 'React Native', 'C# .NET 9', 'FastAPI', 'PostgreSQL', 'Docker', 'Terraform', 'AWS', 'LangGraph', 'Microservices', 'Event-Driven Architecture', 'System Design', 'CI/CD (GitHub Actions)', 'ArgoCD', 'Product Ownership'],
     highlights: [
       '15+ modules including chat, projects, docs, voice, and video calls with live transcription and AI meeting recaps auto-linked to relevant projects and incidents',
       'Causal AI engine points at any incident, churn event, or revenue dip and surfaces the deploys, config changes, and customer signals that correlate with it',
@@ -29,12 +29,13 @@ const projects = [
   // ── Office / Enterprise ──────────────────────────────────────────────────
   {
     title: 'NEXUS – Traveler Management & Workflow Automation',
-    status: 'User Testing',
+    status: 'Production',
     category: 'Enterprise',
-    role: 'Project Lead & Product Owner',
+    role: 'Software Engineer',
     company: 'American Circuits Inc.',
+    caseStudy: '/projects/nexus',
     description:
-      'The operational backbone of American Circuits Inc. — a centralized enterprise platform for traveler lifecycle management, step-based workflow automation, QC enforcement, and real-time production analytics. Currently in user testing and performance testing phase.',
+      'The operational backbone of American Circuits Inc. — a centralized enterprise platform for traveler lifecycle management, step-based workflow automation, QC enforcement, and real-time production analytics. Live in production and relied on daily across the shop floor.',
     technologies: ['Next.js', 'FastAPI', 'PostgreSQL', 'Docker', 'Nginx'],
     highlights: [
       'Solo-built from day one — designed schema, REST API, role hierarchy, and UI, then took it through staging to live production',
@@ -50,7 +51,7 @@ const projects = [
     title: 'ACI Forge – Enterprise SaaS Platform',
     status: 'Live',
     category: 'Enterprise',
-    role: 'Project Lead',
+    role: 'Software Engineer & DevOps Engineer',
     company: 'American Circuits Inc.',
     description:
       'Centralized enterprise portal where employees log in once and access all internal tools based on their assigned role — eliminating per-app credentials through SSO and MFA. Includes a maintenance request system, role-gated dashboards, and a unified entry point across all ACI applications.',
@@ -66,7 +67,7 @@ const projects = [
     title: 'ACI ChatGPT – Internal AI Assistant',
     status: 'Production',
     category: 'Enterprise',
-    role: 'Developer',
+    role: 'Software Engineer',
     company: 'American Circuits Inc.',
     description:
       'Internal AI automation assistant for reporting, explanation generation, task automation, and production analysis — integrated directly into ACI operations workflows.',
@@ -81,7 +82,7 @@ const projects = [
     title: 'KOSH – Inventory Management System',
     status: 'Production',
     category: 'Enterprise',
-    role: 'Project Lead',
+    role: 'Software Engineer',
     company: 'American Circuits Inc.',
     description:
       'Full-scale inventory management platform fully deployed and relied on daily by users. Integrated with NEXUS — KOSH data feeds into NEXUS for predictive delay analytics and production intelligence.',
@@ -95,12 +96,29 @@ const projects = [
     ],
   },
 
+  {
+    title: 'PDF to BOM Converter',
+    status: 'Production',
+    category: 'Enterprise',
+    role: 'Software Engineer',
+    company: 'American Circuits Inc.',
+    description:
+      'AI-powered tool that converts engineering PDFs and scanned images into structured Bill of Materials Excel files — combining OCR for image/scan extraction with an LLM to intelligently parse, normalize, and map component data into the correct BOM format.',
+    technologies: ['Python', 'FastAPI', 'LLM (OpenAI)', 'OCR', 'OpenCV', 'Pandas', 'openpyxl'],
+    highlights: [
+      'Accepts PDFs and image files — OCR handles scanned documents and photos of physical BOMs',
+      'LLM layer interprets extracted text to identify part numbers, quantities, descriptions, and reference designators regardless of source format',
+      'Outputs a clean, correctly formatted BOM Excel file ready for procurement',
+      'Eliminates manual BOM entry — used daily by engineering and procurement teams',
+    ],
+  },
+
   // ── Live Client Websites ─────────────────────────────────────────────────
   {
     title: 'Serenity Living',
     status: 'Live',
     category: 'Client Work',
-    role: 'Project Owner',
+    role: 'Software Engineer',
     link: 'https://www.theserenityliving.com/',
     description:
       'Took the project from a client brief to a fully live, optimized site — handled UI/UX design, backend services, and Vercel deployment. Managed every client conversation, timeline, and revision cycle independently.',
@@ -112,93 +130,9 @@ const projects = [
       'Full domain configuration, SSL setup, and SEO optimization',
     ],
   },
-  // ── Personal Projects ────────────────────────────────────────────────────
-  {
-    title: 'YUGMASTRA – Financial Fraud Detection',
-    status: 'Completed',
-    category: 'AI & ML',
-    link: 'https://github.com/preetraval45/YUGMASTRA',
-    description:
-      'TypeScript-based financial fraud detection platform leveraging algorithmic analysis to identify suspicious patterns and anomalies in financial transactions in real time.',
-    technologies: ['TypeScript', 'Next.js', 'ML Models', 'PostgreSQL'],
-    highlights: [
-      'Real-time anomaly detection on financial transaction data',
-      'Pattern recognition to flag fraudulent activity',
-      'Dashboard with risk scoring and alert management',
-    ],
-  },
-  {
-    title: 'Samadhan – Resolution Management System',
-    status: 'Completed',
-    category: 'Personal',
-    link: 'https://github.com/preetraval45/Samadhan',
-    description:
-      'Python-based complaint and resolution tracking system designed to streamline the submission, routing, and resolution of issues across teams.',
-    technologies: ['Python', 'FastAPI', 'PostgreSQL'],
-    highlights: [
-      'Issue submission and department-level routing',
-      'Status tracking and resolution audit trail',
-      'Automated escalation logic for unresolved items',
-    ],
-  },
-  {
-    title: 'DHANALAKSHMI – Financial Management System',
-    status: 'Completed',
-    category: 'Personal',
-    description:
-      'Private financial management platform for tracking income, expenses, invoices, and reports — built for business accounting and financial oversight.',
-    technologies: ['Python', 'PostgreSQL', 'FastAPI'],
-    highlights: [
-      'Income and expense tracking with categorization',
-      'Invoice generation and payment status management',
-      'Financial reporting and export functionality',
-    ],
-  },
-  {
-    title: 'Supply Chain Intelligence',
-    status: 'Completed',
-    category: 'AI & ML',
-    description:
-      'AI-powered optimization platform for demand forecasting, supplier risk scoring, logistics optimization, and anomaly detection.',
-    technologies: ['Next.js', 'Python', 'PostgreSQL', 'ML Models'],
-    highlights: [
-      'Predictive dashboards for demand/supply flow',
-      'Supplier performance analytics',
-      'Route optimization using ML-driven cost modeling',
-      'Inventory deviation detection',
-    ],
-  },
-  {
-    title: 'Transformers Flowventory',
-    status: 'Completed',
-    category: 'AI & ML',
-    description:
-      'Inventory forecasting and optimization engine powered by Transformer models for high-accuracy stock prediction.',
-    technologies: ['Python', 'Transformers', 'Pandas', 'ML Pipelines'],
-    highlights: [
-      'Demand prediction using sequence-to-sequence AI',
-      'Automated reorder recommendations',
-      'Seasonal/cyclic inventory pattern detection',
-      'Forecast accuracy benchmarking',
-    ],
-  },
-  {
-    title: 'NeuroSmriti – AI Brain Simulation',
-    status: 'Research',
-    category: 'AI & ML',
-    description:
-      'AI-driven neural simulation toolkit for modeling memory formation, recall degradation, and cognitive pattern loss. Designed for Alzheimer\'s and dementia research.',
-    technologies: ['Python', 'NumPy', 'Matplotlib', 'ML Models'],
-    highlights: [
-      'Memory retention/decay simulations',
-      'Cognitive impairment modeling',
-      'Visual dashboards showing neuron activity',
-      'Modular neural computation blocks',
-    ],
-  },
 ];
 
-const filters = ['All', 'Enterprise', 'Client Work', 'AI & ML', 'Personal'];
+const filters = ['All', 'Enterprise', 'Client Work', 'Personal'];
 
 // Visual identity per category — drives the card banner gradient + icon
 const categoryVisual: Record<string, { gradient: string; icon: typeof Building2 }> = {

@@ -1,6 +1,6 @@
 'use client';
 
-import { Github, Linkedin, Mail, Download, Cpu, Server, Shield, Globe, Zap, Box, CircuitBoard, Database, Brain, Activity, Users, TrendingUp, Gauge } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, Cpu, Server, Shield, Globe, Zap, Box, CircuitBoard, Database, Brain, Activity, Users, TrendingUp, Gauge, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
@@ -11,7 +11,7 @@ export function Hero() {
 
   // Calculate months of experience from June 2025
   const calculateExperience = () => {
-    const startDate = new Date('2025-06-01');
+    const startDate = new Date(2025, 5, 26);
     const currentDate = new Date();
     const months = (currentDate.getFullYear() - startDate.getFullYear()) * 12 +
                    (currentDate.getMonth() - startDate.getMonth());
@@ -106,13 +106,18 @@ export function Hero() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 items-stretch sm:items-center justify-center lg:justify-start">
-              <Link href="/contact" className="btn-primary inline-flex items-center justify-center gap-2 sm:gap-3 group w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg">
+              <Link href="/projects" className="btn-primary inline-flex items-center justify-center gap-2 sm:gap-3 group w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg">
+                View My Work
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link href="/contact" className="btn-secondary inline-flex items-center justify-center gap-2 sm:gap-3 group w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg">
                 <Mail className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-12 transition-transform" />
                 Get In Touch
               </Link>
               <a
-                href="/Preet Raval Resume.pdf"
-                download="Preet-Raval-Resume.pdf"
+                href="https://docs.google.com/document/d/1ioMb8uVqeIjHxnpQzpUtR7N-LuIUneEkGHiLXTdbsDQ/edit?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-secondary inline-flex items-center justify-center gap-2 sm:gap-3 group w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg"
               >
                 <Download className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-y-1 transition-transform" />
@@ -169,7 +174,7 @@ export function Hero() {
                 <div className="relative bg-white dark:bg-slate-900 rounded-full overflow-hidden shadow-xl">
                   <div className="relative aspect-square rounded-full overflow-hidden">
                     <Image
-                      src="/profile.jpg"
+                      src="/Preet Raval.webp"
                       alt="Preet Raval"
                       fill
                       className="object-cover"
