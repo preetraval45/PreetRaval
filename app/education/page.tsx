@@ -36,10 +36,10 @@ const featuredCert = {
 };
 
 const certifications = [
-  { name: 'Google Data Analytics Professional Certificate', issuer: 'Coursera / Google', category: 'Data Analytics', date: '05/2025', certificate: '/certificates/google-data-analytics.pdf' },
-  { name: 'AWS Cloud Solutions', issuer: 'Coursera / AWS', category: 'Cloud', date: '06/2025', certificate: '/certificates/aws-cloud-solutions.pdf' },
-  { name: 'Networking Fundamentals and Physical Networks', issuer: 'Coursera', category: 'Networking', date: '06/2026', certificate: '/certificates/networking-fundamentals.pdf' },
-  { name: 'Claude Code In Action', issuer: 'Anthropic', category: 'AI', date: '06/2026', certificate: '/certificates/claude-code-in-action.pdf' },
+  { name: 'Google Data Analytics Professional Certificate', issuer: 'Coursera / Google', category: 'Data Analytics', date: '05/2025', certificate: 'https://coursera.org/verify/professional-cert/6RNL2W89K2KC' },
+  { name: 'AWS Cloud Solutions', issuer: 'Coursera / AWS', category: 'Cloud', date: '06/2025', certificate: 'https://coursera.org/verify/professional-cert/FH1RIG29S3XE' },
+  { name: 'Networking Fundamentals and Physical Networks', issuer: 'Coursera', category: 'Networking', date: '06/2026', certificate: 'https://coursera.org/verify/NPL0WX44OZ25' },
+  { name: 'Claude Code In Action', issuer: 'Anthropic', category: 'AI', date: '06/2026', certificate: 'https://verify.skilljar.com/c/asafgz6e6gab' },
   { name: 'CCNA – Networking Fundamentals', issuer: 'Cisco', category: 'Networking' },
   { name: 'SQL for IT Professionals', issuer: "O'Reilly by Pearson", category: 'Database' },
   { name: 'Introduction to Penetration Testing', issuer: 'Cybersecurity Course', category: 'Security' },
