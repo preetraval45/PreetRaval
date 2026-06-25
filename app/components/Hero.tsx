@@ -47,7 +47,7 @@ export function Hero() {
             <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-green-500/10 border border-green-500/20 rounded-full backdrop-blur-sm mx-auto lg:mx-0">
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
               <span className="text-xs sm:text-sm font-semibold text-green-700 dark:text-green-300">
-                Open to new opportunities · Remote · Open to Relocate
+                Open to new opportunities · Open to Relocate
               </span>
             </div>
 
