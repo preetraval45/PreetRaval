@@ -1,209 +1,238 @@
-'use client';
-
-import { GraduationCap, Award, CheckCircle } from 'lucide-react';
+import { GraduationCap, MapPin, Calendar, ArrowRight, Star, CheckCircle2, Clock } from 'lucide-react';
 
 const education = [
   {
     degree: 'B.A. in Computer Science',
     university: 'University of North Carolina at Charlotte',
+    short: 'UNCC',
     location: 'Charlotte, NC',
-    period: 'Jan 2023 – Dec 2025',
+    period: '01/2023 – 12/2025',
     status: 'Graduated',
+    primary: true,
     coursework: [
-      'Data Structures & Algorithms',
-      'Operating Systems',
-      'Computer Networks',
-      'Database Systems',
-      'Software Engineering',
-      'Cybersecurity',
-      'Machine Learning',
-      'Web Development',
-      'Computer Architecture',
-      'Discrete Mathematics',
+      'Data Structures & Algorithms', 'Operating Systems', 'Computer Networks',
+      'Database Systems', 'Software Engineering', 'Cybersecurity',
+      'Machine Learning', 'Web Development', 'Computer Architecture', 'Discrete Mathematics',
     ],
   },
   {
-    degree: 'B.Tech in Computer Science (Transfer)',
+    degree: 'B.Tech in Computer Science',
     university: 'Vellore Institute of Technology',
+    short: 'VIT',
     location: 'Vellore, India',
-    period: 'Sep 2020 – Dec 2022',
+    period: '09/2020 – 12/2022',
     status: 'Transferred',
+    primary: false,
     coursework: [],
   },
 ];
 
-const certifications = [
-  {
-    name: 'AWS Solutions Architect – Associate (Expected Jun 2026)',
-    status: 'In Progress',
-    category: 'Cloud',
-  },
-  {
-    name: 'Claude Code In Action – Anthropic',
-    status: 'Completed',
-    category: 'AI',
-  },
-  {
-    name: 'Cisco CCNA – Networking Fundamentals',
-    status: 'Completed',
-    category: 'Networking',
-  },
-  {
-    name: 'SQL for IT Professionals – O\'Reilly by Pearson',
-    status: 'Completed',
-    category: 'Database',
-  },
-  {
-    name: 'Coursera: Java OOP',
-    status: 'Completed',
-    category: 'Programming',
-  },
-  {
-    name: 'Cybersecurity: Introduction to Penetration Testing',
-    status: 'Completed',
-    category: 'Security',
-  },
-  {
-    name: 'Cybersecurity 2023',
-    status: 'Completed',
-    category: 'Security',
-  },
-  {
-    name: 'C# Certification: C Sharp Basic Certificate',
-    status: 'Completed',
-    category: 'Programming',
-  },
-  {
-    name: 'Udemy: C++ Certification',
-    status: 'Completed',
-    category: 'Programming',
-  },
-  {
-    name: 'Udemy: Front-End Development Ultimate Guide',
-    status: 'Completed',
-    category: 'Web Development',
-  },
-];
-
-const categoryColors: Record<string, string> = {
-  Cloud: 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400',
-  Networking: 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400',
-  Database: 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400',
-  Security: 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400',
-  Programming: 'bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400',
-  'Web Development': 'bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-400',
-  AI: 'bg-fuchsia-100 dark:bg-fuchsia-900/30 text-fuchsia-700 dark:text-fuchsia-400',
+const featuredCert = {
+  name: 'AWS Solutions Architect – Associate',
+  issuer: 'Amazon Web Services',
+  category: 'Cloud',
+  status: 'In Progress',
+  expected: 'Expected 06/2026',
 };
 
-// Left-border accent + icon tint per certification category
-const categoryAccent: Record<string, { border: string; icon: string }> = {
-  Cloud: { border: 'border-l-blue-500', icon: 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400' },
-  Networking: { border: 'border-l-green-500', icon: 'bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400' },
-  Database: { border: 'border-l-purple-500', icon: 'bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400' },
-  Security: { border: 'border-l-red-500', icon: 'bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400' },
-  Programming: { border: 'border-l-orange-500', icon: 'bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400' },
-  'Web Development': { border: 'border-l-pink-500', icon: 'bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400' },
-  AI: { border: 'border-l-fuchsia-500', icon: 'bg-fuchsia-100 dark:bg-fuchsia-900/30 text-fuchsia-600 dark:text-fuchsia-400' },
+const certifications = [
+  { name: 'Google Data Analytics Professional Certificate', issuer: 'Coursera / Google', category: 'Data Analytics', date: '05/2025' },
+  { name: 'AWS Cloud Solutions', issuer: 'Coursera / AWS', category: 'Cloud', date: '06/2025' },
+  { name: 'Networking Fundamentals and Physical Networks', issuer: 'Coursera', category: 'Networking', date: '06/2026' },
+  { name: 'Claude Code In Action', issuer: 'Anthropic', category: 'AI' },
+  { name: 'CCNA – Networking Fundamentals', issuer: 'Cisco', category: 'Networking' },
+  { name: 'SQL for IT Professionals', issuer: "O'Reilly by Pearson", category: 'Database' },
+  { name: 'Introduction to Penetration Testing', issuer: 'Cybersecurity Course', category: 'Security' },
+];
+
+const categoryStyle: Record<string, { pill: string; badge: string }> = {
+  Cloud: {
+    pill: 'bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800/60 text-blue-700 dark:text-blue-300',
+    badge: 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400',
+  },
+  Networking: {
+    pill: 'bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800/60 text-green-700 dark:text-green-300',
+    badge: 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400',
+  },
+  Database: {
+    pill: 'bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800/60 text-purple-700 dark:text-purple-300',
+    badge: 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400',
+  },
+  Security: {
+    pill: 'bg-rose-50 dark:bg-rose-900/20 border border-rose-200 dark:border-rose-800/60 text-rose-700 dark:text-rose-300',
+    badge: 'bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-400',
+  },
+  AI: {
+    pill: 'bg-fuchsia-50 dark:bg-fuchsia-900/20 border border-fuchsia-200 dark:border-fuchsia-800/60 text-fuchsia-700 dark:text-fuchsia-300',
+    badge: 'bg-fuchsia-100 dark:bg-fuchsia-900/30 text-fuchsia-700 dark:text-fuchsia-400',
+  },
+  'Data Analytics': {
+    pill: 'bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800/60 text-teal-700 dark:text-teal-300',
+    badge: 'bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-400',
+  },
 };
 
 export default function EducationPage() {
   return (
     <div className="fade-in">
-      <section id="certifications" className="section-container px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
-        {/* Education */}
-        <div className="mb-10 sm:mb-12 md:mb-16">
-          <div className="text-center mb-8 sm:mb-10 md:mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
+      <section className="section-container px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto">
+
+          {/* ── Education ────────────────────────────────── */}
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3">
               <span className="gradient-text">Education</span>
             </h2>
-          </div>
-          <div className="space-y-4 max-w-2xl mx-auto">
-            {education.map((edu) => (
-            <div key={edu.degree} className="card relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500" />
-              <div className="flex items-start gap-3 sm:gap-4">
-                <div className="p-2 sm:p-3 rounded-lg bg-gradient-to-br from-blue-100 to-indigo-100 dark:from-blue-900/30 dark:to-indigo-900/30 flex-shrink-0">
-                  <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 dark:text-blue-400" />
-                </div>
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 flex-wrap mb-1 sm:mb-2">
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold">{edu.degree}</h3>
-                    <span className={`px-2 py-0.5 rounded-full text-xs font-semibold ${edu.status === 'Graduated' ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400' : 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400'}`}>{edu.status}</span>
-                  </div>
-                  <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400">{edu.university}</p>
-                  <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-500 mt-1">{edu.location}</p>
-                  <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-500 mt-1 sm:mt-2">{edu.period}</p>
-                  {edu.coursework.length > 0 && (
-                  <div className="mt-3 sm:mt-4">
-                    <p className="text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Relevant Coursework</p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {edu.coursework.map((course) => (
-                        <span key={course} className="px-2.5 py-1 text-xs bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-full text-blue-700 dark:text-blue-400">
-                          {course}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  )}
-                </div>
-              </div>
-            </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Certifications */}
-        <div>
-          <div className="text-center mb-8 sm:mb-10 md:mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
-              <span className="gradient-text">Certifications & Awards</span>
-            </h2>
-            <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-4">
-              Continuous learning across cloud, cybersecurity, databases, and software development
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
+              Academic journey from India to Charlotte, NC
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-            {certifications.map((cert, index) => {
-              const accent = categoryAccent[cert.category] ?? categoryAccent.Programming;
-              return (
-              <div
-                key={index}
-                className={`card border-l-4 ${accent.border} hover:scale-[1.02] sm:hover:scale-105 transition-transform duration-300`}
-              >
-                <div className="flex items-start gap-2.5 sm:gap-3">
-                  <div className={`p-1.5 sm:p-2 rounded-lg flex-shrink-0 ${accent.icon}`}>
-                    <Award className="w-4 h-4 sm:w-5 sm:h-5" />
+          {/* Journey cards */}
+          <div className="flex flex-col sm:flex-row items-stretch gap-4 sm:gap-0 mb-16 sm:mb-20 max-w-3xl mx-auto">
+            {/* VIT — origin */}
+            <div className="flex-1 rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-800/60 shadow-sm overflow-hidden">
+              <div className="h-1 bg-linear-to-r from-violet-500 to-purple-500" />
+              <div className="p-5 sm:p-6">
+                <div className="flex items-start gap-3 mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-violet-100 dark:bg-violet-900/30 flex items-center justify-center text-violet-700 dark:text-violet-300 font-bold text-sm shrink-0">
+                    VIT
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <h4 className="font-semibold text-xs sm:text-sm mb-1.5 sm:mb-2 leading-tight">{cert.name}</h4>
-                    <div className="flex flex-wrap gap-1.5 sm:gap-2 items-center">
-                      <span
-                        className={`px-2 py-0.5 sm:py-1 rounded-full text-xs font-semibold ${categoryColors[cert.category]}`}
-                      >
-                        {cert.category}
+                  <div>
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 mb-1.5 uppercase tracking-wide">
+                      Transferred
+                    </span>
+                    <h3 className="font-bold text-slate-800 dark:text-slate-200 leading-snug">{education[1].degree}</h3>
+                  </div>
+                </div>
+                <div className="space-y-1.5 text-sm text-gray-500 dark:text-gray-400">
+                  <p className="font-medium text-gray-700 dark:text-gray-300">{education[1].university}</p>
+                  <p className="flex items-center gap-1.5"><MapPin className="w-3.5 h-3.5" />{education[1].location}</p>
+                  <p className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" />{education[1].period}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Arrow connector */}
+            <div className="hidden sm:flex items-center justify-center px-3 shrink-0">
+              <div className="flex flex-col items-center gap-1">
+                <div className="w-px h-6 bg-gradient-to-b from-transparent to-blue-300 dark:to-blue-600" />
+                <ArrowRight className="w-5 h-5 text-blue-400 dark:text-blue-500" />
+                <div className="w-px h-6 bg-gradient-to-b from-blue-300 dark:from-blue-600 to-transparent" />
+              </div>
+            </div>
+            {/* Mobile arrow */}
+            <div className="flex sm:hidden items-center justify-center py-1">
+              <div className="flex items-center gap-2 text-xs text-blue-500 dark:text-blue-400 font-medium">
+                <div className="h-px w-8 bg-blue-300 dark:bg-blue-600" />
+                <ArrowRight className="w-4 h-4" />
+                Transferred to
+                <div className="h-px w-8 bg-blue-300 dark:bg-blue-600" />
+              </div>
+            </div>
+
+            {/* UNCC — primary */}
+            <div className="flex-1 rounded-2xl border-2 border-blue-200 dark:border-blue-700/60 bg-blue-50/40 dark:bg-blue-900/10 shadow-md overflow-hidden">
+              <div className="h-1 bg-linear-to-r from-blue-500 via-indigo-500 to-purple-500" />
+              <div className="p-5 sm:p-6">
+                <div className="flex items-start gap-3 mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center text-blue-700 dark:text-blue-300 font-bold text-xs shrink-0">
+                    UNCC
+                  </div>
+                  <div>
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 mb-1.5 uppercase tracking-wide">
+                      <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
+                      Graduated
+                    </span>
+                    <h3 className="font-bold text-slate-800 dark:text-slate-200 leading-snug">{education[0].degree}</h3>
+                  </div>
+                </div>
+                <div className="space-y-1.5 text-sm text-gray-500 dark:text-gray-400 mb-4">
+                  <p className="font-medium text-gray-700 dark:text-gray-300">{education[0].university}</p>
+                  <p className="flex items-center gap-1.5"><MapPin className="w-3.5 h-3.5" />{education[0].location}</p>
+                  <p className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" />{education[0].period}</p>
+                </div>
+                <div>
+                  <p className="text-xs font-semibold text-slate-600 dark:text-slate-400 uppercase tracking-wide mb-2">Relevant Coursework</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {education[0].coursework.map((course) => (
+                      <span key={course} className="px-2 py-0.5 text-xs rounded-full bg-blue-100 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800/60 text-blue-700 dark:text-blue-300">
+                        {course}
                       </span>
-                      <span className={`text-xs flex items-center gap-1 ${
-                        cert.status === 'Completed' || cert.status === 'Course Completed'
-                          ? 'text-green-600 dark:text-green-400'
-                          : 'text-gray-600 dark:text-gray-400'
-                      }`}>
-                        {(cert.status === 'Completed' || cert.status === 'Course Completed') && (
-                          <CheckCircle className="w-3 h-3" />
-                        )}
-                        {cert.status}
-                      </span>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* ── Certifications ───────────────────────────── */}
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3">
+              <span className="gradient-text">Certifications</span>
+            </h2>
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
+              Continuous learning across cloud, networking, AI, and security
+            </p>
+          </div>
+
+          {/* Featured: AWS SA In Progress */}
+          <div className="relative rounded-2xl overflow-hidden bg-linear-to-r from-blue-600 via-indigo-600 to-blue-700 shadow-lg mb-6 sm:mb-8 p-6 sm:p-8">
+            {/* Decorative background */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-2 right-8 text-white text-[120px] font-black leading-none select-none">AWS</div>
+            </div>
+            <div className="relative flex flex-col sm:flex-row sm:items-center gap-4">
+              <div className="flex items-center gap-3 flex-1">
+                <div className="p-3 rounded-xl bg-white/20 shrink-0">
+                  <Star className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <div className="flex flex-wrap items-center gap-2 mb-1">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-amber-400/30 text-amber-100 border border-amber-300/30">
+                      <Clock className="w-3 h-3" />
+                      In Progress
+                    </span>
+                    <span className="text-blue-200 text-xs">{featuredCert.expected}</span>
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-bold text-white">{featuredCert.name}</h3>
+                  <p className="text-blue-200 text-sm mt-0.5">{featuredCert.issuer}</p>
+                </div>
+              </div>
+              <span className="shrink-0 px-3 py-1.5 rounded-full text-xs font-bold bg-white/20 text-white border border-white/30">
+                {featuredCert.category}
+              </span>
+            </div>
+          </div>
+
+          {/* Cert grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+            {certifications.map((cert, i) => {
+              const style = categoryStyle[cert.category] ?? categoryStyle.Cloud;
+              return (
+                <div key={i} className="rounded-xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-800/60 shadow-sm p-4 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+                  <div className="flex items-start justify-between gap-2 mb-3">
+                    <span className={`px-2.5 py-1 rounded-full text-[11px] font-semibold ${style.badge}`}>
+                      {cert.category}
+                    </span>
+                    <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />
+                  </div>
+                  <h4 className="font-semibold text-sm text-slate-800 dark:text-slate-200 mb-1.5 leading-snug">
+                    {cert.name}
+                  </h4>
+                  <div className="flex items-center justify-between">
+                    <p className="text-xs text-gray-500 dark:text-gray-400">{cert.issuer}</p>
+                    {cert.date && (
+                      <span className="text-xs text-gray-400 dark:text-gray-500 font-medium">{cert.date}</span>
+                    )}
+                  </div>
+                </div>
               );
             })}
           </div>
+
         </div>
-      </div>
-    </section>
+      </section>
     </div>
   );
 }
