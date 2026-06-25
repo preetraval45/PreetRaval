@@ -1,6 +1,7 @@
 'use client';
 
 import { ExternalLink, ChevronDown, ChevronUp, Building2, Globe, Rocket, ArrowRight, CheckCircle2 } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -12,6 +13,7 @@ const projects = [
     role: 'Software Engineer & DevOps Engineer',
     link: 'https://vyne.vercel.app/',
     caseStudy: '/projects/vyne',
+    screenshot: '/vyne-screenshot.png',
     description: 'An AI-native correlation layer built from scratch that ties business events to infrastructure events on a single unified timeline, one platform in place of Slack + Jira + Notion + Datadog + Odoo.',
     technologies: ['Next.js', 'React Native', 'C# .NET 9', 'FastAPI', 'PostgreSQL', 'Docker', 'Terraform', 'AWS', 'LangGraph', 'Microservices', 'CI/CD (GitHub Actions)', 'ArgoCD'],
     highlights: [
@@ -29,6 +31,7 @@ const projects = [
     role: 'Software Engineer',
     company: 'American Circuits Inc.',
     caseStudy: '/projects/nexus',
+    screenshot: '/nexus-screenshot.png',
     description: 'The operational backbone of American Circuits Inc., a centralized enterprise platform for traveler lifecycle management, step-based workflow automation, QC enforcement, and real-time production analytics.',
     technologies: ['Next.js', 'FastAPI', 'PostgreSQL', 'Docker', 'Nginx'],
     highlights: [
@@ -75,6 +78,7 @@ const projects = [
     category: 'Enterprise',
     role: 'Software Engineer',
     company: 'American Circuits Inc.',
+    screenshot: '/kosh-screenshot.png',
     description: 'Full-scale inventory management platform relied on daily by users. Integrated with NEXUS, where KOSH data feeds into NEXUS for predictive delay analytics and production intelligence.',
     technologies: ['Next.js', 'FastAPI', 'PostgreSQL'],
     highlights: [
@@ -226,6 +230,18 @@ export default function ProjectsPage() {
                 key={index}
                 className="rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-800/60 shadow-sm overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex flex-col"
               >
+                {/* Screenshot preview */}
+                {(project as { screenshot?: string }).screenshot && (
+                  <div className="relative h-36 overflow-hidden bg-slate-100 dark:bg-slate-800">
+                    <Image
+                      src={(project as { screenshot?: string }).screenshot!}
+                      alt={`${project.title} screenshot`}
+                      fill
+                      className="object-cover object-top"
+                    />
+                    <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-black/30" />
+                  </div>
+                )}
                 {/* Accent bar */}
                 <div className={`h-1 w-full bg-linear-to-r ${theme.bar}`} />
 
