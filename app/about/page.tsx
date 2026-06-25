@@ -9,7 +9,7 @@ const highlights = [
     bar: 'from-blue-500 to-indigo-600',
     iconBg: 'bg-blue-100 dark:bg-blue-900/30',
     iconColor: 'text-blue-600 dark:text-blue-400',
-    description: 'Own and maintain production systems used daily by 50+ people at American Circuits Inc. — NEXUS, ACI Forge, ACI ChatGPT, KOSH, and PDF to BOM Converter. All integrated and live in production.',
+    description: 'Own and maintain production systems used daily by 50+ people at American Circuits Inc., including NEXUS, ACI Forge, ACI ChatGPT, KOSH, and PDF to BOM Converter. All integrated and live in production.',
   },
   {
     icon: Zap,
@@ -98,10 +98,10 @@ export default function AboutPage() {
             <div className="h-1 w-full bg-linear-to-r from-blue-500 via-indigo-500 to-purple-500" />
             <div className="p-5 sm:p-6 space-y-4">
               <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
-                I'm a DevOps and full-stack engineer based in Charlotte, NC. I spend most of my time building and maintaining the systems that <span className="font-semibold text-indigo-600 dark:text-indigo-400">American Circuits Inc.</span> runs on — from traveler management and inventory to internal AI tools and the infrastructure holding it all together. Over 50 people use what I've built every single day, which keeps me pretty focused on getting things right.
+                I'm a DevOps and full-stack engineer based in Charlotte, NC. I spend most of my time building and maintaining the systems that <span className="font-semibold text-indigo-600 dark:text-indigo-400">American Circuits Inc.</span> runs on, from traveler management and inventory to internal AI tools and the infrastructure holding it all together. Over 50 people use what I've built every single day, which keeps me pretty focused on getting things right.
               </p>
               <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
-                I started there as a Software Engineer, building NEXUS and ACI Forge from scratch, and moved into a DevOps role where I now handle infrastructure, CI/CD pipelines, and automation. My day-to-day stack is Python, FastAPI, Next.js, PostgreSQL, and Docker with a lot of Linux server work mixed in. Most recently I built a PDF to BOM converter that uses OCR and an LLM to pull structured component data out of engineering documents — something the procurement team now uses every day.
+                I started there as a Software Engineer, building NEXUS and ACI Forge from scratch, and moved into a DevOps role where I now handle infrastructure, CI/CD pipelines, and automation. My day-to-day stack is Python, FastAPI, Next.js, PostgreSQL, and Docker with a lot of Linux server work mixed in. Most recently I built a PDF to BOM converter that uses OCR and an LLM to pull structured component data out of engineering documents, and the procurement team now uses it every day.
               </p>
             </div>
           </div>

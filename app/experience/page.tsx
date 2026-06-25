@@ -13,19 +13,19 @@ const experiences = [
     achievements: [
       {
         title: 'Internal Tooling & Automation',
-        description: 'Built and maintain internal tools used daily by the team — automated reports, admin dashboards, and ops utilities integrated with third-party services via REST APIs.',
+        description: 'Built and maintain internal tools used daily by the team, including automated reports, admin dashboards, and ops utilities integrated with third-party services via REST APIs.',
         highlights: [
           'Automated the deployment pipeline and reporting tasks using Python and CI/CD, saving 5+ hours/week across 3 teams',
-          'Manage Linux server infrastructure: patching, backups, monitoring, and alerting — 99%+ uptime with on-call runbooks',
+          'Manage Linux server infrastructure: patching, backups, monitoring, and alerting, maintaining 99%+ uptime with on-call runbooks',
           'Locked down access control with roles, permissions, and secrets management',
         ],
       },
       {
         title: 'KOSH × NEXUS Integration',
-        description: 'Led the integration of KOSH (inventory) and NEXUS (traveler management) — KOSH data feeds directly into NEXUS for predictive analytics and production intelligence.',
+        description: 'Led the integration of KOSH (inventory) and NEXUS (traveler management), with KOSH data feeding directly into NEXUS for predictive analytics and production intelligence.',
         highlights: [
           'Admin users can connect travelers sharing the same job number for grouped tracking and coordinated routing',
-          'Work centers connected by category and department — giving supervisors flexible production flow views',
+          'Work centers connected by category and department, giving supervisors flexible production flow views',
           'KOSH data used inside NEXUS to predict production delays and forecast bottlenecks before they occur',
           'Cross-system data enables real-time scheduling by correlating inventory levels with traveler progress',
         ],
@@ -51,7 +51,7 @@ const experiences = [
     achievements: [
       {
         title: 'NEXUS – Traveler Management System',
-        description: 'Owned end-to-end development of NEXUS — enterprise traveler management and workflow automation now used daily by 50+ people across engineering, ops, QC, and management.',
+        description: 'Owned end-to-end development of NEXUS, an enterprise traveler management and workflow automation system now used daily by 50+ people across engineering, ops, QC, and management.',
         highlights: [
           'Built from scratch: Next.js, FastAPI, PostgreSQL, Docker, and Nginx with real-time QR tracking and step-locked workflows',
           'Implemented role-based access, encrypted API calls, and a fully reconstructible audit history',
@@ -60,7 +60,7 @@ const experiences = [
       },
       {
         title: 'ACI Forge – Enterprise SaaS Platform',
-        description: 'Architect and developer of ACI Forge — a centralized portal for production oversight, role-based tool access, and SSO/MFA authentication used daily by 50+ people.',
+        description: 'Architect and developer of ACI Forge, a centralized portal for production oversight, role-based tool access, and SSO/MFA authentication used daily by 50+ people.',
         highlights: [
           'SSO and MFA authentication with Cloudflare Tunnel connecting the public site to the on-prem backend securely',
           'Built microservices and automation engines using Python, TypeScript, PostgreSQL, and Docker',
@@ -98,7 +98,7 @@ const experiences = [
         description: 'Built and maintained responsive UI components across product modules, translating Figma mockups into pixel-accurate, cross-browser layouts.',
         highlights: [
           'Translated Figma designs into pixel-accurate Tailwind CSS layouts across desktop, tablet, and mobile',
-          'Built reusable form components with client-side validation — noticeably reducing incomplete submissions',
+          'Built reusable form components with client-side validation that noticeably reduced incomplete submissions',
           'Debugged rendering inconsistencies in Safari and Firefox by tracing vendor-prefixed CSS root causes',
         ],
       },

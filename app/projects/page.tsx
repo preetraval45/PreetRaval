@@ -12,7 +12,7 @@ const projects = [
     role: 'Software Engineer & DevOps Engineer',
     link: 'https://vyne.vercel.app/',
     caseStudy: '/projects/vyne',
-    description: 'An AI-native correlation layer built from scratch that ties business events to infrastructure events on a single unified timeline — one platform in place of Slack + Jira + Notion + Datadog + Odoo.',
+    description: 'An AI-native correlation layer built from scratch that ties business events to infrastructure events on a single unified timeline, one platform in place of Slack + Jira + Notion + Datadog + Odoo.',
     technologies: ['Next.js', 'React Native', 'C# .NET 9', 'FastAPI', 'PostgreSQL', 'Docker', 'Terraform', 'AWS', 'LangGraph', 'Microservices', 'CI/CD (GitHub Actions)', 'ArgoCD'],
     highlights: [
       '15+ modules including chat, projects, docs, voice, and video calls with live transcription and AI meeting recaps',
@@ -29,10 +29,10 @@ const projects = [
     role: 'Software Engineer',
     company: 'American Circuits Inc.',
     caseStudy: '/projects/nexus',
-    description: 'The operational backbone of American Circuits Inc. — a centralized enterprise platform for traveler lifecycle management, step-based workflow automation, QC enforcement, and real-time production analytics.',
+    description: 'The operational backbone of American Circuits Inc., a centralized enterprise platform for traveler lifecycle management, step-based workflow automation, QC enforcement, and real-time production analytics.',
     technologies: ['Next.js', 'FastAPI', 'PostgreSQL', 'Docker', 'Nginx'],
     highlights: [
-      'Solo-built from day one — schema, REST API, role hierarchy, and UI through staging to live production',
+      'Solo-built from day one: schema, REST API, role hierarchy, and UI through staging to live production',
       'QR/barcode scanning with strict step-by-step work-center routing enforcement',
       'Live dashboard: job status, queue depths, operator activity, QC sign-off tracking',
       'Integrated with KOSH for grouped traveler tracking and cross-system production intelligence',
@@ -46,10 +46,10 @@ const projects = [
     category: 'Enterprise',
     role: 'Software Engineer & DevOps Engineer',
     company: 'American Circuits Inc.',
-    description: 'Centralized enterprise portal where employees log in once and access all internal tools based on role — SSO and MFA, maintenance request system, role-gated dashboards, unified entry point.',
+    description: 'Centralized enterprise portal where employees log in once and access all internal tools based on role, with SSO and MFA, a maintenance request system, role-gated dashboards, and a unified entry point.',
     technologies: ['Next.js', 'Python', 'TypeScript', 'PostgreSQL', 'Docker', 'Cloudflare Tunnels'],
     highlights: [
-      'SSO and MFA — one login grants access to all apps based on user role',
+      'SSO and MFA: one login grants access to all apps based on user role',
       'Cloudflare Tunnel: public site talks to on-prem backend without internet exposure',
       'Role-based access control across all integrated tools',
       'Unified dashboard with personalized tool visibility per user',
@@ -61,7 +61,7 @@ const projects = [
     category: 'Enterprise',
     role: 'Software Engineer',
     company: 'American Circuits Inc.',
-    description: 'Internal AI automation assistant for reporting, explanation generation, task automation, and production analysis — integrated directly into ACI operations workflows.',
+    description: 'Internal AI automation assistant for reporting, explanation generation, task automation, and production analysis, integrated directly into ACI operations workflows.',
     technologies: ['Python', 'ChatGPT API', 'PostgreSQL', 'FastAPI'],
     highlights: [
       'Reduced maintenance overhead by 40% via PostgreSQL database consolidation',
@@ -75,10 +75,10 @@ const projects = [
     category: 'Enterprise',
     role: 'Software Engineer',
     company: 'American Circuits Inc.',
-    description: 'Full-scale inventory management platform relied on daily by users. Integrated with NEXUS — KOSH data feeds into NEXUS for predictive delay analytics and production intelligence.',
+    description: 'Full-scale inventory management platform relied on daily by users. Integrated with NEXUS, where KOSH data feeds into NEXUS for predictive delay analytics and production intelligence.',
     technologies: ['Next.js', 'FastAPI', 'PostgreSQL'],
     highlights: [
-      '100% user adoption — the primary system for all inventory operations',
+      '100% user adoption as the primary system for all inventory operations',
       'KOSH data used inside NEXUS to predict production delays and bottlenecks',
       'Inventory forecasting with ML-based predictive analytics',
       'Role-based permissions and full product movement audit logs',
@@ -91,13 +91,13 @@ const projects = [
     category: 'Enterprise',
     role: 'Software Engineer',
     company: 'American Circuits Inc.',
-    description: 'AI-powered tool that converts engineering PDFs and scanned images into structured BOM Excel files — OCR for extraction, LLM to parse and map component data into the correct BOM format.',
+    description: 'AI-powered tool that converts engineering PDFs and scanned images into structured BOM Excel files, using OCR for extraction and an LLM to parse and map component data into the correct BOM format.',
     technologies: ['Python', 'FastAPI', 'LLM (OpenAI)', 'OCR', 'OpenCV', 'Pandas', 'openpyxl'],
     highlights: [
-      'Accepts PDFs and image files — OCR handles scanned documents and physical BOM photos',
+      'Accepts PDFs and image files, with OCR handling scanned documents and physical BOM photos',
       'LLM interprets extracted text to identify part numbers, quantities, descriptions, and reference designators',
       'Outputs a clean, correctly formatted BOM Excel file ready for procurement',
-      'Eliminates manual BOM entry — used daily by engineering and procurement teams',
+      'Eliminates manual BOM entry and is used daily by engineering and procurement teams',
     ],
   },
   {
@@ -106,12 +106,12 @@ const projects = [
     category: 'Client Work',
     role: 'Software Engineer',
     link: 'https://www.theserenityliving.com/',
-    description: 'Took the project from a client brief to a fully live, optimized site — handled UI/UX design, backend services, and Vercel deployment. Managed every client conversation, timeline, and revision independently.',
+    description: 'Took the project from a client brief to a fully live, optimized site, handling UI/UX design, backend services, and Vercel deployment. Managed every client conversation, timeline, and revision independently.',
     technologies: ['Next.js', 'Nginx', 'PostgreSQL', 'Python', 'Vercel'],
     highlights: [
       'Clean, responsive interface with fast load times and mobile-first layouts',
       '100% uptime since delivery with no engineering support required',
-      'Post-launch performance tuning and real user feedback resolution — 0 major incidents',
+      'Post-launch performance tuning and real user feedback resolution with 0 major incidents',
       'Full domain configuration, SSL setup, and SEO optimization',
     ],
   },
@@ -185,7 +185,7 @@ export default function ProjectsPage() {
             <span className="gradient-text">Featured Projects</span>
           </h2>
           <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-4">
-            Enterprise platforms, AI systems, and client sites — all production, all used daily
+            Enterprise platforms, AI systems, and client sites, all production, all used daily
           </p>
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-sm font-semibold">
             <CheckCircle2 className="w-4 h-4 text-green-500" />

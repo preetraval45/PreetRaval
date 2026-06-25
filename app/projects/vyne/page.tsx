@@ -42,22 +42,22 @@ const capabilities = [
   {
     icon: Network,
     title: 'Unified correlation timeline',
-    body: 'Business events and infrastructure events land on a single timeline across every connected tool — so a deploy, a config change, and a customer signal sit side by side instead of in seven different dashboards.',
+    body: 'Business events and infrastructure events land on a single timeline across every connected tool, so a deploy, a config change, and a customer signal sit side by side instead of in seven different dashboards.',
   },
   {
     icon: Brain,
     title: 'Causal AI engine',
-    body: 'Point it at any incident, churn event, or revenue dip and it surfaces the deploys, config changes, and customer signals that correlate with it — moving from "what happened" to "what caused it."',
+    body: 'Point it at any incident, churn event, or revenue dip and it surfaces the deploys, config changes, and customer signals that correlate with it, moving from "what happened" to "what caused it."',
   },
   {
     icon: Layers,
     title: '15+ integrated modules',
-    body: 'Chat, projects, docs, voice, and video calls with live transcription — plus AI meeting recaps that auto-link back to the relevant projects and incidents.',
+    body: 'Chat, projects, docs, voice, and video calls with live transcription, plus AI meeting recaps that auto-link back to the relevant projects and incidents.',
   },
   {
     icon: GitBranch,
     title: 'Drop-in integrations',
-    body: 'Connects to GitHub, Sentry, Datadog, HubSpot, Stripe, Linear, and PagerDuty so every event flows into one cross-team timeline — without replacing the workflows teams already use.',
+    body: 'Connects to GitHub, Sentry, Datadog, HubSpot, Stripe, Linear, and PagerDuty so every event flows into one cross-team timeline without replacing the workflows teams already use.',
   },
 ];
 
@@ -86,7 +86,7 @@ export default function VyneCaseStudyPage() {
             <span className="gradient-text">VYNE</span>
           </h1>
           <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
-            An AI-native company operating system — a correlation layer, built from scratch, that ties
+            An AI-native company operating system, a correlation layer built from scratch that ties
             business events to infrastructure events on a single unified timeline across all connected
             tools. One platform in place of Slack + Jira + Notion + Datadog + Odoo.
           </p>
@@ -123,7 +123,7 @@ export default function VyneCaseStudyPage() {
           </div>
           <div className="space-y-4 text-gray-700 dark:text-gray-300 leading-relaxed">
             <p>
-              When a deployment fails and orders get stuck, the cost is real — but the people who feel
+              When a deployment fails and orders get stuck, the cost is real, but the people who feel
               it (revenue, support, ops) and the people who caused it (engineering) are looking at
               completely different tools. Business context lives in Slack, HubSpot, and Stripe;
               infrastructure context lives in Datadog, Sentry, and PagerDuty. Nothing connects the two.
@@ -178,7 +178,7 @@ export default function VyneCaseStudyPage() {
               ))}
             </div>
             <p>
-              It runs on AWS — ECS Fargate for compute, Aurora Serverless v2 for data, EventBridge and
+              It runs on AWS with ECS Fargate for compute, Aurora Serverless v2 for data, EventBridge and
               SQS FIFO for the event backbone that powers the correlation timeline, Cognito for auth, and
               CloudFront at the edge. Deployments ship through GitHub Actions into ArgoCD canary rollouts,
               and the AI layer is built on LangGraph agents with retrieval over the event store.
@@ -211,7 +211,7 @@ export default function VyneCaseStudyPage() {
           </div>
           <ul className="space-y-3">
             {[
-              'Live in production at vyne.vercel.app, owned end-to-end as Product Owner — from architecture and infrastructure to UI and release.',
+              'Live in production at vyne.vercel.app, owned end-to-end as Product Owner, from architecture and infrastructure to UI and release.',
               'Business and infrastructure events now share one timeline, turning multi-tool incident archaeology into a single correlated view.',
               'The causal AI engine connects revenue dips, churn, and incidents back to the deploys and changes that drove them.',
               '15+ modules and 7 third-party integrations ship without forcing teams off the tools they already use.',
