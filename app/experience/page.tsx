@@ -1,10 +1,12 @@
 'use client';
 
 import { Briefcase, Calendar, MapPin, ChevronRight } from 'lucide-react';
+import Image from 'next/image';
 
 const experiences = [
   {
     company: 'American Circuits Inc.',
+    logo: '/American circutis.jpg',
     location: 'Charlotte, NC',
     title: 'DevOps Engineer – AI Systems',
     period: '03/2026 – Present',
@@ -44,6 +46,7 @@ const experiences = [
   },
   {
     company: 'American Circuits Inc.',
+    logo: '/American circutis.jpg',
     location: 'Charlotte, NC',
     title: 'Software Engineer',
     period: '06/2025 – 03/2026',
@@ -88,6 +91,7 @@ const experiences = [
   },
   {
     company: 'Skillship Foundation',
+    logo: '/Skillship foundation Logo.jpg',
     location: 'Remote',
     title: 'Frontend Developer Intern',
     period: '01/2022 – 12/2022',
@@ -205,9 +209,15 @@ export default function ExperiencePage() {
                     {/* Role header */}
                     <div className="px-6 sm:px-8 pt-6 pb-5 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 border-b border-gray-100 dark:border-gray-700/40">
                       <div className="flex items-start gap-4">
-                        {/* Initials badge */}
-                        <div className={`hidden sm:flex shrink-0 w-12 h-12 rounded-xl items-center justify-center text-sm font-bold ${theme.badge}`}>
-                          {exp.company.split(' ').map(w => w[0]).join('').slice(0, 3)}
+                        {/* Company logo */}
+                        <div className="hidden sm:flex shrink-0 w-12 h-12 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-white">
+                          <Image
+                            src={(exp as { logo?: string }).logo ?? ''}
+                            alt={exp.company}
+                            width={48}
+                            height={48}
+                            className="object-contain w-full h-full p-1"
+                          />
                         </div>
                         <div>
                           <div className="flex flex-wrap items-center gap-2 mb-1">
