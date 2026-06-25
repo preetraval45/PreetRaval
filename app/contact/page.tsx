@@ -161,6 +161,17 @@ export default function ContactPage() {
             })}
           </div>
 
+          {/* Why work with me */}
+          <div className="rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-800/60 shadow-sm overflow-hidden">
+            <div className="h-1 w-full bg-linear-to-r from-emerald-500 to-teal-500" />
+            <div className="p-5 sm:p-6">
+              <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-3">Why work with me</p>
+              <p className="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
+                I've been the sole engineer behind five systems that people at American Circuits Inc. use every time they clock in. I don't hand things off. I build them, deploy them, and keep them running. If you need someone who can own a product end-to-end and ship without a lot of hand-holding, that's what I do.
+              </p>
+            </div>
+          </div>
+
           {/* What I'm open to */}
           <div className="rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-800/60 shadow-sm overflow-hidden">
             <div className="h-1 w-full bg-linear-to-r from-blue-500 via-indigo-500 to-violet-500" />

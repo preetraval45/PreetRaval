@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { Code2, Rocket, Target, Zap, Download, Briefcase, Globe, Server, MapPin } from 'lucide-react';
+import { Code2, Rocket, Target, Zap, Download, Briefcase, Globe, Server, MapPin, Github, ExternalLink } from 'lucide-react';
 
 const highlights = [
   {
@@ -169,6 +169,29 @@ export default function AboutPage() {
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* GitHub */}
+          <div>
+            <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-3">On GitHub</p>
+            <a
+              href="https://github.com/preetraval45"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-800/60 shadow-sm overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 block"
+            >
+              <div className="h-1 w-full bg-linear-to-r from-slate-600 to-slate-800" />
+              <div className="p-5 flex items-center gap-4">
+                <div className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-700 shrink-0 group-hover:scale-110 transition-transform">
+                  <Github className="w-5 h-5 text-slate-700 dark:text-slate-300" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="font-bold text-slate-800 dark:text-slate-100 text-sm sm:text-base">github.com/preetraval45</p>
+                  <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">VYNE, NEXUS, portfolio, and more — actively building in public</p>
+                </div>
+                <ExternalLink className="w-4 h-4 text-slate-400 shrink-0" />
+              </div>
+            </a>
           </div>
 
           {/* Published writing */}
