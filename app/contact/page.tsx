@@ -98,7 +98,7 @@ export default function ContactPage() {
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-[10px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-0.5">{m.label}</p>
-                      <p className="font-semibold text-sm text-slate-800 dark:text-slate-200 truncate">{m.value}</p>
+                      <p className="font-semibold text-sm text-slate-800 dark:text-slate-200 break-all">{m.value}</p>
                     </div>
                     {m.href && (
                       <ExternalLink className={`w-3.5 h-3.5 text-gray-400 dark:text-gray-500 shrink-0 transition-colors ${m.arrowHover}`} />
