@@ -12,6 +12,7 @@ const skillCategories = [
       'RAG', 'AI Automation', 'NumPy', 'Pandas', 'Matplotlib', 'ML Pipelines',
       'Data Analytics', 'Data Visualization', 'Tableau', 'Agentic AI (Claude)',
       'R Programming', 'Statistical Analysis', 'Data Cleaning', 'Data Storytelling',
+      'Claude API', 'MCP (Model Context Protocol)', 'AI-Assisted Development', 'Tool Use (Agentic)',
     ],
   },
   {
@@ -40,6 +41,8 @@ const skillCategories = [
       'Vulnerability Assessment', 'AWS', 'AWS Cloud Architecture', 'Azure', 'Vercel',
       'Cloud Security', 'IAM', 'Encryption', 'Networking Fundamentals',
       'TCP/IP', 'OSI Model', 'Routing & Switching', 'Subnetting', 'LAN / WAN',
+      'VLANs', 'Ethernet', 'Wireless Networking (Wi-Fi)', 'Physical Network Topology',
+      'Network Hardware', 'Fiber Optics & Cabling',
     ],
   },
   {
