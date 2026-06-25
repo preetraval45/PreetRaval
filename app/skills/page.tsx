@@ -11,6 +11,7 @@ const skillCategories = [
       'Generative AI', 'TensorFlow', 'PyTorch', 'Transformers (HuggingFace)',
       'RAG', 'AI Automation', 'NumPy', 'Pandas', 'Matplotlib', 'ML Pipelines',
       'Data Analytics', 'Data Visualization', 'Tableau', 'Agentic AI (Claude)',
+      'R Programming', 'Statistical Analysis', 'Data Cleaning', 'Data Storytelling',
     ],
   },
   {
@@ -28,6 +29,7 @@ const skillCategories = [
     skills: [
       'PostgreSQL', 'MySQL', 'MongoDB', 'SQL Server', 'Oracle Database',
       'SQL Optimization', 'Data Modeling', 'DB Consolidation', 'Migrations', 'ORM',
+      'BigQuery', 'Google Sheets',
     ],
   },
   {
@@ -57,6 +59,7 @@ const skillCategories = [
       'Leadership', 'Problem Solving', 'Collaboration', 'Cross-Functional Communication',
       'Project Management', 'Technical Writing', 'Requirements Gathering',
       'BRD / TRD Documentation', 'Technical Presentations', 'Stakeholder Communication',
+      'Data-Driven Decision Making',
     ],
   },
 ];
