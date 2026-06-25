@@ -67,6 +67,7 @@ export default function NexusCaseStudyPage() {
             </span>
             <span className="text-sm text-gray-600 dark:text-gray-400">Project Lead &amp; Product Owner</span>
             <span className="text-sm text-gray-600 dark:text-gray-400">@ American Circuits Inc.</span>
+            <span className="text-xs text-gray-400 dark:text-gray-500 ml-auto">3 min read</span>
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             <span className="gradient-text">NEXUS</span>
@@ -178,7 +179,7 @@ export default function NexusCaseStudyPage() {
               'Currently in user and performance testing ahead of full rollout.',
             ].map((item) => (
               <li key={item} className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
-                <CheckCircle2 className="w-5 h-5 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
+                <CheckCircle2 className="w-5 h-5 text-green-600 dark:text-green-400 mt-0.5 shrink-0" />
                 <span>{item}</span>
               </li>
             ))}

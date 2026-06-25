@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Download } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -47,7 +47,7 @@ export function Navigation() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2 group flex-shrink-0"
+            className="flex items-center gap-2 group shrink-0"
           >
             <span className="text-base sm:text-lg md:text-xl lg:text-2xl font-black gradient-text group-hover:scale-105 transition-transform duration-300">
               Preet Raval
@@ -69,10 +69,19 @@ export function Navigation() {
                 {item.name}
               </Link>
             ))}
+            <a
+              href="https://docs.google.com/document/d/1ioMb8uVqeIjHxnpQzpUtR7N-LuIUneEkGHiLXTdbsDQ/edit?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-1 flex items-center gap-1.5 px-3 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs lg:text-sm font-semibold transition-colors whitespace-nowrap"
+            >
+              <Download className="w-3.5 h-3.5" />
+              Resume
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="lg:hidden flex-shrink-0">
+          <div className="lg:hidden shrink-0">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-2 sm:p-2.5 rounded-lg bg-blue-600 dark:bg-blue-500 text-white hover:bg-blue-700 dark:hover:bg-blue-600 transition-all duration-300 shadow-md touch-manipulation active:scale-95"
@@ -116,6 +125,16 @@ export function Navigation() {
                   {item.fullName || item.name}
                 </Link>
               ))}
+              <a
+                href="https://docs.google.com/document/d/1ioMb8uVqeIjHxnpQzpUtR7N-LuIUneEkGHiLXTdbsDQ/edit?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="flex items-center justify-center gap-2 px-3 py-3 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm transition-colors touch-manipulation"
+              >
+                <Download className="w-4 h-4" />
+                Download Resume
+              </a>
             </div>
           </div>
         </>

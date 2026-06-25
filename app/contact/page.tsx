@@ -1,4 +1,7 @@
-import { Mail, Phone, MapPin, Github, Linkedin, ExternalLink, Briefcase, Server, Code2, Globe, Navigation } from 'lucide-react';
+'use client';
+
+import { useState } from 'react';
+import { Mail, Phone, MapPin, Github, Linkedin, ExternalLink, Briefcase, Server, Code2, Globe, Navigation, Copy, Check } from 'lucide-react';
 
 const contactMethods = [
   {
@@ -67,6 +70,18 @@ const openTo = [
 ];
 
 export default function ContactPage() {
+  const [copiedKey, setCopiedKey] = useState<string | null>(null);
+
+  const copyToClipboard = async (text: string, key: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedKey(key);
+      setTimeout(() => setCopiedKey(null), 2000);
+    } catch {
+      // clipboard not available
+    }
+  };
+
   return (
     <div className="fade-in">
       <section id="contact" className="section-container px-4 sm:px-6 lg:px-8">
@@ -89,8 +104,11 @@ export default function ContactPage() {
           {/* Contact cards grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {contactMethods.map((m) => {
-              const inner = (
-                <div className="rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-800/60 shadow-sm overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 group cursor-pointer">
+              const isCopyable = m.label === 'Email' || m.label === 'Phone';
+              const isCopied = copiedKey === m.label;
+
+              const cardInner = (
+                <div className="rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-800/60 shadow-sm overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 group cursor-pointer h-full">
                   <div className={`h-1 w-full bg-linear-to-r ${m.bar}`} />
                   <div className="p-4 sm:p-5 flex items-center gap-3">
                     <div className={`p-2.5 rounded-xl shrink-0 group-hover:scale-110 transition-transform ${m.iconBg}`}>
@@ -100,12 +118,34 @@ export default function ContactPage() {
                       <p className="text-[10px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-0.5">{m.label}</p>
                       <p className="font-semibold text-sm text-slate-800 dark:text-slate-200 break-all">{m.value}</p>
                     </div>
-                    {m.href && (
+                    {isCopyable ? (
+                      <div className="flex items-center gap-1 shrink-0">
+                        <button
+                          type="button"
+                          onClick={() => copyToClipboard(m.value, m.label)}
+                          title={isCopied ? 'Copied!' : 'Copy'}
+                          className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                        >
+                          {isCopied
+                            ? <Check className="w-3.5 h-3.5 text-green-500" />
+                            : <Copy className="w-3.5 h-3.5 text-gray-400" />}
+                        </button>
+                        <a
+                          href={m.href!}
+                          className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                          title={`Open ${m.label}`}
+                        >
+                          <ExternalLink className="w-3.5 h-3.5 text-gray-400" />
+                        </a>
+                      </div>
+                    ) : m.href && (
                       <ExternalLink className={`w-3.5 h-3.5 text-gray-400 dark:text-gray-500 shrink-0 transition-colors ${m.arrowHover}`} />
                     )}
                   </div>
                 </div>
               );
+
+              if (isCopyable) return <div key={m.label}>{cardInner}</div>;
 
               return m.href ? (
                 <a
@@ -113,10 +153,10 @@ export default function ContactPage() {
                   href={m.href}
                   {...(m.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                 >
-                  {inner}
+                  {cardInner}
                 </a>
               ) : (
-                <div key={m.label}>{inner}</div>
+                <div key={m.label}>{cardInner}</div>
               );
             })}
           </div>

@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useRef, useState } from 'react';
 import { Code2, Rocket, Target, Zap, Download, Briefcase, Globe, Server, MapPin } from 'lucide-react';
 
 const highlights = [
@@ -60,6 +61,36 @@ export default function AboutPage() {
   const years = Math.floor(monthsExp / 12);
   const expValue = monthsExp >= 12 ? `${years}+` : `${monthsExp}+`;
   const expLabel = monthsExp >= 12 ? `Year${years > 1 ? 's' : ''} (${monthsExp} mo)` : 'Months Experience';
+
+  const statsRef = useRef<HTMLDivElement>(null);
+  const [animStarted, setAnimStarted] = useState(false);
+  const [animCounts, setAnimCounts] = useState([0, 0, 0, 0]);
+
+  useEffect(() => {
+    const el = statsRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setAnimStarted(true); obs.disconnect(); } },
+      { threshold: 0.3 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!animStarted) return;
+    const targets = [monthsExp, 8, 50, 8];
+    const duration = 1100;
+    const startTime = performance.now();
+    const tick = (now: number) => {
+      const p = Math.min((now - startTime) / duration, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      setAnimCounts(targets.map(t => Math.round(ease * t)));
+      if (p < 1) requestAnimationFrame(tick);
+      else setAnimCounts(targets);
+    };
+    requestAnimationFrame(tick);
+  }, [animStarted, monthsExp]);
 
   return (
     <div className="fade-in">
@@ -170,17 +201,26 @@ export default function AboutPage() {
           {/* Stats */}
           <div>
             <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-3">By the Numbers</p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
-              {stats.map((s, i) => (
-                <div key={i} className={`rounded-2xl border ${s.border} ${s.bg} p-4 sm:p-5 text-center hover:shadow-md hover:-translate-y-0.5 transition-all`}>
-                  <div className={`text-2xl sm:text-3xl font-bold mb-1 ${s.color}`}>
-                    {s.isExp ? expValue : s.value}
+            <div ref={statsRef} className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+              {stats.map((s, i) => {
+                const count = animCounts[i];
+                const displayValue = s.isExp
+                  ? (count >= 12 ? `${Math.floor(count / 12)}+` : `${count}+`)
+                  : `${count}+`;
+                const displayLabel = s.isExp
+                  ? (count >= 12 ? `Year${Math.floor(count / 12) > 1 ? 's' : ''} (${count} mo)` : 'Months Experience')
+                  : s.label;
+                return (
+                  <div key={i} className={`rounded-2xl border ${s.border} ${s.bg} p-4 sm:p-5 text-center hover:shadow-md hover:-translate-y-0.5 transition-all`}>
+                    <div className={`text-2xl sm:text-3xl font-bold mb-1 ${s.color} tabular-nums`}>
+                      {displayValue}
+                    </div>
+                    <div className="text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-400">
+                      {displayLabel}
+                    </div>
                   </div>
-                  <div className="text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-400">
-                    {s.isExp ? expLabel : s.label}
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
 

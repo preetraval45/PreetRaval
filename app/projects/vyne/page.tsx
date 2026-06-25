@@ -81,6 +81,7 @@ export default function VyneCaseStudyPage() {
               Live Production
             </span>
             <span className="text-sm text-gray-600 dark:text-gray-400">Product Owner</span>
+            <span className="text-xs text-gray-400 dark:text-gray-500 ml-auto">4 min read</span>
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             <span className="gradient-text">VYNE</span>
