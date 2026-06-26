@@ -65,7 +65,7 @@ export function Hero() {
                 <p className="text-lg sm:text-xl md:text-2xl font-medium text-slate-600 dark:text-slate-400">
                   Hello, I'm
                 </p>
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 dark:from-blue-400 dark:via-indigo-400 dark:to-blue-500 bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold bg-linear-to-r from-blue-600 via-indigo-600 to-blue-700 dark:from-blue-400 dark:via-indigo-400 dark:to-blue-500 bg-clip-text text-transparent">
                   Preet Raval
                 </h1>
               </div>
@@ -84,15 +84,15 @@ export function Hero() {
             {/* Stats */}
             <div className="flex flex-wrap gap-3 sm:gap-4 md:gap-6 lg:gap-8 justify-center lg:justify-start">
               <div className="space-y-2 p-3 sm:p-4 rounded-xl bg-blue-50/50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30 transition-all hover:scale-105 min-w-[100px] sm:min-w-[120px]">
-                <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">{monthsExperience >= 12 ? `${Math.floor(monthsExperience / 12)}+` : `${monthsExperience}+`}</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-linear-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">{monthsExperience >= 12 ? `${Math.floor(monthsExperience / 12)}+` : `${monthsExperience}+`}</div>
                 <div className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">{monthsExperience >= 12 ? `Year${Math.floor(monthsExperience / 12) > 1 ? 's' : ''} (${monthsExperience} mo)` : 'Months Experience'}</div>
               </div>
               <div className="space-y-2 p-3 sm:p-4 rounded-xl bg-indigo-50/50 dark:bg-indigo-900/10 border border-indigo-100 dark:border-indigo-900/30 transition-all hover:scale-105 min-w-[100px] sm:min-w-[120px]">
-                <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">12+</div>
-                <div className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">Projects Delivered</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-linear-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">8+</div>
+                <div className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">Projects Shipped</div>
               </div>
               <div className="space-y-2 p-3 sm:p-4 rounded-xl bg-purple-50/50 dark:bg-purple-900/10 border border-purple-100 dark:border-purple-900/30 transition-all hover:scale-105 min-w-[100px] sm:min-w-[120px]">
-                <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent">99%+</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-linear-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent">99%+</div>
                 <div className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">Production Uptime</div>
               </div>
             </div>
@@ -170,8 +170,8 @@ export function Hero() {
           <div className="relative scale-in order-first lg:order-last">
             <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-xl mx-auto">
               {/* Decorative Elements */}
-              <div className="absolute -top-6 sm:-top-10 -left-6 sm:-left-10 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-3xl opacity-20 blur-2xl floating"></div>
-              <div className="absolute -bottom-6 sm:-bottom-10 -right-6 sm:-right-10 w-28 sm:w-40 h-28 sm:h-40 bg-gradient-to-br from-purple-500 to-pink-600 rounded-3xl opacity-20 blur-2xl floating" style={{ animationDelay: '1s' }}></div>
+              <div className="absolute -top-6 sm:-top-10 -left-6 sm:-left-10 w-24 sm:w-32 h-24 sm:h-32 bg-linear-to-br from-indigo-500 to-purple-600 rounded-3xl opacity-20 blur-2xl floating"></div>
+              <div className="absolute -bottom-6 sm:-bottom-10 -right-6 sm:-right-10 w-28 sm:w-40 h-28 sm:h-40 bg-linear-to-br from-purple-500 to-pink-600 rounded-3xl opacity-20 blur-2xl floating" style={{ animationDelay: '1s' }}></div>
 
               {/* Profile Image Container */}
               <div className="relative group">
@@ -189,7 +189,7 @@ export function Hero() {
                       priority
                     />
                     {/* Gradient Overlay on Hover */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-indigo-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bg-linear-to-t from-indigo-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
                 </div>
 
