@@ -62,8 +62,8 @@ export default function NexusCaseStudyPage() {
         {/* Header */}
         <div className="mb-10">
           <div className="flex flex-wrap items-center gap-2 mb-4">
-            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400">
-              User Testing
+            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400">
+              Live Production
             </span>
             <span className="text-sm text-gray-600 dark:text-gray-400">Project Lead &amp; Product Owner</span>
             <span className="text-sm text-gray-600 dark:text-gray-400">@ American Circuits Inc.</span>
@@ -75,7 +75,7 @@ export default function NexusCaseStudyPage() {
           <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
             The operational backbone of American Circuits Inc., a centralized platform for traveler
             lifecycle management, step-based workflow automation, QC enforcement, and real-time
-            production analytics. Built solo from day one and currently in user and performance testing.
+            production analytics. Built solo from day one and fully live in production.
           </p>
         </div>
 
@@ -136,6 +136,43 @@ export default function NexusCaseStudyPage() {
               Next.js front end talking to a FastAPI backend over PostgreSQL, containerized with Docker
               and served behind Nginx.
             </p>
+
+            {/* Architecture Diagram */}
+            <div className="rounded-xl border border-indigo-100 dark:border-indigo-900/40 bg-slate-50 dark:bg-slate-900/40 p-5 select-none overflow-x-auto">
+              <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-5 text-center">System Architecture</p>
+              <div className="flex flex-col items-center gap-0 min-w-[300px]">
+                <div className="px-6 py-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 shadow-sm text-xs font-bold text-slate-700 dark:text-slate-200 text-center w-60">
+                  Browser / QR Scanner
+                </div>
+                <div className="text-slate-300 dark:text-slate-600 text-sm leading-none py-1">↓</div>
+                <div className="px-6 py-2.5 rounded-lg border border-orange-200 dark:border-orange-800/60 bg-orange-50 dark:bg-orange-950/30 text-xs font-bold text-orange-700 dark:text-orange-300 text-center w-60">
+                  Cloudflare Tunnels
+                </div>
+                <div className="text-slate-300 dark:text-slate-600 text-sm leading-none py-1">↓</div>
+                <div className="px-6 py-2.5 rounded-lg border border-emerald-200 dark:border-emerald-800/60 bg-emerald-50 dark:bg-emerald-950/30 text-xs font-bold text-emerald-700 dark:text-emerald-300 text-center w-60">
+                  Nginx (Reverse Proxy)
+                </div>
+                <div className="text-slate-300 dark:text-slate-600 text-sm leading-none py-1">↓</div>
+                <div className="flex items-center gap-2">
+                  <div className="px-5 py-2.5 rounded-lg border border-blue-200 dark:border-blue-800/60 bg-blue-50 dark:bg-blue-950/30 text-xs font-bold text-blue-700 dark:text-blue-300 text-center w-28">
+                    Next.js<br /><span className="font-normal text-blue-500 dark:text-blue-400 text-[10px]">Frontend</span>
+                  </div>
+                  <span className="text-slate-400 dark:text-slate-500 text-base">⇄</span>
+                  <div className="px-5 py-2.5 rounded-lg border border-purple-200 dark:border-purple-800/60 bg-purple-50 dark:bg-purple-950/30 text-xs font-bold text-purple-700 dark:text-purple-300 text-center w-28">
+                    FastAPI<br /><span className="font-normal text-purple-500 dark:text-purple-400 text-[10px]">Backend</span>
+                  </div>
+                </div>
+                <div className="text-slate-300 dark:text-slate-600 text-sm leading-none py-1">↓</div>
+                <div className="px-6 py-2.5 rounded-lg border border-indigo-200 dark:border-indigo-800/60 bg-indigo-50 dark:bg-indigo-950/30 text-xs font-bold text-indigo-700 dark:text-indigo-300 text-center w-60">
+                  PostgreSQL
+                </div>
+                <div className="text-slate-300 dark:text-slate-600 text-sm leading-none py-1">↓</div>
+                <div className="px-6 py-2.5 rounded-lg border border-cyan-200 dark:border-cyan-800/60 bg-cyan-50 dark:bg-cyan-950/30 text-xs font-bold text-cyan-700 dark:text-cyan-300 text-center w-60">
+                  Docker Compose
+                </div>
+              </div>
+            </div>
+
             <div className="flex items-center gap-3 mb-1">
               <Route className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
               <p className="font-semibold text-gray-900 dark:text-gray-100">Core building blocks:</p>
@@ -176,7 +213,7 @@ export default function NexusCaseStudyPage() {
               'Step-by-step work-center routing enforcement via QR/barcode scanning removes skipped and out-of-order operations.',
               'A live operations dashboard gives the floor and management one shared, real-time view of job status, queues, and QC sign-offs.',
               'Predictive delay analytics use cross-system data to forecast bottlenecks before they stall a job.',
-              'Currently in user and performance testing ahead of full rollout.',
+              'Fully live in production — used daily by 50+ people across the American Circuits manufacturing floor.',
             ].map((item) => (
               <li key={item} className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
                 <CheckCircle2 className="w-5 h-5 text-green-600 dark:text-green-400 mt-0.5 shrink-0" />

@@ -38,7 +38,7 @@ const contactMethods = [
     external: false,
   },
   {
-    href: 'https://www.linkedin.com/in/preet-raval-5a5807206/',
+    href: 'https://www.linkedin.com/in/preet-raval-45rs18vk/',
     bar: 'from-blue-600 to-blue-500',
     iconBg: 'bg-blue-600',
     iconColor: 'text-white',
@@ -101,62 +101,48 @@ export default function ContactPage() {
 
         <div className="max-w-2xl mx-auto space-y-8">
 
-          {/* Contact cards grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {contactMethods.map((m) => {
+          {/* Contact list */}
+          <div className="rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-800/60 shadow-sm overflow-hidden divide-y divide-gray-100 dark:divide-gray-700/40">
+            {contactMethods.map((m, idx) => {
               const isCopyable = m.label === 'Email' || m.label === 'Phone';
               const isCopied = copiedKey === m.label;
 
-              const cardInner = (
-                <div className="rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-800/60 shadow-sm overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 group cursor-pointer h-full">
-                  <div className={`h-1 w-full bg-linear-to-r ${m.bar}`} />
-                  <div className="p-4 sm:p-5 flex items-center gap-3">
-                    <div className={`p-2.5 rounded-xl shrink-0 group-hover:scale-110 transition-transform ${m.iconBg}`}>
-                      <m.Icon className={`w-5 h-5 ${m.iconColor}`} />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-[10px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-0.5">{m.label}</p>
-                      <p className="font-semibold text-sm text-slate-800 dark:text-slate-200 break-all">{m.value}</p>
-                    </div>
-                    {isCopyable ? (
-                      <div className="flex items-center gap-1 shrink-0">
-                        <button
-                          type="button"
-                          onClick={() => copyToClipboard(m.value, m.label)}
-                          title={isCopied ? 'Copied!' : 'Copy'}
-                          className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-                        >
-                          {isCopied
-                            ? <Check className="w-3.5 h-3.5 text-green-500" />
-                            : <Copy className="w-3.5 h-3.5 text-gray-400" />}
-                        </button>
-                        <a
-                          href={m.href!}
-                          className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-                          title={`Open ${m.label}`}
-                        >
-                          <ExternalLink className="w-3.5 h-3.5 text-gray-400" />
-                        </a>
-                      </div>
-                    ) : m.href && (
-                      <ExternalLink className={`w-3.5 h-3.5 text-gray-400 dark:text-gray-500 shrink-0 transition-colors ${m.arrowHover}`} />
-                    )}
+              const rowInner = (
+                <div className="flex items-center gap-3 px-5 py-3.5 group hover:bg-gray-50 dark:hover:bg-gray-700/30 transition-colors">
+                  <div className={`p-2 rounded-lg shrink-0 ${m.iconBg} group-hover:scale-105 transition-transform`}>
+                    <m.Icon className={`w-4 h-4 ${m.iconColor}`} />
                   </div>
+                  <span className="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest w-16 shrink-0">{m.label}</span>
+                  <span className="font-semibold text-sm text-slate-800 dark:text-slate-200 flex-1">{m.value}</span>
+                  {isCopyable ? (
+                    <div className="flex items-center gap-1 shrink-0">
+                      <button
+                        type="button"
+                        onClick={() => copyToClipboard(m.value, m.label)}
+                        title={isCopied ? 'Copied!' : 'Copy'}
+                        className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                      >
+                        {isCopied
+                          ? <Check className="w-3.5 h-3.5 text-green-500" />
+                          : <Copy className="w-3.5 h-3.5 text-gray-400" />}
+                      </button>
+                      <a href={m.href!} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" title={`Open ${m.label}`}>
+                        <ExternalLink className="w-3.5 h-3.5 text-gray-400" />
+                      </a>
+                    </div>
+                  ) : m.href && (
+                    <ExternalLink className={`w-3.5 h-3.5 text-gray-400 dark:text-gray-500 shrink-0 ${m.arrowHover}`} />
+                  )}
                 </div>
               );
 
-              if (isCopyable) return <div key={m.label}>{cardInner}</div>;
-
+              if (isCopyable) return <div key={m.label}>{rowInner}</div>;
               return m.href ? (
-                <a
-                  key={m.label}
-                  href={m.href}
-                  {...(m.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                >
-                  {cardInner}
+                <a key={m.label} href={m.href} {...(m.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
+                  {rowInner}
                 </a>
               ) : (
-                <div key={m.label}>{cardInner}</div>
+                <div key={m.label}>{rowInner}</div>
               );
             })}
           </div>

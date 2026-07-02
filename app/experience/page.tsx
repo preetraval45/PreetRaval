@@ -9,27 +9,37 @@ const experiences = [
     logo: '/American circutis.jpg',
     location: 'Charlotte, NC',
     title: 'DevOps Engineer – AI Systems',
-    period: '03/2026 – Present',
+    period: 'Mar 2026 – Present',
     current: true,
-    tech: ['Linux', 'Python', 'CI/CD', 'GitHub Actions', 'Docker', 'Kubernetes', 'Nginx', 'Networking', 'Secrets Management'],
+    tech: ['Linux', 'Python', 'CI/CD', 'GitHub Actions', 'Docker', 'Kubernetes', 'Nginx', 'ODOO', 'Networking', 'Secrets Management'],
     achievements: [
       {
         title: 'Internal Tooling & Automation',
-        description: 'Built and maintain internal tools used daily by the team, including automated reports, admin dashboards, and ops utilities integrated with third-party services via REST APIs.',
+        description: 'Build and maintain internal tools used daily by the team, including automated reports, admin dashboards, and ops utilities integrated with third-party services via RESTful APIs.',
         highlights: [
-          'Automated the deployment pipeline and reporting tasks using Python and CI/CD, saving 5+ hours/week across 3 teams',
-          'Manage Linux server infrastructure: patching, backups, monitoring, and alerting, maintaining 99%+ uptime with on-call runbooks',
-          'Locked down access control with roles, permissions, and secrets management',
+          'Automated deployment pipeline and reporting tasks using Python and CI/CD, saving 5+ hours/week across 3 teams',
+          'Manage Linux server infrastructure: patching, backups, monitoring, alerting, and observability — maintaining 99%+ uptime with on-call runbooks',
+          'Implemented role-based access control with granular permissions and centralized secrets management across all hosted services',
         ],
       },
       {
-        title: 'KOSH × NEXUS Integration',
-        description: 'Led the integration of KOSH (inventory) and NEXUS (traveler management), with KOSH data feeding directly into NEXUS for predictive analytics and production intelligence.',
+        title: 'KOSH & NEXUS System Integration',
+        description: 'Led the system integration of KOSH (inventory) and NEXUS (traveler management), with KOSH data feeding directly into NEXUS for predictive analytics and production intelligence.',
         highlights: [
-          'Admin users can connect travelers sharing the same job number for grouped tracking and coordinated routing',
-          'Work centers connected by category and department, giving supervisors flexible production flow views',
-          'KOSH data used inside NEXUS to predict production delays and forecast bottlenecks before they occur',
-          'Cross-system data enables real-time scheduling by correlating inventory levels with traveler progress',
+          'Enabled grouped traveler tracking, allowing admins to link jobs by shared job number for coordinated routing',
+          'Connected work centers by category and department, giving supervisors flexible production flow views',
+          'KOSH inventory data feeds NEXUS to predict production delays and forecast bottlenecks before they occur',
+          'Cross-system data pipeline enables real-time scheduling by correlating inventory levels with traveler progress',
+        ],
+      },
+      {
+        title: 'Rithom iQ (ODOO) ERP / MRP / CRM',
+        status: 'In Progress',
+        description: 'Implementing and customizing Rithom iQ (ODOO) ERP/MRP/CRM to centralize manufacturing operations, procurement, customer management, and production scheduling across American Circuits.',
+        highlights: [
+          'Configuring ERP, MRP, and CRM modules for manufacturing, inventory, procurement, and customer workflows',
+          'Integrating ODOO data with existing NEXUS and KOSH systems for unified production and inventory visibility',
+          'Building custom workflows and automation to match American Circuits\' manufacturing and business processes',
         ],
       },
       {
@@ -37,9 +47,9 @@ const experiences = [
         status: 'In Progress',
         description: 'Leading the buildout of on-premise server and network architecture to host enterprise platforms, local databases, and internal network services.',
         highlights: [
-          'Designing a 4-server setup for local hosting of NEXUS, ACI Forge, KOSH, and supporting services',
-          'Standing up PostgreSQL servers, Nginx reverse proxies, and Docker deployments across production servers',
-          'Planning internal network routing, firewall rules, and secure access controls for all hosted platforms',
+          'Building a 4-server on-premise setup for local hosting of NEXUS, ACI Forge, KOSH, and supporting services',
+          'Deploying PostgreSQL servers, Nginx reverse proxies, and Docker containers across production servers',
+          'Configuring internal network routing, firewall rules, and secure access controls for all hosted platforms',
         ],
       },
     ],
@@ -49,7 +59,7 @@ const experiences = [
     logo: '/American circutis.jpg',
     location: 'Charlotte, NC',
     title: 'Software Engineer',
-    period: '06/2025 – 03/2026',
+    period: 'Jun 2025 – Mar 2026',
     tech: ['Next.js', 'FastAPI', 'PostgreSQL', 'Docker', 'Nginx', 'Cloudflare Tunnel', 'SSO / MFA'],
     achievements: [
       {
@@ -71,14 +81,6 @@ const experiences = [
         ],
       },
       {
-        title: 'ACI ChatGPT – Internal AI Assistant',
-        description: 'Developed internal AI automation assistant for reporting, explanation generation, task automation, and production analysis.',
-        highlights: [
-          'Consolidated multiple PostgreSQL databases into a unified production server, reducing maintenance by 40%',
-          'Improved system performance by 30% through backend optimization, caching logic, and AI-driven process prediction',
-        ],
-      },
-      {
         title: 'KOSH – Inventory Management System',
         description: 'Full-scale inventory platform with barcode scanning, real-time stock tracking, predictive analytics, and automated alerts.',
         highlights: [
@@ -94,7 +96,7 @@ const experiences = [
     logo: '/Skillship foundation Logo.jpg',
     location: 'Remote',
     title: 'Frontend Developer Intern',
-    period: '01/2022 – 12/2022',
+    period: 'Jan 2022 – Dec 2022',
     tech: ['React', 'Next.js', 'Tailwind CSS', 'REST APIs', 'Oracle Database'],
     achievements: [
       {

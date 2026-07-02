@@ -20,7 +20,7 @@ export function Hero() {
 
   const monthsExperience = calculateExperience();
   const experienceDisplay = monthsExperience >= 12
-    ? `${Math.floor(monthsExperience / 12)} Year${Math.floor(monthsExperience / 12) > 1 ? 's' : ''} (${monthsExperience} months)`
+    ? `${Math.floor(monthsExperience / 12)} Year${Math.floor(monthsExperience / 12) > 1 ? 's' : ''}`
     : `${monthsExperience} Months`;
 
   useEffect(() => {
@@ -78,14 +78,14 @@ export function Hero() {
 
             {/* Description */}
             <p className="text-base sm:text-lg md:text-xl leading-relaxed text-slate-700 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0">
-              DevOps & full-stack engineer who builds and ships <span className="font-semibold text-blue-700 dark:text-blue-300">production systems end-to-end</span>. Track record of owning real products used daily by <span className="font-semibold text-indigo-700 dark:text-indigo-300">50+ people</span>. Specialize in Python, FastAPI, Next.js, Docker, and CI/CD.
+              I engineer <span className="font-semibold text-blue-700 dark:text-blue-300">enterprise production systems end-to-end</span> — schema design, REST APIs, containerized deployments, and CI/CD pipelines. Currently building AI-powered manufacturing software at American Circuits Inc., where <span className="font-semibold text-indigo-700 dark:text-indigo-300">50+ people rely on what I ship daily</span>.
             </p>
 
             {/* Stats */}
             <div className="flex flex-wrap gap-3 sm:gap-4 md:gap-6 lg:gap-8 justify-center lg:justify-start">
               <div className="space-y-2 p-3 sm:p-4 rounded-xl bg-blue-50/50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30 transition-all hover:scale-105 min-w-[100px] sm:min-w-[120px]">
                 <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-linear-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">{monthsExperience >= 12 ? `${Math.floor(monthsExperience / 12)}+` : `${monthsExperience}+`}</div>
-                <div className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">{monthsExperience >= 12 ? `Year${Math.floor(monthsExperience / 12) > 1 ? 's' : ''} (${monthsExperience} mo)` : 'Months Experience'}</div>
+                <div className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">{monthsExperience >= 12 ? `Year${Math.floor(monthsExperience / 12) > 1 ? 's' : ''} Experience` : 'Months Experience'}</div>
               </div>
               <div className="space-y-2 p-3 sm:p-4 rounded-xl bg-indigo-50/50 dark:bg-indigo-900/10 border border-indigo-100 dark:border-indigo-900/30 transition-all hover:scale-105 min-w-[100px] sm:min-w-[120px]">
                 <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-linear-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">8+</div>
@@ -123,9 +123,8 @@ export function Hero() {
                 Get In Touch
               </Link>
               <a
-                href="https://docs.google.com/document/d/1ioMb8uVqeIjHxnpQzpUtR7N-LuIUneEkGHiLXTdbsDQ/edit?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/Preet%20Raval%20Resume.pdf"
+                download="Preet Raval Resume.pdf"
                 className="btn-secondary inline-flex items-center justify-center gap-2 sm:gap-3 group w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg"
               >
                 <Download className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-y-1 transition-transform" />
@@ -147,7 +146,7 @@ export function Hero() {
                   <Github className="w-5 h-5 sm:w-6 sm:h-6 text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white transition-colors" />
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/preet-raval-5a5807206/"
+                  href="https://www.linkedin.com/in/preet-raval-45rs18vk/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group p-2.5 sm:p-3 rounded-xl bg-blue-100 dark:bg-blue-900/20 border border-blue-300 dark:border-blue-700 hover:border-blue-600 dark:hover:border-blue-400 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:-translate-y-1 touch-manipulation"

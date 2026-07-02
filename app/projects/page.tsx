@@ -14,7 +14,7 @@ const projects = [
     link: 'https://vyne.vercel.app/',
     caseStudy: '/projects/vyne',
     screenshot: '/vyne-screenshot.png',
-    description: 'An AI-native correlation layer built from scratch that ties business events to infrastructure events on a single unified timeline, one platform in place of Slack + Jira + Notion + Datadog + Odoo.',
+    description: 'An AI-native correlation layer built from scratch that ties business events to infrastructure events on a single unified timeline, consolidating Slack, Jira, Notion, Datadog, and ODOO into one platform.',
     technologies: ['Next.js', 'React Native', 'C# .NET 9', 'FastAPI', 'PostgreSQL', 'Docker', 'Terraform', 'AWS', 'LangGraph', 'Microservices', 'CI/CD (GitHub Actions)', 'ArgoCD'],
     highlights: [
       '15+ modules including chat, projects, docs, voice, and video calls with live transcription and AI meeting recaps',
@@ -59,27 +59,13 @@ const projects = [
     ],
   },
   {
-    title: 'ACI ChatGPT – Internal AI Assistant',
-    status: 'Production',
-    category: 'Enterprise',
-    role: 'Software Engineer',
-    company: 'American Circuits Inc.',
-    description: 'Internal AI automation assistant for reporting, explanation generation, task automation, and production analysis, integrated directly into ACI operations workflows.',
-    technologies: ['Python', 'ChatGPT API', 'PostgreSQL', 'FastAPI'],
-    highlights: [
-      'Reduced maintenance overhead by 40% via PostgreSQL database consolidation',
-      'Improved system performance by 30% through caching and AI-driven process prediction',
-      'Automated routine reporting and production analysis tasks',
-    ],
-  },
-  {
     title: 'KOSH – Inventory Management System',
     status: 'Production',
     category: 'Enterprise',
     role: 'Software Engineer',
     company: 'American Circuits Inc.',
     screenshot: '/kosh-screenshot.png',
-    description: 'Full-scale inventory management platform relied on daily by users. Integrated with NEXUS, where KOSH data feeds into NEXUS for predictive delay analytics and production intelligence.',
+    description: 'Full-scale inventory management platform relied on daily by 50+ users. Integrated with NEXUS, where KOSH data feeds into NEXUS for predictive delay analytics and production intelligence.',
     technologies: ['Next.js', 'FastAPI', 'PostgreSQL'],
     highlights: [
       '100% user adoption as the primary system for all inventory operations',
@@ -113,10 +99,10 @@ const projects = [
     description: 'Took the project from a client brief to a fully live, optimized site, handling UI/UX design, backend services, and Vercel deployment. Managed every client conversation, timeline, and revision independently.',
     technologies: ['Next.js', 'Nginx', 'PostgreSQL', 'Python', 'Vercel'],
     highlights: [
-      'Clean, responsive interface with fast load times and mobile-first layouts',
-      '100% uptime since delivery with no engineering support required',
-      'Post-launch performance tuning and real user feedback resolution with 0 major incidents',
-      'Full domain configuration, SSL setup, and SEO optimization',
+      'Sole developer and client contact — handled UI/UX design, backend, deployment, and all revisions independently',
+      'Mobile-first, responsive design with fast load times and cross-browser compatibility',
+      'Full domain configuration, SSL setup, and SEO optimization from day one',
+      '100% uptime since delivery — zero post-launch incidents and no further engineering support required',
     ],
   },
 ];

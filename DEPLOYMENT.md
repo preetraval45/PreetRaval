@@ -84,7 +84,7 @@ portfolio/
 ## Updating Content
 
 ### Update Resume
-Replace `public/Preet Raval Resume.pdf` with your new resume.
+The Download Resume buttons link to the Google Docs resume. Update the URL in the Hero, About, and Footer components. A PDF copy lives at `public/Preet Raval Deatiled Resume.pdf`.
 
 ### Update Profile Information
 Edit these components:

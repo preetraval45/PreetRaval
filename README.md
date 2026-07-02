@@ -78,7 +78,7 @@ MIT License - feel free to use this template for your own portfolio!
 ## Contact
 
 - **Email**: preetraval45@gmail.com
-- **LinkedIn**: [linkedin.com/in/preetraval](https://www.linkedin.com/in/preetraval/)
+- **LinkedIn**: [linkedin.com/in/preet-raval-45rs18vk](https://www.linkedin.com/in/preet-raval-45rs18vk/)
 - **GitHub**: [github.com/preetraval](https://github.com/preetraval)
 
 ---

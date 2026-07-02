@@ -168,6 +168,49 @@ export default function VyneCaseStudyPage() {
               VYNE is a full monorepo split into 8 independently deployable microservices, each owning a
               slice of the platform:
             </p>
+
+            {/* Architecture Diagram */}
+            <div className="rounded-xl border border-indigo-100 dark:border-indigo-900/40 bg-slate-50 dark:bg-slate-900/40 p-5 select-none overflow-x-auto">
+              <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-5 text-center">System Architecture</p>
+              <div className="flex flex-col items-center gap-0 min-w-[300px]">
+                {/* Clients */}
+                <div className="flex items-center gap-2">
+                  <div className="px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 shadow-sm text-xs font-bold text-slate-700 dark:text-slate-200 text-center w-28">
+                    Browser<br /><span className="font-normal text-slate-400 text-[10px]">Next.js</span>
+                  </div>
+                  <span className="text-slate-400 dark:text-slate-500 text-base">+</span>
+                  <div className="px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 shadow-sm text-xs font-bold text-slate-700 dark:text-slate-200 text-center w-28">
+                    Mobile<br /><span className="font-normal text-slate-400 text-[10px]">React Native</span>
+                  </div>
+                </div>
+                <div className="text-slate-300 dark:text-slate-600 text-sm leading-none py-1">↓</div>
+                <div className="px-6 py-2.5 rounded-lg border border-orange-200 dark:border-orange-800/60 bg-orange-50 dark:bg-orange-950/30 text-xs font-bold text-orange-700 dark:text-orange-300 text-center w-60">
+                  CloudFront (CDN / Edge)
+                </div>
+                <div className="text-slate-300 dark:text-slate-600 text-sm leading-none py-1">↓</div>
+                <div className="px-6 py-2.5 rounded-lg border border-emerald-200 dark:border-emerald-800/60 bg-emerald-50 dark:bg-emerald-950/30 text-xs font-bold text-emerald-700 dark:text-emerald-300 text-center w-60">
+                  API Gateway + Cognito Auth
+                </div>
+                <div className="text-slate-300 dark:text-slate-600 text-sm leading-none py-1">↓</div>
+                <div className="px-6 py-2.5 rounded-lg border border-blue-200 dark:border-blue-800/60 bg-blue-50 dark:bg-blue-950/30 text-xs font-bold text-blue-700 dark:text-blue-300 text-center w-60">
+                  8 Microservices (ECS Fargate)
+                </div>
+                <div className="text-slate-300 dark:text-slate-600 text-sm leading-none py-1">↓</div>
+                <div className="flex items-center gap-2">
+                  <div className="px-4 py-2.5 rounded-lg border border-indigo-200 dark:border-indigo-800/60 bg-indigo-50 dark:bg-indigo-950/30 text-xs font-bold text-indigo-700 dark:text-indigo-300 text-center w-32">
+                    Aurora<br /><span className="font-normal text-indigo-500 dark:text-indigo-400 text-[10px]">Serverless v2</span>
+                  </div>
+                  <span className="text-slate-400 dark:text-slate-500 text-base">+</span>
+                  <div className="px-4 py-2.5 rounded-lg border border-purple-200 dark:border-purple-800/60 bg-purple-50 dark:bg-purple-950/30 text-xs font-bold text-purple-700 dark:text-purple-300 text-center w-32">
+                    EventBridge<br /><span className="font-normal text-purple-500 dark:text-purple-400 text-[10px]">+ SQS FIFO</span>
+                  </div>
+                </div>
+                <div className="text-slate-300 dark:text-slate-600 text-sm leading-none py-1">↓</div>
+                <div className="px-6 py-2.5 rounded-lg border border-fuchsia-200 dark:border-fuchsia-800/60 bg-fuchsia-50 dark:bg-fuchsia-950/30 text-xs font-bold text-fuchsia-700 dark:text-fuchsia-300 text-center w-60">
+                  LangGraph AI (Retrieval over event store)
+                </div>
+              </div>
+            </div>
             <div className="flex flex-wrap gap-2">
               {services.map((s) => (
                 <span

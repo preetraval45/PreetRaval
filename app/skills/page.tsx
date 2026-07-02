@@ -21,7 +21,7 @@ const skillCategories = [
     skills: [
       'React', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'HTML5 / CSS3',
       'Node.js', 'Python', 'Java', 'C#', '.NET', 'FastAPI', 'Java Spring Boot',
-      'REST APIs', 'Microservices', 'SSO / MFA', 'Auth & API Security', 'Role-Based Access Control',
+      'RESTful APIs', 'Microservices', 'SSO / MFA', 'Auth & API Security', 'Role-Based Access Control', 'SDLC',
     ],
   },
   {
@@ -51,8 +51,9 @@ const skillCategories = [
     skills: [
       'Docker', 'Kubernetes', 'Nginx', 'CI/CD', 'Linux', 'GitHub Actions',
       'Azure DevOps', 'Cloudflare Tunnels', 'Server & Network Architecture',
-      'Server Management', 'Local Hosting & Infrastructure',
-      'Database Server Administration', 'Workflow Automation', 'Jira',
+      'On-premise Infrastructure', 'Server Management', 'Database Server Administration',
+      'System Integration', 'Observability', 'Workflow Automation', 'Jira',
+      'ERP', 'MRP', 'CRM', 'ODOO',
     ],
   },
   {
@@ -114,6 +115,15 @@ const categoryStyles: Record<string, {
   },
 };
 
+const proficiencies = [
+  { category: 'Backend Engineering', level: 5, label: 'Expert', bar: 'bg-blue-500' },
+  { category: 'Frontend Development', level: 5, label: 'Expert', bar: 'bg-indigo-500' },
+  { category: 'DevOps & CI/CD', level: 4, label: 'Advanced', bar: 'bg-cyan-500' },
+  { category: 'AI Integration', level: 4, label: 'Advanced', bar: 'bg-fuchsia-500' },
+  { category: 'Cloud Infrastructure', level: 3, label: 'Proficient', bar: 'bg-orange-500' },
+  { category: 'Cybersecurity', level: 3, label: 'Proficient', bar: 'bg-rose-500' },
+];
+
 const maxSkills = Math.max(...skillCategories.map(c => c.skills.length));
 const totalSkills = skillCategories.reduce((acc, c) => acc + c.skills.length, 0);
 
@@ -133,6 +143,28 @@ export default function SkillsPage() {
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-sm font-semibold">
             {totalSkills} skills across {skillCategories.length} domains
           </span>
+        </div>
+
+        {/* Proficiency Matrix */}
+        <div className="mb-10 sm:mb-12">
+          <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-4 text-center">Core Proficiencies</p>
+          <div className="max-w-2xl mx-auto grid sm:grid-cols-2 gap-3">
+            {proficiencies.map(({ category, level, label, bar }) => (
+              <div key={category} className="rounded-xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-800/60 px-4 py-3 flex items-center gap-4">
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 truncate">{category}</p>
+                  <div className="flex gap-1 mt-2">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <div key={i} className={`h-1.5 flex-1 rounded-full ${i < level ? bar : 'bg-gray-200 dark:bg-gray-700'}`} />
+                    ))}
+                  </div>
+                </div>
+                <span className={`text-xs font-bold shrink-0 ${level === 5 ? 'text-blue-600 dark:text-blue-400' : level === 4 ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-500 dark:text-slate-400'}`}>
+                  {label}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Grid */}

@@ -6,7 +6,7 @@ const education = [
     university: 'University of North Carolina at Charlotte',
     short: 'UNCC',
     location: 'Charlotte, NC',
-    period: '01/2023 – 12/2025',
+    period: 'Jan 2023 – Dec 2025',
     status: 'Graduated',
     primary: true,
     coursework: [
@@ -20,7 +20,7 @@ const education = [
     university: 'Vellore Institute of Technology',
     short: 'VIT',
     location: 'Vellore, India',
-    period: '09/2020 – 12/2022',
+    period: 'Sep 2020 – Dec 2022',
     status: 'Transferred',
     primary: false,
     coursework: [],
@@ -32,17 +32,17 @@ const featuredCert = {
   issuer: 'Amazon Web Services',
   category: 'Cloud',
   status: 'In Progress',
-  expected: 'Expected 06/2026',
+  expected: 'Expected Jun 2026',
 };
 
 const certifications = [
-  { name: 'Google Data Analytics Professional Certificate', issuer: 'Coursera / Google', category: 'Data Analytics', date: '05/2025', certificate: 'https://coursera.org/verify/professional-cert/6RNL2W89K2KC' },
-  { name: 'AWS Cloud Solutions', issuer: 'Coursera / AWS', category: 'Cloud', date: '06/2025', certificate: 'https://coursera.org/verify/professional-cert/FH1RIG29S3XE' },
-  { name: 'Networking Fundamentals and Physical Networks', issuer: 'Coursera', category: 'Networking', date: '06/2026', certificate: 'https://coursera.org/verify/NPL0WX44OZ25' },
-  { name: 'Claude Code In Action', issuer: 'Anthropic', category: 'AI', date: '04/2026', certificate: 'https://verify.skilljar.com/c/asafgz6e6gab' },
+  { name: 'Google Data Analytics Professional Certificate', issuer: 'Coursera / Google', category: 'Data Analytics', date: 'May 2025', certificate: 'https://coursera.org/verify/professional-cert/6RNL2W89K2KC' },
+  { name: 'AWS Cloud Solutions Architect', issuer: 'Coursera / AWS', category: 'Cloud', date: 'Jun 2025', certificate: 'https://coursera.org/verify/professional-cert/FH1RIG29S3XE' },
+  { name: 'Networking Fundamentals and Physical Networks', issuer: 'Coursera', category: 'Networking', date: 'Jun 2026', certificate: 'https://coursera.org/verify/NPL0WX44OZ25' },
+  { name: 'Claude Code In Action', issuer: 'Anthropic', category: 'AI', date: 'Apr 2026', certificate: 'https://verify.skilljar.com/c/asafgz6e6gab' },
   { name: 'CCNA – Networking Fundamentals', issuer: 'Cisco', category: 'Networking' },
   { name: 'SQL for IT Professionals', issuer: "O'Reilly by Pearson", category: 'Database' },
-  { name: 'Introduction to Penetration Testing', issuer: 'Cybersecurity Course', category: 'Security' },
+  { name: 'Introduction to Penetration Testing', issuer: "O'Reilly by Pearson", category: 'Security' },
 ];
 
 const categoryStyle: Record<string, { pill: string; badge: string }> = {

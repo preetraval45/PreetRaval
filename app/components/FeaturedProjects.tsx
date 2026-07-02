@@ -7,7 +7,7 @@ const featured = [
     title: 'VYNE – AI-Native Company OS',
     status: 'Live',
     blurb:
-      'An AI-native correlation layer that ties business events to infrastructure events on one unified timeline, replacing Slack, Jira, Notion, and Datadog in a single platform.',
+      'An AI-native correlation layer that ties business events to infrastructure events on one unified timeline, consolidating Slack, Jira, Notion, and Datadog into a single platform.',
     tech: ['Next.js', 'FastAPI', 'AWS', 'LangGraph', 'Microservices'],
     bar: 'from-blue-500 to-indigo-600',
     icon: Brain,
@@ -57,7 +57,7 @@ export function FeaturedProjects() {
           <span className="gradient-text">Featured Work</span>
         </h2>
         <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-          A few of the production systems I&apos;ve owned end-to-end, from schema and API to deployment and uptime.
+          Production systems I&apos;ve owned end-to-end — from schema and API to deployment and uptime.
         </p>
       </div>
 

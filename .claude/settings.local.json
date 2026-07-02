@@ -27,7 +27,18 @@
       "WebFetch(domain:github.com)",
       "Bash(gh repo view:*)",
       "Bash(gh api:*)",
-      "Bash(python -c:*)"
+      "Bash(python -c:*)",
+      "Bash(npm run:*)",
+      "Bash(npx next:*)",
+      "Bash(node_modules/.bin/next --version)",
+      "Bash(node_modules/.bin/next dev:*)",
+      "WebFetch(domain:localhost)",
+      "Bash(node_modules/.bin/next build:*)",
+      "Bash(npx @anthropic-ai/claude-code@latest --version)",
+      "Bash(npx @playwright/mcp@latest --help)",
+      "Read(//tmp/**)",
+      "Read(//c/Users/raval/AppData/Local/Temp/VYNE/**)",
+      "Read(//c/tmp/**)"
     ]
   }
 }

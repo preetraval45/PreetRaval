@@ -10,7 +10,7 @@ const highlights = [
     bar: 'from-blue-500 to-indigo-600',
     iconBg: 'bg-blue-100 dark:bg-blue-900/30',
     iconColor: 'text-blue-600 dark:text-blue-400',
-    description: 'Own and maintain production systems used daily by 50+ people at American Circuits Inc., including NEXUS, ACI Forge, ACI ChatGPT, KOSH, and PDF to BOM Converter. All integrated and live in production.',
+    description: 'Own and maintain production systems used daily by 50+ people at American Circuits Inc., including NEXUS, ACI Forge, KOSH, and PDF to BOM Converter. All integrated and live in production.',
   },
   {
     icon: Zap,
@@ -46,6 +46,30 @@ const openTo = [
   { icon: MapPin, label: 'Open to Relocate' },
 ];
 
+const workingOn = [
+  {
+    label: 'Rithom iQ (ODOO) – ERP / MRP / CRM',
+    detail: 'Implementing and customizing ODOO ERP, MRP, and CRM modules for manufacturing operations',
+    dot: 'bg-purple-500',
+    card: 'bg-purple-50 dark:bg-purple-900/10 border-purple-200 dark:border-purple-800/60',
+    title: 'text-purple-700 dark:text-purple-300',
+  },
+  {
+    label: 'Server infrastructure',
+    detail: 'Linux server management, CI/CD pipelines, uptime monitoring, and patching',
+    dot: 'bg-emerald-500',
+    card: 'bg-emerald-50 dark:bg-emerald-900/10 border-emerald-200 dark:border-emerald-800/60',
+    title: 'text-emerald-700 dark:text-emerald-300',
+  },
+  {
+    label: 'VYNE & enterprise AI agents',
+    detail: 'AI-native company OS + multi-agent workflows with MCP and LangGraph',
+    dot: 'bg-fuchsia-500',
+    card: 'bg-fuchsia-50 dark:bg-fuchsia-900/10 border-fuchsia-200 dark:border-fuchsia-800/60',
+    title: 'text-fuchsia-700 dark:text-fuchsia-300',
+  },
+];
+
 const stats = [
   { value: '', label: '', color: 'text-blue-600 dark:text-blue-400', border: 'border-blue-200 dark:border-blue-800', bg: 'bg-blue-50 dark:bg-blue-900/20', isExp: true },
   { value: '8+', label: 'Projects Shipped', color: 'text-violet-600 dark:text-violet-400', border: 'border-violet-200 dark:border-violet-800', bg: 'bg-violet-50 dark:bg-violet-900/20' },
@@ -60,11 +84,11 @@ export default function AboutPage() {
   const monthsExp = months > 0 ? months : 0;
   const years = Math.floor(monthsExp / 12);
   const expValue = monthsExp >= 12 ? `${years}+` : `${monthsExp}+`;
-  const expLabel = monthsExp >= 12 ? `Year${years > 1 ? 's' : ''} (${monthsExp} mo)` : 'Months Experience';
+  const expLabel = monthsExp >= 12 ? `Year${years > 1 ? 's' : ''} Experience` : 'Months Experience';
 
   const statsRef = useRef<HTMLDivElement>(null);
   const [animStarted, setAnimStarted] = useState(false);
-  const [animCounts, setAnimCounts] = useState([0, 0, 0, 0]);
+  const [animCounts, setAnimCounts] = useState([monthsExp, 8, 50, 8]);
 
   useEffect(() => {
     const el = statsRef.current;
@@ -114,9 +138,8 @@ export default function AboutPage() {
               <span className="text-sm font-semibold text-green-700 dark:text-green-400">Open to new opportunities</span>
             </div>
             <a
-              href="https://docs.google.com/document/d/1ioMb8uVqeIjHxnpQzpUtR7N-LuIUneEkGHiLXTdbsDQ/edit?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/Preet%20Raval%20Resume.pdf"
+              download="Preet Raval Resume.pdf"
               className="flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold transition-colors"
             >
               <Download className="w-4 h-4" />
@@ -129,7 +152,7 @@ export default function AboutPage() {
             <div className="h-1 w-full bg-linear-to-r from-blue-500 via-indigo-500 to-purple-500" />
             <div className="p-5 sm:p-6 space-y-4">
               <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
-                I'm a DevOps and full-stack engineer based in Charlotte, NC. I spend most of my time building and maintaining the systems that <span className="font-semibold text-indigo-600 dark:text-indigo-400">American Circuits Inc.</span> runs on, from traveler management and inventory to internal AI tools and the infrastructure holding it all together. Over 50 people use what I've built every single day, which keeps me pretty focused on getting things right.
+                I'm the sole engineer behind <span className="font-semibold text-blue-600 dark:text-blue-400">5 production systems</span> that <span className="font-semibold text-indigo-600 dark:text-indigo-400">50+ people at American Circuits Inc.</span> rely on every day — from traveler management and inventory to internal AI tools and the infrastructure holding it all together. I own the whole stack: I build it, deploy it, and keep it running.
               </p>
               <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
                 I started there as a Software Engineer, building NEXUS and ACI Forge from scratch, and moved into a DevOps role where I now handle infrastructure, CI/CD pipelines, and automation. My day-to-day stack is Python, FastAPI, Next.js, PostgreSQL, and Docker with a lot of Linux server work mixed in. Most recently I built a PDF to BOM converter that uses OCR and an LLM to pull structured component data out of engineering documents, and the procurement team now uses it every day.
@@ -146,6 +169,22 @@ export default function AboutPage() {
                   <Icon className="w-3.5 h-3.5" />
                   {label}
                 </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Currently Working On */}
+          <div>
+            <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-3">Currently Working On</p>
+            <div className="grid sm:grid-cols-2 gap-3">
+              {workingOn.map(({ label, detail, dot, card, title }) => (
+                <div key={label} className={`rounded-xl border p-4 flex items-start gap-3 ${card}`}>
+                  <span className={`mt-1 w-2 h-2 rounded-full ${dot} shrink-0 animate-pulse`} />
+                  <div>
+                    <p className={`text-sm font-bold ${title}`}>{label}</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 leading-relaxed">{detail}</p>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
@@ -194,33 +233,6 @@ export default function AboutPage() {
             </a>
           </div>
 
-          {/* Published writing */}
-          <div>
-            <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-3">Published Writing</p>
-            <a
-              href="https://medium.com/skillship-vellore/how-to-start-your-journey-as-ui-ux-designer-77fea09d18a0"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-800/60 shadow-sm p-5 flex items-start gap-3 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
-            >
-              <div className="p-2.5 rounded-xl bg-blue-100 dark:bg-blue-900/30 shrink-0 group-hover:scale-110 transition-transform">
-                <svg className="w-5 h-5 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
-                </svg>
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-xs text-blue-600 dark:text-blue-400 font-medium mb-1">Medium · Skillship Vellore</p>
-                <h4 className="font-bold text-sm sm:text-base text-slate-800 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  How to Start Your Journey as a UI/UX Designer
-                </h4>
-                <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
-                  A guide covering tools, resources, and first steps for aspiring UI/UX designers.
-                </p>
-              </div>
-              <span className="text-blue-500 text-xs font-semibold whitespace-nowrap mt-1">Read →</span>
-            </a>
-          </div>
-
           {/* Stats */}
           <div>
             <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-3">By the Numbers</p>
@@ -231,7 +243,7 @@ export default function AboutPage() {
                   ? (count >= 12 ? `${Math.floor(count / 12)}+` : `${count}+`)
                   : `${count}+`;
                 const displayLabel = s.isExp
-                  ? (count >= 12 ? `Year${Math.floor(count / 12) > 1 ? 's' : ''} (${count} mo)` : 'Months Experience')
+                  ? (count >= 12 ? `Year${Math.floor(count / 12) > 1 ? 's' : ''} Experience` : 'Months Experience')
                   : s.label;
                 return (
                   <div key={i} className={`rounded-2xl border ${s.border} ${s.bg} p-4 sm:p-5 text-center hover:shadow-md hover:-translate-y-0.5 transition-all`}>

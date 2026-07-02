@@ -94,7 +94,7 @@ export default function RootLayout({
               alumniOf: { '@type': 'CollegeOrUniversity', name: 'University of North Carolina at Charlotte' },
               sameAs: [
                 'https://github.com/preetraval45',
-                'https://www.linkedin.com/in/preet-raval-5a5807206/',
+                'https://www.linkedin.com/in/preet-raval-45rs18vk/',
               ],
               knowsAbout: ['Full-Stack Development', 'AI Integration', 'Next.js', 'FastAPI', 'PostgreSQL', 'Docker', 'TypeScript', 'Python', 'Cybersecurity'],
             }),

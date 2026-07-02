@@ -86,7 +86,7 @@ export function Footer() {
                 <Github className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
               <a
-                href="https://www.linkedin.com/in/preet-raval-5a5807206/"
+                href="https://www.linkedin.com/in/preet-raval-45rs18vk/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-all duration-200 hover:scale-110 touch-manipulation"
@@ -102,9 +102,8 @@ export function Footer() {
                 <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
               <a
-                href="https://docs.google.com/document/d/1ZIAWshIYgeGcQCo9QJtR2q8F_iBRkQnD2f9LeKMIrAs/edit?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/Preet%20Raval%20Resume.pdf"
+                download="Preet Raval Resume.pdf"
                 className="p-2 rounded-lg bg-blue-700 hover:bg-blue-600 transition-all duration-200 hover:scale-110 touch-manipulation"
                 aria-label="Download Resume"
               >
