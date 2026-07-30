@@ -7,7 +7,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "certs:render": "node scripts/render-certificates.mjs"
   },
   "keywords": [
     "portfolio",
@@ -32,5 +33,9 @@
     "react-dom": "^19.2.3",
     "tailwindcss": "^4.1.18",
     "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "pdfjs-dist": "^6.2.108",
+    "puppeteer-core": "^25.4.0"
   }
 }
