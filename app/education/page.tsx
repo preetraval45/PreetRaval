@@ -42,11 +42,11 @@ const architectureTrack = {
   period: 'Mar 2026 – Jul 2026',
   summary: 'Five-level certification track covering architectural thinking, styles, trade-off analysis, and expert-level system design.',
   levels: [
-    { level: 1, title: 'Exploring', date: 'Mar 03, 2026', file: '/certificates/OReilly Software Architecture Level 1 Exploring.pdf' },
-    { level: 2, title: 'Applying', date: 'Jul 10, 2026', file: '/certificates/OReilly Software Architecture Level 2 Applying.pdf' },
-    { level: 3, title: 'Building', date: 'Jul 30, 2026', file: '/certificates/OReilly Software Architecture Level 3 Building.pdf' },
-    { level: 4, title: 'Advancing', date: 'Jul 30, 2026', file: '/certificates/OReilly Software Architecture Level 4 Advancing.pdf' },
-    { level: 5, title: 'Expert', date: 'Jul 30, 2026', file: '/certificates/OReilly Software Architecture Level 5 Expert.pdf' },
+    { level: 1, title: 'Exploring', date: 'Mar 2026', file: '/certificates/OReilly Software Architecture Level 1 Exploring.pdf' },
+    { level: 2, title: 'Applying', date: 'Jul 2026', file: '/certificates/OReilly Software Architecture Level 2 Applying.pdf' },
+    { level: 3, title: 'Building', date: 'Jul 2026', file: '/certificates/OReilly Software Architecture Level 3 Building.pdf' },
+    { level: 4, title: 'Advancing', date: 'Jul 2026', file: '/certificates/OReilly Software Architecture Level 4 Advancing.pdf' },
+    { level: 5, title: 'Expert', date: 'Jul 2026', file: '/certificates/OReilly Software Architecture Level 5 Expert.pdf' },
   ],
 };
 
