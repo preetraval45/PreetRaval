@@ -74,7 +74,7 @@ const stats = [
   { value: '', label: '', color: 'text-blue-600 dark:text-blue-400', border: 'border-blue-200 dark:border-blue-800', bg: 'bg-blue-50 dark:bg-blue-900/20', isExp: true },
   { value: '8+', label: 'Projects Shipped', color: 'text-violet-600 dark:text-violet-400', border: 'border-violet-200 dark:border-violet-800', bg: 'bg-violet-50 dark:bg-violet-900/20' },
   { value: '50+', label: 'Daily Users', color: 'text-emerald-600 dark:text-emerald-400', border: 'border-emerald-200 dark:border-emerald-800', bg: 'bg-emerald-50 dark:bg-emerald-900/20' },
-  { value: '8+', label: 'Certifications', color: 'text-orange-600 dark:text-orange-400', border: 'border-orange-200 dark:border-orange-800', bg: 'bg-orange-50 dark:bg-orange-900/20' },
+  { value: '9+', label: 'Certifications', color: 'text-orange-600 dark:text-orange-400', border: 'border-orange-200 dark:border-orange-800', bg: 'bg-orange-50 dark:bg-orange-900/20' },
 ];
 
 export default function AboutPage() {

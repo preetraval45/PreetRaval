@@ -1,6 +1,6 @@
 'use client';
 
-import { Brain, Code, Database, Cloud, Cog, Users } from 'lucide-react';
+import { Brain, Code, Database, Cloud, Cog, Users, Layers } from 'lucide-react';
 
 const skillCategories = [
   {
@@ -22,6 +22,19 @@ const skillCategories = [
       'React', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'HTML5 / CSS3',
       'Node.js', 'Python', 'Java', 'C#', '.NET', 'FastAPI', 'Java Spring Boot',
       'RESTful APIs', 'Microservices', 'SSO / MFA', 'Auth & API Security', 'Role-Based Access Control', 'SDLC',
+    ],
+  },
+  {
+    icon: Layers,
+    title: 'Software Architecture',
+    skills: [
+      'System Design', 'Architectural Thinking', 'Architecture Characteristics',
+      'Trade-off Analysis', 'Architecture Decision Records (ADR)', 'Design Patterns',
+      'Domain-Driven Design', 'Layered Architecture', 'Modular Monoliths',
+      'Service-Based Architecture', 'Microservices Architecture', 'Event-Driven Architecture',
+      'Distributed Systems', 'Scalability & Resilience', 'C4 / Architecture Diagramming',
+      'API & Contract Design', 'Evolutionary Architecture', 'Fitness Functions',
+      'Technical Debt Management', 'Architecture Governance',
     ],
   },
   {
@@ -85,6 +98,13 @@ const categoryStyles: Record<string, {
     bar: 'bg-blue-400',
     count: 'text-blue-500 dark:text-blue-400',
   },
+  'Software Architecture': {
+    accent: 'from-green-500 to-emerald-600',
+    icon: 'bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400',
+    pill: 'bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800/50 text-green-700 dark:text-green-300 hover:bg-green-100 dark:hover:bg-green-900/40',
+    bar: 'bg-green-400',
+    count: 'text-green-500 dark:text-green-400',
+  },
   'Backend & Databases': {
     accent: 'from-emerald-500 to-teal-600',
     icon: 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400',
@@ -116,6 +136,7 @@ const categoryStyles: Record<string, {
 };
 
 const proficiencies = [
+  { category: 'Software Architecture', level: 5, label: 'Expert', bar: 'bg-green-500' },
   { category: 'Backend Engineering', level: 5, label: 'Expert', bar: 'bg-blue-500' },
   { category: 'Frontend Development', level: 5, label: 'Expert', bar: 'bg-indigo-500' },
   { category: 'DevOps & CI/CD', level: 4, label: 'Advanced', bar: 'bg-cyan-500' },

@@ -35,6 +35,21 @@ const featuredCert = {
   expected: 'Expected Jun 2026',
 };
 
+const architectureTrack = {
+  name: 'Software Architecture',
+  issuer: "O'Reilly by Pearson",
+  category: 'Architecture',
+  period: 'Mar 2026 – Jul 2026',
+  summary: 'Five-level certification track covering architectural thinking, styles, trade-off analysis, and expert-level system design.',
+  levels: [
+    { level: 1, title: 'Exploring', date: 'Mar 03, 2026', file: '/certificates/OReilly Software Architecture Level 1 Exploring.pdf' },
+    { level: 2, title: 'Applying', date: 'Jul 10, 2026', file: '/certificates/OReilly Software Architecture Level 2 Applying.pdf' },
+    { level: 3, title: 'Building', date: 'Jul 30, 2026', file: '/certificates/OReilly Software Architecture Level 3 Building.pdf' },
+    { level: 4, title: 'Advancing', date: 'Jul 30, 2026', file: '/certificates/OReilly Software Architecture Level 4 Advancing.pdf' },
+    { level: 5, title: 'Expert', date: 'Jul 30, 2026', file: '/certificates/OReilly Software Architecture Level 5 Expert.pdf' },
+  ],
+};
+
 const certifications = [
   { name: 'Google Data Analytics Professional Certificate', issuer: 'Coursera / Google', category: 'Data Analytics', date: 'May 2025', certificate: 'https://coursera.org/verify/professional-cert/6RNL2W89K2KC' },
   { name: 'AWS Cloud Solutions Architect', issuer: 'Coursera / AWS', category: 'Cloud', date: 'Jun 2025', certificate: 'https://coursera.org/verify/professional-cert/FH1RIG29S3XE' },
@@ -70,7 +85,60 @@ const categoryStyle: Record<string, { pill: string; badge: string }> = {
     pill: 'bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800/60 text-teal-700 dark:text-teal-300',
     badge: 'bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-400',
   },
+  Architecture: {
+    pill: 'bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800/60 text-emerald-700 dark:text-emerald-300',
+    badge: 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400',
+  },
 };
+
+/* O'Reilly Software Architecture completion badge */
+function ArchitectureBadge({ level }: { level: number }) {
+  return (
+    <svg
+      viewBox="0 0 160 180"
+      className="w-full h-full drop-shadow-md"
+      role="img"
+      aria-label={`O'Reilly Software Architecture Level ${level} badge`}
+    >
+      <defs>
+        <linearGradient id="archGreen" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#1c7a3e" />
+          <stop offset="100%" stopColor="#4ecb74" />
+        </linearGradient>
+        <clipPath id="archHexClip">
+          <polygon points="80,10 148,49 148,127 80,166 12,127 12,49" />
+        </clipPath>
+      </defs>
+
+      <polygon points="80,2 158,45 158,131 80,174 2,131 2,45" fill="#0d1b16" />
+      <g clipPath="url(#archHexClip)">
+        <rect x="0" y="0" width="160" height="180" fill="#ffffff" />
+        <rect x="0" y="118" width="160" height="62" fill="url(#archGreen)" />
+        <rect x="0" y="95" width="160" height="25" fill="#0d1b16" />
+        <polygon
+          points="80,10 148,49 148,127 80,166 12,127 12,49"
+          fill="none"
+          stroke="#ffffff"
+          strokeOpacity="0.4"
+          strokeWidth="2"
+        />
+      </g>
+
+      <text x="80" y="47" textAnchor="middle" fontFamily="Arial, Helvetica, sans-serif" fontSize="13" fontWeight="700" fill="#e0201b">
+        {"O'REILLY"}
+      </text>
+      <text x="80" y="69" textAnchor="middle" fontFamily="Arial, Helvetica, sans-serif" fontSize="14" fill="#0d1b16">
+        Software
+      </text>
+      <text x="80" y="86" textAnchor="middle" fontFamily="Arial, Helvetica, sans-serif" fontSize="14" fill="#0d1b16">
+        Architecture
+      </text>
+      <text x="80" y="113" textAnchor="middle" fontFamily="Arial, Helvetica, sans-serif" fontSize="13" fontWeight="700" letterSpacing="1.5" fill="#ffffff">
+        {`LEVEL ${level}`}
+      </text>
+    </svg>
+  );
+}
 
 export default function EducationPage() {
   return (
@@ -172,7 +240,7 @@ export default function EducationPage() {
               <span className="gradient-text">Certifications</span>
             </h2>
             <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
-              Continuous learning across cloud, networking, AI, and security
+              Continuous learning across architecture, cloud, networking, AI, and security
             </p>
           </div>
 
@@ -202,6 +270,61 @@ export default function EducationPage() {
               <span className="shrink-0 px-3 py-1.5 rounded-full text-xs font-bold bg-white/20 text-white border border-white/30">
                 {featuredCert.category}
               </span>
+            </div>
+          </div>
+
+          {/* Software Architecture track — 5 levels, one certification */}
+          <div className="rounded-2xl border border-emerald-200 dark:border-emerald-800/60 bg-white dark:bg-gray-800/60 shadow-sm mb-6 sm:mb-8 overflow-hidden">
+            <div className="h-1 bg-linear-to-r from-emerald-500 via-green-500 to-teal-500" />
+            <div className="p-5 sm:p-6 flex flex-col sm:flex-row gap-5 sm:gap-6">
+
+              {/* Badge */}
+              <div className="w-28 sm:w-32 h-32 sm:h-36 mx-auto sm:mx-0 shrink-0">
+                <ArchitectureBadge level={5} />
+              </div>
+
+              {/* Details */}
+              <div className="flex-1 min-w-0">
+                <div className="flex flex-wrap items-center gap-2 mb-2">
+                  <span className={`px-2.5 py-1 rounded-full text-[11px] font-semibold ${categoryStyle.Architecture.badge}`}>
+                    {architectureTrack.category}
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400">
+                    <CheckCircle2 className="w-3 h-3" />
+                    All 5 levels complete
+                  </span>
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-slate-800 dark:text-slate-200">
+                  {architectureTrack.name}
+                </h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
+                  {architectureTrack.issuer} · {architectureTrack.period}
+                </p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2 mb-4">
+                  {architectureTrack.summary}
+                </p>
+
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                  {architectureTrack.levels.map((lvl) => (
+                    <a
+                      key={lvl.level}
+                      href={lvl.file}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group rounded-lg border border-gray-200 dark:border-gray-700/60 bg-gray-50/60 dark:bg-gray-900/30 px-3 py-2 hover:border-emerald-300 dark:hover:border-emerald-700 hover:bg-emerald-50/60 dark:hover:bg-emerald-900/10 transition-colors"
+                    >
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="text-[11px] font-bold uppercase tracking-wide text-emerald-600 dark:text-emerald-400">
+                          Level {lvl.level}
+                        </span>
+                        <ExternalLink className="w-3 h-3 text-gray-400 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors" />
+                      </div>
+                      <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 leading-snug">{lvl.title}</p>
+                      <p className="text-[11px] text-gray-400 dark:text-gray-500">{lvl.date}</p>
+                    </a>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
