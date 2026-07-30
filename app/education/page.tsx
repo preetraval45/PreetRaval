@@ -1,4 +1,4 @@
-import { GraduationCap, MapPin, Calendar, ArrowRight, Star, CheckCircle2, Clock, ExternalLink } from 'lucide-react';
+import { GraduationCap, MapPin, Calendar, ArrowRight, Star, CheckCircle2, Clock, ExternalLink, FileText } from 'lucide-react';
 
 const education = [
   {
@@ -50,46 +50,118 @@ const architectureTrack = {
   ],
 };
 
-const certifications = [
-  { name: 'Google Data Analytics Professional Certificate', issuer: 'Coursera / Google', category: 'Data Analytics', date: 'May 2025', certificate: 'https://coursera.org/verify/professional-cert/6RNL2W89K2KC' },
-  { name: 'AWS Cloud Solutions Architect', issuer: 'Coursera / AWS', category: 'Cloud', date: 'Jun 2025', certificate: 'https://coursera.org/verify/professional-cert/FH1RIG29S3XE' },
-  { name: 'Networking Fundamentals and Physical Networks', issuer: 'Coursera', category: 'Networking', date: 'Jun 2026', certificate: 'https://coursera.org/verify/NPL0WX44OZ25' },
-  { name: 'Claude Code In Action', issuer: 'Anthropic', category: 'AI', date: 'Apr 2026', certificate: 'https://verify.skilljar.com/c/asafgz6e6gab' },
-  { name: 'CCNA – Networking Fundamentals', issuer: 'Cisco', category: 'Networking' },
-  { name: 'SQL for IT Professionals', issuer: "O'Reilly by Pearson", category: 'Database' },
-  { name: 'Introduction to Penetration Testing', issuer: "O'Reilly by Pearson", category: 'Security' },
+const HOLDER = 'Preet Raval';
+
+type Certification = {
+  name: string;
+  short: string;
+  issuer: string;
+  category: string;
+  date?: string;
+  file?: string;
+  certificate?: string;
+};
+
+const certifications: Certification[] = [
+  { name: 'Google Data Analytics Professional Certificate', short: 'Data Analytics', issuer: 'Coursera / Google', category: 'Data Analytics', date: 'May 2025', file: '/certificates/google-data-analytics.pdf', certificate: 'https://coursera.org/verify/professional-cert/6RNL2W89K2KC' },
+  { name: 'AWS Cloud Solutions Architect', short: 'Cloud Solutions Architect', issuer: 'Coursera / AWS', category: 'Cloud', date: 'Jun 2025', file: '/certificates/aws-cloud-solutions.pdf', certificate: 'https://coursera.org/verify/professional-cert/FH1RIG29S3XE' },
+  { name: 'Networking Fundamentals and Physical Networks', short: 'Networking Fundamentals', issuer: 'Coursera', category: 'Networking', date: 'Jun 2026', file: '/certificates/networking-fundamentals.pdf', certificate: 'https://coursera.org/verify/NPL0WX44OZ25' },
+  { name: 'Claude Code In Action', short: 'Claude Code In Action', issuer: 'Anthropic', category: 'AI', date: 'Apr 2026', file: '/certificates/claude-code-in-action.pdf', certificate: 'https://verify.skilljar.com/c/asafgz6e6gab' },
+  { name: 'CCNA – Networking Fundamentals', short: 'CCNA', issuer: 'Cisco', category: 'Networking' },
+  { name: 'SQL for IT Professionals', short: 'SQL for IT Pros', issuer: "O'Reilly by Pearson", category: 'Database' },
+  { name: 'Introduction to Penetration Testing', short: 'Penetration Testing', issuer: "O'Reilly by Pearson", category: 'Security' },
 ];
 
-const categoryStyle: Record<string, { pill: string; badge: string }> = {
+const categoryStyle: Record<string, { pill: string; badge: string; ink: string; tint: string }> = {
   Cloud: {
     pill: 'bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800/60 text-blue-700 dark:text-blue-300',
     badge: 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400',
+    ink: '#2563eb', tint: '#dbeafe',
   },
   Networking: {
     pill: 'bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800/60 text-green-700 dark:text-green-300',
     badge: 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400',
+    ink: '#16a34a', tint: '#dcfce7',
   },
   Database: {
     pill: 'bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800/60 text-purple-700 dark:text-purple-300',
     badge: 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400',
+    ink: '#9333ea', tint: '#f3e8ff',
   },
   Security: {
     pill: 'bg-rose-50 dark:bg-rose-900/20 border border-rose-200 dark:border-rose-800/60 text-rose-700 dark:text-rose-300',
     badge: 'bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-400',
+    ink: '#e11d48', tint: '#ffe4e6',
   },
   AI: {
     pill: 'bg-fuchsia-50 dark:bg-fuchsia-900/20 border border-fuchsia-200 dark:border-fuchsia-800/60 text-fuchsia-700 dark:text-fuchsia-300',
     badge: 'bg-fuchsia-100 dark:bg-fuchsia-900/30 text-fuchsia-700 dark:text-fuchsia-400',
+    ink: '#c026d3', tint: '#fae8ff',
   },
   'Data Analytics': {
     pill: 'bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800/60 text-teal-700 dark:text-teal-300',
     badge: 'bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-400',
+    ink: '#0d9488', tint: '#ccfbf1',
   },
   Architecture: {
     pill: 'bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800/60 text-emerald-700 dark:text-emerald-300',
     badge: 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400',
+    ink: '#059669', tint: '#d1fae5',
   },
 };
+
+/* Certificate preview — mirrors the printed certificate, holder name front and center */
+function CertificatePreview({
+  issuer, title, date, ink, tint,
+}: { issuer: string; title: string; date?: string; ink: string; tint: string }) {
+  return (
+    <svg
+      viewBox="0 0 320 200"
+      className="w-full h-auto"
+      role="img"
+      aria-label={`${title} certificate issued to ${HOLDER} by ${issuer}`}
+    >
+      <rect x="0" y="0" width="320" height="200" rx="8" fill="#ffffff" />
+      <rect x="0" y="0" width="320" height="6" fill={ink} />
+      <rect x="0.5" y="0.5" width="319" height="199" rx="8" fill="none" stroke={tint} strokeWidth="1" />
+      <rect x="10" y="14" width="300" height="176" rx="4" fill="none" stroke={tint} strokeWidth="2" />
+
+      <text x="24" y="38" fontFamily="Arial, Helvetica, sans-serif" fontSize="9" fontWeight="700" letterSpacing="1.6" fill={ink}>
+        {issuer.toUpperCase()}
+      </text>
+      <text x="24" y="56" fontFamily="Georgia, 'Times New Roman', serif" fontSize="14" fill="#334155">
+        Certificate of Completion
+      </text>
+
+      <text x="24" y="88" fontFamily="Arial, Helvetica, sans-serif" fontSize="9" fill="#94a3b8">
+        This certifies that
+      </text>
+      <text x="24" y="116" fontFamily="Georgia, 'Times New Roman', serif" fontSize="26" fill="#0f172a">
+        {HOLDER}
+      </text>
+      <line x1="24" y1="126" x2="296" y2="126" stroke={tint} strokeWidth="2" />
+
+      <text x="24" y="146" fontFamily="Arial, Helvetica, sans-serif" fontSize="9" fill="#94a3b8">
+        has successfully completed
+      </text>
+      <text x="24" y="164" fontFamily="Arial, Helvetica, sans-serif" fontSize="12" fontWeight="700" fill="#1e293b">
+        {title}
+      </text>
+      {date && (
+        <text x="24" y="181" fontFamily="Arial, Helvetica, sans-serif" fontSize="9" fill="#94a3b8">
+          {`Issued ${date}`}
+        </text>
+      )}
+
+      {/* Seal */}
+      <g transform="translate(262 158)">
+        <circle r="22" fill={tint} />
+        <circle r="16" fill="none" stroke={ink} strokeWidth="1.5" />
+        <path d="M -6 0 L -2 5 L 7 -5" fill="none" stroke={ink} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+      </g>
+    </svg>
+  );
+}
 
 /* O'Reilly Software Architecture completion badge */
 function ArchitectureBadge({ level }: { level: number }) {
@@ -300,6 +372,9 @@ export default function EducationPage() {
                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">
                   {architectureTrack.issuer} · {architectureTrack.period}
                 </p>
+                <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">
+                  Issued to {HOLDER}
+                </p>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mt-2 mb-4">
                   {architectureTrack.summary}
                 </p>
@@ -333,7 +408,19 @@ export default function EducationPage() {
             {certifications.map((cert, i) => {
               const style = categoryStyle[cert.category] ?? categoryStyle.Cloud;
               return (
-                <div key={i} className="rounded-xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-800/60 shadow-sm p-4 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col">
+                <div key={i} className="rounded-xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-800/60 shadow-sm overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col">
+                  {/* Certificate preview */}
+                  <div className="bg-gray-50 dark:bg-gray-900/40 border-b border-gray-200 dark:border-gray-700/60 p-3">
+                    <CertificatePreview
+                      issuer={cert.issuer}
+                      title={cert.short}
+                      date={cert.date}
+                      ink={style.ink}
+                      tint={style.tint}
+                    />
+                  </div>
+
+                  <div className="p-4 flex flex-col flex-1">
                   <div className="flex items-start justify-between gap-2 mb-3">
                     <span className={`px-2.5 py-1 rounded-full text-[11px] font-semibold ${style.badge}`}>
                       {cert.category}
@@ -349,17 +436,33 @@ export default function EducationPage() {
                       <span className="text-xs text-gray-400 dark:text-gray-500 font-medium">{cert.date}</span>
                     )}
                   </div>
-                  {(cert as { certificate?: string }).certificate && (
-                    <a
-                      href={(cert as { certificate?: string }).certificate}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
-                    >
-                      <ExternalLink className="w-3 h-3" />
-                      View Certificate
-                    </a>
+                  {(cert.file || cert.certificate) && (
+                    <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1">
+                      {cert.file && (
+                        <a
+                          href={cert.file}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+                        >
+                          <FileText className="w-3 h-3" />
+                          View Certificate
+                        </a>
+                      )}
+                      {cert.certificate && (
+                        <a
+                          href={cert.certificate}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors"
+                        >
+                          <ExternalLink className="w-3 h-3" />
+                          Verify
+                        </a>
+                      )}
+                    </div>
                   )}
+                  </div>
                 </div>
               );
             })}
