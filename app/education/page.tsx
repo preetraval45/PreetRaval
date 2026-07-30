@@ -60,6 +60,8 @@ type Certification = {
   date?: string;
   file?: string;
   certificate?: string;
+  /* O'Reilly courses render the hexagon badge instead of the certificate preview */
+  badgeLines?: string[];
 };
 
 const certifications: Certification[] = [
@@ -67,9 +69,9 @@ const certifications: Certification[] = [
   { name: 'AWS Cloud Solutions Architect', short: 'Cloud Solutions Architect', issuer: 'Coursera / AWS', category: 'Cloud', date: 'Jun 2025', file: '/certificates/aws-cloud-solutions.pdf', certificate: 'https://coursera.org/verify/professional-cert/FH1RIG29S3XE' },
   { name: 'Networking Fundamentals and Physical Networks', short: 'Networking Fundamentals', issuer: 'Coursera', category: 'Networking', date: 'Jun 2026', file: '/certificates/networking-fundamentals.pdf', certificate: 'https://coursera.org/verify/NPL0WX44OZ25' },
   { name: 'Claude Code In Action', short: 'Claude Code In Action', issuer: 'Anthropic', category: 'AI', date: 'Apr 2026', file: '/certificates/claude-code-in-action.pdf', certificate: 'https://verify.skilljar.com/c/asafgz6e6gab' },
-  { name: 'CCNA – Networking Fundamentals', short: 'CCNA', issuer: 'Cisco', category: 'Networking' },
-  { name: 'SQL for IT Professionals', short: 'SQL for IT Pros', issuer: "O'Reilly by Pearson", category: 'Database' },
-  { name: 'Introduction to Penetration Testing', short: 'Penetration Testing', issuer: "O'Reilly by Pearson", category: 'Security' },
+  { name: 'CCNA – Networking Fundamentals', short: 'CCNA', issuer: "O'Reilly by Pearson", category: 'Networking', badgeLines: ['CCNA'] },
+  { name: 'SQL for IT Professionals', short: 'SQL for IT Pros', issuer: "O'Reilly by Pearson", category: 'Database', badgeLines: ['SQL for IT', 'Professionals'] },
+  { name: 'Introduction to Penetration Testing', short: 'Penetration Testing', issuer: "O'Reilly by Pearson", category: 'Security', badgeLines: ['Penetration', 'Testing'] },
 ];
 
 const categoryStyle: Record<string, { pill: string; badge: string; ink: string; tint: string }> = {
@@ -163,29 +165,34 @@ function CertificatePreview({
   );
 }
 
-/* O'Reilly Software Architecture completion badge */
-function ArchitectureBadge({ level }: { level: number }) {
+/* O'Reilly hexagon completion badge — title lines above the band, band label below */
+function OReillyBadge({ uid, lines, band }: { uid: string; lines: string[]; band: string }) {
+  const gradientId = `oreillyGreen-${uid}`;
+  const clipId = `oreillyHexClip-${uid}`;
+  /* One line sits low and centered; two lines stack around the same optical center. */
+  const titleY = lines.length > 1 ? [69, 86] : [78];
+
   return (
     <svg
       viewBox="0 0 160 180"
       className="w-full h-full drop-shadow-md"
       role="img"
-      aria-label={`O'Reilly Software Architecture Level ${level} badge`}
+      aria-label={`O'Reilly ${lines.join(' ')} ${band} badge`}
     >
       <defs>
-        <linearGradient id="archGreen" x1="0" y1="0" x2="0" y2="1">
+        <linearGradient id={gradientId} x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#1c7a3e" />
           <stop offset="100%" stopColor="#4ecb74" />
         </linearGradient>
-        <clipPath id="archHexClip">
+        <clipPath id={clipId}>
           <polygon points="80,10 148,49 148,127 80,166 12,127 12,49" />
         </clipPath>
       </defs>
 
       <polygon points="80,2 158,45 158,131 80,174 2,131 2,45" fill="#0d1b16" />
-      <g clipPath="url(#archHexClip)">
+      <g clipPath={`url(#${clipId})`}>
         <rect x="0" y="0" width="160" height="180" fill="#ffffff" />
-        <rect x="0" y="118" width="160" height="62" fill="url(#archGreen)" />
+        <rect x="0" y="118" width="160" height="62" fill={`url(#${gradientId})`} />
         <rect x="0" y="95" width="160" height="25" fill="#0d1b16" />
         <polygon
           points="80,10 148,49 148,127 80,166 12,127 12,49"
@@ -199,14 +206,21 @@ function ArchitectureBadge({ level }: { level: number }) {
       <text x="80" y="47" textAnchor="middle" fontFamily="Arial, Helvetica, sans-serif" fontSize="13" fontWeight="700" fill="#e0201b">
         {"O'REILLY"}
       </text>
-      <text x="80" y="69" textAnchor="middle" fontFamily="Arial, Helvetica, sans-serif" fontSize="14" fill="#0d1b16">
-        Software
-      </text>
-      <text x="80" y="86" textAnchor="middle" fontFamily="Arial, Helvetica, sans-serif" fontSize="14" fill="#0d1b16">
-        Architecture
-      </text>
-      <text x="80" y="113" textAnchor="middle" fontFamily="Arial, Helvetica, sans-serif" fontSize="13" fontWeight="700" letterSpacing="1.5" fill="#ffffff">
-        {`LEVEL ${level}`}
+      {lines.map((line, i) => (
+        <text
+          key={line}
+          x="80"
+          y={titleY[i]}
+          textAnchor="middle"
+          fontFamily="Arial, Helvetica, sans-serif"
+          fontSize="14"
+          fill="#0d1b16"
+        >
+          {line}
+        </text>
+      ))}
+      <text x="80" y="113" textAnchor="middle" fontFamily="Arial, Helvetica, sans-serif" fontSize="12" fontWeight="700" letterSpacing="1.5" fill="#ffffff">
+        {band}
       </text>
     </svg>
   );
@@ -352,7 +366,7 @@ export default function EducationPage() {
 
               {/* Badge */}
               <div className="w-28 sm:w-32 h-32 sm:h-36 mx-auto sm:mx-0 shrink-0">
-                <ArchitectureBadge level={5} />
+                <OReillyBadge uid="arch5" lines={['Software', 'Architecture']} band="LEVEL 5" />
               </div>
 
               {/* Details */}
@@ -409,15 +423,25 @@ export default function EducationPage() {
               const style = categoryStyle[cert.category] ?? categoryStyle.Cloud;
               return (
                 <div key={i} className="rounded-xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-800/60 shadow-sm overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 flex flex-col">
-                  {/* Certificate preview */}
-                  <div className="bg-gray-50 dark:bg-gray-900/40 border-b border-gray-200 dark:border-gray-700/60 p-3">
-                    <CertificatePreview
-                      issuer={cert.issuer}
-                      title={cert.short}
-                      date={cert.date}
-                      ink={style.ink}
-                      tint={style.tint}
-                    />
+                  {/* Certificate preview — O'Reilly courses show their hexagon badge */}
+                  <div className="bg-gray-50 dark:bg-gray-900/40 border-b border-gray-200 dark:border-gray-700/60 p-3 min-h-44 flex items-center justify-center">
+                    {cert.badgeLines ? (
+                      <div className="flex flex-col items-center justify-center py-1">
+                        <div className="w-24 h-28">
+                          <OReillyBadge uid={`cert-${i}`} lines={cert.badgeLines} band="COMPLETED" />
+                        </div>
+                        <p className="mt-2 text-sm font-semibold text-slate-700 dark:text-slate-200">{HOLDER}</p>
+                        <p className="text-[11px] text-gray-400 dark:text-gray-500">{cert.issuer}</p>
+                      </div>
+                    ) : (
+                      <CertificatePreview
+                        issuer={cert.issuer}
+                        title={cert.short}
+                        date={cert.date}
+                        ink={style.ink}
+                        tint={style.tint}
+                      />
+                    )}
                   </div>
 
                   <div className="p-4 flex flex-col flex-1">
