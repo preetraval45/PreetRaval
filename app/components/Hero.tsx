@@ -60,7 +60,9 @@ export function Hero() {
                   Preet Raval
                 </h1>
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 dark:text-slate-200">
+              {/* Two line-heights are reserved so the rotating title cannot
+                  shove the rest of the page around every few seconds. */}
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 dark:text-slate-200 min-h-[2lh] lg:min-h-lh">
                 <span key={currentRoleIndex} className="text-blue-600 dark:text-blue-400 inline-block animate-role-fade">
                   {roles[currentRoleIndex]}
                 </span>
@@ -105,18 +107,18 @@ export function Hero() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 items-stretch sm:items-center justify-center lg:justify-start">
-              <Link href="/projects" className="btn-primary inline-flex items-center justify-center gap-2 sm:gap-3 group w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg">
+              <Link href="/projects" className="btn-primary inline-flex items-center justify-center gap-2 sm:gap-3 group w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg whitespace-nowrap">
                 View My Work
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
-              <Link href="/contact" className="btn-secondary inline-flex items-center justify-center gap-2 sm:gap-3 group w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg">
+              <Link href="/contact" className="btn-secondary inline-flex items-center justify-center gap-2 sm:gap-3 group w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg whitespace-nowrap">
                 <Mail className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-12 transition-transform" />
                 Get In Touch
               </Link>
               <a
                 href="/Preet%20Raval%20Resume.pdf"
                 download="Preet Raval Resume.pdf"
-                className="btn-secondary inline-flex items-center justify-center gap-2 sm:gap-3 group w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg"
+                className="btn-secondary inline-flex items-center justify-center gap-2 sm:gap-3 group w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg whitespace-nowrap"
               >
                 <Download className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-y-1 transition-transform" />
                 Download Resume
@@ -156,9 +158,10 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Profile Image with Decorations */}
-          <div className="relative scale-in order-first lg:order-last">
-            <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-xl mx-auto">
+          {/* Profile Image with Decorations. Text comes first on mobile so the
+              name and role are visible without scrolling. */}
+          <div className="relative scale-in">
+            <div className="relative w-full max-w-[15rem] sm:max-w-md lg:max-w-xl mx-auto">
               {/* Decorative Elements */}
               <div className="absolute -top-6 sm:-top-10 -left-6 sm:-left-10 w-24 sm:w-32 h-24 sm:h-32 bg-linear-to-br from-indigo-500 to-purple-600 rounded-3xl opacity-20 blur-2xl floating"></div>
               <div className="absolute -bottom-6 sm:-bottom-10 -right-6 sm:-right-10 w-28 sm:w-40 h-28 sm:h-40 bg-linear-to-br from-purple-500 to-pink-600 rounded-3xl opacity-20 blur-2xl floating" style={{ animationDelay: '1s' }}></div>
@@ -201,8 +204,9 @@ export function Hero() {
                 </div>
               </div>
 
-              {/* Tech Stack Badges */}
-              <div className="absolute -bottom-6 sm:-bottom-8 left-1/2 transform -translate-x-1/2 flex flex-wrap gap-2 sm:gap-3 justify-center max-w-xs sm:max-w-none">
+              {/* Tech Stack Badges. They float under the portrait from sm up;
+                  on phones they sit in the flow so they never cover the photo. */}
+              <div className="mt-5 flex flex-wrap gap-2 justify-center sm:mt-0 sm:absolute sm:-bottom-8 sm:left-1/2 sm:-translate-x-1/2 sm:gap-3 sm:max-w-none">
                 <div className="flex items-center gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 bg-white dark:bg-slate-800 rounded-full shadow-xl border-2 border-indigo-200 dark:border-indigo-800 text-xs sm:text-sm font-semibold text-indigo-600 dark:text-indigo-400 whitespace-nowrap">
                   <Globe className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   Next.js

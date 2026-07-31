@@ -113,7 +113,7 @@ export function FeaturedProjects() {
                   )}
                 </div>
               ) : (
-                <div className={`relative h-28 overflow-hidden bg-linear-to-br ${p.gradient} flex items-center px-5`}>
+                <div className={`relative h-36 overflow-hidden bg-linear-to-br ${p.gradient} flex items-center px-5`}>
                   <Icon className="w-10 h-10 text-white" strokeWidth={1.75} />
                   <Icon className="absolute -right-2 -bottom-3 w-28 h-28 text-white/15" strokeWidth={1.25} />
                   {p.external && (
