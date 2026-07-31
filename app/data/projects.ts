@@ -4,6 +4,8 @@
  * site can never disagree with what is actually listed.
  */
 export type Project = {
+  /** Stable key so other surfaces (e.g. the homepage) can reference a project. */
+  id: string;
   title: string;
   status: 'Live' | 'Production';
   category: 'Enterprise' | 'Client Work' | 'Personal';
@@ -19,6 +21,7 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: 'vyne',
     title: 'VYNE – AI-Native Company Operating System',
     status: 'Live',
     category: 'Personal',
@@ -37,6 +40,7 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: 'nexus',
     title: 'NEXUS – Traveler Management & Workflow Automation',
     status: 'Production',
     category: 'Enterprise',
@@ -56,6 +60,7 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: 'aci-forge',
     title: 'ACI Forge – Enterprise SaaS Platform',
     status: 'Live',
     category: 'Enterprise',
@@ -71,6 +76,7 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: 'kosh',
     title: 'KOSH – Inventory Management System',
     status: 'Production',
     category: 'Enterprise',
@@ -88,6 +94,7 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: 'pdf-to-bom',
     title: 'PDF to BOM Converter',
     status: 'Production',
     category: 'Enterprise',
@@ -103,6 +110,7 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: 'serenity-living',
     title: 'Serenity Living',
     status: 'Live',
     category: 'Client Work',

@@ -5,25 +5,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { projectCount } from '../data/projects';
+import { useMonthsOfExperience } from '../data/experience';
 
 const roles = ['DevOps Engineer (AI Systems)', 'Full-Stack Developer', 'Software Engineer', 'Generative AI Engineer'];
 
 export function Hero() {
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
 
-  // Calculate months of experience from June 2025
-  const calculateExperience = () => {
-    const startDate = new Date(2025, 5, 26);
-    const currentDate = new Date();
-    const months = (currentDate.getFullYear() - startDate.getFullYear()) * 12 +
-                   (currentDate.getMonth() - startDate.getMonth());
-    return months > 0 ? months : 0;
-  };
-
-  const monthsExperience = calculateExperience();
-  const experienceDisplay = monthsExperience >= 12
-    ? `${Math.floor(monthsExperience / 12)} Year${Math.floor(monthsExperience / 12) > 1 ? 's' : ''}`
-    : `${monthsExperience} Months`;
+  const monthsExperience = useMonthsOfExperience();
 
   useEffect(() => {
     const interval = setInterval(() => {

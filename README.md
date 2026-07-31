@@ -1,86 +1,82 @@
-# Preet Raval - Professional Portfolio
+# Preet Raval — Portfolio
 
-A modern, responsive portfolio website built with Next.js, TypeScript, and Tailwind CSS featuring light/dark theme support.
+Personal portfolio site: work history, projects and case studies, skills, and
+verifiable certifications. Built with Next.js and deployed on Vercel.
 
-## Features
-
-- **Responsive Design**: Fully responsive layout that works on all devices
-- **Dark Mode**: Seamless light/dark theme switching with system preference detection
-- **Modern UI**: Clean, professional design with smooth animations
-- **SEO Optimized**: Built-in SEO optimization with Next.js metadata
-- **Fast Performance**: Optimized for Core Web Vitals
-- **Type Safe**: Full TypeScript support
+**Live:** [preet-raval.vercel.app](https://preet-raval.vercel.app)
 
 ## Tech Stack
 
-- **Framework**: Next.js 15
+- **Framework**: Next.js 16 (App Router, React 19)
 - **Language**: TypeScript
-- **Styling**: Tailwind CSS
+- **Styling**: Tailwind CSS 4
 - **Icons**: Lucide React
-- **Theme**: next-themes
-- **Deployment**: Vercel
+- **Theme**: next-themes (light/dark, system preference)
+- **Analytics**: Vercel Analytics
+- **Deployment**: Vercel (auto-deploys on push to `main`)
 
 ## Getting Started
 
-### Prerequisites
+Requires Node.js 18+ and npm.
 
-- Node.js 18+ and npm
-
-### Installation
-
-1. Clone the repository:
-\`\`\`bash
-git clone https://github.com/preetraval/portfolio.git
-cd portfolio
-\`\`\`
-
-2. Install dependencies:
-\`\`\`bash
+```bash
+git clone https://github.com/preetraval45/PreetRaval.git
+cd PreetRaval
 npm install
-\`\`\`
-
-3. Run the development server:
-\`\`\`bash
 npm run dev
-\`\`\`
+```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+Then open [localhost:3000](http://localhost:3000).
 
-## Building for Production
+## Scripts
 
-\`\`\`bash
-npm run build
-npm start
-\`\`\`
+| Script | What it does |
+| --- | --- |
+| `npm run dev` | Development server |
+| `npm run build` | Production build |
+| `npm start` | Serve the production build |
+| `npm run lint` | ESLint (flat config, `next/core-web-vitals`) |
+| `npm run certs:render` | Render page 1 of each certificate PDF to WebP |
+| `npm run images:optimize` | Convert the PNG screenshots in `public/` to WebP |
+
+## Project Layout
+
+```text
+app/
+  data/          projects.ts and experience.ts — shared source of truth
+  site.ts        canonical site URL used by metadata, sitemap, robots, OG image
+  components/    Navigation, Hero, FeaturedProjects, Footer, theme controls
+  <route>/       one folder per page, each with its own layout.tsx for metadata
+  projects/      listing plus per-project case studies (vyne, nexus)
+public/
+  certificates/  certificate PDFs, with rendered previews in previews/
+scripts/         build-time asset tooling (see Scripts above)
+```
+
+Two conventions worth knowing:
+
+- **Project data lives in `app/data/projects.ts`.** The projects page, the
+  homepage cards, and the stat tiles all read from it — add a project there and
+  every surface updates. Do not copy the list into a component.
+- **Absolute URLs come from `app/site.ts`.** Metadata, JSON-LD, `sitemap.ts`,
+  `robots.ts`, and the OG image all derive from `SITE_URL`. Changing the domain
+  is a one-line edit there.
+
+## Certificates
+
+Certificate PDFs go in `public/certificates/`. Run `npm run certs:render` to
+regenerate the preview images — it drives pdf.js inside headless Chrome via
+puppeteer-core, because the Node canvas backends silently drop text in some
+embedded fonts. Then add the `file` and `preview` paths to the entry in
+`app/education/page.tsx`.
 
 ## Deployment
 
-This project is optimized for deployment on Vercel:
-
-1. Push your code to GitHub
-2. Import the project in Vercel
-3. Deploy with one click
-
-## Sections
-
-- **Hero**: Introduction and key links
-- **About**: Professional summary and highlights
-- **Experience**: Work history and achievements
-- **Skills**: Technical competencies organized by category
-- **Projects**: Featured projects and case studies
-- **Education**: Academic background and certifications
-- **Contact**: Contact information and message form
-
-## License
-
-MIT License - feel free to use this template for your own portfolio!
+Pushing to `main` triggers a production deploy on Vercel. See
+[DEPLOYMENT.md](DEPLOYMENT.md) for environment and domain setup.
 
 ## Contact
 
 - **Email**: preetraval45@gmail.com
-- **LinkedIn**: [linkedin.com/in/preet-raval-45rs18vk](https://www.linkedin.com/in/preet-raval-45rs18vk/)
-- **GitHub**: [github.com/preetraval](https://github.com/preetraval)
-
----
-
-Built with ❤️ by Preet Raval
+- **LinkedIn**: [preet-raval-45rs18vk](https://www.linkedin.com/in/preet-raval-45rs18vk/)
+- **GitHub**: [preetraval45](https://github.com/preetraval45)

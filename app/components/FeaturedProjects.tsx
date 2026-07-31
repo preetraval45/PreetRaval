@@ -1,48 +1,71 @@
 import { Building2, Brain, ArrowRight, ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { projects } from '../data/projects';
 
-const featured = [
-  {
-    title: 'VYNE – AI-Native Company OS',
-    status: 'Live',
+/*
+ * Presentation only. Every fact (status, tech, screenshot, live link, case
+ * study) is read from app/data/projects.ts, so this section cannot drift out
+ * of sync with /projects. The short title and blurb live here because the
+ * cards need tighter copy than the full listing.
+ */
+const featuredIds = ['vyne', 'nexus', 'aci-forge'];
+
+const presentation: Record<string, {
+  shortTitle: string;
+  blurb: string;
+  bar: string;
+  icon: typeof Building2;
+  gradient: string;
+  cta: string;
+}> = {
+  vyne: {
+    shortTitle: 'VYNE – AI-Native Company OS',
     blurb:
       'An AI-native correlation layer that ties business events to infrastructure events on one unified timeline, consolidating Slack, Jira, Notion, and Datadog into a single platform.',
-    tech: ['Next.js', 'FastAPI', 'AWS', 'LangGraph', 'Microservices'],
     bar: 'from-blue-500 to-indigo-600',
     icon: Brain,
     gradient: 'from-blue-600 via-indigo-600 to-blue-800',
-    screenshot: '/vyne-screenshot.webp',
-    href: '/projects/vyne',
     cta: 'Read the case study',
-    external: 'https://vyne.vercel.app/',
   },
-  {
-    title: 'NEXUS – Traveler Management Platform',
-    status: 'Production',
+  nexus: {
+    shortTitle: 'NEXUS – Traveler Management Platform',
     blurb:
       'The operational backbone of American Circuits Inc., with centralized traveler lifecycle management, step-based workflow automation, QC enforcement, and real-time production analytics.',
-    tech: ['Next.js', 'FastAPI', 'PostgreSQL', 'Docker', 'Nginx'],
     bar: 'from-fuchsia-500 to-purple-600',
     icon: Building2,
     gradient: 'from-fuchsia-600 via-purple-600 to-indigo-700',
-    screenshot: '/nexus-screenshot.webp',
-    href: '/projects/nexus',
     cta: 'Read the case study',
   },
-  {
-    title: 'ACI Forge – Enterprise SaaS Portal',
-    status: 'Live',
+  'aci-forge': {
+    shortTitle: 'ACI Forge – Enterprise SaaS Portal',
     blurb:
       'Single sign-on portal where employees log in once and reach every internal tool by role, with SSO and MFA, role-gated dashboards, and Cloudflare Tunnels to an on-prem backend.',
-    tech: ['Next.js', 'Python', 'PostgreSQL', 'Docker', 'Cloudflare'],
     bar: 'from-emerald-500 to-teal-600',
     icon: Building2,
     gradient: 'from-emerald-500 via-teal-600 to-cyan-700',
-    href: '/projects',
     cta: 'See all projects',
   },
-];
+};
+
+const featured = featuredIds.map((id) => {
+  const project = projects.find((p) => p.id === id);
+  if (!project) throw new Error(`Featured project "${id}" is missing from the project list`);
+  const look = presentation[id];
+  return {
+    title: look.shortTitle,
+    status: project.status,
+    blurb: look.blurb,
+    tech: project.technologies.slice(0, 5),
+    screenshot: project.screenshot,
+    external: project.link,
+    href: project.caseStudy ?? '/projects',
+    bar: look.bar,
+    icon: look.icon,
+    gradient: look.gradient,
+    cta: look.cta,
+  };
+});
 
 const statusColor: Record<string, string> = {
   Live: 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400',

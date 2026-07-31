@@ -180,9 +180,9 @@ export default function ExperiencePage() {
 
         {/* Page header */}
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
             <span className="gradient-text">Work Experience</span>
-          </h2>
+          </h1>
           <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Building enterprise systems that teams rely on every day
           </p>

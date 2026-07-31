@@ -160,9 +160,9 @@ export default function SkillsPage() {
 
         {/* Header */}
         <div className="text-center mb-10 sm:mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
             <span className="gradient-text">Skills & Competencies</span>
-          </h2>
+          </h1>
           <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-4">
             A comprehensive toolkit spanning AI/ML, full-stack development, cloud infrastructure, and cybersecurity
           </p>

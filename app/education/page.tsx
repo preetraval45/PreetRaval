@@ -1,4 +1,9 @@
 import { GraduationCap, MapPin, Calendar, ArrowRight, Star, CheckCircle2, Clock, ExternalLink, FileText } from 'lucide-react';
+import Image from 'next/image';
+
+/* Every preview is page 1 of a US-Letter landscape PDF rendered at 2x. */
+const PREVIEW_W = 1584;
+const PREVIEW_H = 1224;
 
 const education = [
   {
@@ -119,9 +124,9 @@ export default function EducationPage() {
 
           {/* ── Education ────────────────────────────────── */}
           <div className="text-center mb-10 sm:mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3">
               <span className="gradient-text">Education</span>
-            </h2>
+            </h1>
             <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
               Academic journey from India to Charlotte, NC
             </p>
@@ -256,13 +261,12 @@ export default function EducationPage() {
                 rel="noopener noreferrer"
                 className="block w-full sm:w-64 shrink-0 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700/60 bg-white hover:border-emerald-300 dark:hover:border-emerald-700 transition-colors"
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src={architectureTrack.levels[4].preview}
                   alt={`O'Reilly Software Architecture Level 5: Expert certificate issued to ${HOLDER}`}
-                  width={1305}
-                  height={1008}
-                  loading="lazy"
+                  width={PREVIEW_W}
+                  height={PREVIEW_H}
+                  sizes="(max-width: 640px) 100vw, 256px"
                   className="w-full h-auto"
                 />
               </a>
@@ -325,11 +329,12 @@ export default function EducationPage() {
                   <div className="bg-gray-50 dark:bg-gray-900/40 border-b border-gray-200 dark:border-gray-700/60 p-3 min-h-40 flex items-center justify-center">
                     {cert.preview ? (
                       <a href={cert.file} target="_blank" rel="noopener noreferrer" className="block w-full rounded-md overflow-hidden bg-white">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
+                        <Image
                           src={cert.preview}
                           alt={`${cert.name} certificate issued to ${HOLDER}`}
-                          loading="lazy"
+                          width={PREVIEW_W}
+                          height={PREVIEW_H}
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                           className="w-full h-auto"
                         />
                       </a>

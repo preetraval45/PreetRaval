@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Code2, Rocket, Target, Zap, Download, Briefcase, Globe, Server, MapPin, Github, ExternalLink } from 'lucide-react';
 import { projectCount } from '../data/projects';
+import { useMonthsOfExperience } from '../data/experience';
 
 const highlights = [
   {
@@ -84,13 +85,7 @@ const stats = [
 ];
 
 export default function AboutPage() {
-  const startDate = new Date(2025, 5, 26);
-  const now = new Date();
-  const months = (now.getFullYear() - startDate.getFullYear()) * 12 + (now.getMonth() - startDate.getMonth());
-  const monthsExp = months > 0 ? months : 0;
-  const years = Math.floor(monthsExp / 12);
-  const expValue = monthsExp >= 12 ? `${years}+` : `${monthsExp}+`;
-  const expLabel = monthsExp >= 12 ? `Year${years > 1 ? 's' : ''} Experience` : 'Months Experience';
+  const monthsExp = useMonthsOfExperience();
 
   const statsRef = useRef<HTMLDivElement>(null);
   const [animStarted, setAnimStarted] = useState(false);
@@ -128,9 +123,9 @@ export default function AboutPage() {
       <section id="about" className="section-container px-4 sm:px-6 lg:px-8">
 
         <div className="text-center mb-10 sm:mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
             <span className="gradient-text">About Me</span>
-          </h2>
+          </h1>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto font-medium">
             DevOps & Full-Stack Engineer who builds and ships production systems end-to-end
           </p>

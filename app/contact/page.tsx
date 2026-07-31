@@ -87,9 +87,9 @@ export default function ContactPage() {
       <section id="contact" className="section-container px-4 sm:px-6 lg:px-8">
 
         <div className="text-center mb-10 sm:mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
             <span className="gradient-text">Get In Touch</span>
-          </h2>
+          </h1>
           <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 max-w-xl mx-auto mb-4">
             Open to new opportunities, collaborations, and interesting projects. Reach out any time.
           </p>

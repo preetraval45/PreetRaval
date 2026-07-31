@@ -70,9 +70,9 @@ export default function ProjectsPage() {
 
         {/* Header */}
         <div className="text-center mb-10 sm:mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
             <span className="gradient-text">Featured Projects</span>
-          </h2>
+          </h1>
           <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-4">
             Enterprise platforms, AI systems, and client sites, all production, all used daily
           </p>
