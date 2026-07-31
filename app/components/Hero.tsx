@@ -69,7 +69,7 @@ export function Hero() {
 
             {/* Description */}
             <p className="text-base sm:text-lg md:text-xl leading-relaxed text-slate-700 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0">
-              I engineer <span className="font-semibold text-blue-700 dark:text-blue-300">enterprise production systems end-to-end</span> — schema design, REST APIs, containerized deployments, and CI/CD pipelines. Currently building AI-powered manufacturing software at American Circuits Inc., where <span className="font-semibold text-indigo-700 dark:text-indigo-300">50+ people rely on what I ship daily</span>.
+              I engineer <span className="font-semibold text-blue-700 dark:text-blue-300">enterprise production systems end to end</span>: schema design, REST APIs, containerized deployments, and CI/CD pipelines. Currently building AI-powered manufacturing software at American Circuits Inc., where <span className="font-semibold text-indigo-700 dark:text-indigo-300">50+ people rely on what I ship daily</span>.
             </p>
 
             {/* Stats */}

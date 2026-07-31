@@ -8,7 +8,7 @@ const experiences = [
     company: 'American Circuits Inc.',
     logo: '/American circutis.jpg',
     location: 'Charlotte, NC',
-    title: 'DevOps Engineer – AI Systems',
+    title: 'DevOps Engineer, AI Systems',
     period: 'Mar 2026 – Present',
     current: true,
     tech: ['Linux', 'Python', 'CI/CD', 'GitHub Actions', 'Docker', 'Kubernetes', 'Nginx', 'ODOO', 'Networking', 'Secrets Management'],
@@ -18,7 +18,7 @@ const experiences = [
         description: 'Build and maintain internal tools used daily by the team, including automated reports, admin dashboards, and ops utilities integrated with third-party services via RESTful APIs.',
         highlights: [
           'Automated deployment pipeline and reporting tasks using Python and CI/CD, saving 5+ hours/week across 3 teams',
-          'Manage Linux server infrastructure: patching, backups, monitoring, alerting, and observability — maintaining 99%+ uptime with on-call runbooks',
+          'Manage Linux server infrastructure: patching, backups, monitoring, alerting, and observability, holding 99%+ uptime with on-call runbooks',
           'Implemented role-based access control with granular permissions and centralized secrets management across all hosted services',
         ],
       },
@@ -63,7 +63,7 @@ const experiences = [
     tech: ['Next.js', 'FastAPI', 'PostgreSQL', 'Docker', 'Nginx', 'Cloudflare Tunnel', 'SSO / MFA'],
     achievements: [
       {
-        title: 'NEXUS – Traveler Management System',
+        title: 'NEXUS: Traveler Management System',
         description: 'Owned end-to-end development of NEXUS, an enterprise traveler management and workflow automation system now used daily by 50+ people across engineering, ops, QC, and management.',
         highlights: [
           'Built from scratch: Next.js, FastAPI, PostgreSQL, Docker, and Nginx with real-time QR tracking and step-locked workflows',
@@ -72,7 +72,7 @@ const experiences = [
         ],
       },
       {
-        title: 'ACI Forge – Enterprise SaaS Platform',
+        title: 'ACI Forge: Enterprise SaaS Platform',
         description: 'Architect and developer of ACI Forge, a centralized portal for production oversight, role-based tool access, and SSO/MFA authentication used daily by 50+ people.',
         highlights: [
           'SSO and MFA authentication with Cloudflare Tunnel connecting the public site to the on-prem backend securely',
@@ -81,7 +81,7 @@ const experiences = [
         ],
       },
       {
-        title: 'KOSH – Inventory Management System',
+        title: 'KOSH: Inventory Management System',
         description: 'Full-scale inventory platform with barcode scanning, real-time stock tracking, predictive analytics, and automated alerts.',
         highlights: [
           'Barcode and QR scanning workflows for real-time inventory tracking and product movement logging',

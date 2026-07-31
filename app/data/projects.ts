@@ -22,7 +22,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: 'vyne',
-    title: 'VYNE – AI-Native Company Operating System',
+    title: 'VYNE: AI-Native Company Operating System',
     status: 'Live',
     category: 'Personal',
     role: 'Software Engineer & DevOps Engineer',
@@ -41,7 +41,7 @@ export const projects: Project[] = [
   },
   {
     id: 'nexus',
-    title: 'NEXUS – Traveler Management & Workflow Automation',
+    title: 'NEXUS: Traveler Management and Workflow Automation',
     status: 'Production',
     category: 'Enterprise',
     role: 'Software Engineer',
@@ -61,7 +61,7 @@ export const projects: Project[] = [
   },
   {
     id: 'aci-forge',
-    title: 'ACI Forge – Enterprise SaaS Platform',
+    title: 'ACI Forge: Enterprise SaaS Platform',
     status: 'Live',
     category: 'Enterprise',
     role: 'Software Engineer & DevOps Engineer',
@@ -77,7 +77,7 @@ export const projects: Project[] = [
   },
   {
     id: 'kosh',
-    title: 'KOSH – Inventory Management System',
+    title: 'KOSH: Inventory Management System',
     status: 'Production',
     category: 'Enterprise',
     role: 'Software Engineer',
@@ -119,10 +119,10 @@ export const projects: Project[] = [
     description: 'Took the project from a client brief to a fully live, optimized site, handling UI/UX design, backend services, and Vercel deployment. Managed every client conversation, timeline, and revision independently.',
     technologies: ['Next.js', 'Nginx', 'PostgreSQL', 'Python', 'Vercel'],
     highlights: [
-      'Sole developer and client contact — handled UI/UX design, backend, deployment, and all revisions independently',
+      'Sole developer and client contact, handling UI/UX design, backend, deployment, and every revision independently',
       'Mobile-first, responsive design with fast load times and cross-browser compatibility',
       'Full domain configuration, SSL setup, and SEO optimization from day one',
-      '100% uptime since delivery — zero post-launch incidents and no further engineering support required',
+      '100% uptime since delivery, with zero post-launch incidents and no further engineering support needed',
     ],
   },
 ];

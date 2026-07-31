@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Projects',
   description:
-    'Featured projects by Preet Raval — NEXUS traveler management system, ACI Forge enterprise SaaS, KOSH inventory management, YUGMASTRA fraud detection, Supply Chain Intelligence, NeuroSmriti AI research, and more.',
+    'Featured projects by Preet Raval, including the NEXUS traveler management system, ACI Forge enterprise SaaS, KOSH inventory management, YUGMASTRA fraud detection, Supply Chain Intelligence, NeuroSmriti AI research, and more.',
 };
 
 export default function ProjectsLayout({ children }: { children: React.ReactNode }) {

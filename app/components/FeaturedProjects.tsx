@@ -20,7 +20,7 @@ const presentation: Record<string, {
   cta: string;
 }> = {
   vyne: {
-    shortTitle: 'VYNE – AI-Native Company OS',
+    shortTitle: 'VYNE: AI-Native Company OS',
     blurb:
       'An AI-native correlation layer that ties business events to infrastructure events on one unified timeline, consolidating Slack, Jira, Notion, and Datadog into a single platform.',
     bar: 'from-blue-500 to-indigo-600',
@@ -29,7 +29,7 @@ const presentation: Record<string, {
     cta: 'Read the case study',
   },
   nexus: {
-    shortTitle: 'NEXUS – Traveler Management Platform',
+    shortTitle: 'NEXUS: Traveler Management Platform',
     blurb:
       'The operational backbone of American Circuits Inc., with centralized traveler lifecycle management, step-based workflow automation, QC enforcement, and real-time production analytics.',
     bar: 'from-fuchsia-500 to-purple-600',
@@ -38,7 +38,7 @@ const presentation: Record<string, {
     cta: 'Read the case study',
   },
   'aci-forge': {
-    shortTitle: 'ACI Forge – Enterprise SaaS Portal',
+    shortTitle: 'ACI Forge: Enterprise SaaS Portal',
     blurb:
       'Single sign-on portal where employees log in once and reach every internal tool by role, with SSO and MFA, role-gated dashboards, and Cloudflare Tunnels to an on-prem backend.',
     bar: 'from-emerald-500 to-teal-600',
@@ -80,7 +80,7 @@ export function FeaturedProjects() {
           <span className="gradient-text">Featured Work</span>
         </h2>
         <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-          Production systems I&apos;ve owned end-to-end — from schema and API to deployment and uptime.
+          Production systems I&apos;ve owned end to end, from schema and API through deployment and uptime.
         </p>
       </div>
 

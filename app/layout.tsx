@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     template: '%s | Preet Raval',
   },
   description:
-    'Portfolio of Preet Raval — Software Engineer specializing in full-stack development, AI integration, and enterprise SaaS platforms. B.A. Computer Science, UNC Charlotte. Open to full-time roles. Based in Charlotte, NC.',
+    'Portfolio of Preet Raval, a Software Engineer specializing in full-stack development, AI integration, and enterprise SaaS platforms. B.A. Computer Science, UNC Charlotte. Open to full-time roles. Based in Charlotte, NC.',
   keywords: [
     'Preet Raval',
     'Software Engineer',
@@ -59,15 +59,15 @@ export const metadata: Metadata = {
   alternates: { canonical: '/' },
   authors: [{ name: 'Preet Raval' }],
   openGraph: {
-    title: 'Preet Raval – Software Engineer',
+    title: 'Preet Raval, Software Engineer',
     description:
-      'Portfolio of Preet Raval — Software Engineer building enterprise SaaS platforms, AI automation systems, and scalable full-stack applications. Open to full-time opportunities.',
+      'Portfolio of Preet Raval, a Software Engineer building enterprise SaaS platforms, AI automation systems, and scalable full-stack applications. Open to full-time opportunities.',
     type: 'website',
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Preet Raval – Software Engineer',
+    title: 'Preet Raval, Software Engineer',
     description:
       'Software Engineer specializing in Next.js, FastAPI, AI integration, and enterprise platforms. Open to full-time roles.',
   },

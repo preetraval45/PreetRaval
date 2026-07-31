@@ -33,7 +33,7 @@ const education = [
 ];
 
 const featuredCert = {
-  name: 'AWS Solutions Architect – Associate',
+  name: 'AWS Solutions Architect (Associate)',
   issuer: 'Amazon Web Services',
   category: 'Cloud',
   status: 'In Progress',
@@ -73,7 +73,7 @@ const certifications: Certification[] = [
   { name: 'AWS Cloud Solutions Architect', issuer: 'Coursera / AWS', category: 'Cloud', date: 'Jun 2025', file: '/certificates/aws-cloud-solutions.pdf', preview: '/certificates/previews/aws-cloud-solutions.webp', certificate: 'https://coursera.org/verify/professional-cert/FH1RIG29S3XE' },
   { name: 'Networking Fundamentals and Physical Networks', issuer: 'Coursera', category: 'Networking', date: 'Jun 2026', file: '/certificates/networking-fundamentals.pdf', preview: '/certificates/previews/networking-fundamentals.webp', certificate: 'https://coursera.org/verify/NPL0WX44OZ25' },
   { name: 'Claude Code In Action', issuer: 'Anthropic', category: 'AI', date: 'Apr 2026', file: '/certificates/claude-code-in-action.pdf', preview: '/certificates/previews/claude-code-in-action.webp', certificate: 'https://verify.skilljar.com/c/asafgz6e6gab' },
-  { name: 'CCNA – Networking Fundamentals', issuer: "O'Reilly by Pearson", category: 'Networking' },
+  { name: 'CCNA: Networking Fundamentals', issuer: "O'Reilly by Pearson", category: 'Networking' },
   { name: 'SQL for IT Professionals', issuer: "O'Reilly by Pearson", category: 'Database' },
   { name: 'Introduction to Penetration Testing', issuer: "O'Reilly by Pearson", category: 'Security' },
 ];

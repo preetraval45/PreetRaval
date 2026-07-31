@@ -50,7 +50,7 @@ const openTo = [
 
 const workingOn = [
   {
-    label: 'Rithom iQ (ODOO) – ERP / MRP / CRM',
+    label: 'Rithom iQ (ODOO): ERP / MRP / CRM',
     detail: 'Implementing and customizing ODOO ERP, MRP, and CRM modules for manufacturing operations',
     dot: 'bg-purple-500',
     card: 'bg-purple-50 dark:bg-purple-900/10 border-purple-200 dark:border-purple-800/60',
@@ -154,7 +154,7 @@ export default function AboutPage() {
             <div className="h-1 w-full bg-linear-to-r from-blue-500 via-indigo-500 to-purple-500" />
             <div className="p-5 sm:p-6 space-y-4">
               <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
-                I&apos;m the sole engineer behind <span className="font-semibold text-blue-600 dark:text-blue-400">5 production systems</span> that <span className="font-semibold text-indigo-600 dark:text-indigo-400">50+ people at American Circuits Inc.</span> rely on every day — from traveler management and inventory to internal AI tools and the infrastructure holding it all together. I own the whole stack: I build it, deploy it, and keep it running.
+                I&apos;m the sole engineer behind <span className="font-semibold text-blue-600 dark:text-blue-400">5 production systems</span> that <span className="font-semibold text-indigo-600 dark:text-indigo-400">50+ people at American Circuits Inc.</span> rely on every day, from traveler management and inventory to internal AI tools and the infrastructure holding it all together. I own the whole stack: I build it, deploy it, and keep it running.
               </p>
               <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
                 I started there as a Software Engineer, building NEXUS and ACI Forge from scratch, and moved into a DevOps role where I now handle infrastructure, CI/CD pipelines, and automation. My day-to-day stack is Python, FastAPI, Next.js, PostgreSQL, and Docker with a lot of Linux server work mixed in. Most recently I built a PDF to BOM converter that uses OCR and an LLM to pull structured component data out of engineering documents, and the procurement team now uses it every day.
@@ -228,7 +228,7 @@ export default function AboutPage() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="font-bold text-slate-800 dark:text-slate-100 text-sm sm:text-base">github.com/preetraval45</p>
-                  <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">VYNE, NEXUS, portfolio, and more — actively building in public</p>
+                  <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">VYNE, NEXUS, portfolio, and more. Actively building in public</p>
                 </div>
                 <ExternalLink className="w-4 h-4 text-slate-400 shrink-0" />
               </div>

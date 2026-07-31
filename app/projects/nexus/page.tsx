@@ -213,7 +213,7 @@ export default function NexusCaseStudyPage() {
               'Step-by-step work-center routing enforcement via QR/barcode scanning removes skipped and out-of-order operations.',
               'A live operations dashboard gives the floor and management one shared, real-time view of job status, queues, and QC sign-offs.',
               'Predictive delay analytics use cross-system data to forecast bottlenecks before they stall a job.',
-              'Fully live in production — used daily by 50+ people across the American Circuits manufacturing floor.',
+              'Fully live in production, used daily by 50+ people across the American Circuits manufacturing floor.',
             ].map((item) => (
               <li key={item} className="flex items-start gap-3 text-gray-700 dark:text-gray-300">
                 <CheckCircle2 className="w-5 h-5 text-green-600 dark:text-green-400 mt-0.5 shrink-0" />

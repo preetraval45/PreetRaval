@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og';
 import { SITE_URL, SITE_HOST } from './site';
 
 export const runtime = 'edge';
-export const alt = 'Preet Raval – DevOps & Full-Stack Engineer';
+export const alt = 'Preet Raval, DevOps and Full-Stack Engineer';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
