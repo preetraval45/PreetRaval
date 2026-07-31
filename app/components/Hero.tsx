@@ -4,9 +4,11 @@ import { Github, Linkedin, Mail, Download, Cpu, Server, Shield, Globe, Zap, Box,
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { projectCount } from '../data/projects';
+
+const roles = ['DevOps Engineer (AI Systems)', 'Full-Stack Developer', 'Software Engineer', 'Generative AI Engineer'];
 
 export function Hero() {
-  const roles = ['DevOps Engineer (AI Systems)', 'Full-Stack Developer', 'Software Engineer', 'Generative AI Engineer'];
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
 
   // Calculate months of experience from June 2025
@@ -63,7 +65,7 @@ export function Hero() {
             <div className="space-y-4 sm:space-y-6">
               <div className="space-y-2 sm:space-y-3">
                 <p className="text-lg sm:text-xl md:text-2xl font-medium text-slate-600 dark:text-slate-400">
-                  Hello, I'm
+                  Hello, I&apos;m
                 </p>
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold bg-linear-to-r from-blue-600 via-indigo-600 to-blue-700 dark:from-blue-400 dark:via-indigo-400 dark:to-blue-500 bg-clip-text text-transparent">
                   Preet Raval
@@ -88,7 +90,7 @@ export function Hero() {
                 <div className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">{monthsExperience >= 12 ? `Year${Math.floor(monthsExperience / 12) > 1 ? 's' : ''} Experience` : 'Months Experience'}</div>
               </div>
               <div className="space-y-2 p-3 sm:p-4 rounded-xl bg-indigo-50/50 dark:bg-indigo-900/10 border border-indigo-100 dark:border-indigo-900/30 transition-all hover:scale-105 min-w-[100px] sm:min-w-[120px]">
-                <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-linear-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">8+</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-linear-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">{projectCount}</div>
                 <div className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">Projects Shipped</div>
               </div>
               <div className="space-y-2 p-3 sm:p-4 rounded-xl bg-purple-50/50 dark:bg-purple-900/10 border border-purple-100 dark:border-purple-900/30 transition-all hover:scale-105 min-w-[100px] sm:min-w-[120px]">

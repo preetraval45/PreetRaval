@@ -7,8 +7,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "certs:render": "node scripts/render-certificates.mjs"
+    "lint": "eslint .",
+    "certs:render": "node scripts/render-certificates.mjs",
+    "images:optimize": "node scripts/optimize-images.mjs"
   },
   "keywords": [
     "portfolio",
@@ -35,7 +36,10 @@
     "typescript": "^5.9.3"
   },
   "devDependencies": {
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.2.12",
     "pdfjs-dist": "^6.2.108",
-    "puppeteer-core": "^25.4.0"
+    "puppeteer-core": "^25.4.0",
+    "sharp": "^0.35.3"
   }
 }

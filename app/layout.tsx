@@ -6,6 +6,7 @@ import { Navigation } from './components/Navigation';
 import { Footer } from './components/Footer';
 import { ScrollToTop } from './components/ScrollToTop';
 import { Analytics } from '@vercel/analytics/react';
+import { SITE_URL } from './site';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -54,7 +55,7 @@ export const metadata: Metadata = {
     'LLM',
     'Open to Work',
   ],
-  metadataBase: new URL('https://preet-raval-swart.vercel.app'),
+  metadataBase: new URL(SITE_URL),
   alternates: { canonical: '/' },
   authors: [{ name: 'Preet Raval' }],
   openGraph: {
@@ -87,7 +88,7 @@ export default function RootLayout({
               '@context': 'https://schema.org',
               '@type': 'Person',
               name: 'Preet Raval',
-              url: 'https://preet-raval-swart.vercel.app',
+              url: SITE_URL,
               email: 'preetraval45@gmail.com',
               jobTitle: 'Software Engineer',
               worksFor: { '@type': 'Organization', name: 'American Circuits Inc.' },

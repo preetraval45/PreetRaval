@@ -1,4 +1,5 @@
 import { ImageResponse } from 'next/og';
+import { SITE_URL, SITE_HOST } from './site';
 
 export const runtime = 'edge';
 export const alt = 'Preet Raval – DevOps & Full-Stack Engineer';
@@ -30,8 +31,9 @@ export default function OGImage() {
           flexShrink: 0,
           background: '#1e293b',
         }}>
+          {/* eslint-disable-next-line @next/next/no-img-element -- ImageResponse (satori) only supports raw img */}
           <img
-            src="https://preet-raval-swart.vercel.app/Preet%20Raval.webp"
+            src={`${SITE_URL}/Preet%20Raval.webp`}
             width={220}
             height={220}
             alt="Preet Raval"
@@ -99,7 +101,7 @@ export default function OGImage() {
           position: 'absolute', bottom: '32px', right: '60px',
           color: '#334155', fontSize: '15px',
         }}>
-          preet-raval-swart.vercel.app
+          {SITE_HOST}
         </div>
       </div>
     ),

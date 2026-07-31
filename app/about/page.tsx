@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Code2, Rocket, Target, Zap, Download, Briefcase, Globe, Server, MapPin, Github, ExternalLink } from 'lucide-react';
+import { projectCount } from '../data/projects';
 
 const highlights = [
   {
@@ -70,11 +71,16 @@ const workingOn = [
   },
 ];
 
+/*
+ * `target` is what the count-up animation renders — it is the number shown, so
+ * it must stay the single source. `plus` appends "+" for open-ended figures;
+ * exact counts (projects) render bare.
+ */
 const stats = [
-  { value: '', label: '', color: 'text-blue-600 dark:text-blue-400', border: 'border-blue-200 dark:border-blue-800', bg: 'bg-blue-50 dark:bg-blue-900/20', isExp: true },
-  { value: '8+', label: 'Projects Shipped', color: 'text-violet-600 dark:text-violet-400', border: 'border-violet-200 dark:border-violet-800', bg: 'bg-violet-50 dark:bg-violet-900/20' },
-  { value: '50+', label: 'Daily Users', color: 'text-emerald-600 dark:text-emerald-400', border: 'border-emerald-200 dark:border-emerald-800', bg: 'bg-emerald-50 dark:bg-emerald-900/20' },
-  { value: '9+', label: 'Certifications', color: 'text-orange-600 dark:text-orange-400', border: 'border-orange-200 dark:border-orange-800', bg: 'bg-orange-50 dark:bg-orange-900/20' },
+  { target: null, label: '', plus: true, color: 'text-blue-600 dark:text-blue-400', border: 'border-blue-200 dark:border-blue-800', bg: 'bg-blue-50 dark:bg-blue-900/20', isExp: true },
+  { target: projectCount, label: 'Projects Shipped', plus: false, color: 'text-violet-600 dark:text-violet-400', border: 'border-violet-200 dark:border-violet-800', bg: 'bg-violet-50 dark:bg-violet-900/20' },
+  { target: 50, label: 'Daily Users', plus: true, color: 'text-emerald-600 dark:text-emerald-400', border: 'border-emerald-200 dark:border-emerald-800', bg: 'bg-emerald-50 dark:bg-emerald-900/20' },
+  { target: 9, label: 'Certifications', plus: true, color: 'text-orange-600 dark:text-orange-400', border: 'border-orange-200 dark:border-orange-800', bg: 'bg-orange-50 dark:bg-orange-900/20' },
 ];
 
 export default function AboutPage() {
@@ -88,7 +94,8 @@ export default function AboutPage() {
 
   const statsRef = useRef<HTMLDivElement>(null);
   const [animStarted, setAnimStarted] = useState(false);
-  const [animCounts, setAnimCounts] = useState([monthsExp, 8, 50, 8]);
+  const statTargets = stats.map((s) => (s.isExp ? monthsExp : s.target ?? 0));
+  const [animCounts, setAnimCounts] = useState(statTargets);
 
   useEffect(() => {
     const el = statsRef.current;
@@ -103,7 +110,7 @@ export default function AboutPage() {
 
   useEffect(() => {
     if (!animStarted) return;
-    const targets = [monthsExp, 8, 50, 8];
+    const targets = stats.map((s) => (s.isExp ? monthsExp : s.target ?? 0));
     const duration = 1100;
     const startTime = performance.now();
     const tick = (now: number) => {
@@ -152,7 +159,7 @@ export default function AboutPage() {
             <div className="h-1 w-full bg-linear-to-r from-blue-500 via-indigo-500 to-purple-500" />
             <div className="p-5 sm:p-6 space-y-4">
               <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
-                I'm the sole engineer behind <span className="font-semibold text-blue-600 dark:text-blue-400">5 production systems</span> that <span className="font-semibold text-indigo-600 dark:text-indigo-400">50+ people at American Circuits Inc.</span> rely on every day — from traveler management and inventory to internal AI tools and the infrastructure holding it all together. I own the whole stack: I build it, deploy it, and keep it running.
+                I&apos;m the sole engineer behind <span className="font-semibold text-blue-600 dark:text-blue-400">5 production systems</span> that <span className="font-semibold text-indigo-600 dark:text-indigo-400">50+ people at American Circuits Inc.</span> rely on every day — from traveler management and inventory to internal AI tools and the infrastructure holding it all together. I own the whole stack: I build it, deploy it, and keep it running.
               </p>
               <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
                 I started there as a Software Engineer, building NEXUS and ACI Forge from scratch, and moved into a DevOps role where I now handle infrastructure, CI/CD pipelines, and automation. My day-to-day stack is Python, FastAPI, Next.js, PostgreSQL, and Docker with a lot of Linux server work mixed in. Most recently I built a PDF to BOM converter that uses OCR and an LLM to pull structured component data out of engineering documents, and the procurement team now uses it every day.
@@ -162,7 +169,7 @@ export default function AboutPage() {
 
           {/* What I'm looking for */}
           <div>
-            <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-3">What I'm looking for</p>
+            <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-3">What I&apos;m looking for</p>
             <div className="flex flex-wrap gap-2 sm:gap-2.5">
               {openTo.map(({ icon: Icon, label }) => (
                 <span key={label} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-blue-200 dark:border-blue-800/60 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 text-xs font-semibold">
@@ -241,7 +248,7 @@ export default function AboutPage() {
                 const count = animCounts[i];
                 const displayValue = s.isExp
                   ? (count >= 12 ? `${Math.floor(count / 12)}+` : `${count}+`)
-                  : `${count}+`;
+                  : `${count}${s.plus ? '+' : ''}`;
                 const displayLabel = s.isExp
                   ? (count >= 12 ? `Year${Math.floor(count / 12) > 1 ? 's' : ''} Experience` : 'Months Experience')
                   : s.label;

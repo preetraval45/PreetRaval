@@ -153,7 +153,7 @@ export default function ContactPage() {
             <div className="p-5 sm:p-6">
               <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-3">Why work with me</p>
               <p className="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
-                I've been the sole engineer behind five systems that people at American Circuits Inc. use every time they clock in. I don't hand things off. I build them, deploy them, and keep them running. If you need someone who can own a product end-to-end and ship without a lot of hand-holding, that's what I do.
+                I&apos;ve been the sole engineer behind five systems that people at American Circuits Inc. use every time they clock in. I don&apos;t hand things off. I build them, deploy them, and keep them running. If you need someone who can own a product end-to-end and ship without a lot of hand-holding, that&apos;s what I do.
               </p>
             </div>
           </div>
@@ -162,7 +162,7 @@ export default function ContactPage() {
           <div className="rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-800/60 shadow-sm overflow-hidden">
             <div className="h-1 w-full bg-linear-to-r from-blue-500 via-indigo-500 to-violet-500" />
             <div className="p-5 sm:p-6">
-              <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-4">What I'm looking for</p>
+              <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-4">What I&apos;m looking for</p>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {openTo.map(({ icon: Icon, label }) => (
                   <div key={label} className="flex items-center gap-2.5 p-3 rounded-xl bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800/50">
