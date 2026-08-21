@@ -255,27 +255,10 @@ export default function EducationPage() {
           {/* Software Architecture track — 5 levels, one certification */}
           <div className="rounded-2xl border border-emerald-200 dark:border-emerald-800/60 bg-white dark:bg-gray-800/60 shadow-sm mb-6 sm:mb-8 overflow-hidden">
             <div className="h-1 bg-linear-to-r from-emerald-500 via-green-500 to-teal-500" />
-            <div className="p-5 sm:p-6 flex flex-col sm:flex-row gap-5 sm:gap-6">
-
-              {/* Level 5 certificate */}
-              <a
-                href={architectureTrack.levels[4].file}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full sm:w-64 shrink-0 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700/60 bg-white hover:border-emerald-300 dark:hover:border-emerald-700 transition-colors"
-              >
-                <Image
-                  src={architectureTrack.levels[4].preview}
-                  alt={`O'Reilly Software Architecture Level 5: Expert certificate issued to ${HOLDER}`}
-                  width={PREVIEW_W}
-                  height={PREVIEW_H}
-                  sizes="(max-width: 640px) 100vw, 256px"
-                  className="w-full h-auto"
-                />
-              </a>
+            <div className="p-5 sm:p-6">
 
               {/* Details */}
-              <div className="flex-1 min-w-0">
+              <div className="mb-5">
                 <div className="flex flex-wrap items-center gap-2 mb-2">
                   <span className={`px-2.5 py-1 rounded-full text-[11px] font-semibold ${categoryStyle.Architecture.badge}`}>
                     {architectureTrack.category}
@@ -294,19 +277,34 @@ export default function EducationPage() {
                 <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">
                   Issued to {HOLDER}
                 </p>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2 mb-4">
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
                   {architectureTrack.summary}
                 </p>
+              </div>
 
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2">
-                  {architectureTrack.levels.map((lvl) => (
-                    <a
-                      key={lvl.level}
-                      href={lvl.file}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group rounded-lg border border-gray-200 dark:border-gray-700/60 bg-gray-50/60 dark:bg-gray-900/30 px-3 py-2 hover:border-emerald-300 dark:hover:border-emerald-700 hover:bg-emerald-50/60 dark:hover:bg-emerald-900/10 transition-colors"
-                    >
+              {/* One certificate per level */}
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+                {architectureTrack.levels.map((lvl) => (
+                  <a
+                    key={lvl.level}
+                    href={lvl.file}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group rounded-xl border border-gray-200 dark:border-gray-700/60 overflow-hidden bg-white dark:bg-gray-800/60 hover:border-emerald-300 dark:hover:border-emerald-700 hover:shadow-md transition-all duration-200"
+                  >
+                    <div className="bg-gray-50 dark:bg-gray-900/40 border-b border-gray-200 dark:border-gray-700/60 p-3">
+                      <div className="rounded-md overflow-hidden bg-white">
+                        <Image
+                          src={lvl.preview}
+                          alt={`O’Reilly Software Architecture Level ${lvl.level}: ${lvl.title} certificate issued to ${HOLDER}`}
+                          width={PREVIEW_W}
+                          height={PREVIEW_H}
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          className="w-full h-auto"
+                        />
+                      </div>
+                    </div>
+                    <div className="px-4 py-3">
                       <div className="flex items-center justify-between gap-2">
                         <span className="text-[11px] font-bold uppercase tracking-wide text-emerald-600 dark:text-emerald-400">
                           Level {lvl.level}
@@ -315,9 +313,9 @@ export default function EducationPage() {
                       </div>
                       <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 leading-snug">{lvl.title}</p>
                       <p className="text-[11px] text-gray-400 dark:text-gray-500">{lvl.date}</p>
-                    </a>
-                  ))}
-                </div>
+                    </div>
+                  </a>
+                ))}
               </div>
             </div>
           </div>
