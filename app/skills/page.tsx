@@ -14,6 +14,11 @@ const skillCategories = [
       'R Programming', 'Statistical Analysis', 'Data Cleaning', 'Data Storytelling',
       'Spreadsheet Analysis', 'Exploratory Data Analysis', 'Claude API', 'Claude Code',
       'MCP (Model Context Protocol)', 'AI-Assisted Development', 'Tool Use (Agentic)',
+      'Anthropic Messages API', 'Prompt Caching', 'Streaming Responses',
+      'Structured Outputs', 'Extended Thinking', 'Multimodal / Vision Prompting',
+      'Token Counting & Cost Optimization', 'MCP Servers & Clients',
+      'MCP Tools, Resources & Prompts', 'AI Fluency (4D Framework)',
+      'Human-AI Collaboration', 'Responsible AI Use',
     ],
   },
   {

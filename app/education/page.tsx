@@ -69,10 +69,13 @@ type Certification = {
 };
 
 const certifications: Certification[] = [
-  { name: 'Google Data Analytics Professional Certificate', issuer: 'Coursera / Google', category: 'Data Analytics', date: 'May 2025', file: '/certificates/google-data-analytics.pdf', preview: '/certificates/previews/google-data-analytics.webp', certificate: 'https://coursera.org/verify/professional-cert/6RNL2W89K2KC' },
-  { name: 'AWS Cloud Solutions Architect', issuer: 'Coursera / AWS', category: 'Cloud', date: 'Jun 2025', file: '/certificates/aws-cloud-solutions.pdf', preview: '/certificates/previews/aws-cloud-solutions.webp', certificate: 'https://coursera.org/verify/professional-cert/FH1RIG29S3XE' },
+  { name: 'Google Data Analytics Professional Certificate', issuer: 'Coursera / Google', category: 'Data Analytics', date: 'May 2025', file: '/certificates/Google Data Analytics.pdf', preview: '/certificates/previews/google-data-analytics.webp', certificate: 'https://coursera.org/verify/professional-cert/6RNL2W89K2KC' },
+  { name: 'AWS Cloud Solutions Architect', issuer: 'Coursera / AWS', category: 'Cloud', date: 'Jun 2025', file: '/certificates/AWS Cloud Solution.pdf', preview: '/certificates/previews/aws-cloud-solution.webp', certificate: 'https://coursera.org/verify/professional-cert/FH1RIG29S3XE' },
   { name: 'Networking Fundamentals and Physical Networks', issuer: 'Coursera', category: 'Networking', date: 'Jun 2026', file: '/certificates/networking-fundamentals.pdf', preview: '/certificates/previews/networking-fundamentals.webp', certificate: 'https://coursera.org/verify/NPL0WX44OZ25' },
-  { name: 'Claude Code In Action', issuer: 'Anthropic', category: 'AI', date: 'Apr 2026', file: '/certificates/claude-code-in-action.pdf', preview: '/certificates/previews/claude-code-in-action.webp', certificate: 'https://verify.skilljar.com/c/asafgz6e6gab' },
+  { name: 'Claude Code In Action', issuer: 'Anthropic', category: 'AI', date: 'Apr 2026', file: '/certificates/Anthropic claude code in action.pdf', preview: '/certificates/previews/anthropic-claude-code-in-action.webp', certificate: 'https://verify.skilljar.com/c/asafgz6e6gab' },
+  { name: 'Claude with the Anthropic API', issuer: 'Anthropic', category: 'AI', date: 'Aug 2026', file: '/certificates/Claude with the Anthropic API.pdf', preview: '/certificates/previews/claude-with-the-anthropic-api.webp' },
+  { name: 'AI Fluency: Framework & Foundations', issuer: 'Anthropic', category: 'AI', date: 'Aug 2026', file: '/certificates/Anthropic AI Fluency Framework & Foundations.pdf', preview: '/certificates/previews/anthropic-ai-fluency-framework-foundations.webp' },
+  { name: 'Introduction to Model Context Protocol', issuer: 'Anthropic', category: 'AI', date: 'Aug 2026', file: '/certificates/Anthropic Introduction to Model Context Protocol.pdf', preview: '/certificates/previews/anthropic-introduction-to-model-context-protocol.webp' },
   { name: 'CCNA: Networking Fundamentals', issuer: "O'Reilly by Pearson", category: 'Networking' },
   { name: 'SQL for IT Professionals', issuer: "O'Reilly by Pearson", category: 'Database' },
   { name: 'Introduction to Penetration Testing', issuer: "O'Reilly by Pearson", category: 'Security' },
