@@ -26,7 +26,7 @@ const presentation: Record<string, {
     bar: 'from-rose-500 to-red-600',
     icon: Brain,
     gradient: 'from-rose-600 via-red-600 to-slate-800',
-    cta: 'See all projects',
+    cta: 'Read the case study',
   },
   vyne: {
     shortTitle: 'VYNE: AI-Native Company OS',

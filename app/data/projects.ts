@@ -27,6 +27,7 @@ export const projects: Project[] = [
     category: 'Personal',
     role: 'Software Engineer',
     link: 'https://pashupatastra.vercel.app/',
+    caseStudy: '/projects/pashupatastra',
     screenshot: '/pashupatastra-screenshot.webp',
     description: 'A closed-loop autonomous operations platform that connects fragmented security alerts across tools into single incidents with causal chains and MITRE ATT&CK mappings, then proposes risk-scored, human-authorized remediation.',
     technologies: ['Next.js', 'TypeScript', 'Python', 'FastAPI', 'Kubernetes (EKS)', 'Docker', 'Terraform', 'AWS', 'Prometheus', 'OpenTelemetry', 'Elasticsearch'],

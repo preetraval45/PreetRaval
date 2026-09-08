@@ -1,12 +1,16 @@
 'use client';
 
-import { ExternalLink, ChevronDown, ChevronUp, Building2, Globe, Rocket, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ExternalLink, ChevronDown, ChevronUp, Building2, Globe, Rocket, ArrowRight, CheckCircle2, Star } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { projects } from '../data/projects';
 
 const filters = ['All', 'Enterprise', 'Client Work', 'Personal'];
+
+// The two flagship self-directed builds get a wider card so they read as the
+// anchor projects instead of blending into the rest of the grid.
+const flagshipIds = ['pashupatastra', 'vyne'];
 
 type CategoryTheme = { bar: string; pill: string; icon: string; badge: string };
 const categoryTheme: Record<string, CategoryTheme> = {
@@ -104,20 +108,25 @@ export default function ProjectsPage() {
         </div>
 
         {/* Cards grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 items-start">
           {filtered.map((project, index) => {
             const theme = categoryTheme[project.category] ?? categoryTheme.Enterprise;
             const CatIcon = categoryIcon[project.category] ?? Building2;
             const isExpanded = expandedCards.has(project.title);
+            const isFlagship = flagshipIds.includes(project.id);
 
             return (
               <div
                 key={index}
-                className="rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-800/60 shadow-sm overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex flex-col"
+                className={`rounded-2xl border bg-white dark:bg-gray-800/60 shadow-sm overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex flex-col ${
+                  isFlagship
+                    ? 'sm:col-span-2 border-blue-200 dark:border-blue-800/60 ring-1 ring-blue-100 dark:ring-blue-900/40'
+                    : 'border-gray-200 dark:border-gray-700/60'
+                }`}
               >
                 {/* Screenshot preview */}
                 {project.screenshot && (
-                  <div className="relative h-36 overflow-hidden bg-slate-100 dark:bg-slate-800">
+                  <div className={`relative overflow-hidden bg-slate-100 dark:bg-slate-800 ${isFlagship ? 'h-48 sm:h-56' : 'h-36'}`}>
                     <Image
                       src={project.screenshot}
                       alt={`${project.title} screenshot`}
@@ -125,6 +134,12 @@ export default function ProjectsPage() {
                       className="object-cover object-top"
                     />
                     <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-black/30" />
+                    {isFlagship && (
+                      <span className="absolute top-3 left-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-blue-600 text-white shadow-sm">
+                        <Star className="w-3 h-3 fill-current" />
+                        Flagship
+                      </span>
+                    )}
                   </div>
                 )}
                 {/* Accent bar */}
