@@ -59,7 +59,8 @@ const skillCategories = [
     skills: [
       'Penetration Testing', 'Reconnaissance & Scanning', 'Exploitation Fundamentals',
       'Security Assessment Reporting', 'Network Security', 'SIEM', 'Security Auditing',
-      'Vulnerability Assessment', 'AWS', 'AWS Cloud Architecture', 'EC2', 'S3', 'VPC',
+      'Vulnerability Assessment', 'Incident Response', 'MITRE ATT&CK', 'Threat Correlation & Analysis',
+      'Autonomous Security Operations', 'AWS', 'AWS Cloud Architecture', 'EC2', 'S3', 'VPC',
       'Load Balancing & Auto Scaling', 'AWS Well-Architected Framework',
       'Azure', 'Vercel', 'Cloud Security', 'IAM', 'Encryption', 'Networking Fundamentals',
       'TCP/IP', 'OSI Model', 'Routing & Switching', 'Subnetting', 'NAT', 'DNS / DHCP',
@@ -72,11 +73,11 @@ const skillCategories = [
     icon: Cog,
     title: 'DevOps & Systems',
     skills: [
-      'Docker', 'Kubernetes', 'Nginx', 'CI/CD', 'Linux', 'GitHub Actions',
-      'Azure DevOps', 'Cloudflare Tunnels', 'Server & Network Architecture',
+      'Docker', 'Kubernetes', 'Kubernetes (EKS)', 'Nginx', 'CI/CD', 'Linux', 'GitHub Actions',
+      'Azure DevOps', 'Cloudflare Tunnels', 'Terraform', 'Server & Network Architecture',
       'On-premise Infrastructure', 'Server Management', 'Database Server Administration',
-      'System Integration', 'Observability', 'Workflow Automation', 'Jira',
-      'ERP', 'MRP', 'CRM', 'ODOO',
+      'System Integration', 'Observability', 'Prometheus', 'OpenTelemetry', 'Elasticsearch',
+      'Workflow Automation', 'Jira', 'ERP', 'MRP', 'CRM', 'ODOO',
     ],
   },
   {

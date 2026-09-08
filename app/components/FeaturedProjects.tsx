@@ -9,7 +9,7 @@ import { projects } from '../data/projects';
  * of sync with /projects. The short title and blurb live here because the
  * cards need tighter copy than the full listing.
  */
-const featuredIds = ['vyne', 'nexus', 'aci-forge'];
+const featuredIds = ['pashupatastra', 'vyne', 'nexus'];
 
 const presentation: Record<string, {
   shortTitle: string;
@@ -19,6 +19,15 @@ const presentation: Record<string, {
   gradient: string;
   cta: string;
 }> = {
+  pashupatastra: {
+    shortTitle: 'Pashupatastra: Autonomous Security Ops',
+    blurb:
+      'A closed-loop AI platform that connects fragmented security alerts into single incidents with causal chains and MITRE ATT&CK mappings, then proposes risk-scored, human-authorized remediation.',
+    bar: 'from-rose-500 to-red-600',
+    icon: Brain,
+    gradient: 'from-rose-600 via-red-600 to-slate-800',
+    cta: 'See all projects',
+  },
   vyne: {
     shortTitle: 'VYNE: AI-Native Company OS',
     blurb:
