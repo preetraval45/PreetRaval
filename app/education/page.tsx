@@ -1,4 +1,4 @@
-import { GraduationCap, MapPin, Calendar, ArrowRight, Star, CheckCircle2, Clock, ExternalLink, FileText } from 'lucide-react';
+import { GraduationCap, MapPin, Calendar, ArrowRight, CheckCircle2, ExternalLink, FileText } from 'lucide-react';
 import Image from 'next/image';
 
 /* Every preview is page 1 of a US-Letter landscape PDF rendered at 2x. */
@@ -31,14 +31,6 @@ const education = [
     coursework: [],
   },
 ];
-
-const featuredCert = {
-  name: 'AWS Solutions Architect (Associate)',
-  issuer: 'Amazon Web Services',
-  category: 'Cloud',
-  status: 'In Progress',
-  expected: 'Expected Jun 2026',
-};
 
 const architectureTrack = {
   name: 'Software Architecture',
@@ -221,35 +213,6 @@ export default function EducationPage() {
             <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
               Continuous learning across architecture, cloud, networking, AI, and security
             </p>
-          </div>
-
-          {/* Featured: AWS SA In Progress */}
-          <div className="relative rounded-2xl overflow-hidden bg-linear-to-r from-blue-600 via-indigo-600 to-blue-700 shadow-lg mb-6 sm:mb-8 p-6 sm:p-8">
-            {/* Decorative background */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-2 right-8 text-white text-[120px] font-black leading-none select-none">AWS</div>
-            </div>
-            <div className="relative flex flex-col sm:flex-row sm:items-center gap-4">
-              <div className="flex items-center gap-3 flex-1">
-                <div className="p-3 rounded-xl bg-white/20 shrink-0">
-                  <Star className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <div className="flex flex-wrap items-center gap-2 mb-1">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-amber-400/30 text-amber-100 border border-amber-300/30">
-                      <Clock className="w-3 h-3" />
-                      In Progress
-                    </span>
-                    <span className="text-blue-200 text-xs">{featuredCert.expected}</span>
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-bold text-white">{featuredCert.name}</h3>
-                  <p className="text-blue-200 text-sm mt-0.5">{featuredCert.issuer}</p>
-                </div>
-              </div>
-              <span className="shrink-0 px-3 py-1.5 rounded-full text-xs font-bold bg-white/20 text-white border border-white/30">
-                {featuredCert.category}
-              </span>
-            </div>
           </div>
 
           {/* Software Architecture track — 5 levels, one certification */}
