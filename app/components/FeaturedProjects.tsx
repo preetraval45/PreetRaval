@@ -1,4 +1,4 @@
-import { Building2, Brain, ArrowRight, ExternalLink } from 'lucide-react';
+import { Building2, Brain, Globe, ArrowRight, ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { projects } from '../data/projects';
@@ -9,7 +9,7 @@ import { projects } from '../data/projects';
  * of sync with /projects. The short title and blurb live here because the
  * cards need tighter copy than the full listing.
  */
-const featuredIds = ['pashupatastra', 'vyne', 'nexus'];
+const featuredIds = ['vyne', 'nexus', 'serenity-living', 'pashupatastra'];
 
 const presentation: Record<string, {
   shortTitle: string;
@@ -55,6 +55,15 @@ const presentation: Record<string, {
     gradient: 'from-emerald-500 via-teal-600 to-cyan-700',
     cta: 'See all projects',
   },
+  'serenity-living': {
+    shortTitle: 'Serenity Living',
+    blurb:
+      'A fully live client site taken from brief to launch solo, covering UI/UX design, backend services, domain and SSL setup, and Vercel deployment with zero post-launch incidents.',
+    bar: 'from-emerald-500 via-teal-500 to-cyan-600',
+    icon: Globe,
+    gradient: 'from-emerald-500 via-teal-500 to-cyan-700',
+    cta: 'Visit the site',
+  },
 };
 
 const featured = featuredIds.map((id) => {
@@ -93,7 +102,7 @@ export function FeaturedProjects() {
         </p>
       </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto">
+      <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6 max-w-7xl mx-auto">
         {featured.map((p) => {
           const Icon = p.icon;
           return (
