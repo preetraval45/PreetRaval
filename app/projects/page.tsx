@@ -1,16 +1,12 @@
 'use client';
 
-import { ExternalLink, ChevronDown, ChevronUp, Building2, Globe, Rocket, ArrowRight, CheckCircle2, Star } from 'lucide-react';
+import { ExternalLink, ChevronDown, ChevronUp, Building2, Globe, Rocket, ArrowRight, CheckCircle2 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import { projects } from '../data/projects';
+import { projects, type Project } from '../data/projects';
 
 const filters = ['All', 'Enterprise', 'Client Work', 'Personal'];
-
-// The two flagship self-directed builds get a wider card so they read as the
-// anchor projects instead of blending into the rest of the grid.
-const flagshipIds = ['pashupatastra', 'vyne'];
 
 type CategoryTheme = { bar: string; pill: string; icon: string; badge: string };
 const categoryTheme: Record<string, CategoryTheme> = {
@@ -51,6 +47,119 @@ function StatusBadge({ status }: { status: string }) {
       {isLive && <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />}
       {status}
     </span>
+  );
+}
+
+function ProjectCard({
+  project,
+  isExpanded,
+  onToggle,
+}: {
+  project: Project;
+  isExpanded: boolean;
+  onToggle: () => void;
+}) {
+  const theme = categoryTheme[project.category] ?? categoryTheme.Enterprise;
+  const CatIcon = categoryIcon[project.category] ?? Building2;
+
+  return (
+    <div className="rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-800/60 shadow-sm overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex flex-col h-full">
+      {/* Screenshot preview */}
+      {project.screenshot && (
+        <div className="relative h-36 overflow-hidden bg-slate-100 dark:bg-slate-800">
+          <Image
+            src={project.screenshot}
+            alt={`${project.title} screenshot`}
+            fill
+            className="object-cover object-top"
+          />
+          <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-black/30" />
+        </div>
+      )}
+      {/* Accent bar */}
+      <div className={`h-1 w-full bg-linear-to-r ${theme.bar}`} />
+
+      <div className="p-5 sm:p-6 flex flex-col flex-1">
+        {/* Category + status row */}
+        <div className="flex items-center justify-between mb-3">
+          <span className={`inline-flex items-center gap-1.5 px-2 py-1 rounded-full text-[11px] font-semibold ${theme.badge}`}>
+            <CatIcon className="w-3 h-3" />
+            {project.category}
+          </span>
+          <StatusBadge status={project.status} />
+        </div>
+
+        {/* Title row */}
+        <div className="flex items-start justify-between gap-2 mb-1.5">
+          <h3 className="text-base sm:text-lg font-bold text-slate-800 dark:text-slate-100 leading-snug flex-1">
+            {project.title}
+          </h3>
+          {project.link && (
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`p-1.5 rounded-lg transition-colors shrink-0 ${theme.icon}`}
+              aria-label="Visit project"
+            >
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          )}
+        </div>
+
+        {/* Role + company */}
+        <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">
+          {project.role}{project.company ? ` · ${project.company}` : ''}
+        </p>
+
+        {/* Description */}
+        <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+          {project.description}
+        </p>
+
+        {/* Tech pills */}
+        <div className="flex flex-wrap gap-1.5 mb-4">
+          {project.technologies.map((tech) => (
+            <span key={tech} className={`px-2 py-0.5 text-[11px] font-medium rounded-full ${theme.pill}`}>
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        {/* Highlights */}
+        <div className="mt-auto">
+          <ul className="space-y-1.5">
+            {(isExpanded ? project.highlights : project.highlights.slice(0, 3)).map((h, i) => (
+              <li key={i} className="flex items-start gap-2 text-xs text-gray-700 dark:text-gray-300">
+                <span className={`mt-0.5 shrink-0 text-[10px] ${theme.icon.split(' ').find(c => c.startsWith('text-')) ?? 'text-blue-500'}`}>▸</span>
+                <span className="leading-relaxed">{h}</span>
+              </li>
+            ))}
+          </ul>
+
+          {project.highlights.length > 3 && (
+            <button
+              type="button"
+              onClick={onToggle}
+              className="mt-2 flex items-center gap-1 text-xs text-blue-600 dark:text-blue-400 hover:text-blue-700 transition-colors"
+            >
+              {isExpanded
+                ? <><ChevronUp className="w-3 h-3" />Show less</>
+                : <><ChevronDown className="w-3 h-3" />+{project.highlights.length - 3} more</>}
+            </button>
+          )}
+
+          {project.caseStudy && (
+            <Link
+              href={project.caseStudy}
+              className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 dark:text-blue-400 hover:gap-2.5 transition-all"
+            >
+              Read the case study <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          )}
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -107,128 +216,42 @@ export default function ProjectsPage() {
           ))}
         </div>
 
-        {/* Cards grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 items-start">
-          {filtered.map((project, index) => {
-            const theme = categoryTheme[project.category] ?? categoryTheme.Enterprise;
-            const CatIcon = categoryIcon[project.category] ?? Building2;
-            const isExpanded = expandedCards.has(project.title);
-            const isFlagship = flagshipIds.includes(project.id);
-
-            return (
-              <div
-                key={index}
-                className={`rounded-2xl border bg-white dark:bg-gray-800/60 shadow-sm overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex flex-col ${
-                  isFlagship
-                    ? 'sm:col-span-2 border-blue-200 dark:border-blue-800/60 ring-1 ring-blue-100 dark:ring-blue-900/40'
-                    : 'border-gray-200 dark:border-gray-700/60'
-                }`}
-              >
-                {/* Screenshot preview */}
-                {project.screenshot && (
-                  <div className={`relative overflow-hidden bg-slate-100 dark:bg-slate-800 ${isFlagship ? 'h-48 sm:h-56' : 'h-36'}`}>
-                    <Image
-                      src={project.screenshot}
-                      alt={`${project.title} screenshot`}
-                      fill
-                      className="object-cover object-top"
-                    />
-                    <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-black/30" />
-                    {isFlagship && (
-                      <span className="absolute top-3 left-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-blue-600 text-white shadow-sm">
-                        <Star className="w-3 h-3 fill-current" />
-                        Flagship
-                      </span>
-                    )}
-                  </div>
-                )}
-                {/* Accent bar */}
-                <div className={`h-1 w-full bg-linear-to-r ${theme.bar}`} />
-
-                <div className="p-5 sm:p-6 flex flex-col flex-1">
-                  {/* Category + status row */}
-                  <div className="flex items-center justify-between mb-3">
-                    <span className={`inline-flex items-center gap-1.5 px-2 py-1 rounded-full text-[11px] font-semibold ${theme.badge}`}>
-                      <CatIcon className="w-3 h-3" />
-                      {project.category}
-                    </span>
-                    <StatusBadge status={project.status} />
-                  </div>
-
-                  {/* Title row */}
-                  <div className="flex items-start justify-between gap-2 mb-1.5">
-                    <h3 className="text-base sm:text-lg font-bold text-slate-800 dark:text-slate-100 leading-snug flex-1">
-                      {project.title}
-                    </h3>
-                    {project.link && (
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`p-1.5 rounded-lg transition-colors shrink-0 ${theme.icon}`}
-                        aria-label="Visit project"
-                      >
-                        <ExternalLink className="w-3.5 h-3.5" />
-                      </a>
-                    )}
-                  </div>
-
-                  {/* Role + company */}
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mb-3">
-                    {project.role}{project.company ? ` · ${project.company}` : ''}
-                  </p>
-
-                  {/* Description */}
-                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
-                    {project.description}
-                  </p>
-
-                  {/* Tech pills */}
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {project.technologies.map((tech) => (
-                      <span key={tech} className={`px-2 py-0.5 text-[11px] font-medium rounded-full ${theme.pill}`}>
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Highlights */}
-                  <div className="mt-auto">
-                    <ul className="space-y-1.5">
-                      {(isExpanded ? project.highlights : project.highlights.slice(0, 3)).map((h, i) => (
-                        <li key={i} className="flex items-start gap-2 text-xs text-gray-700 dark:text-gray-300">
-                          <span className={`mt-0.5 shrink-0 text-[10px] ${theme.icon.split(' ').find(c => c.startsWith('text-')) ?? 'text-blue-500'}`}>▸</span>
-                          <span className="leading-relaxed">{h}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    {project.highlights.length > 3 && (
-                      <button
-                        type="button"
-                        onClick={() => toggle(project.title)}
-                        className="mt-2 flex items-center gap-1 text-xs text-blue-600 dark:text-blue-400 hover:text-blue-700 transition-colors"
-                      >
-                        {isExpanded
-                          ? <><ChevronUp className="w-3 h-3" />Show less</>
-                          : <><ChevronDown className="w-3 h-3" />+{project.highlights.length - 3} more</>}
-                      </button>
-                    )}
-
-                    {project.caseStudy && (
-                      <Link
-                        href={project.caseStudy}
-                        className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 dark:text-blue-400 hover:gap-2.5 transition-all"
-                      >
-                        Read the case study <ArrowRight className="w-3.5 h-3.5" />
-                      </Link>
-                    )}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+        {/* Cards, arranged as an inverted pyramid (4 wide, then 3 centered) when showing everything */}
+        {activeFilter === 'All' ? (
+          <div className="space-y-4 sm:space-y-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 items-stretch">
+              {filtered.slice(0, 4).map((project) => (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  isExpanded={expandedCards.has(project.title)}
+                  onToggle={() => toggle(project.title)}
+                />
+              ))}
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 items-stretch lg:max-w-[75%] lg:mx-auto">
+              {filtered.slice(4).map((project) => (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  isExpanded={expandedCards.has(project.title)}
+                  onToggle={() => toggle(project.title)}
+                />
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 items-stretch">
+            {filtered.map((project) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                isExpanded={expandedCards.has(project.title)}
+                onToggle={() => toggle(project.title)}
+              />
+            ))}
+          </div>
+        )}
       </section>
     </div>
   );
