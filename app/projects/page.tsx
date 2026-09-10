@@ -69,7 +69,7 @@ function ProjectCard({
   const CatIcon = categoryIcon[project.category] ?? Building2;
 
   return (
-    <div className="rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-800/60 shadow-sm overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex flex-col h-full">
+    <div className="rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-800/60 shadow-sm overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex flex-col">
       {/* Screenshot preview, or a themed gradient banner when there isn't one */}
       {project.screenshot ? (
         <div className="relative h-36 overflow-hidden bg-slate-100 dark:bg-slate-800">
@@ -138,7 +138,7 @@ function ProjectCard({
         </div>
 
         {/* Highlights */}
-        <div className="mt-auto">
+        <div>
           <ul className="space-y-1.5">
             {(isExpanded ? project.highlights : project.highlights.slice(0, 3)).map((h, i) => (
               <li key={i} className="flex items-start gap-2 text-xs text-gray-700 dark:text-gray-300">
@@ -230,7 +230,7 @@ export default function ProjectsPage() {
         {/* Cards, arranged as an inverted pyramid (4 wide, then 3 centered) when showing everything */}
         {activeFilter === 'All' ? (
           <div className="space-y-4 sm:space-y-6">
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 items-stretch">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 items-start">
               {filtered.slice(0, 4).map((project) => (
                 <ProjectCard
                   key={project.id}
@@ -240,7 +240,7 @@ export default function ProjectsPage() {
                 />
               ))}
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 items-stretch lg:max-w-[75%] lg:mx-auto">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 items-start lg:max-w-[75%] lg:mx-auto">
               {filtered.slice(4).map((project) => (
                 <ProjectCard
                   key={project.id}
@@ -252,7 +252,7 @@ export default function ProjectsPage() {
             </div>
           </div>
         ) : (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 items-stretch">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 items-start">
             {filtered.map((project) => (
               <ProjectCard
                 key={project.id}
