@@ -57,18 +57,18 @@ const workingOn = [
     title: 'text-purple-700 dark:text-purple-300',
   },
   {
-    label: 'Server infrastructure',
-    detail: 'Linux server management, CI/CD pipelines, uptime monitoring, and patching',
-    dot: 'bg-emerald-500',
-    card: 'bg-emerald-50 dark:bg-emerald-900/10 border-emerald-200 dark:border-emerald-800/60',
-    title: 'text-emerald-700 dark:text-emerald-300',
-  },
-  {
     label: 'VYNE & enterprise AI agents',
     detail: 'AI-native company OS + multi-agent workflows with MCP and LangGraph',
     dot: 'bg-fuchsia-500',
     card: 'bg-fuchsia-50 dark:bg-fuchsia-900/10 border-fuchsia-200 dark:border-fuchsia-800/60',
     title: 'text-fuchsia-700 dark:text-fuchsia-300',
+  },
+  {
+    label: 'Pashupatastra',
+    detail: 'Building out the autonomous security ops platform further and writing an academic research paper on its architecture',
+    dot: 'bg-rose-500',
+    card: 'bg-rose-50 dark:bg-rose-900/10 border-rose-200 dark:border-rose-800/60',
+    title: 'text-rose-700 dark:text-rose-300',
   },
 ];
 

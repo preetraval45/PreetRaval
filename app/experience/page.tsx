@@ -44,12 +44,11 @@ const experiences = [
       },
       {
         title: 'Server & Network Infrastructure',
-        status: 'In Progress',
-        description: 'Leading the buildout of on-premise server and network architecture to host enterprise platforms, local databases, and internal network services.',
+        description: 'Led the buildout of on-premise server and network architecture to host enterprise platforms, local databases, and internal network services.',
         highlights: [
-          'Building a 4-server on-premise setup for local hosting of NEXUS, ACI Forge, KOSH, and supporting services',
-          'Deploying PostgreSQL servers, Nginx reverse proxies, and Docker containers across production servers',
-          'Configuring internal network routing, firewall rules, and secure access controls for all hosted platforms',
+          'Built a 4-server on-premise setup for local hosting of NEXUS, ACI Forge, KOSH, and supporting services',
+          'Deployed PostgreSQL servers, Nginx reverse proxies, and Docker containers across production servers',
+          'Configured internal network routing, firewall rules, and secure access controls for all hosted platforms',
         ],
       },
     ],

@@ -7,7 +7,7 @@ export type Project = {
   /** Stable key so other surfaces (e.g. the homepage) can reference a project. */
   id: string;
   title: string;
-  status: 'Live' | 'Production';
+  status: 'Live' | 'Production' | 'In Progress';
   category: 'Enterprise' | 'Client Work' | 'Personal';
   role: string;
   company?: string;
@@ -23,13 +23,13 @@ export const projects: Project[] = [
   {
     id: 'pashupatastra',
     title: 'Pashupatastra: AI-Native Autonomous Security Operations Platform',
-    status: 'Live',
+    status: 'In Progress',
     category: 'Personal',
     role: 'Software Engineer',
     link: 'https://pashupatastra.vercel.app/',
     caseStudy: '/projects/pashupatastra',
     screenshot: '/pashupatastra-screenshot.webp',
-    description: 'A closed-loop autonomous operations platform that connects fragmented security alerts across tools into single incidents with causal chains and MITRE ATT&CK mappings, then proposes risk-scored, human-authorized remediation.',
+    description: 'A closed-loop autonomous operations platform that connects fragmented security alerts across tools into single incidents with causal chains and MITRE ATT&CK mappings, then proposes risk-scored, human-authorized remediation. Actively in development, with an academic research paper on its architecture in progress.',
     technologies: ['Next.js', 'TypeScript', 'Python', 'FastAPI', 'Kubernetes (EKS)', 'Docker', 'Terraform', 'AWS', 'Prometheus', 'OpenTelemetry', 'Elasticsearch'],
     highlights: [
       'Observe -> Understand -> Predict -> Decide -> Act -> Verify -> Learn closed-loop workflow for autonomous incident response',
@@ -38,6 +38,7 @@ export const projects: Project[] = [
       'Dry-run mode, policy engine gates, and documented rollback plans guard every automated action',
       'Real-time Observatory tracks ransomware disclosures, active botnet infrastructure, and CISA KEV exploited vulnerabilities hourly',
       'Six-module architecture: Drishti (perception), Smriti (memory), Buddhi (reasoning), Astra (remediation), Kavach (detection), Dharma (policy)',
+      'Currently the subject of an academic research paper documenting its architecture and closed-loop response methodology',
     ],
   },
   {
@@ -62,7 +63,7 @@ export const projects: Project[] = [
   {
     id: 'nexus',
     title: 'NEXUS: Traveler Management and Workflow Automation',
-    status: 'Production',
+    status: 'Live',
     category: 'Enterprise',
     role: 'Software Engineer',
     company: 'American Circuits Inc.',
@@ -82,7 +83,7 @@ export const projects: Project[] = [
   {
     id: 'kosh',
     title: 'KOSH: Inventory Management System',
-    status: 'Production',
+    status: 'Live',
     category: 'Enterprise',
     role: 'Software Engineer',
     company: 'American Circuits Inc.',
@@ -133,7 +134,7 @@ export const projects: Project[] = [
   {
     id: 'pdf-to-bom',
     title: 'PDF to BOM Converter',
-    status: 'Production',
+    status: 'Live',
     category: 'Enterprise',
     role: 'Software Engineer',
     company: 'American Circuits Inc.',

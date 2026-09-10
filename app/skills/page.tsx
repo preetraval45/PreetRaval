@@ -76,6 +76,7 @@ const skillCategories = [
       'Docker', 'Kubernetes', 'Kubernetes (EKS)', 'Nginx', 'CI/CD', 'Linux', 'GitHub Actions',
       'Azure DevOps', 'Cloudflare Tunnels', 'Terraform', 'Server & Network Architecture',
       'On-premise Infrastructure', 'Server Management', 'Database Server Administration',
+      'Uptime Monitoring & Alerting', 'Patching & Maintenance',
       'System Integration', 'Observability', 'Prometheus', 'OpenTelemetry', 'Elasticsearch',
       'Workflow Automation', 'Jira', 'ERP', 'MRP', 'CRM', 'ODOO',
     ],

@@ -8,22 +8,25 @@ import { projects, type Project } from '../data/projects';
 
 const filters = ['All', 'Enterprise', 'Client Work', 'Personal'];
 
-type CategoryTheme = { bar: string; pill: string; icon: string; badge: string };
+type CategoryTheme = { bar: string; gradient: string; pill: string; icon: string; badge: string };
 const categoryTheme: Record<string, CategoryTheme> = {
   Enterprise: {
     bar: 'from-blue-500 via-indigo-500 to-blue-700',
+    gradient: 'from-blue-600 via-indigo-600 to-blue-800',
     pill: 'bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800/50 text-blue-700 dark:text-blue-300',
     icon: 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400',
     badge: 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-800/40',
   },
   'Client Work': {
     bar: 'from-emerald-500 via-teal-500 to-cyan-600',
+    gradient: 'from-emerald-500 via-teal-500 to-cyan-700',
     pill: 'bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800/50 text-emerald-700 dark:text-emerald-300',
     icon: 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400',
     badge: 'bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/40',
   },
   Personal: {
     bar: 'from-orange-500 via-pink-500 to-purple-600',
+    gradient: 'from-orange-600 via-pink-600 to-purple-700',
     pill: 'bg-violet-50 dark:bg-violet-900/20 border border-violet-200 dark:border-violet-800/50 text-violet-700 dark:text-violet-300',
     icon: 'bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400',
     badge: 'bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400 border border-orange-200 dark:border-orange-800/40',
@@ -38,13 +41,16 @@ const categoryIcon: Record<string, typeof Building2> = {
 
 function StatusBadge({ status }: { status: string }) {
   const isLive = status === 'Live' || status === 'Production';
+  const isInProgress = status === 'In Progress';
   return (
     <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold ${
       isLive
         ? 'bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-400 border border-green-200 dark:border-green-800/50'
+        : isInProgress
+        ? 'bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-800/50'
         : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400'
     }`}>
-      {isLive && <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />}
+      <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${isLive ? 'bg-green-500' : isInProgress ? 'bg-amber-500' : 'bg-slate-400'}`} />
       {status}
     </span>
   );
@@ -64,8 +70,8 @@ function ProjectCard({
 
   return (
     <div className="rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-800/60 shadow-sm overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex flex-col h-full">
-      {/* Screenshot preview */}
-      {project.screenshot && (
+      {/* Screenshot preview, or a themed gradient banner when there isn't one */}
+      {project.screenshot ? (
         <div className="relative h-36 overflow-hidden bg-slate-100 dark:bg-slate-800">
           <Image
             src={project.screenshot}
@@ -74,6 +80,11 @@ function ProjectCard({
             className="object-cover object-top"
           />
           <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-black/30" />
+        </div>
+      ) : (
+        <div className={`relative h-36 overflow-hidden bg-linear-to-br ${theme.gradient} flex items-center px-5`}>
+          <CatIcon className="w-10 h-10 text-white" strokeWidth={1.75} />
+          <CatIcon className="absolute -right-2 -bottom-3 w-28 h-28 text-white/15" strokeWidth={1.25} />
         </div>
       )}
       {/* Accent bar */}
@@ -187,7 +198,7 @@ export default function ProjectsPage() {
             <span className="gradient-text">Featured Projects</span>
           </h1>
           <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-4">
-            Enterprise platforms, AI systems, and client sites, all production, all used daily
+            Enterprise platforms, AI systems, and client sites, built and used daily
           </p>
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-sm font-semibold">
             <CheckCircle2 className="w-4 h-4 text-green-500" />

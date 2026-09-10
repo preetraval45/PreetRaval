@@ -88,6 +88,7 @@ const featured = featuredIds.map((id) => {
 const statusColor: Record<string, string> = {
   Live: 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400',
   Production: 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400',
+  'In Progress': 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400',
 };
 
 export function FeaturedProjects() {
