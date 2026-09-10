@@ -116,39 +116,44 @@ function ProjectCard({ project }: { project: Project }) {
         </p>
 
         {/* Description */}
-        <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+        <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4 line-clamp-3">
           {project.description}
         </p>
 
         {/* Tech pills */}
         <div className="flex flex-wrap gap-1.5 mb-4">
-          {project.technologies.map((tech) => (
+          {project.technologies.slice(0, 6).map((tech) => (
             <span key={tech} className={`px-2 py-0.5 text-[11px] font-medium rounded-full ${theme.pill}`}>
               {tech}
             </span>
           ))}
+          {project.technologies.length > 6 && (
+            <span className="px-2 py-0.5 text-[11px] font-medium rounded-full bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400">
+              +{project.technologies.length - 6}
+            </span>
+          )}
         </div>
 
         {/* Highlights */}
-        <div className="mt-auto">
+        <div>
           <ul className="space-y-1.5">
-            {project.highlights.map((h, i) => (
+            {project.highlights.slice(0, 4).map((h, i) => (
               <li key={i} className="flex items-start gap-2 text-xs text-gray-700 dark:text-gray-300">
                 <span className={`mt-0.5 shrink-0 text-[10px] ${theme.icon.split(' ').find(c => c.startsWith('text-')) ?? 'text-blue-500'}`}>▸</span>
-                <span className="leading-relaxed">{h}</span>
+                <span className="leading-relaxed line-clamp-2">{h}</span>
               </li>
             ))}
           </ul>
-
-          {project.caseStudy && (
-            <Link
-              href={project.caseStudy}
-              className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 dark:text-blue-400 hover:gap-2.5 transition-all"
-            >
-              Read the case study <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-          )}
         </div>
+
+        {project.caseStudy && (
+          <Link
+            href={project.caseStudy}
+            className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 dark:text-blue-400 hover:gap-2.5 transition-all"
+          >
+            Read the case study <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        )}
       </div>
     </div>
   );
