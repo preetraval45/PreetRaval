@@ -104,6 +104,7 @@ export const projects: Project[] = [
     category: 'Client Work',
     role: 'Software Engineer',
     link: 'https://www.theserenityliving.com/',
+    screenshot: '/serenity-living-screenshot.png',
     description: 'Took the project from a client brief to a fully live, optimized site, handling UI/UX design, backend services, and Vercel deployment. Managed every client conversation, timeline, and revision independently.',
     technologies: ['Next.js', 'Nginx', 'PostgreSQL', 'Python', 'Vercel'],
     highlights: [
