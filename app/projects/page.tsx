@@ -1,6 +1,6 @@
 'use client';
 
-import { ExternalLink, ChevronDown, ChevronUp, Building2, Globe, Rocket, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ExternalLink, Building2, Globe, Rocket, ArrowRight, CheckCircle2 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -56,20 +56,12 @@ function StatusBadge({ status }: { status: string }) {
   );
 }
 
-function ProjectCard({
-  project,
-  isExpanded,
-  onToggle,
-}: {
-  project: Project;
-  isExpanded: boolean;
-  onToggle: () => void;
-}) {
+function ProjectCard({ project }: { project: Project }) {
   const theme = categoryTheme[project.category] ?? categoryTheme.Enterprise;
   const CatIcon = categoryIcon[project.category] ?? Building2;
 
   return (
-    <div className="rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-800/60 shadow-sm overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex flex-col">
+    <div className="rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-800/60 shadow-sm overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex flex-col h-full">
       {/* Screenshot preview, or a themed gradient banner when there isn't one */}
       {project.screenshot ? (
         <div className="relative h-36 overflow-hidden bg-slate-100 dark:bg-slate-800">
@@ -90,7 +82,7 @@ function ProjectCard({
       {/* Accent bar */}
       <div className={`h-1 w-full bg-linear-to-r ${theme.bar}`} />
 
-      <div className="p-5 sm:p-6 flex flex-col flex-1">
+      <div className="p-5 sm:p-6 flex flex-col grow">
         {/* Category + status row */}
         <div className="flex items-center justify-between mb-3">
           <span className={`inline-flex items-center gap-1.5 px-2 py-1 rounded-full text-[11px] font-semibold ${theme.badge}`}>
@@ -138,27 +130,15 @@ function ProjectCard({
         </div>
 
         {/* Highlights */}
-        <div>
+        <div className="mt-auto">
           <ul className="space-y-1.5">
-            {(isExpanded ? project.highlights : project.highlights.slice(0, 3)).map((h, i) => (
+            {project.highlights.map((h, i) => (
               <li key={i} className="flex items-start gap-2 text-xs text-gray-700 dark:text-gray-300">
                 <span className={`mt-0.5 shrink-0 text-[10px] ${theme.icon.split(' ').find(c => c.startsWith('text-')) ?? 'text-blue-500'}`}>▸</span>
                 <span className="leading-relaxed">{h}</span>
               </li>
             ))}
           </ul>
-
-          {project.highlights.length > 3 && (
-            <button
-              type="button"
-              onClick={onToggle}
-              className="mt-2 flex items-center gap-1 text-xs text-blue-600 dark:text-blue-400 hover:text-blue-700 transition-colors"
-            >
-              {isExpanded
-                ? <><ChevronUp className="w-3 h-3" />Show less</>
-                : <><ChevronDown className="w-3 h-3" />+{project.highlights.length - 3} more</>}
-            </button>
-          )}
 
           {project.caseStudy && (
             <Link
@@ -176,14 +156,6 @@ function ProjectCard({
 
 export default function ProjectsPage() {
   const [activeFilter, setActiveFilter] = useState('All');
-  const [expandedCards, setExpandedCards] = useState<Set<string>>(new Set());
-
-  const toggle = (title: string) =>
-    setExpandedCards(prev => {
-      const next = new Set(prev);
-      next.has(title) ? next.delete(title) : next.add(title);
-      return next;
-    });
 
   const filtered = activeFilter === 'All' ? projects : projects.filter(p => p.category === activeFilter);
   const liveCount = projects.filter(p => p.status === 'Live' || p.status === 'Production').length;
@@ -230,36 +202,21 @@ export default function ProjectsPage() {
         {/* Cards, arranged as an inverted pyramid (4 wide, then 3 centered) when showing everything */}
         {activeFilter === 'All' ? (
           <div className="space-y-4 sm:space-y-6">
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 items-start">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 items-stretch">
               {filtered.slice(0, 4).map((project) => (
-                <ProjectCard
-                  key={project.id}
-                  project={project}
-                  isExpanded={expandedCards.has(project.title)}
-                  onToggle={() => toggle(project.title)}
-                />
+                <ProjectCard key={project.id} project={project} />
               ))}
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 items-start lg:max-w-[75%] lg:mx-auto">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 items-stretch lg:max-w-[75%] lg:mx-auto">
               {filtered.slice(4).map((project) => (
-                <ProjectCard
-                  key={project.id}
-                  project={project}
-                  isExpanded={expandedCards.has(project.title)}
-                  onToggle={() => toggle(project.title)}
-                />
+                <ProjectCard key={project.id} project={project} />
               ))}
             </div>
           </div>
         ) : (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 items-start">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 items-stretch">
             {filtered.map((project) => (
-              <ProjectCard
-                key={project.id}
-                project={project}
-                isExpanded={expandedCards.has(project.title)}
-                onToggle={() => toggle(project.title)}
-              />
+              <ProjectCard key={project.id} project={project} />
             ))}
           </div>
         )}
