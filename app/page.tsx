@@ -3,7 +3,7 @@ import { FeaturedProjects } from './components/FeaturedProjects';
 
 export default function Home() {
   return (
-    <div className="fade-in">
+    <div>
       <Hero />
       <FeaturedProjects />
     </div>

@@ -2,6 +2,7 @@ import { Building2, Brain, Globe, ArrowRight, ExternalLink } from 'lucide-react'
 import Image from 'next/image';
 import Link from 'next/link';
 import { projects } from '../data/projects';
+import { Reveal } from './Reveal';
 
 /*
  * Presentation only. Every fact (status, tech, screenshot, live link, case
@@ -94,20 +95,21 @@ const statusColor: Record<string, string> = {
 export function FeaturedProjects() {
   return (
     <section className="section-container px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-      <div className="text-center mb-10 sm:mb-12">
+      <Reveal className="text-center mb-10 sm:mb-12">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
           <span className="gradient-text">Featured Work</span>
         </h2>
         <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
           Production systems I&apos;ve owned end to end, from schema and API through deployment and uptime.
         </p>
-      </div>
+      </Reveal>
 
       <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6 max-w-7xl mx-auto">
-        {featured.map((p) => {
+        {featured.map((p, i) => {
           const Icon = p.icon;
           return (
-            <div key={p.title} className="rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-800/60 shadow-sm overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex flex-col">
+            <Reveal key={p.title} delay={i * 90} className="h-full">
+            <div className="group h-full rounded-2xl border border-gray-200 dark:border-gray-700/60 bg-white dark:bg-gray-800/60 shadow-sm overflow-hidden hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-1 transition-all duration-300 flex flex-col">
 
               {/* Screenshot or gradient banner */}
               {p.screenshot ? (
@@ -116,7 +118,7 @@ export function FeaturedProjects() {
                     src={p.screenshot}
                     alt={`${p.title} screenshot`}
                     fill
-                    className="object-cover object-top"
+                    className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-black/30" />
                   {p.external && (
@@ -179,16 +181,17 @@ export function FeaturedProjects() {
                 </Link>
               </div>
             </div>
+            </Reveal>
           );
         })}
       </div>
 
-      <div className="text-center mt-10 sm:mt-12">
+      <Reveal className="text-center mt-10 sm:mt-12">
         <Link href="/projects" className="btn-primary inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg group">
           View All Projects
           <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
         </Link>
-      </div>
+      </Reveal>
     </section>
   );
 }

@@ -3,9 +3,12 @@
 import { Github, Linkedin, Mail, Download, Cpu, Server, Shield, Globe, Zap, Box, CircuitBoard, Database, Brain, Activity, Users, TrendingUp, Gauge, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type CSSProperties } from 'react';
 import { projectCount } from '../data/projects';
 import { useMonthsOfExperience } from '../data/experience';
+
+// Stagger step for the landing intro; each block rises in after the one above it.
+const d = (ms: number) => ({ '--d': `${ms}ms` }) as CSSProperties;
 
 const roles = ['DevOps Engineer (AI Systems)', 'Full-Stack Developer', 'Software Engineer', 'Generative AI Engineer'];
 
@@ -33,9 +36,9 @@ export function Hero() {
       <div className="section-container relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Text Content */}
-          <div className="space-y-6 sm:space-y-8 fade-in text-center lg:text-left">
+          <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
             {/* Badges */}
-            <div className="flex flex-wrap justify-center lg:justify-start gap-2">
+            <div className="intro flex flex-wrap justify-center lg:justify-start gap-2" style={d(50)}>
               <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-green-500/10 border border-green-500/20 rounded-full backdrop-blur-sm">
                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                 <span className="text-xs sm:text-sm font-semibold text-green-700 dark:text-green-300">
@@ -53,16 +56,18 @@ export function Hero() {
             {/* Main Heading */}
             <div className="space-y-4 sm:space-y-6">
               <div className="space-y-2 sm:space-y-3">
-                <p className="text-lg sm:text-xl md:text-2xl font-medium text-slate-600 dark:text-slate-400">
+                <p className="intro text-lg sm:text-xl md:text-2xl font-medium text-slate-600 dark:text-slate-400" style={d(150)}>
                   Hello, I&apos;m
                 </p>
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold bg-linear-to-r from-blue-600 via-indigo-600 to-blue-700 dark:from-blue-400 dark:via-indigo-400 dark:to-blue-500 bg-clip-text text-transparent">
-                  Preet Raval
+                <h1 className="intro-mask">
+                  <span className="intro-line text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold bg-linear-to-r from-blue-600 via-indigo-600 to-blue-700 dark:from-blue-400 dark:via-indigo-400 dark:to-blue-500 bg-clip-text text-transparent" style={d(220)}>
+                    Preet Raval
+                  </span>
                 </h1>
               </div>
               {/* Two line-heights are reserved so the rotating title cannot
                   shove the rest of the page around every few seconds. */}
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 dark:text-slate-200 min-h-[2lh] lg:min-h-lh">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 dark:text-slate-200 min-h-[2lh] lg:min-h-lh intro" style={d(380)}>
                 <span key={currentRoleIndex} className="text-blue-600 dark:text-blue-400 inline-block animate-role-fade">
                   {roles[currentRoleIndex]}
                 </span>
@@ -70,12 +75,12 @@ export function Hero() {
             </div>
 
             {/* Description */}
-            <p className="text-base sm:text-lg md:text-xl leading-relaxed text-slate-700 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0">
+            <p style={d(460)} className="intro text-base sm:text-lg md:text-xl leading-relaxed text-slate-700 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0">
               I engineer <span className="font-semibold text-blue-700 dark:text-blue-300">enterprise production systems end to end</span>: schema design, REST APIs, containerized deployments, and CI/CD pipelines. Currently building AI-powered manufacturing software at American Circuits Inc., where <span className="font-semibold text-indigo-700 dark:text-indigo-300">50+ people rely on what I ship daily</span>.
             </p>
 
             {/* Stats */}
-            <div className="flex flex-wrap gap-3 sm:gap-4 md:gap-6 lg:gap-8 justify-center lg:justify-start">
+            <div className="intro flex flex-wrap gap-3 sm:gap-4 md:gap-6 lg:gap-8 justify-center lg:justify-start" style={d(540)}>
               <div className="space-y-2 p-3 sm:p-4 rounded-xl bg-blue-50/50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30 transition-all hover:scale-105 min-w-[100px] sm:min-w-[120px]">
                 <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-linear-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">{monthsExperience >= 12 ? `${Math.floor(monthsExperience / 12)}+` : `${monthsExperience}+`}</div>
                 <div className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">{monthsExperience >= 12 ? `Year${Math.floor(monthsExperience / 12) > 1 ? 's' : ''} Experience` : 'Months Experience'}</div>
@@ -91,7 +96,7 @@ export function Hero() {
             </div>
 
             {/* Proof Points */}
-            <div className="flex flex-wrap gap-2 sm:gap-2.5 justify-center lg:justify-start">
+            <div className="intro flex flex-wrap gap-2 sm:gap-2.5 justify-center lg:justify-start" style={d(600)}>
               {[
                 { icon: Users, label: '50+ daily users', color: 'text-blue-600 dark:text-blue-400 border-blue-200 dark:border-blue-800 bg-blue-50/60 dark:bg-blue-900/10' },
                 { icon: Activity, label: '99%+ uptime', color: 'text-green-600 dark:text-green-400 border-green-200 dark:border-green-800 bg-green-50/60 dark:bg-green-900/10' },
@@ -106,7 +111,7 @@ export function Hero() {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 items-stretch sm:items-center justify-center lg:justify-start">
+            <div style={d(660)} className="intro flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 items-stretch sm:items-center justify-center lg:justify-start">
               <Link href="/projects" className="btn-primary inline-flex items-center justify-center gap-2 sm:gap-3 group w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg whitespace-nowrap">
                 View My Work
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
@@ -126,7 +131,7 @@ export function Hero() {
             </div>
 
             {/* Social Links */}
-            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 pt-4 sm:pt-6 justify-center lg:justify-start">
+            <div style={d(720)} className="intro flex flex-col sm:flex-row items-center gap-3 sm:gap-4 pt-4 sm:pt-6 justify-center lg:justify-start">
               <span className="text-sm sm:text-base font-semibold text-slate-700 dark:text-slate-300">Connect:</span>
               <div className="flex gap-3">
                 <a
@@ -160,7 +165,7 @@ export function Hero() {
 
           {/* Profile Image with Decorations. Text comes first on mobile so the
               name and role are visible without scrolling. */}
-          <div className="relative scale-in">
+          <div className="relative intro" style={d(250)}>
             <div className="relative w-full max-w-[15rem] sm:max-w-md lg:max-w-xl mx-auto">
               {/* Decorative Elements */}
               <div className="absolute -top-6 sm:-top-10 -left-6 sm:-left-10 w-24 sm:w-32 h-24 sm:h-32 bg-linear-to-br from-indigo-500 to-purple-600 rounded-3xl opacity-20 blur-2xl floating"></div>

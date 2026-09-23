@@ -5,6 +5,8 @@ import { ThemeProvider } from './components/ThemeProvider';
 import { Navigation } from './components/Navigation';
 import { Footer } from './components/Footer';
 import { ScrollToTop } from './components/ScrollToTop';
+import { ScrollProgress } from './components/ScrollProgress';
+import { CustomCursor } from './components/CustomCursor';
 import { Analytics } from '@vercel/analytics/react';
 import { SITE_URL } from './site';
 
@@ -81,6 +83,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Lets CSS hide scroll-reveal content only when JS will reveal it */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -104,6 +108,8 @@ export default function RootLayout({
       </head>
       <body className={`${poppins.variable} ${playfair.variable} ${jetbrains.variable} font-sans antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          <ScrollProgress />
+          <CustomCursor />
           <Navigation />
           <main className="min-h-screen">
             {children}
