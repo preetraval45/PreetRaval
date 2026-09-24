@@ -1,5 +1,6 @@
 'use client';
 
+import { PageAnimate } from '../components/PageAnimate';
 import { useEffect, useRef, useState } from 'react';
 import { Code2, Rocket, Target, Zap, Download, Briefcase, Globe, Server, MapPin, Github, ExternalLink } from 'lucide-react';
 import { projectCount } from '../data/projects';
@@ -119,7 +120,7 @@ export default function AboutPage() {
   }, [animStarted, monthsExp]);
 
   return (
-    <div className="fade-in">
+    <PageAnimate>
       <section id="about" className="section-container px-4 sm:px-6 lg:px-8">
 
         <div className="text-center mb-10 sm:mb-12">
@@ -263,6 +264,6 @@ export default function AboutPage() {
 
         </div>
       </section>
-    </div>
+    </PageAnimate>
   );
 }

@@ -1,5 +1,6 @@
 'use client';
 
+import { PageAnimate } from '../components/PageAnimate';
 import { Brain, Code, Database, Cloud, Cog, Users, Layers } from 'lucide-react';
 
 const skillCategories = [
@@ -162,7 +163,7 @@ const totalSkills = skillCategories.reduce((acc, c) => acc + c.skills.length, 0)
 
 export default function SkillsPage() {
   return (
-    <div className="fade-in">
+    <PageAnimate>
       <section id="skills" className="section-container bg-surface-light dark:bg-surface-dark px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
@@ -254,6 +255,6 @@ export default function SkillsPage() {
           })}
         </div>
       </section>
-    </div>
+    </PageAnimate>
   );
 }

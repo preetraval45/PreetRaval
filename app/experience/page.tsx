@@ -1,5 +1,6 @@
 'use client';
 
+import { PageAnimate } from '../components/PageAnimate';
 import { Briefcase, Calendar, MapPin, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 
@@ -174,7 +175,7 @@ function getTheme(title: string): Theme {
 
 export default function ExperiencePage() {
   return (
-    <div className="fade-in">
+    <PageAnimate>
       <section id="experience" className="section-container px-4 sm:px-6 lg:px-8">
 
         {/* Page header */}
@@ -302,6 +303,6 @@ export default function ExperiencePage() {
           </div>
         </div>
       </section>
-    </div>
+    </PageAnimate>
   );
 }

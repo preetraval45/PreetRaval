@@ -1,3 +1,4 @@
+import { PageAnimate } from '../components/PageAnimate';
 import { GraduationCap, MapPin, Calendar, ArrowRight, CheckCircle2, ExternalLink, FileText } from 'lucide-react';
 import Image from 'next/image';
 
@@ -113,7 +114,7 @@ const categoryStyle: Record<string, { pill: string; badge: string; ink: string; 
 
 export default function EducationPage() {
   return (
-    <div className="fade-in">
+    <PageAnimate>
       <section className="section-container px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
 
@@ -360,6 +361,6 @@ export default function EducationPage() {
 
         </div>
       </section>
-    </div>
+    </PageAnimate>
   );
 }

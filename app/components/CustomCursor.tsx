@@ -6,14 +6,13 @@ const INTERACTIVE = 'a, button, [role="button"], label, select, summary, .cursor
 const TEXT_INPUT = 'input, textarea, [contenteditable="true"]';
 
 /*
- * A dot that tracks the pointer exactly, a ring that trails behind it, and a
- * soft glow behind the page content. Only mounts for a mouse (fine pointer)
- * with motion allowed, so touch devices and reduced-motion users keep the
- * native cursor untouched.
+ * A ring that follows the native pointer and swells over clickable things,
+ * plus a soft glow behind the page content. The native cursor stays visible
+ * so clicks always land exactly where the arrow points. Only mounts for a
+ * mouse (fine pointer) with motion allowed.
  */
 export function CustomCursor() {
   const [enabled, setEnabled] = useState(false);
-  const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
   const glowRef = useRef<HTMLDivElement>(null);
 
@@ -27,13 +26,11 @@ export function CustomCursor() {
 
   useEffect(() => {
     if (!enabled) return;
-    const dot = dotRef.current;
     const ring = ringRef.current;
     const glow = glowRef.current;
-    if (!dot || !ring || !glow) return;
+    if (!ring || !glow) return;
 
     const root = document.documentElement;
-    root.classList.add('has-custom-cursor');
 
     const mouse = { x: -100, y: -100 };
     const ringPos = { x: -100, y: -100 };
@@ -55,20 +52,25 @@ export function CustomCursor() {
         ringPos.y = glowPos.y = mouse.y;
         setVisible(true);
       }
-      const target = e.target as Element | null;
+      updateHover(e.target as Element | null);
+    };
+    const updateHover = (target: Element | null) => {
       root.classList.toggle('cursor-hovering', !!target?.closest(INTERACTIVE));
       root.classList.toggle('cursor-text', !!target?.closest(TEXT_INPUT));
+    };
+    // Content moves under a still mouse while scrolling, so re-check hover.
+    const onScroll = () => {
+      if (visible) updateHover(document.elementFromPoint(mouse.x, mouse.y));
     };
     const onLeave = () => setVisible(false);
     const onDown = () => root.classList.add('cursor-pressed');
     const onUp = () => root.classList.remove('cursor-pressed');
 
     const tick = () => {
-      ringPos.x += (mouse.x - ringPos.x) * 0.18;
-      ringPos.y += (mouse.y - ringPos.y) * 0.18;
+      ringPos.x += (mouse.x - ringPos.x) * 0.4;
+      ringPos.y += (mouse.y - ringPos.y) * 0.4;
       glowPos.x += (mouse.x - glowPos.x) * 0.08;
       glowPos.y += (mouse.y - glowPos.y) * 0.08;
-      dot.style.transform = `translate3d(${mouse.x}px, ${mouse.y}px, 0)`;
       ring.style.transform = `translate3d(${ringPos.x}px, ${ringPos.y}px, 0)`;
       glow.style.transform = `translate3d(${glowPos.x}px, ${glowPos.y}px, 0)`;
       frame = requestAnimationFrame(tick);
@@ -76,6 +78,7 @@ export function CustomCursor() {
     frame = requestAnimationFrame(tick);
 
     window.addEventListener('mousemove', onMove, { passive: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
     document.addEventListener('mouseleave', onLeave);
     window.addEventListener('mousedown', onDown);
     window.addEventListener('mouseup', onUp);
@@ -83,10 +86,11 @@ export function CustomCursor() {
     return () => {
       cancelAnimationFrame(frame);
       window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('scroll', onScroll);
       document.removeEventListener('mouseleave', onLeave);
       window.removeEventListener('mousedown', onDown);
       window.removeEventListener('mouseup', onUp);
-      root.classList.remove('has-custom-cursor', 'cursor-visible', 'cursor-hovering', 'cursor-text', 'cursor-pressed');
+      root.classList.remove('cursor-visible', 'cursor-hovering', 'cursor-text', 'cursor-pressed');
     };
   }, [enabled]);
 
@@ -96,7 +100,6 @@ export function CustomCursor() {
     <>
       <div ref={glowRef} className="cursor-glow" aria-hidden="true" />
       <div ref={ringRef} className="cursor-ring" aria-hidden="true" />
-      <div ref={dotRef} className="cursor-dot" aria-hidden="true" />
     </>
   );
 }

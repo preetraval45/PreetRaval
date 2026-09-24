@@ -1,5 +1,6 @@
 'use client';
 
+import { PageAnimate } from '../components/PageAnimate';
 import { ExternalLink, Building2, Globe, Rocket, ArrowRight, CheckCircle2 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -167,7 +168,7 @@ export default function ProjectsPage() {
   const liveCount = projects.filter(p => p.status === 'Live' || p.status === 'Production').length;
 
   return (
-    <div className="fade-in">
+    <PageAnimate>
       <section id="projects" className="section-container px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
@@ -227,6 +228,6 @@ export default function ProjectsPage() {
           </div>
         )}
       </section>
-    </div>
+    </PageAnimate>
   );
 }

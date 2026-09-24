@@ -1,5 +1,6 @@
 'use client';
 
+import { PageAnimate } from '../components/PageAnimate';
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Github, Linkedin, ExternalLink, Briefcase, Server, Code2, Globe, Navigation, Copy, Check } from 'lucide-react';
 
@@ -83,7 +84,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="fade-in">
+    <PageAnimate>
       <section id="contact" className="section-container px-4 sm:px-6 lg:px-8">
 
         <div className="text-center mb-10 sm:mb-12">
@@ -178,6 +179,6 @@ export default function ContactPage() {
 
         </div>
       </section>
-    </div>
+    </PageAnimate>
   );
 }

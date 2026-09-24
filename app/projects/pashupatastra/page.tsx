@@ -1,3 +1,4 @@
+import { PageAnimate } from '../../components/PageAnimate';
 import Link from 'next/link';
 import {
   ArrowLeft,
@@ -65,7 +66,7 @@ const capabilities = [
 
 export default function PashupatastraCaseStudyPage() {
   return (
-    <div className="fade-in">
+    <PageAnimate>
       <article className="section-container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Back */}
         <Link
@@ -267,6 +268,6 @@ export default function PashupatastraCaseStudyPage() {
           </div>
         </section>
       </article>
-    </div>
+    </PageAnimate>
   );
 }
